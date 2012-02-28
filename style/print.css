@@ -1,0 +1,28 @@
+@media print
+{
+    .hideonprinter, #headerwrap, #menuwrap, #region-pre, #footerwrap, #jcontrols_button{
+        display: none;
+    }
+
+    #page-content #region-main-wrap,
+    #page-content #region-main-box,
+    #page-content #region-post-box,
+    #page-content #region-main,
+    #page-content #region-main .region-content,
+    body .side-pre-only #page-content #region-main,
+    #page-content #mainpadder{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        float: none;
+        left: 0;
+    }
+
+    #page-content #mainpadder{
+        width: 94%;
+        float: left;
+    }
+}
+
+
+}
