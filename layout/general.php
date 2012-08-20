@@ -134,18 +134,31 @@ echo $OUTPUT->doctype() ?>
 <div id="page-footer">
     <div id="footerwrapper">
         <div id="footerinner">
-                    <?php
+            <div id="right_footer">
+                <?php
+                
+                    echo $OUTPUT->login_info();
+                    $linkurl = new moodle_url('/theme/switchdevice.php', array('url' => $this->page->url, 'device' => 'mobile', 'sesskey' => sesskey()));
+                    $content  = html_writer::start_tag('div', array('id' => 'kent_theme_switch_link'));
+                    $content .= html_writer::link($linkurl, 'Switch to Mobile theme');
+                    $content .= html_writer::end_tag('div');
+                    echo $content;
+                ?>
+            </div>
+            <div id="left_footer">
+                <?php
                     //Archive check and link
                     if(isset($CFG->archive_moodle) && ($CFG->archive_moodle == TRUE)){
                         $archive_link_text = (!$CFG->archive_moodle_this_is_archive ? "Go to previous Moodle" : "Go to current Moodle");
                         echo html_writer::link($CFG->archive_moodle_path, $archive_link_text);
                     }
 
-
-                    echo $OUTPUT->login_info();
                     echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
-                    echo $OUTPUT->standard_footer_html();
-                    ?>
+                    if(has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) {
+                        echo $OUTPUT->standard_footer_html();
+                    }
+                ?>
+            </div>
                                         <?php echo $PAGE->theme->settings->footnote; ?>
 
 
