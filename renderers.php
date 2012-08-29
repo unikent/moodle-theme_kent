@@ -50,7 +50,7 @@ class theme_kent_core_renderer extends core_renderer {
         if(!has_capability('moodle/site:config', $systemcontext)){
 
             //TODO - Move this somewhere else in a more controllable area so FLT's can control what blocks cannot be controlled by what role etc.
-            $restrict_blocks = array('kent_course_overview', 'calendar_upcoming', 'calendar_month', 'activity_modules', 'navigation');
+            $restrict_blocks = array('kent_course_overview', 'calendar_month', 'activity_modules', 'navigation', 'settings');
 
             foreach($restrict_blocks as $restricted_block){
                 $check_block = "block_$restricted_block";
