@@ -32,7 +32,14 @@ if ($hascustommenu) {
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <?php
+    //Nasty fix to force SCORM into IE7 mode due to a flash bug.  Blame Moodle
+    if (substr_count($_SERVER['SCRIPT_FILENAME'], 'scorm/player.php') && isset($_GET['scoid'])){
+        echo '<meta http-equiv="X-UA-Compatible" content="IE=7" />';
+    } else {
+        echo '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>';
+    }
+    ?>   
     <title><?php echo $PAGE->title ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
     <?php echo $OUTPUT->standard_head_html() ?>

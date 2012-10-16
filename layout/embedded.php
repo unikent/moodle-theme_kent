@@ -2,6 +2,11 @@
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
     <title><?php echo $PAGE->title ?></title>
+    <?php
+    //Nasty fix to force SCORM into IE7 mode due to a flash bug.  Blame Moodle
+    if (substr_count($_SERVER['SCRIPT_FILENAME'], 'scorm/player.php') && isset($_GET['scoid'])){
+        echo '<meta http-equiv="X-UA-Compatible" content="IE=7" />';
+    } ?>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
     <?php echo $OUTPUT->standard_head_html() ?>
 </head>
