@@ -844,5 +844,6 @@ input[type="button"]:active{
 .hidedock .block_action,
 .hidedock .commands{
     display: none;
-    visibility: hidden;
 }
+
+#page-mod-quiz-report #tablecontainer .no-overflow {overflow: auto;}
