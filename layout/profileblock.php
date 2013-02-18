@@ -1,4 +1,3 @@
-
 <script text/javascript>
 function toggle5(showHideDiv, switchImgTag) {
         var ele = document.getElementById(showHideDiv);
@@ -111,4 +110,3 @@ echo '</div>'; // end of headerwrap
 </div>
 
 <?php }?>
-
