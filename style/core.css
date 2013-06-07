@@ -863,3 +863,16 @@ input[type="button"]:active{
 }
 
 #page-mod-quiz-report #tablecontainer .no-overflow {overflow: auto;}
+
+.sitetopic .section .activity:hover, .course-content .section .activity:hover {
+  background-color: transparent;
+}
+
+img.iconlarge {
+  width: 16px;
+  height: 16px;
+}
+
+.course-content .section .activity .activityinstance {
+  padding-right: 0px;
+}
