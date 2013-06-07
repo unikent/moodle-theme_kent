@@ -65,7 +65,7 @@ margin-top : 36px;
 }
 
 #profilename {
-width : 45%;
+width : 40%;
 }
 #profilebar {
 min-width: 760px;
@@ -875,4 +875,20 @@ img.iconlarge {
 
 .course-content .section .activity .activityinstance {
   padding-right: 0px;
+}
+
+.yui3-menu-label:hover {
+  background-color: #1F4A89;
+}
+
+.yui3-skin-sam .yui3-menu-label-menuvisible {
+  background-color: #1F4A89;
+}
+
+.yui3-skin-sam .yui3-menu-content, .yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-content {
+  padding-top: 0px;
+}
+
+.yui3-menu-content li a {
+  background-color: #1F4A89;
 }
