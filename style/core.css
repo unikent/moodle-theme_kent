@@ -889,6 +889,6 @@ img.iconlarge {
   padding-top: 0px;
 }
 
-.yui3-menu-content li a {
+.gradingtable .yui3-menu .yui3-menu-content li a.yui3-menuitem-content {
   background-color: #1F4A89;
 }
