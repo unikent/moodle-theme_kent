@@ -644,8 +644,6 @@ div#jcontrols_button span.arrow{
     margin-bottom: 0px;
 }
 
-@media, { .breadcrumb{ margin-top: 3px; }}
-
 .block .minicalendarblock table{
     border-collapse: collapse;
 }
