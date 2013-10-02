@@ -6,6 +6,10 @@ body {
     background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top !important;
 }
 
+html a, body a, html a:visited, body a:visited {
+  color: #036;
+}
+
 a:hover, a:active {
     color: #264F9C;
 
