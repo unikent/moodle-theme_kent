@@ -18,7 +18,15 @@ a:hover, a:active {
 
 }
 
-#custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover, #custommenu .yui3-menu-label-active, #custommenu .yui3-menu-label-menuvisible, #custommenu .yui3-menu .yui3-menu .yui3-menu-label-active, #custommenu .yui3-menu .yui3-menu .yui3-menu-label-menuvisible, #custommenu .yui3-menuitem-active .yui3-menuitem-content, #custommenu .yui3-menu .yui3-menu .yui3-menuitem-active .yui3-menuitem-content, #custommenu .yui3-menu-content li:hover, .profileoptions ul li:hover {
+#custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover,
+#custommenu .yui3-menu-label-active,
+#custommenu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-active,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu .yui3-menu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu-content li:hover,
+.profileoptions ul li:hover {
     background-color: #264F9C;
     color: #fff;
 }
