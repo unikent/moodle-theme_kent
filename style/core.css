@@ -6,7 +6,10 @@ body {
     background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top !important;
 }
 
-html a, body a, html a:visited, body a:visited {
+html a, body a,
+html a:visited, body a:visited,
+#kent_course_list_overview .course_details_ovrv .title a,
+#kent_category_list_overview .course_details_ovrv .title a {
   color: #264F9C;
 }
 
