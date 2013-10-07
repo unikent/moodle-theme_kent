@@ -895,3 +895,14 @@ img.iconlarge {
 .gradingtable .yui3-menu .yui3-menu-content li a.yui3-menuitem-content {
   background-color: #1F4A89;
 }
+.synopsistext ul {
+  list-style-type: circle;
+}
+
+.synopsistext li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
