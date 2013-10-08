@@ -6,16 +6,27 @@ body {
     background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top !important;
 }
 
-html a, body a, html a:visited, body a:visited {
-  color: #369;
+html a, body a,
+html a:visited, body a:visited,
+#kent_course_list_overview .course_details_ovrv .title a,
+#kent_category_list_overview .course_details_ovrv .title a {
+  color: #264F9C;
 }
 
 a:hover, a:active {
-    color: #264F9C;
+    color: #369;
 
 }
 
-#custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover, #custommenu .yui3-menu-label-active, #custommenu .yui3-menu-label-menuvisible, #custommenu .yui3-menu .yui3-menu .yui3-menu-label-active, #custommenu .yui3-menu .yui3-menu .yui3-menu-label-menuvisible, #custommenu .yui3-menuitem-active .yui3-menuitem-content, #custommenu .yui3-menu .yui3-menu .yui3-menuitem-active .yui3-menuitem-content, #custommenu .yui3-menu-content li:hover, .profileoptions ul li:hover {
+#custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover,
+#custommenu .yui3-menu-label-active,
+#custommenu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-active,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu .yui3-menu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu-content li:hover,
+.profileoptions ul li:hover {
     background-color: #264F9C;
     color: #fff;
 }
