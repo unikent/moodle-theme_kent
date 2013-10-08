@@ -895,11 +895,11 @@ img.iconlarge {
 .gradingtable .yui3-menu .yui3-menu-content li a.yui3-menuitem-content {
   background-color: #1F4A89;
 }
-.synopsistext ul {
+#kent_course_list_overview .synopsistext ul, #kent_category_list_overview .synopsistext ul {
   list-style-type: circle;
 }
 
-.synopsistext li {
+#kent_course_list_overview .synopsistext li, #kent_category_list_overview .synopsistext li {
   background: none;
   border: none;
   box-shadow: none;
