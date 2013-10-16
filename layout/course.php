@@ -79,7 +79,7 @@ echo $OUTPUT->doctype() ?>
                <?php if ($hasnavbar) { echo $PAGE->button; } ?>
            </div>
         </div>  
-        <?php if($CFG->isArchive == TRUE) { ?>
+        <?php if ($CFG->kent->distribution == "archive") { ?>
         <div class="archive_bar">
             <p>
                 Please note that this version of Moodle is the Kent Archive Moodle.  For your current course information, please visit <a href="https://moodle.kent.ac.uk/moodle">https://moodle.kent.ac.uk/moodle</a>.
