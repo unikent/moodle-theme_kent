@@ -42,11 +42,26 @@ function kent_set_graphicwrap($css, $graphicwrap) {
     return $css;
 }
 
+/**
+ * Returns user information
+ */
+function kent_user_type() {
+  global $USER;
+
+  // Cant do much if we arent logged in
+  if (!isloggedin() or isguestuser()) {
+    return "";
+  }
+}
+
 /*
  * Function to return google analytics with code, only if the code is set via the config
  */
 function kent_set_analytics() {
     global $CFG;
+
+    // Output current user details
+    kent_user_type();
 
     // Disable analytics if not on live
     if (empty($CFG->google_analytics_code) || $CFG->kent->environment !== "live") {
