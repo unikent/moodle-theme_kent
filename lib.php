@@ -68,7 +68,7 @@ function kent_set_analytics() {
 function kent_set_standard_analytics() {
     global $CFG;
 
-    $ga_os = !empty($CFG->google_analytics_os) ? $CFG->google_analytics_os : "Unknown";
+    $ga_os = $CFG->kent->platform == 'Linux' ? 'Linux' : 'Solaris';
     $ga_code = "";
 
 $ga_code = <<<GACODE
@@ -106,7 +106,7 @@ function kent_set_universal_analytics() {
         return "";
     }
 
-    $ga_os = !empty($CFG->google_analytics_os) ? $CFG->google_analytics_os : "Unknown";
+    $ga_os = $CFG->kent->platform == 'Linux' ? 'Linux' : 'Solaris';
     $ga_code = "";
 
 $ga_code = <<<GACODE
