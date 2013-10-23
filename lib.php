@@ -46,14 +46,14 @@ function kent_set_graphicwrap($css, $graphicwrap) {
  * Returns user information
  */
 function kent_user_type() {
-  global $SESSION;
+  global $USER;
 
   // Cant do much if we arent logged in
   if (!isloggedin() || isguestuser()) {
     return NULL;
   }
 
-  return isset($SESSION->account_type) ? $SESSION->account_type : NULL;
+  return isset($USER->account_type) ? $USER->account_type : NULL;
 }
 
 /*
