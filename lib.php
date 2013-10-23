@@ -123,13 +123,18 @@ function kent_set_universal_analytics() {
     $ga_os = $CFG->kent->platform == 'Linux' ? 'Linux' : 'Solaris';
     $ga_code = "";
 
+    $dimensions = array(
+      "'dimension1': '{$ga_os}')",
+      "'dimension2': '{$CFG->kent->distribution}')"
+    );
 
     // Output current user details
-    $dimension3 = "";
     $usertype = kent_user_type();
     if ($usertype !== NULL) {
-      $dimension3 = "ga('set', 'dimension3', '{$usertype}');";
+      $dimensions[] = "'dimension3': '{$usertype}'";
     }
+
+    $dimensions = join(",", $dimensions);
 
     // Grab the GA Code
 $ga_code = <<<GACODE
@@ -141,10 +146,9 @@ $ga_code = <<<GACODE
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
-  ga('set', 'dimension1', '{$ga_os}');
-  ga('set', 'dimension2', '{$CFG->kent->distribution}');
-  {$dimension3}
-  ga('send', 'pageview');
+  ga('send', 'pageview', {
+    {$dimensions}
+  });
 
 </script>
 <!-- End of Google Analytics -->
