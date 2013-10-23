@@ -50,7 +50,7 @@ function kent_user_type() {
 
   // Cant do much if we arent logged in
   if (!isloggedin() || isguestuser()) {
-    return NULL;
+    return "guest";
   }
 
   return isset($USER->account_type) ? $USER->account_type : NULL;
