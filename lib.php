@@ -120,20 +120,19 @@ function kent_set_universal_analytics() {
         return "";
     }
 
-    $ga_os = $CFG->kent->platform == 'Linux' ? 'Linux' : 'Solaris';
-    $ga_code = "";
-
+    // Build dimensions
     $dimensions = array(
-      "'dimension1': '{$ga_os}')",
-      "'dimension2': '{$CFG->kent->distribution}')"
+      "'dimension1': '{$CFG->kent->platform}'",
+      "'dimension2': '{$CFG->kent->distribution}'"
     );
 
-    // Output current user details
+    // Add current user details to dimensions
     $usertype = kent_user_type();
     if ($usertype !== NULL) {
       $dimensions[] = "'dimension3': '{$usertype}'";
     }
 
+    // Join it up
     $dimensions = join(",", $dimensions);
 
     // Grab the GA Code
