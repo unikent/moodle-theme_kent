@@ -926,3 +926,7 @@ img.iconlarge {
 #categoryquestions th.checkbox input {
   width: auto;
 }
+
+#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+  color: #333;
+}
