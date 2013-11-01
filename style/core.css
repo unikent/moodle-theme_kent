@@ -917,3 +917,16 @@ img.iconlarge {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
 }
+
+/**
+ * Fixes for quizzes
+ */
+
+#categoryquestions td.checkbox > input, 
+#categoryquestions th.checkbox input {
+  width: auto;
+}
+
+#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+  color: #333;
+}
