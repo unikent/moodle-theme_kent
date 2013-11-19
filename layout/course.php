@@ -154,7 +154,7 @@ echo $OUTPUT->doctype() ?>
                     }
 
                     echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
-                    if(has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM))) {
+                    if(has_capability('moodle/site:config', context_system::instance())) {
                         echo $OUTPUT->standard_footer_html();
                     }
                 ?>

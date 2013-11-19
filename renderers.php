@@ -46,7 +46,7 @@ class theme_kent_core_renderer extends core_renderer {
     private function kent_determine_show_block_controls($class, $controls){
         //First check if not an admin and there are controls before doing anything
         
-        $systemcontext = get_context_instance(CONTEXT_SYSTEM);
+        $systemcontext = context_system::instance();
         if(!has_capability('moodle/site:config', $systemcontext)){
 
             //TODO - Move this somewhere else in a more controllable area so FLT's can control what blocks cannot be controlled by what role etc.
