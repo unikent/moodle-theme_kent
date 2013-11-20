@@ -154,12 +154,17 @@ echo $OUTPUT->doctype() ?>
                     }
 
                     echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
+                ?>
+            </div>
+            <?php echo $PAGE->theme->settings->footnote; ?>
+            <div class="clearfix"></div>
+            <div class="moodle-extra">
+                <?php
                     if(has_capability('moodle/site:config', context_system::instance())) {
                         echo $OUTPUT->standard_footer_html();
                     }
                 ?>
             </div>
-            <?php echo $PAGE->theme->settings->footnote; ?>
         </div>
     </div>
 </div>

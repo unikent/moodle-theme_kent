@@ -231,10 +231,12 @@ height: auto;
   padding: 0px;
 }
 
-
-
 #page-footer #footerinner #left_footer {
   float: left;
+}
+
+#page-footer .moodle-extra div.purgecaches {
+  text-align: center;
 }
 
 .breadcrumb ul {
@@ -929,12 +931,4 @@ img.iconlarge {
 
 #page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
   color: #333;
-}
-
-
-/**
- * :)
- */
-#page-footer #left_footer div.purgecaches {
-  display: none;
 }
