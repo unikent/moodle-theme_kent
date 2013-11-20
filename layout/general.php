@@ -11,11 +11,29 @@ $custommenu = $OUTPUT->custom_menu();
 $hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
 $haslogo = (!empty($PAGE->theme->settings->logo));
 
+$courseheader = $coursecontentheader = $coursecontentfooter = $coursefooter = '';
+if (empty($PAGE->layout_options['nocourseheaderfooter'])) {
+    $courseheader = $OUTPUT->course_header();
+    $coursecontentheader = $OUTPUT->course_content_header();
+    if (empty($PAGE->layout_options['nocoursefooter'])) {
+        $coursecontentfooter = $OUTPUT->course_content_footer();
+        $coursefooter = $OUTPUT->course_footer();
+    }
+}
+
 $bodyclasses = array();
 if ($showsidepre && !$showsidepost) {
-    $bodyclasses[] = 'side-pre-only';
+    if (!right_to_left()) {
+        $bodyclasses[] = 'side-pre-only';
+    }else{
+        $bodyclasses[] = 'side-post-only';
+    }
 } else if ($showsidepost && !$showsidepre) {
-    $bodyclasses[] = 'side-post-only';
+    if (!right_to_left()) {
+        $bodyclasses[] = 'side-post-only';
+    }else{
+        $bodyclasses[] = 'side-pre-only';
+    }
 } else if (!$showsidepost && !$showsidepre) {
     $bodyclasses[] = 'content-only';
 }
@@ -80,42 +98,50 @@ echo $OUTPUT->doctype() ?>
         <?php } ?>
 <div id="contentwrapper">   
     <!-- start OF moodle CONTENT -->
-                <div id="page-content">
-                    <div id="region-main-box">
-                        <div id="region-post-box">
-            
-                                <div id="region-main-wrap">
-                                    <div id="region-main">
-                                        <div class="region-content">
-                                        <div id="mainpadder">
-                                        <?php echo core_renderer::MAIN_CONTENT_TOKEN ?>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                    <?php if ($hassidepre) { ?>
+    <div id="page-content">
+        <div id="region-main-box">
+            <div id="region-post-box">
+
+                    <div id="region-main-wrap">
+                        <div id="region-main">
+                            <div id="mainpadder" class="region-content">
+                                <?php echo $coursecontentheader; ?>
+                                <?php echo $OUTPUT->main_content() ?>
+                                <?php echo $coursecontentfooter; ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
                     <div id="region-pre" class="block-region">
                         <div class="region-content">
-                   
-        
-                            <?php echo $OUTPUT->blocks_for_region('side-pre') ?>
+                                <?php
+                            if (!right_to_left()) {
+                                echo $OUTPUT->blocks_for_region('side-pre');
+                            } elseif ($hassidepost) {
+                                echo $OUTPUT->blocks_for_region('side-post');
+                        } ?>
+
                         </div>
                     </div>
                     <?php } ?>
-                
-                    <?php if ($hassidepost) { ?>
+
+                    <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
                     <div id="region-post" class="block-region">
                         <div class="region-content">
-                   
-                            <?php echo $OUTPUT->blocks_for_region('side-post') ?>
+                               <?php
+                           if (!right_to_left()) {
+                               echo $OUTPUT->blocks_for_region('side-post');
+                           } elseif ($hassidepre) {
+                               echo $OUTPUT->blocks_for_region('side-pre');
+                        } ?>
                         </div>
                     </div>
                     <?php } ?>
-                
-                        </div>
-                    </div>
-                 </div>
+    
+            </div>
+        </div>
+     </div>
     <!-- END OF CONTENT --> 
 </div>      
 
