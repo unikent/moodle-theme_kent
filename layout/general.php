@@ -52,7 +52,6 @@ echo $OUTPUT->doctype() ?>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 <div id="page">
-    <div id="graphicwrap">
         <div id="page-header">
             <div class="headermenu">
                 <?php 
@@ -67,6 +66,7 @@ echo $OUTPUT->doctype() ?>
                 </div>
                 <?php include('profileblock.php') ?>
             </div>
+        </div>
         
         <div id="menuwrap">
             <div id="homeicon">
@@ -101,53 +101,53 @@ echo $OUTPUT->doctype() ?>
     <div id="page-content">
         <div id="region-main-box">
             <div id="region-post-box">
-
-                    <div id="region-main-wrap">
-                        <div id="region-main">
-                            <div id="mainpadder" class="region-content">
-                                <?php echo $coursecontentheader; ?>
-                                <?php echo $OUTPUT->main_content() ?>
-                                <?php echo $coursecontentfooter; ?>
-                            </div>
+                <div id="region-main-wrap">
+                    <div id="region-main">
+                        <div id="mainpadder" class="region-content">
+                            <?php echo $coursecontentheader; ?>
+                            <?php echo $OUTPUT->main_content() ?>
+                            <?php echo $coursecontentfooter; ?>
                         </div>
                     </div>
+                </div>
 
-                    <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-                    <div id="region-pre" class="block-region">
-                        <div class="region-content">
-                                <?php
-                            if (!right_to_left()) {
-                                echo $OUTPUT->blocks_for_region('side-pre');
-                            } elseif ($hassidepost) {
-                                echo $OUTPUT->blocks_for_region('side-post');
-                        } ?>
+                <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
+                <div id="region-pre" class="block-region">
+                    <div class="region-content">
+                            <?php
+                        if (!right_to_left()) {
+                            echo $OUTPUT->blocks_for_region('side-pre');
+                        } elseif ($hassidepost) {
+                            echo $OUTPUT->blocks_for_region('side-post');
+                    } ?>
 
-                        </div>
                     </div>
-                    <?php } ?>
+                </div>
+                <?php } ?>
 
-                    <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
-                    <div id="region-post" class="block-region">
-                        <div class="region-content">
-                               <?php
-                           if (!right_to_left()) {
-                               echo $OUTPUT->blocks_for_region('side-post');
-                           } elseif ($hassidepre) {
-                               echo $OUTPUT->blocks_for_region('side-pre');
-                        } ?>
-                        </div>
+                <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
+                <div id="region-post" class="block-region">
+                    <div class="region-content">
+                           <?php
+                       if (!right_to_left()) {
+                           echo $OUTPUT->blocks_for_region('side-post');
+                       } elseif ($hassidepre) {
+                           echo $OUTPUT->blocks_for_region('side-pre');
+                    } ?>
                     </div>
-                    <?php } ?>
-    
+                </div>
+                <?php } ?>
             </div>
         </div>
      </div>
     <!-- END OF CONTENT --> 
 </div>      
 
-<br style="clear: both;"> 
+<?php if (!empty($coursefooter)) { ?>
+    <div id="course-footer"><?php echo $coursefooter; ?></div>
+<?php } ?>
  <?php if ($hasfooter) { ?>
-<div id="page-footer">
+<div id="page-footer" class="clearfix">
     <div id="footerwrapper">
         <div id="footerinner">
             <div id="right_footer">
@@ -184,12 +184,12 @@ echo $OUTPUT->doctype() ?>
                 ?>
             </div>
         </div>
-    </div>
 </div>
 
  <?php } ?>
- </div>
- </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
 
 <?php echo $OUTPUT->standard_end_of_body_html() ?>
 <?php echo kent_set_analytics() ?>
