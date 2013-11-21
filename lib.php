@@ -132,6 +132,9 @@ function kent_set_universal_analytics() {
       $dimensions[] = "'dimension3': '{$usertype}'";
     }
 
+    // Add hostname
+    $dimensions[] = "'dimension4': '{$CFG->kent->hostname}'";
+
     // Join it up
     $dimensions = join(",", $dimensions);
 
