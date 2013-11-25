@@ -66,5 +66,3 @@ class theme_kent_core_renderer extends core_renderer {
     }
 
 }
-
-?>
