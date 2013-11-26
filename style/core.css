@@ -591,6 +591,10 @@ table.generalbox td {
     border-bottom-width: 1px !important;
 }
 
+#page-admin-index .block .header h2 {
+  padding: 8px 0 0 10px;
+}
+
 #page-course-info h2.main {
 line-height : 10px;
 }
