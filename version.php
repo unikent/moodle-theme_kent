@@ -23,8 +23,8 @@
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package    theme_clean
- * @copyright  2013 Moodle, moodle.org
+ * @package    theme_kent
+ * @copyright  2013 University of Kent
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
