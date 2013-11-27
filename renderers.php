@@ -1,20 +1,11 @@
 <?php
 
 /*
- * Put your renders here for your theme
- */
-
-/* 
- * A test using the render override options of Moodle.
- * This could be useful if we want to avoid overriding functions in blocks.  Goes against the principle of separating themes from logic,
- * but then Moodle have done this with
- * the Renderer option for themes... ;/
- *
- *
- * This is left as comments as an example of how to get set up.
+ * Restrict headers for 'kent_course_overview', 'calendar_month', 'activity_modules', 'navigation', 'settings', 'aspirelists'
  */
 
 class theme_kent_core_renderer extends core_renderer {
+
 
     protected function block_header(block_contents $bc) {
 
@@ -22,13 +13,22 @@ class theme_kent_core_renderer extends core_renderer {
 
         $title = '';
         if ($bc->title) {
-            $title = html_writer::tag('h2', $bc->title, null);
+            $attributes = array();
+            if ($bc->blockinstanceid) {
+                $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
+            }
+            $title = html_writer::tag('h2', $bc->title, $attributes);
         }
 
         $controlshtml = '';
         $headerclass = 'header hidedock';
-        if ($show_block_controls){
-            $controlshtml = $this->block_controls($bc->controls);
+
+        if ($show_block_controls) {
+            $blockid = null;
+            if (isset($bc->attributes['id'])) {
+                $blockid = $bc->attributes['id'];
+            }
+            $controlshtml = $this->block_controls($bc->controls, $blockid);
             $headerclass = 'header';
         } else {
             $bc->collapsible = 0;
@@ -38,7 +38,6 @@ class theme_kent_core_renderer extends core_renderer {
         if ($title || $controlshtml) {
             $output .= html_writer::tag('div', html_writer::tag('div', html_writer::tag('div', '', array('class'=>'block_action')). $title . $controlshtml, array('class' => 'title')), array('class' => $headerclass));
         }
-
         return $output;
     }
 
