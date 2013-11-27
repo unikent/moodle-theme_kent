@@ -956,3 +956,8 @@ img.iconlarge {
 body .block_course_overview .content {
   margin: 0;
 }
+
+.block_private_files div.generalbox {
+  border: 0;
+  padding-bottom: 10px;
+}
