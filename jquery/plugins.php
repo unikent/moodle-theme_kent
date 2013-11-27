@@ -15,26 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle's Clean theme, an example of how to make a Bootstrap theme
+ * This file describes some extra jQuery plugins
  *
- * DO NOT MODIFY THIS THEME!
- * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
- *
- * For full information about creating Moodle themes, see:
- * http://docs.moodle.org/dev/Themes_2.0
- *
- * @package    theme_clean
- * @copyright  2013 Moodle, moodle.org
+ * @package    theme_kent
+ * @copyright  2013 University of Kent
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2013112701;
-$plugin->requires  = 2013050100;
-$plugin->component = 'theme_kent';
-$plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100,
-    'theme_aardvark_kent'  => 2012050100
+$plugins = array(
+    'blockui'  => array('files' => array('jquery.blockUI.js'))
 );
