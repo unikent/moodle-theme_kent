@@ -944,10 +944,6 @@ img.iconlarge {
   -moz-box-shadow: none;
 }
 
-/**
- * Fixes for quizzes
- */
-
 #categoryquestions td.checkbox > input, 
 #categoryquestions th.checkbox input {
   width: auto;
@@ -957,3 +953,6 @@ img.iconlarge {
   color: #333;
 }
 
+body .block_course_overview .content {
+  margin: 0;
+}
