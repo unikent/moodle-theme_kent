@@ -24,5 +24,5 @@
 
 $plugins = array(
     'blockui'  => array('files' => array('jquery.blockUI.js')),
-    'dataTables'  => array('files' => array('jquery.dataTables.min.js', 'jquery.dataTables.columnFilter.js'))
+    'dataTables'  => array('files' => array('jquery.dataTables.js', 'jquery.dataTables.columnFilter.js'))
 );
