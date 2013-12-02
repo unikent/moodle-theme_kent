@@ -115,11 +115,6 @@ GACODE;
 function kent_set_universal_analytics() {
     global $CFG;
 
-    // Disable analytics if not on live
-    if (empty($CFG->google_analytics_code) || $CFG->kent->environment !== "live") {
-        return "";
-    }
-
     // Build dimensions
     $dimensions = array(
       "'dimension1': '{$CFG->kent->platform}'",
