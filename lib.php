@@ -63,7 +63,7 @@ function kent_set_analytics() {
     global $CFG;
 
     // Disable analytics if not on live
-    if (empty($CFG->google_analytics_code) || $CFG->kent->environment !== "live") {
+    if (empty($CFG->google_analytics_code)) {
         return "";
     }
 
