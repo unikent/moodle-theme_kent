@@ -82,7 +82,6 @@ function kent_set_analytics() {
 function kent_set_standard_analytics() {
     global $CFG;
 
-    $ga_os = $CFG->kent->platform == 'Linux' ? 'Linux' : 'Solaris';
     $ga_code = "";
 
 $ga_code = <<<GACODE
@@ -91,7 +90,7 @@ $ga_code = <<<GACODE
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '{$CFG->google_analytics_code}']);
-  _gaq.push(['_setCustomVar', 1, 'os', '{$ga_os}']);
+  _gaq.push(['_setCustomVar', 1, 'os', '{$CFG->kent->platform}']);
   _gaq.push(['_setCustomVar', 1, 'distribution', '{$CFG->kent->distribution}']);
   _gaq.push(['_trackPageview']);
 
