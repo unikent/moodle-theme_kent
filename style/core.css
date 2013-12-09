@@ -908,6 +908,8 @@ input[type="button"]:active{
   background-color: transparent;
 }
 
+.sitetopic .section .activity img.activityicon,
+.course-content .section .activity img.activityicon,
 img.iconlarge {
   width: 16px;
   height: 16px;
