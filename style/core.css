@@ -917,6 +917,7 @@ img.iconlarge {
 
 .course-content .section .activity .activityinstance {
   padding-right: 0px;
+  height: auto;
 }
 
 .yui3-menu-label:hover {
