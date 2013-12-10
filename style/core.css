@@ -634,14 +634,6 @@ select {
     margin-bottom: 2px;
 }
 
-.section .activity .yui3-dd-drop.yui3-dd-draggable .mod-indent-outer {
-  padding-left: 24px;
-}
-
-.section .activity .mod-indent-outer {
-  padding-left: 0;
-}
-
 .block_calendar_month .filters, .block_calendar_month .eventskey {
     display: none;
 }
