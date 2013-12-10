@@ -634,6 +634,14 @@ select {
     margin-bottom: 2px;
 }
 
+.section .activity .mod-indent-outer {
+  padding-left: 0;
+}
+
+body.editing .section .activity .mod-indent-outer {
+  padding-left: 24px;
+}
+
 .block_calendar_month .filters, .block_calendar_month .eventskey {
     display: none;
 }
