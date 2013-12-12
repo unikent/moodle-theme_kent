@@ -8,12 +8,12 @@ global $CFG;
 $cal_m = optional_param( 'cal_m', 0, PARAM_INT );
 $cal_y = optional_param( 'cal_y', 0, PARAM_INT );
 
-//$cache = cache::make('theme_kent', 'kent_theme');
-//$cache_key = "upcoming-" . $cal_m . "-" . $cal_y;
-//$content = $cache->get($cache_key);
+$cache = cache::make('theme_kent', 'kent_theme');
+$cache_key = "upcoming-" . $cal_m . "-" . $cal_y;
+$content = $cache->get($cache_key);
 
 // Regen Cache?
-//if ($content === false) {
+if ($content === false) {
 	require_once($CFG->dirroot.'/calendar/lib.php');
 
 	if (empty($this->instance)) { // Overrides: use no course at all
@@ -44,7 +44,7 @@ $cal_y = optional_param( 'cal_y', 0, PARAM_INT );
 	$events = calendar_get_upcoming($courses, $group, $user, $lookahead, $maxevents);
 	$content = calendar_get_block_upcoming($events, 'view.php?view=day&amp;course='.$courseshown.'&amp;');
 
-	//$cache->set($cache_key, $content);
-//}
+	$cache->set($cache_key, $content);
+}
       
 echo $content;
