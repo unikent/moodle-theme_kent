@@ -1,4 +1,4 @@
-<script text/javascript>
+<script type="text/javascript">
 function toggle5(showHideDiv, switchImgTag) {
         var ele = document.getElementById(showHideDiv);
         var imageEle = document.getElementById(switchImgTag);
