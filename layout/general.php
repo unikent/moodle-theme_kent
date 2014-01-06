@@ -77,7 +77,7 @@ echo $OUTPUT->doctype() ?>
                 <div id="menuitemswrap"><div id="custommenu"><?php echo $custommenu; ?></div></div>
             <?php } ?>
         </div>
-        <div id="jcontrols_button">
+        <div id="jcontrols_button" class="clearfix">
             <div class="jcontrolsleft">     
             <?php if ($hasnavbar) { ?>
                 <div class="navbar clearfix">
@@ -88,6 +88,7 @@ echo $OUTPUT->doctype() ?>
             <div id="ebutton">
                <?php if ($hasnavbar) { echo $PAGE->button; } ?>
            </div>
+
         </div>  
         <?php if ($CFG->kent->distribution == "archive") { ?>
         <div class="archive_bar">

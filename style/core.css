@@ -217,7 +217,8 @@ div#jcontrols_button {
 width : auto;
 min-width : 760px;
 max-width : 1140px;
-height : 30px;
+min-height : 30px;
+height: auto;
 }
 div.jcontrolsleft {
 height : 30px;
@@ -867,6 +868,10 @@ input[type="button"]:active{
 
 .pagelayout-report #page-content{
     overflow: hidden;
+}
+
+#ebutton {
+    margin-bottom: 2px;
 }
 
 #ebutton #navsearchbox{
