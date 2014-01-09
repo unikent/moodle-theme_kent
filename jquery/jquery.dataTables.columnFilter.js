@@ -479,7 +479,8 @@
                 }
 
                 //check button
-                r += '<input class="search_init checkbox_filter" type="checkbox" id= "' + aData[j] + '" name= "' + localLabel + '" value="' + aData[j] + '" >' + aData[j] + '<br/>';
+                var inputvalue = aData[j].replace(/\_/gi, " ");
+                r += '<input class="search_init checkbox_filter" type="checkbox" id="status_' + aData[j] + '" name= "' + localLabel + '" value="' + inputvalue + '" >' + aData[j] + '<br/>';
 
                 var checkbox = $(r);
                 th.html(checkbox);
