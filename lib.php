@@ -60,11 +60,17 @@ function kent_user_type() {
  * Function to return google analytics with code, only if the code is set via the config
  */
 function kent_set_analytics() {
-    global $CFG;
+    global $CFG, $PAGE;
 
     // Disable analytics if not on live
     if (empty($CFG->google_analytics_code)) {
         return "";
+    }
+
+    // Disable analytics on admin pages.
+    $page_url = substr($PAGE->url, strlen($CFG->wwwroot));
+    if (substr($page_url, 0, 6) == "/admin") {
+      return "";
     }
 
     // Should we be doing universal analytics?
