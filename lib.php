@@ -69,8 +69,9 @@ function kent_set_analytics() {
 
     // Disable analytics on admin pages.
     $page_url = substr($PAGE->url, strlen($CFG->wwwroot));
-    if (substr($page_url, 0, 6) == "/admin") {
-      return "";
+    $page_part = substr($page_url, 0, 7);
+    if ($page_part == "/local/" || $page_part == "/admin/" || $page_part == "/report") {
+        return "";
     }
 
     // Should we be doing universal analytics?
