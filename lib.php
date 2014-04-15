@@ -103,7 +103,7 @@ $ga_code = <<<GACODE
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
@@ -149,6 +149,7 @@ $ga_code = <<<GACODE
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
+  ga('require', 'displayfeatures');
   ga('send', 'pageview', {
     {$dimensions}
   });
