@@ -53,7 +53,7 @@ function kent_user_type() {
     return "guest";
   }
 
-  return isset($USER->account_type) ? $USER->account_type : NULL;
+  return isset($SESSION->account_type) ? s($SESSION->account_type) : NULL;
 }
 
 /*
@@ -119,7 +119,7 @@ GACODE;
  * Function to return Google universal analytics with code, only if the code is set via the config
  */
 function kent_set_universal_analytics() {
-    global $CFG;
+    global $CFG, $USER;
 
     // Build dimensions
     $dimensions = array(
@@ -139,6 +139,12 @@ function kent_set_universal_analytics() {
     // Join it up
     $dimensions = join(",", $dimensions);
 
+    // Setup user tracking if logged in
+    $user_tracking = "";
+    if (isloggedin()) {
+      $user_tracking = "ga('set', '&uid', {$USER->id});"
+    }
+
     // Grab the GA Code
 $ga_code = <<<GACODE
 <!-- Start of Google Analytics -->
@@ -150,6 +156,7 @@ $ga_code = <<<GACODE
 
   ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
   ga('require', 'displayfeatures');
+  {$user_tracking}
   ga('send', 'pageview', {
     {$dimensions}
   });
