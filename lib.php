@@ -142,7 +142,7 @@ function kent_set_universal_analytics() {
     // Setup user tracking if logged in
     $user_tracking = "";
     if (isloggedin()) {
-      $user_tracking = "ga('set', '&uid', {$USER->id});"
+      $user_tracking = "ga('set', '&uid', {$USER->id});";
     }
 
     // Grab the GA Code
