@@ -53,7 +53,7 @@ function kent_user_type() {
     return "guest";
   }
 
-  return isset($USER->account_type) ? $USER->account_type : NULL;
+  return isset($SESSION->account_type) ? s($SESSION->account_type) : NULL;
 }
 
 /*
@@ -143,7 +143,6 @@ function kent_set_universal_analytics() {
     $user_tracking = "";
     if (isloggedin()) {
       $user_tracking = "ga('set', '&uid', {$USER->id});"
-
     }
 
     // Grab the GA Code
