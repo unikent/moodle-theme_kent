@@ -77,7 +77,7 @@ echo '</div>'; // end of headerwrap
 					<td><ul>
 		           	<li><a href="<?php echo $CFG->wwwroot; ?>/calendar/view.php?view=month"><img src="<?php echo $OUTPUT->pix_url('profile/calendar', 'theme')?>" />&nbsp;<?php echo get_string('calendar','calendar');?></a></li>
 
-					<li><a href="<?php echo $PAGE->theme->settings->emailurl;?> "><img src="<?php echo $OUTPUT->pix_url('profile/email', 'theme')?>" />&nbsp;<?php echo get_string('email','theme_aardvark');?></a></li>
+					<li><a href="<?php echo $PAGE->theme->settings->emailurl;?> "><img src="<?php echo $OUTPUT->pix_url('profile/email', 'theme')?>" />&nbsp;<?php echo get_string('email','theme_aardvark_kent');?></a></li>
 					
 					<li>
 						<form class="loginForm" method="post" action="<?php echo $CFG->wwwroot; ?>/login/logout.php">
