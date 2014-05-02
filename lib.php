@@ -1,26 +1,55 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ *
+ *
+ * @param unknown $css
+ * @param unknown $theme
+ * @return unknown
+ */
 function kent_process_css($css, $theme) {
 
-    // Set the menu hover color
+    // Set the menu hover color.
     if (!empty($theme->settings->menuhovercolor)) {
         $menuhovercolor = $theme->settings->menuhovercolor;
     } else {
         $menuhovercolor = null;
     }
     $css = kent_set_menuhovercolor($css, $menuhovercolor);
-    
-    // Set the background image for the graphic wrap 
+
+    // Set the background image for the graphic wrap.
     if (!empty($theme->settings->graphicwrap)) {
         $graphicwrap = $theme->settings->graphicwrap;
     } else {
         $graphicwrap = null;
     }
     $css = kent_set_graphicwrap($css, $graphicwrap);
-    
+
     return $css;
 }
 
+
+/**
+ *
+ *
+ * @param unknown $css
+ * @param unknown $menuhovercolor
+ * @return unknown
+ */
 function kent_set_menuhovercolor($css, $menuhovercolor) {
     $tag = '[[setting:menuhovercolor]]';
     $replacement = $menuhovercolor;
@@ -31,8 +60,16 @@ function kent_set_menuhovercolor($css, $menuhovercolor) {
     return $css;
 }
 
+
+/**
+ *
+ *
+ * @param unknown $css
+ * @param unknown $graphicwrap
+ * @return unknown
+ */
 function kent_set_graphicwrap($css, $graphicwrap) {
-    global $OUTPUT;  
+    global $OUTPUT;
     $tag = '[[setting:graphicwrap]]';
     $replacement = $graphicwrap;
     if (is_null($replacement)) {
@@ -42,35 +79,46 @@ function kent_set_graphicwrap($css, $graphicwrap) {
     return $css;
 }
 
+
 /**
  * Returns user information
+ *
+ * @return unknown
  */
 function kent_user_type() {
-  global $USER, $SESSION;
+    global $SESSION;
 
-  // Cant do much if we arent logged in
-  if (!isloggedin() || isguestuser()) {
-    return "guest";
-  }
+    // Cant do much if we arent logged in.
+    if (!isloggedin() || isguestuser()) {
+        return "guest";
+    }
 
-  return isset($SESSION->account_type) ? s($SESSION->account_type) : NULL;
+    return isset($SESSION->account_type) ? s($SESSION->account_type) : null;
 }
+
 
 /*
  * Function to return google analytics with code, only if the code is set via the config
  */
+
+
+/**
+ *
+ *
+ * @return unknown
+ */
 function kent_set_analytics() {
     global $CFG, $PAGE;
 
-    // Disable analytics if not on live
+    // Disable analytics if not on live.
     if (empty($CFG->google_analytics_code)) {
         return "";
     }
 
     // Disable analytics on admin pages.
-    $page_url = substr($PAGE->url, strlen($CFG->wwwroot));
-    $page_part = substr($page_url, 0, 7);
-    if ($page_part == "/local/" || $page_part == "/admin/" || $page_part == "/report") {
+    $url = substr($PAGE->url, strlen($CFG->wwwroot));
+    $path = substr($url, 0, 7);
+    if ($path == "/local/" || $path == "/admin/" || $path == "/report") {
         return "";
     }
 
@@ -79,92 +127,104 @@ function kent_set_analytics() {
         return kent_set_universal_analytics();
     }
 
-    // Nope, do standard
+    // Nope, do standard.
     return kent_set_standard_analytics();
 }
+
 
 /*
  * Function to return google analytics with code, only if the code is set via the config
  */
+
+
+/**
+ *
+ *
+ * @return unknown
+ */
 function kent_set_standard_analytics() {
     global $CFG;
 
-    $ga_code = "";
+    $code = "";
 
-$ga_code = <<<GACODE
+    $code = <<<GACODE
 <!-- Start of Google Analytics -->
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '{$CFG->google_analytics_code}']);
-  _gaq.push(['_setCustomVar', 1, 'os', '{$CFG->kent->platform}']);
-  _gaq.push(['_setCustomVar', 1, 'distribution', '{$CFG->kent->distribution}']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{$CFG->google_analytics_code}']);
+    _gaq.push(['_setCustomVar', 1, 'os', '{$CFG->kent->platform}']);
+    _gaq.push(['_setCustomVar', 1, 'distribution', '{$CFG->kent->distribution}']);
+    _gaq.push(['_trackPageview']);
 
-  (function() {
+    (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    })();
 
 </script>
 <!-- End of Google Analytics -->
 GACODE;
 
-    return $ga_code;
+    return $code;
 }
 
 
 /*
  * Function to return Google universal analytics with code, only if the code is set via the config
  */
+
+
+/**
+ *
+ *
+ * @return unknown
+ */
 function kent_set_universal_analytics() {
     global $CFG, $USER;
 
-    // Build dimensions
+    // Build dimensions.
     $dimensions = array(
-      "'dimension1': '{$CFG->kent->platform}'",
-      "'dimension2': '{$CFG->kent->distribution}'"
+        "'dimension1': '{$CFG->kent->platform}'",
+        "'dimension2': '{$CFG->kent->distribution}'"
     );
 
-    // Add current user details to dimensions
+    // Add current user details to dimensions.
     $usertype = kent_user_type();
-    if ($usertype !== NULL) {
-      $dimensions[] = "'dimension3': '{$usertype}'";
+    if ($usertype !== null) {
+        $dimensions[] = "'dimension3': '{$usertype}'";
     }
 
-    // Add hostname
+    // Add hostname.
     $dimensions[] = "'dimension4': '{$CFG->kent->hostname}'";
 
-    // Join it up
+    // Join it up.
     $dimensions = join(",", $dimensions);
 
-    // Setup user tracking if logged in
-    $user_tracking = "";
+    // Setup user tracking if logged in.
+    $tracker = "";
     if (isloggedin()) {
-      $user_tracking = "ga('set', '&uid', {$USER->id});";
+        $tracker = "ga('set', '&uid', {$USER->id});";
     }
 
-    // Grab the GA Code
-$ga_code = <<<GACODE
+    // Grab the GA Code.
+    return <<<GACODE
 <!-- Start of Google Analytics -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
-  ga('require', 'displayfeatures');
-  {$user_tracking}
-  ga('send', 'pageview', {
+    ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
+    ga('require', 'displayfeatures');
+    {$tracker}
+    ga('send', 'pageview', {
     {$dimensions}
-  });
+    });
 
 </script>
 <!-- End of Google Analytics -->
 GACODE;
-
-    return $ga_code;
-
 }
