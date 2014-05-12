@@ -4,6 +4,7 @@ html {
 
 body {
     background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top !important;
+    min-width: 960px;
 }
 
 html a, body a,
