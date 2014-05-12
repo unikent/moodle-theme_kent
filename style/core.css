@@ -114,6 +114,10 @@ div#profilebar-mystuff {
     padding: 5px;
 }
 
+#profilebar .profileoptions .loginForm {
+  position: relative;
+}
+
 #profilebar .profileoptions .loginForm .login {
   outline: none;
   background: none;
