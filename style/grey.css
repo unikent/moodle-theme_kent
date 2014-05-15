@@ -44,10 +44,19 @@ body {
 
 div#jcontrols_button {
 	background-color: #EFEFEF;
+	border-bottom: 1px solid #CCC;
 }
 
 #page-footer {
 	overflow: hidden;
+}
+
+#page-footer #footerwrapper {
+	border-top: 1px solid #CCC;
+}
+
+.block_private_files .singlebutton input[type=submit] {
+	white-space: normal;
 }
 
 /** New header styles */
@@ -79,6 +88,13 @@ div#jcontrols_button {
 	display: none;
 }
 
-.block_private_files .singlebutton input[type=submit] {
-	white-space: normal;
+#menuwrap .yui3-menu-horizontal .yui3-menuitem .yui3-menuitem-content {
+	height:26px;
+	padding-top: 12px !important;
+	border: 0;
+}
+
+#menuwrap .yui3-menu-horizontal .yui3-menuitem-active .yui3-menuitem-content,
+#menuwrap .yui3-menu-content li:hover {
+	background-color: #222 !important;
 }
