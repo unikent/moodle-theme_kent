@@ -1,6 +1,6 @@
 
 body {
-   background : #333333 repeat-x top !important;
+   background : #FFFFFF !important;
 }
 
 #graphicwrap {
@@ -28,6 +28,8 @@ body {
 
 #headerwrap {
 	max-width: 100%;
+	background-image: none!important;
+	background-color: #EFEFEF;
 }
 
 #jcontrols_button, #menuwrap, #headerwrap, #page-content, #page-footer #footerwrapper {
@@ -37,6 +39,8 @@ body {
 
 #contentwrapper, #page-content, div#jcontrols_button {
 	max-width : auto;
+	background-image: none!important;
+	background-color: #EFEFEF;
 }
 
 #page-footer {
@@ -45,8 +49,4 @@ body {
 
 #page-footer #footerwrapper {
 	max-width : auto;
-}
-
-div.continuebutton, div.continuebutton a {
-	color: #FFF !important;
 }
