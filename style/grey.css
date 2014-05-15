@@ -37,9 +37,12 @@ body {
 	margin: 0;
 }
 
-#contentwrapper, #page-content, div#jcontrols_button {
+#contentwrapper, #page-content, div#jcontrols_button, #profilebar, #page-footer #footerwrapper {
 	max-width : auto;
-	background-image: none!important;
+	background-image: none !important;
+}
+
+div#jcontrols_button {
 	background-color: #EFEFEF;
 }
 
@@ -47,6 +50,31 @@ body {
 	overflow: hidden;
 }
 
-#page-footer #footerwrapper {
-	max-width : auto;
+/** New header styles */
+
+#headerwrap, #logowrap, #logowrap img#logo {
+	height: 70px;
+}
+
+#logowrap img#logo {
+	margin-top: 1px;
+}
+
+#profilepic, #profilepic img {
+	margin: 0;
+	border: none;
+	height: 70px;
+	width: 70px;
+}
+
+#profilename {
+	margin-top: 30px;
+}
+
+#profilename a {
+	color: #333333;
+}
+
+.profilebar_block {
+	display: none;
 }
