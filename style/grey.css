@@ -78,3 +78,7 @@ div#jcontrols_button {
 .profilebar_block {
 	display: none;
 }
+
+.block_private_files .singlebutton input[type=submit] {
+	white-space: normal;
+}
