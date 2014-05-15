@@ -98,3 +98,11 @@ div#jcontrols_button {
 #menuwrap .yui3-menu-content li:hover {
 	background-color: #222 !important;
 }
+
+##profilelogin {
+	margin-top: 35px;
+}
+
+##profilelogin #login ul {
+	margin: 0 15px;
+}
