@@ -1,0 +1,52 @@
+
+body {
+   background : #333333 repeat-x top !important;
+}
+
+#graphicwrap {
+	width : 100%;
+	padding-top : 10px;
+}
+
+#menuwrap {
+	/*width : 960px;*/
+	min-width : 760px;
+	max-width : auto;
+	margin-left : auto;
+	margin-right : auto;
+	clear : both;
+	background : #333333 url([[pix:theme|menu/menugrad-grey]]) repeat-x;
+}
+
+#page {
+	padding: 0;
+}
+
+#page .headermenu {
+	margin: 0;
+}
+
+#headerwrap {
+	max-width: 100%;
+}
+
+#jcontrols_button, #menuwrap, #headerwrap, #page-content, #page-footer #footerwrapper {
+	border: none;
+	margin: 0;
+}
+
+#contentwrapper, #page-content, div#jcontrols_button {
+	max-width : auto;
+}
+
+#page-footer {
+	overflow: hidden;
+}
+
+#page-footer #footerwrapper {
+	max-width : auto;
+}
+
+div.continuebutton, div.continuebutton a {
+	color: #FFF !important;
+}
