@@ -99,10 +99,10 @@ div#jcontrols_button {
 	background-color: #222 !important;
 }
 
-##profilelogin {
+#profilelogin {
 	margin-top: 35px;
 }
 
-##profilelogin #login ul {
+#profilelogin #login ul {
 	margin: 0 15px;
 }
