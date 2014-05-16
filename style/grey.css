@@ -11,7 +11,7 @@ body {
 #menuwrap {
 	/*width : 960px;*/
 	min-width : 760px;
-	max-width : auto;
+	max-width : 100%;
 	margin-left : auto;
 	margin-right : auto;
 	clear : both;
@@ -38,7 +38,7 @@ body {
 }
 
 #contentwrapper, #page-content, div#jcontrols_button, #profilebar, #page-footer #footerwrapper {
-	max-width : auto;
+	max-width : 100%;
 	background-image: none !important;
 }
 
