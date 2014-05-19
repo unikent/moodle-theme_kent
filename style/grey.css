@@ -59,6 +59,10 @@ div#jcontrols_button {
 	white-space: normal;
 }
 
+#ebutton {
+	margin-top: 3px;
+}
+
 /** New header styles */
 
 #headerwrap, #logowrap, #logowrap img#logo {
