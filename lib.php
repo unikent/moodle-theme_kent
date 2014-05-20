@@ -130,7 +130,7 @@ function kent_set_universal_analytics() {
     // Add current user details to extras.
     $usertype = kent_user_type();
     if ($usertype !== null) {
-        $extras .= "ga('set', 'dimension3', '{$usertype}');";
+        $extras .= "ga('set', 'dimension3', '{$usertype}');\n";
     }
 
     // Performance stats.
@@ -139,13 +139,13 @@ function kent_set_universal_analytics() {
         // Filter out odd requests (we could also alert devs here).
         // For now, anything above 3sec reponse is odd.
         if ($pageload <= 3000) {
-            $extras .= "ga('set', 'dimension5', '{$pageload}');";
+            $extras .= "ga('set', 'metric1', '{$pageload}');\n";
         }
     }
 
     // Setup user tracking if logged in.
     if (isloggedin()) {
-        $extras .= "ga('set', '&uid', {$USER->id});";
+        $extras .= "ga('set', '&uid', {$USER->id});\n";
     }
 
     // Grab the GA Code.
@@ -157,13 +157,13 @@ function kent_set_universal_analytics() {
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
-    ga('require', 'displayfeatures');
     ga('set', 'dimension1', '{$CFG->kent->platform}');
     ga('set', 'dimension2', '{$CFG->kent->distribution}');
     ga('set', 'dimension4', '{$CFG->kent->hostname}');
     {$extras}
 
+    ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
+    ga('require', 'displayfeatures');
 </script>
 <!-- End of Google Analytics -->
 GACODE;
