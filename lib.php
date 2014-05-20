@@ -125,27 +125,28 @@ function kent_set_analytics() {
 function kent_set_universal_analytics() {
     global $CFG, $USER;
 
-    $extras = "";
+    // Build dimensions.
+    $dimensions = array(
+        "'dimension1': '{$CFG->kent->platform}'",
+        "'dimension2': '{$CFG->kent->distribution}'"
+    );
 
-    // Add current user details to extras.
+    // Add current user details to dimensions.
     $usertype = kent_user_type();
     if ($usertype !== null) {
-        $extras .= "ga('set', 'dimension3', '{$usertype}');\n";
+        $dimensions[] = "'dimension3': '{$usertype}'";
     }
 
-    // Performance stats.
-    if (!empty($CFG->kent->starttime)) {
-        $pageload = (microtime(true) - $CFG->kent->starttime) * 1000;
-        // Filter out odd requests (we could also alert devs here).
-        // For now, anything above 3sec reponse is odd.
-        if ($pageload <= 3000) {
-            $extras .= "ga('set', 'metric1', '{$pageload}');\n";
-        }
-    }
+    // Add hostname.
+    $dimensions[] = "'dimension4': '{$CFG->kent->hostname}'";
+
+    // Join it up.
+    $dimensions = join(",", $dimensions);
 
     // Setup user tracking if logged in.
+    $tracker = "";
     if (isloggedin()) {
-        $extras .= "ga('set', '&uid', {$USER->id});\n";
+        $tracker = "ga('set', '&uid', {$USER->id});";
     }
 
     // Grab the GA Code.
@@ -159,11 +160,10 @@ function kent_set_universal_analytics() {
 
     ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
     ga('require', 'displayfeatures');
-
-    ga('set', 'dimension1', '{$CFG->kent->platform}');
-    ga('set', 'dimension2', '{$CFG->kent->distribution}');
-    ga('set', 'dimension4', '{$CFG->kent->hostname}');
-    {$extras}
+    {$tracker}
+    ga('send', 'pageview', {
+    {$dimensions}
+    });
 
 </script>
 <!-- End of Google Analytics -->
