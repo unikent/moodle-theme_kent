@@ -157,13 +157,14 @@ function kent_set_universal_analytics() {
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
+    ga('require', 'displayfeatures');
+
     ga('set', 'dimension1', '{$CFG->kent->platform}');
     ga('set', 'dimension2', '{$CFG->kent->distribution}');
     ga('set', 'dimension4', '{$CFG->kent->hostname}');
     {$extras}
 
-    ga('create', '{$CFG->google_analytics_code}', 'kent.ac.uk');
-    ga('require', 'displayfeatures');
 </script>
 <!-- End of Google Analytics -->
 GACODE;
