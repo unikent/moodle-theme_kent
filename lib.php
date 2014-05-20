@@ -97,15 +97,8 @@ function kent_user_type() {
 }
 
 
-/*
- * Function to return google analytics with code, only if the code is set via the config
- */
-
-
 /**
- *
- *
- * @return unknown
+ * Function to return google analytics with code, only if the code is set via the config
  */
 function kent_set_analytics() {
     global $CFG, $PAGE;
@@ -122,64 +115,12 @@ function kent_set_analytics() {
         return "";
     }
 
-    // Should we be doing universal analytics?
-    if (isset($CFG->google_analytics_type) && $CFG->google_analytics_type === 'universal') {
-        return kent_set_universal_analytics();
-    }
-
-    // Nope, do standard.
-    return kent_set_standard_analytics();
+    return kent_set_universal_analytics();
 }
-
-
-/*
- * Function to return google analytics with code, only if the code is set via the config
- */
 
 
 /**
- *
- *
- * @return unknown
- */
-function kent_set_standard_analytics() {
-    global $CFG;
-
-    $code = "";
-
-    $code = <<<GACODE
-<!-- Start of Google Analytics -->
-<script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{$CFG->google_analytics_code}']);
-    _gaq.push(['_setCustomVar', 1, 'os', '{$CFG->kent->platform}']);
-    _gaq.push(['_setCustomVar', 1, 'distribution', '{$CFG->kent->distribution}']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-</script>
-<!-- End of Google Analytics -->
-GACODE;
-
-    return $code;
-}
-
-
-/*
  * Function to return Google universal analytics with code, only if the code is set via the config
- */
-
-
-/**
- *
- *
- * @return unknown
  */
 function kent_set_universal_analytics() {
     global $CFG, $USER;
@@ -198,6 +139,16 @@ function kent_set_universal_analytics() {
 
     // Add hostname.
     $dimensions[] = "'dimension4': '{$CFG->kent->hostname}'";
+
+    // Performance stats.
+    if (!empty($CFG->kent->starttime)) {
+        $pageload = (microtime(true) - $CFG->kent->starttime) * 1000;
+        // Filter out odd requests (we could also alert devs here).
+        // For now, anything above 3sec reponse is odd.
+        if ($pageload <= 3000) {
+            $dimensions[] = "'dimension5': '{$pageload}'";
+        }
+    }
 
     // Join it up.
     $dimensions = join(",", $dimensions);
