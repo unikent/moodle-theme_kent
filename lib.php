@@ -140,6 +140,16 @@ function kent_set_universal_analytics() {
     // Add hostname.
     $dimensions[] = "'dimension4': '{$CFG->kent->hostname}'";
 
+    // Performance stats.
+    if (!empty($CFG->kent->starttime)) {
+        $pageload = (microtime(true) - $CFG->kent->starttime) * 1000;
+        // Filter out odd requests (we could also alert devs here).
+        // For now, anything above 3sec reponse is odd.
+        if ($pageload <= 3000) {
+            $dimensions[] = "'dimension5': '{$pageload}'";
+        }
+    }
+
     // Join it up.
     $dimensions = join(",", $dimensions);
 
