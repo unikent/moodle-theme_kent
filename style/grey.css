@@ -55,10 +55,6 @@ div#jcontrols_button {
 	border-top: 1px solid #CCC;
 }
 
-.block_private_files .singlebutton input[type=submit] {
-	white-space: normal;
-}
-
 #ebutton {
 	margin-top: 3px;
 }
