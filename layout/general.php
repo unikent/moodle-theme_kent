@@ -196,6 +196,5 @@ echo $OUTPUT->doctype() ?>
 </div>
 
 <?php echo $OUTPUT->standard_end_of_body_html() ?>
-<?php echo kent_set_analytics() ?>
 </body>
 </html>
