@@ -7,6 +7,10 @@ body {
     min-width: 960px;
 }
 
+body.tii-box {
+  background: none !important;
+}
+
 html a, body a,
 html a:visited, body a:visited,
 #kent_course_list_overview .course_details_ovrv .title a,
