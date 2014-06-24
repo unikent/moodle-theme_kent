@@ -994,3 +994,17 @@ body .block_course_overview .content {
 .block_private_files .singlebutton input[type=submit] {
   white-space: normal;
 }
+
+/* Fixes for grade report table alignment */
+
+#page-grade-report-grader-index table#fixed_column th {
+  padding: 0 4px 0 4px;
+}
+
+#page-grade-report-grader-index table#user-grades th {
+  padding: 0 4px 0 4px;
+}
+
+#page-grade-report-grader-index .right_scroller #user-grades td, #page-grade-report-grader-index #fixed_column td {
+  padding-bottom: 0;
+}
