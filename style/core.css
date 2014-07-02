@@ -1008,3 +1008,7 @@ body .block_course_overview .content {
 #page-grade-report-grader-index .right_scroller #user-grades td, #page-grade-report-grader-index #fixed_column td {
   padding-bottom: 0;
 }
+
+.editor_atto_menu .dropdown-menu > li > a {
+  color: #000 !important;
+}
