@@ -301,6 +301,10 @@ margin: 0 20px;
     margin-bottom: 10px !important;
 }
 
+.block .list, .block .list li {
+  background: none;
+}
+
 .block.hidden {
     
 }
