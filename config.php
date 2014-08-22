@@ -18,35 +18,37 @@ $THEME->name = 'kent';
 
 $THEME->parents = array('base', 'canvas', 'aardvark_kent');
 
-if (isset($CFG->theme_colour)) {
-    switch($CFG->theme_colour) {
-        case "archive":
-            $THEME->sheets = array('core', 'archive');
-            break;
-        case "cyan":
-            $THEME->sheets = array('core', 'cyan');
-            break;
-        case "green":
-            $THEME->sheets = array('core', 'green');
-            break;
-        case "red":
-            $THEME->sheets = array('core', 'red');
-            break;
-        case "clean":
-            $THEME->sheets = array('core', 'clean');
-            break;
-        case "grey":
-            $THEME->sheets = array('core', 'grey');
-            break;
-        case "future":
-            $THEME->sheets = array('core', 'print', 'future');
-            break;
-        case "blue":
-        default:
-            $THEME->sheets = array('core', 'print');
-    }
-} else {
-    $THEME->sheets = array('core', 'print');
+$THEME->sheets = array('core', 'print');
+
+if (!isset($CFG->theme_colour)) {
+    $CFG->theme_colour = 'blue';
+}
+
+switch($CFG->theme_colour) {
+    case "archive":
+        $THEME->sheets = array('core', 'archive');
+        break;
+    case "cyan":
+        $THEME->sheets = array('core', 'cyan');
+        break;
+    case "green":
+        $THEME->sheets = array('core', 'green');
+        break;
+    case "red":
+        $THEME->sheets = array('core', 'red');
+        break;
+    case "clean":
+        $THEME->sheets = array('core', 'clean');
+        break;
+    case "grey":
+        $THEME->sheets = array('core', 'grey');
+        break;
+    case "future":
+        $THEME->sheets = array('core', 'print', 'future');
+        break;
+    case "blue":
+    default:
+        $THEME->sheets = array('core', 'print');
 }
 
 $THEME->enable_dock = false;
