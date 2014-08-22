@@ -1,15 +1,19 @@
 body {
 	background: #FFF !important;
-}
 
-#menuwrap {
-	overflow: hidden;
+	#menuwrap {
+		overflow: hidden;
+	}
+
+	#headerwrap {
+		background: #FFF;
+	}
 }
 
 .yui3-skin-sam {
 	.yui3-menu-horizontal {
 		.yui3-menu-label, .yui3-menuitem-content {
-			border: 0;
+			border: none;
 		}
 	}
 }
@@ -17,11 +21,26 @@ body {
 #menuitemswrap {
 	#custommenu {
 		.yui3-menuitem-active {
-			background: none;
+			background: none !important;
 
 			.yui3-menuitem-content {
-				background: none;
+				background: none !important;
+
 			}
 		}
+	}
+}
+
+#page {
+	padding: 0;
+}
+
+#page-content {
+	border: none;
+}
+
+#page-footer {
+	#footerinner {
+		border: none;
 	}
 }
