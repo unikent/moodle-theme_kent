@@ -164,17 +164,6 @@ echo $OUTPUT->doctype() ?>
             </div>
             <div id="left_footer">
                 <?php
-                    // Moodle Link
-                    if ($CFG->kent->distribution == "2014") {
-                        echo html_writer::link($CFG->kent->paths['2013'], "Go to previous Moodle");
-                    }
-                    if ($CFG->kent->distribution == "2013") {
-                        echo html_writer::link($CFG->kent->paths['2012'], "Go to previous Moodle");
-                    }
-                    if ($CFG->kent->distribution == "2012" || $CFG->kent->distribution == "archive") {
-                        echo html_writer::link($CFG->kent->paths['2013'], "Go to current Moodle");
-                    }
-
                     echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
                 ?>
             </div>
