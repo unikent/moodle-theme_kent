@@ -117,9 +117,9 @@ echo $OUTPUT->doctype() ?>
                     <div class="region-content">
                             <?php
                         if (!right_to_left()) {
-                            echo $OUTPUT->blocks_for_region('side-pre');
+                            echo $OUTPUT->blocks('side-pre');
                         } elseif ($hassidepost) {
-                            echo $OUTPUT->blocks_for_region('side-post');
+                            echo $OUTPUT->blocks('side-post');
                     } ?>
 
                     </div>
@@ -131,9 +131,9 @@ echo $OUTPUT->doctype() ?>
                     <div class="region-content">
                            <?php
                        if (!right_to_left()) {
-                           echo $OUTPUT->blocks_for_region('side-post');
+                           echo $OUTPUT->blocks('side-post');
                        } elseif ($hassidepre) {
-                           echo $OUTPUT->blocks_for_region('side-pre');
+                           echo $OUTPUT->blocks('side-pre');
                     } ?>
                     </div>
                 </div>
