@@ -1026,3 +1026,8 @@ body .block_course_overview .content {
 .editor_atto_menu .dropdown-menu > li > a {
   color: #000 !important;
 }
+
+/* So this won't cause issues in Moodle 2.9 */
+table.generaltable > tbody > tr:nth-of-type(even) td {
+  background-color: #f9f9f9;
+}
