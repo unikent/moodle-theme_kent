@@ -97,51 +97,24 @@ echo $OUTPUT->doctype() ?>
             </p>
         </div>
         <?php } ?>
-<div id="contentwrapper">   
-    <!-- start OF moodle CONTENT -->
+<div id="contentwrapper">
     <div id="page-content">
+        <?php echo $OUTPUT->blocks('side-pre'); ?>
+
         <div id="region-main-box">
-            <div id="region-post-box">
-                <div id="region-main-wrap">
-                    <div id="region-main">
-                        <div id="mainpadder" class="region-content">
-                            <?php echo $coursecontentheader; ?>
-                            <?php echo $OUTPUT->main_content() ?>
-                            <?php echo $coursecontentfooter; ?>
-                        </div>
+            <div id="region-main-wrap">
+                <div id="region-main">
+                    <div id="mainpadder" class="region-content">
+                        <?php echo $coursecontentheader; ?>
+                        <?php echo $OUTPUT->main_content() ?>
+                        <?php echo $coursecontentfooter; ?>
                     </div>
                 </div>
-
-                <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-                <div id="region-pre" class="block-region">
-                    <div class="region-content">
-                            <?php
-                        if (!right_to_left()) {
-                            echo $OUTPUT->blocks('side-pre');
-                        } elseif ($hassidepost) {
-                            echo $OUTPUT->blocks('side-post');
-                    } ?>
-
-                    </div>
-                </div>
-                <?php } ?>
-
-                <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
-                <div id="region-post" class="block-region">
-                    <div class="region-content">
-                           <?php
-                       if (!right_to_left()) {
-                           echo $OUTPUT->blocks('side-post');
-                       } elseif ($hassidepre) {
-                           echo $OUTPUT->blocks('side-pre');
-                    } ?>
-                    </div>
-                </div>
-                <?php } ?>
             </div>
         </div>
-     </div>
-    <!-- END OF CONTENT --> 
+
+        <?php echo $OUTPUT->blocks('side-post'); ?>
+    </div>
 </div>      
 
 <?php if (!empty($coursefooter)) { ?>
