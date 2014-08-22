@@ -153,13 +153,8 @@ echo $OUTPUT->doctype() ?>
         <div id="footerinner">
             <div id="right_footer">
                 <?php
-                
                     echo $OUTPUT->login_info();
-                    $linkurl = new moodle_url('/theme/switchdevice.php', array('url' => $this->page->url, 'device' => 'mobile', 'sesskey' => sesskey()));
-                    $content  = html_writer::start_tag('div', array('id' => 'kent_theme_switch_link'));
-                    $content .= html_writer::link($linkurl, 'Switch to Mobile theme');
-                    $content .= html_writer::end_tag('div');
-                    echo $content;
+                    echo $OUTPUT->theme_switch_links();
                 ?>
             </div>
             <div id="left_footer">
