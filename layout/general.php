@@ -58,7 +58,7 @@ echo $OUTPUT->doctype() ?>
                 if (!empty($PAGE->layout_options['langmenu'])) {
                     echo $OUTPUT->lang_menu();
                 }
-                echo $PAGE->headingmenu ?>
+                echo $PAGE->page_heading_menu() ?>
             </div>
             <div id="headerwrap">
                 <div id="logowrap">
