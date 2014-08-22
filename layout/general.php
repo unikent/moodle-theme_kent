@@ -97,24 +97,40 @@ echo $OUTPUT->doctype() ?>
             </p>
         </div>
         <?php } ?>
-<div id="contentwrapper">
+<div id="contentwrapper">   
+    <!-- start OF moodle CONTENT -->
     <div id="page-content">
-        <?php echo $OUTPUT->blocks('side-pre'); ?>
-
         <div id="region-main-box">
-            <div id="region-main-wrap">
-                <div id="region-main">
-                    <div id="mainpadder" class="region-content">
-                        <?php echo $coursecontentheader; ?>
-                        <?php echo $OUTPUT->main_content() ?>
-                        <?php echo $coursecontentfooter; ?>
+            <div id="region-post-box">
+                <div id="region-main-wrap">
+                    <div id="region-main">
+                        <div id="mainpadder" class="region-content">
+                            <?php echo $coursecontentheader; ?>
+                            <?php echo $OUTPUT->main_content() ?>
+                            <?php echo $coursecontentfooter; ?>
+                        </div>
                     </div>
                 </div>
+
+                <?php if ($hassidepre) { ?>
+                <div id="region-pre" class="block-region">
+                    <div class="region-content">
+                           <?php echo $OUTPUT->blocks('side-pre'); ?>
+                    </div>
+                </div>
+                <?php } ?>
+
+                <?php if ($hassidepost) { ?>
+                <div id="region-post" class="block-region">
+                    <div class="region-content">
+                           <?php echo $OUTPUT->blocks('side-post'); ?>
+                    </div>
+                </div>
+                <?php } ?>
             </div>
         </div>
-
-        <?php echo $OUTPUT->blocks('side-post'); ?>
-    </div>
+     </div>
+    <!-- END OF CONTENT --> 
 </div>      
 
 <?php if (!empty($coursefooter)) { ?>
