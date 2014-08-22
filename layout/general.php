@@ -163,9 +163,7 @@ echo $OUTPUT->doctype() ?>
                 ?>
             </div>
             <div id="left_footer">
-                <?php
-                    echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
-                ?>
+                <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
             </div>
             <?php echo $PAGE->theme->settings->footnote; ?>
             <div class="clearfix"></div>
