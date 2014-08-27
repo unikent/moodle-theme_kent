@@ -1,5 +1,5 @@
 <?php
-$hasheading = ($PAGE->heading);
+$hasheading = $OUTPUT->page_heading();
 $hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
 $hasfooter = (empty($PAGE->layout_options['nofooter']));
 $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
@@ -44,12 +44,12 @@ if ($hascustommenu) {
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
-    <title><?php echo $PAGE->title ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
-    <?php echo $OUTPUT->standard_head_html() ?>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <?php echo $OUTPUT->standard_head_html(); ?>
 </head>
 <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses.' '.join(' ', $bodyclasses)) ?>">
-<?php echo $OUTPUT->standard_top_of_body_html() ?>
+<?php echo $OUTPUT->standard_top_of_body_html(); ?>
 
 <div id="page">
         <div id="page-header">
@@ -58,7 +58,7 @@ echo $OUTPUT->doctype() ?>
                 if (!empty($PAGE->layout_options['langmenu'])) {
                     echo $OUTPUT->lang_menu();
                 }
-                echo $PAGE->headingmenu ?>
+                echo $OUTPUT->page_heading_menu() ?>
             </div>
             <div id="headerwrap">
                 <div id="logowrap">
@@ -86,7 +86,7 @@ echo $OUTPUT->doctype() ?>
             <?php } ?>
             </div>
             <div id="ebutton">
-               <?php if ($hasnavbar) { echo $PAGE->button; } ?>
+               <?php if ($hasnavbar) { echo $OUTPUT->page_heading_button(); } ?>
            </div>
 
         </div>  
@@ -112,29 +112,18 @@ echo $OUTPUT->doctype() ?>
                     </div>
                 </div>
 
-                <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
+                <?php if ($hassidepre) { ?>
                 <div id="region-pre" class="block-region">
                     <div class="region-content">
-                            <?php
-                        if (!right_to_left()) {
-                            echo $OUTPUT->blocks_for_region('side-pre');
-                        } elseif ($hassidepost) {
-                            echo $OUTPUT->blocks_for_region('side-post');
-                    } ?>
-
+                           <?php echo $OUTPUT->blocks('side-pre'); ?>
                     </div>
                 </div>
                 <?php } ?>
 
-                <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
+                <?php if ($hassidepost) { ?>
                 <div id="region-post" class="block-region">
                     <div class="region-content">
-                           <?php
-                       if (!right_to_left()) {
-                           echo $OUTPUT->blocks_for_region('side-post');
-                       } elseif ($hassidepre) {
-                           echo $OUTPUT->blocks_for_region('side-pre');
-                    } ?>
+                           <?php echo $OUTPUT->blocks('side-post'); ?>
                     </div>
                 </div>
                 <?php } ?>
@@ -153,30 +142,12 @@ echo $OUTPUT->doctype() ?>
         <div id="footerinner">
             <div id="right_footer">
                 <?php
-                
                     echo $OUTPUT->login_info();
-                    $linkurl = new moodle_url('/theme/switchdevice.php', array('url' => $this->page->url, 'device' => 'mobile', 'sesskey' => sesskey()));
-                    $content  = html_writer::start_tag('div', array('id' => 'kent_theme_switch_link'));
-                    $content .= html_writer::link($linkurl, 'Switch to Mobile theme');
-                    $content .= html_writer::end_tag('div');
-                    echo $content;
+                    echo $OUTPUT->theme_switch_links();
                 ?>
             </div>
             <div id="left_footer">
-                <?php
-                    // Moodle Link
-                    if ($CFG->kent->distribution == "2014") {
-                        echo html_writer::link($CFG->kent->paths['2013'], "Go to previous Moodle");
-                    }
-                    if ($CFG->kent->distribution == "2013") {
-                        echo html_writer::link($CFG->kent->paths['2012'], "Go to previous Moodle");
-                    }
-                    if ($CFG->kent->distribution == "2012" || $CFG->kent->distribution == "archive") {
-                        echo html_writer::link($CFG->kent->paths['2013'], "Go to current Moodle");
-                    }
-
-                    echo '<br/><a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>';
-                ?>
+                <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
             </div>
             <?php echo $PAGE->theme->settings->footnote; ?>
             <div class="clearfix"></div>
