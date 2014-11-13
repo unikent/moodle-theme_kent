@@ -1038,3 +1038,8 @@ table.generaltable > tbody > tr:nth-of-type(even) td {
 #page-admin-setting-messageinbound_mailsettings #id_s__messageinbound_hostssl {
     width: 220px;
 }
+
+div.overflowbox {
+    overflow: auto;
+    border: 0;
+}
