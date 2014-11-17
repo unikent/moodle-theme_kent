@@ -1046,6 +1046,7 @@ div.overflowbox {
 
 body #chooseform .alloptions .nonoption {
     padding-left: 40px;
+    padding-bottom: 5px;
 }
 
 body #chooseform .alloptions .subtype {
