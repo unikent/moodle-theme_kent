@@ -1043,3 +1043,13 @@ div.overflowbox {
     overflow: auto;
     border: 0;
 }
+
+body #chooseform .alloptions .nonoption {
+    padding-left: 40px;
+    padding-bottom: 5px;
+}
+
+body #chooseform .alloptions .subtype {
+    padding-left: 75px;
+}
+
