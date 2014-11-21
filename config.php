@@ -51,6 +51,11 @@ switch($CFG->theme_colour) {
         $THEME->sheets = array('core', 'print');
 }
 
+if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
+    $THEME->sheets[] = 'navbar';
+    $THEME->javascripts_footer = array('navbar');
+}
+
 $THEME->enable_dock = false;
 
 $THEME->editor_sheets = array('editor');
