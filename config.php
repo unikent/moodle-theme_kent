@@ -51,8 +51,7 @@ switch($CFG->theme_colour) {
         $THEME->sheets = array('core', 'print');
 }
 
-$enablenav = get_config('theme_kent', 'enable_navbar');
-if ($enablenav) {
+if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
     $THEME->sheets[] = 'navbar';
     $THEME->javascripts_footer = array('navbar');
 }

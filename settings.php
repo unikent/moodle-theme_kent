@@ -7,7 +7,7 @@ if ($ADMIN->fulltree) {
 
     // NavBar Setting.
     $settings->add(new admin_setting_configcheckbox(
-        'theme_kent/enable_navbar',
+        'theme_kent_enable_navbar',
         'Enable Navbar',
         'Enable Kent Navbar',
         0
