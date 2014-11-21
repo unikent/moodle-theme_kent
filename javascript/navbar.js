@@ -1,178 +1,162 @@
 (function() {
 
-    // the root url for this project
-    var URLDirectory = ""; 
+   var kentbar = new function(){
 
-    // the services in the header bar
-    var services = [
-        {
-            name: "Student email",
-            url: "https://live.kent.ac.uk",
-            icon: "ico-email"
-        },
-        {
-            name: "Timetables",
-            url: "https://www.kent.ac.uk/student/my-study/",
-            icon: "ico-timetable"
-        },
-        {
-            name: "Moodle",
-            url: "https://moodle.kent.ac.uk",
-            icon: "ico-moodle"
-        },
-        {
-            name: "SDS",
-            url: "https://sds.kent.ac.uk",
-            icon: "ico-sds"
-        },
-        {
-            name: "LibrarySearch",
-            url: "http://librarysearch.kent.ac.uk",
-            icon: "ico-book"
-        },
-        {
-            name: "Connect mail",
-            url: "https://owa.connect.kent.ac.uk",
-            icon: "ico-email"
-        }
-    ];
+        // Container for node
+        this.dom = '';
 
-    var init = function() {
-        document.body.insertBefore(createFragment(buildHeader()), document.body.childNodes[0]);
+        // the services in the header bar
+        this.services = [
+            {
+                name: "Student email",
+                url: "https://live.kent.ac.uk",
+                icon: "ico-email"
+            },
+            {
+                name: "Timetables",
+                url: "https://www.kent.ac.uk/student/my-study/",
+                icon: "ico-timetable"
+            },
+            {
+                name: "Moodle",
+                url: "https://moodle.kent.ac.uk",
+                icon: "ico-moodle"
+            },
+            {
+                name: "SDS",
+                url: "https://sds.kent.ac.uk",
+                icon: "ico-sds"
+            },
+            {
+                name: "LibrarySearch",
+                url: "http://librarysearch.kent.ac.uk",
+                icon: "ico-library"
+            },
+            {
+                name: "Staff/PGR mail",
+                url: "https://owa.connect.kent.ac.uk",
+                icon: "ico-email"
+            }
+        ];
 
-        addEvent(document.getElementsByClassName("menu-link")[0], "click", function(e) {
-            e.preventDefault();
-            showHideMenu();
-        });
+        // Init object
+        this.init = function() {
+            // Check for "window._kentbar" config (can override base dir to set alternative css)
+            if(typeof window._kentbar !== 'undefined'){
+                var conf =  window._kentbar;
+            }
 
-        window.onclick = function(e) {
-            var list = document.getElementsByClassName("service-list")[0];
-            if (e.toElement.className !== "menu-link") {
-                if (list.style.display !== "none") {
-                    list.style.display = "none";
+            this.createKentBar();
+        };
+
+        // Create kent Bar
+        this.createKentBar = function(){
+            // Create bar
+            this.dom = this.buildHeaderBar();
+
+            // Get bar
+            var bar = this.dom.firstChild;
+            // Add services menu to bar
+            bar.appendChild(this.createServicesDropdown());
+            // Get menu
+            var menu = bar.children[1];
+            var button = bar.querySelector(".menu-link");
+            // Show/hide menu
+            this.addEvent(button, "click", function(event){
+
+                if(event.preventDefault){ event.preventDefault(); } else { event.returnValue = false; }
+
+                if(menu.style.display == "block"){
+                    menu.style.display = 'none';
+                    button.parentNode.className = "systems-services";
+                }else{
+                    menu.style.display = 'block';
+                    button.parentNode.className = "systems-services open";
                 }
+            });
+
+            // Hide menu when user clicks off of it
+            this.addEvent(document, "click", function(event){
+                var target = (typeof event.target !== 'undefined') ? event.target : event.srcElement;
+                if(target.className != "menu-link" && menu.style.display == "block"){
+                    menu.style.display =  'none';
+                    button.parentNode.className = "systems-services";
+                }
+            });
+
+            // Add to real world
+           document.body.insertBefore(this.dom, document.body.childNodes[0]);
+        }
+
+        // Create services drop down menu
+        this.createServicesDropdown = function(){
+            var kentHeaderServices  = '<div id="khl-service-list" class="service-list" style="display:none;">';
+                kentHeaderServices += '<span class="menu-arrow"></span>';
+
+                kentHeaderServices += '<ul class="top-links">';
+                kentHeaderServices += '<li><a href="http://www.kent.ac.uk/student/" aria-label="Go to Student guide">Student guide</a></li>';
+                kentHeaderServices += '<li><a href="http://www.kent.ac.uk/campusonline/" aria-label="Go to Campus online">Campus online</a></li>';
+                kentHeaderServices += '</ul>';
+
+                kentHeaderServices += '<ul class="link-list key-links">';
+
+                for (var i = 0; i < this.services.length; i++) {
+                    kentHeaderServices += '<li><a target="_blank" href="' + this.services[i].url +
+                                        '" aria-label="Go to ' + this.services[i].name +
+                                        '">' +
+                                        '<span class="'+this.services[i].icon+'"></span>'+
+                                        this.services[i].name +
+                                        (this.services[i].info ? ' <span class="system-info">(' + this.services[i].info + ')</span>' : '') +
+                                        '</a></li>';
+                }
+
+                kentHeaderServices += '</ul>';
+
+                kentHeaderServices += '<a class="more-link" aria-label="More systems and services are available on the Student Guide" target="_blank" href="http://www.kent.ac.uk/student#more-systems">More systems and services</a>';
+                kentHeaderServices += '</div>';
+
+            return this.createFragment(kentHeaderServices);
+        }
+
+        // Build primary header bar
+        this.buildHeaderBar = function( services ){
+             var kentHeader = '<div id="kent-bar">';
+                kentHeader += '<div>';
+                kentHeader += '<a href="http://www.kent.ac.uk" class="khl-logo" title="University of Kent website homepage">University of Kent</a>';
+                kentHeader += '<ul class="khl-nav">';
+                kentHeader += '<li class="systems-services"><a role="button" aria-label="View Systems and Services" aria-controls="khl-service-list" href="#" class="menu-link">Kent systems and services</a></li>';
+                kentHeader += '</ul>';
+                kentHeader += '</div>';
+                kentHeader += '</div>';
+
+
+            return this.createFragment(kentHeader);
+        }
+
+        // Convert markup to DOM elements
+        this.createFragment = function(htmlStr) {
+            var frag = document.createDocumentFragment(),
+                temp = document.createElement('div');
+            temp.innerHTML = htmlStr;
+            while (temp.firstChild) {
+                frag.appendChild(temp.firstChild);
+            }
+            return frag;
+        };
+
+        // Add event (ie compatible)
+        this.addEvent = function(elem, evnt, func) {
+            if (elem.addEventListener) { // W3C DOM
+                elem.addEventListener(evnt,func,false);
+            } else if (elem.attachEvent) { // IE DOM
+                elem.attachEvent("on" + evnt, func);
+            } else {
+                elem[evnt] = func;
             }
         };
-    };
 
-    var addEvent = function(elem, evnt, func) {
-        if (elem.addEventListener) { // W3C DOM
-            elem.addEventListener(evnt,func,false);
-        } else if (elem.attachEvent) { // IE DOM
-            elem.attachEvent("on" + evnt, func);
-        } else {
-            elem[evnt] = func;
-        }
-    };
+    }
 
-    var createFragment = function(htmlStr) {
-        var frag = document.createDocumentFragment(),
-            temp = document.createElement('div');
-        temp.innerHTML = htmlStr;
-        while (temp.firstChild) {
-            frag.appendChild(temp.firstChild);
-        }
-        return frag;
-    };
-
-
-    var addEventListenerList = function(list, event, fn) {
-        for (var i = 0, len = list.length; i < len; i++) {
-            list[i].addEventListener(event, fn, false);
-        }
-    };
-
-    var isBreakPoint = function (bp) {
-        var bps = [300, 500, 768, 1024],
-            w = window.innerWidth,
-            min, max;
-
-        for (var i = 0, l = bps.length; i < l; i++) {
-            if (bps[i] === bp) {
-                min = bps[i-1] || 0;
-                max = bps[i];
-                break;
-            }
-        }
-
-        return w > min && w <= max;
-    };
-
-
-    var buildHeader = function() {
-        var kentHeaderHorizontal = "";
-
-        var kentHeaderServices  = '<div id="khl-service-list" class="service-list">';
-        kentHeaderServices += '<span class="menu-arrow"></span>';
-        kentHeaderServices += '<ul class="link-list key-links">';
-
-        for (var i = 0; i < services.length; i++) {
-            kentHeaderServices += '<li><a target="_blank" href="' + services[i].url + 
-                                '" class="' + services[i].icon + '">' + 
-                                services[i].name + 
-                                (services[i].info ? ' <span class="system-info">(' + services[i].info + ')</span>' : '') + 
-                                '</a></li>';
-        }
-            
-        kentHeaderServices += '</ul>';
-        kentHeaderServices += '</div>';
-
-        if (isBreakPoint(500)) {
-            kentHeaderHorizontal = kentHeaderServices.replace("khl-service-list", "khl-service-list-horizontal");
-            kentHeaderServices = "";
-        } else {
-            kentHeaderHorizontal="";
-        }
-
-        var kentHeader = '<div id="kent-header-light">';
-            kentHeader += '<div id="khl-header-strip">';
-            kentHeader += '<a href="http://www.kent.ac.uk" id="khl-logo" title="University of Kent website">University of Kent</a>';
-            kentHeader += '<ul id="khl-nav">';
-            kentHeader += '<li><a href="http://www.kent.ac.uk/student/">Student Guide</a></li>';
-            kentHeader += '<li class="systems-services"><a href="#" class="menu-link">Systems and services</a>';
-            kentHeader += kentHeaderServices;
-            kentHeader += '</li>';
-            kentHeader += '</ul>';
-            kentHeader += '</div>';
-            kentHeader += kentHeaderHorizontal;
-            kentHeader += '</div>';
-
-        return kentHeader;
-    };
-
-
-    var showHideMenu = function() {
-        var list = document.getElementsByClassName("service-list")[0];
-        if (list.style.display !== "block") {
-            list.style.display = "block";
-        } else {
-            list.style.display = "none";
-        }
-    };
-
-
-    /*
-     * Call init() on doc.ready() equivalent...
-     */
-
-    var span = document.createElement('span'),
-        backupLoader,
-        ms = 1,
-        loader = window.setTimeout(function() {
-            try {
-                document.body.appendChild(span);
-
-                document.body.removeChild(span);
-
-                // Still here? Then document is ready
-                window.clearTimeout(loader);
-                window.clearTimeout(backupLoader);
-                init();
-            } catch(e) {
-                // Whoops, document is not ready yet, try again...
-
-                backupLoader = window.setTimeout(arguments.callee, ms);
-            }
-        }, ms);
-
+    // Init bar
+    kentbar.init();
 })();
