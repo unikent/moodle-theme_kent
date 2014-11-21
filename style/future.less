@@ -9,6 +9,27 @@ body {
 	#headerwrap {
 		background: #FFF;
 	}
+
+    #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+        max-width: 1440px;
+    }
+
+    #page-footer #footerwrapper {
+        border-top: 1px solid #ccc;
+        background: none;
+    }
+
+    #menuwrap .javascript-disabled .yui3-menuitem .yui3-menuitem-content {
+        padding-top: 10px !important;
+        display: inline-block;
+    }
+
+    #profilebar {
+        &, #profilebar-innerwrap {
+            border: none;
+            background: none;
+        }
+    }
 }
 
 div#jcontrols_button {
