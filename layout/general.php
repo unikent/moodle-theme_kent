@@ -97,7 +97,7 @@ echo $OUTPUT->doctype() ?>
         
         <div id="menuwrap">
             <div id="homeicon">
-                <a href="<?php echo $CFG->wwwroot; ?>"><img src="<?php echo $OUTPUT->pix_url('menu/home_icon', 'theme')?>"></a>
+                <a href="<?php echo $CFG->wwwroot; ?>"></a>
             </div>
             <?php 
             if ($hascustommenu) { ?>
