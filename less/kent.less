@@ -88,6 +88,65 @@ html body {
  */
 
 html body {
+
+    /*
+     * Overrides for live and such. 
+     */
+    &.kent-env-dev, &.kent-env-test, &.kent-env-live {
+        background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
+        min-width: 1140px;
+
+        #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+            max-width: 1140px;
+        }
+
+        #menuwrap {
+            background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
+        }
+
+        #headerwrap {
+            background: url([[pix:theme|header-background]]) repeat-x top;
+        }
+
+        &.kent-dist-training {
+            background-color: #F2F5FF;
+            background-image: url([[pix:theme|bodygrad-green]]);
+
+            #menuwrap {
+                background-color: #333333;
+                background-image: url([[pix:theme|menu/menugrad-green]]);
+            }
+        }
+
+        &.kent-dist-external {
+            background-color: #F2F5FF;
+            background-image: url([[pix:theme|bodygrad-cyan]]);
+
+            #menuwrap {
+                background-color: #333333;
+                background-image: url([[pix:theme|menu/menugrad-cyan]]);
+            }
+        }
+
+        #headerwrap {
+            #profilename {
+                .fa {
+                    display: none;
+                }
+            }
+        }
+
+        #menuwrap {
+            #homeicon {
+                a {
+                    .fa {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
     /*
      * Theme of the future!
      * All the styles :3
@@ -186,64 +245,6 @@ html body {
                             font-size: 24px;
                             padding-top: 7px;
                         }
-                    }
-                }
-            }
-        }
-    }
-
-    /*
-     * Overrides for live and such. 
-     */
-    &.kent-env-dev, &.kent-env-test, &.kent-env-live {
-        background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
-        min-width: 1140px;
-
-        #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
-            max-width: 1140px;
-        }
-
-        #menuwrap {
-            background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
-        }
-
-        #headerwrap {
-            background: url([[pix:theme|header-background]]) repeat-x top;
-        }
-
-        &.kent-dist-training {
-            background-color: #F2F5FF;
-            background-image: url([[pix:theme|bodygrad-green]]);
-
-            #menuwrap {
-                background-color: #333333;
-                background-image: url([[pix:theme|menu/menugrad-green]]);
-            }
-        }
-
-        &.kent-dist-external {
-            background-color: #F2F5FF;
-            background-image: url([[pix:theme|bodygrad-cyan]]);
-
-            #menuwrap {
-                background-color: #333333;
-                background-image: url([[pix:theme|menu/menugrad-cyan]]);
-            }
-        }
-
-        #headerwrap {
-            #profilename {
-                .fa {
-                    display: none;
-                }
-            }
-        }
-
-        #menuwrap {
-            #homeicon {
-                a {
-                    .fa {
-                        display: none;
                     }
                 }
             }
