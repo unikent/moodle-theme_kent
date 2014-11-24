@@ -48,7 +48,7 @@ switch($CFG->theme_colour) {
         break;
     case "blue":
     default:
-        $THEME->sheets = array('core', 'print');
+        $THEME->sheets = array('core', 'print', 'font-awesome.min');
 }
 
 if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
