@@ -19,13 +19,14 @@ $THEME->name = 'kent';
 $THEME->parents = array('base', 'canvas', 'aardvark_kent');
 
 $THEME->sheets = array('core', 'print', 'font-awesome.min');
+$THEME->javascripts_footer = array('profileblock');
 
 $THEME->lessfile = 'kent';
 $THEME->lessvariablescallback = 'theme_kent_less_variables';
 
 if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
     $THEME->sheets[] = 'navbar';
-    $THEME->javascripts_footer = array('navbar');
+    $THEME->javascripts_footer[] = 'navbar';
 }
 
 $THEME->enable_dock = false;

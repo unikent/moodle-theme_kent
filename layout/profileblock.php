@@ -1,17 +1,3 @@
-<script type="text/javascript">
-function toggle5(showHideDiv, switchImgTag) {
-        var ele = document.getElementById(showHideDiv);
-        var imageEle = document.getElementById(switchImgTag);
-        if(ele.style.display == "block") {
-                ele.style.display = "none";
-		imageEle.innerHTML = '<img src="<?php echo $OUTPUT->pix_url('profile/down', 'theme')?>">';
-        }
-        else {
-                ele.style.display = "block";
-                imageEle.innerHTML = '<img src="<?php echo $OUTPUT->pix_url('profile/up', 'theme')?>">';
-        }
-}
-</script>
 <div class="profilepic" id="profilepic">
 	<?php
 		if (!isloggedin() or isguestuser()) {
@@ -42,7 +28,8 @@ echo '<div class="profilelogin" id="profilelogin">';
 	echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
 ?>
 
-<a id="imageDivLink" href="javascript:toggle5('profilebar', 'imageDivLink');"><img src="<?php echo $OUTPUT->pix_url('profile/down', 'theme')?>" /></a>
+<a id="imageDivLink" href="javascript:theme_kent_toggle_block('profilebar', 'imageDivLink');">
+</a>
 
 <?php
 echo '</div>'; // end of graphicwrap
