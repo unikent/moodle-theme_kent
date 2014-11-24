@@ -97,7 +97,7 @@ echo $OUTPUT->doctype() ?>
         
         <div id="menuwrap">
             <div id="homeicon">
-                <a href="<?php echo $CFG->wwwroot; ?>"></a>
+                <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
             </div>
             <?php 
             if ($hascustommenu) { ?>
