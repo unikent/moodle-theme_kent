@@ -16,9 +16,9 @@
 
 $THEME->name = 'kent';
 
-$THEME->parents = array('base', 'canvas', 'aardvark_kent');
+$THEME->parents = array('base', 'canvas');
 
-$THEME->sheets = array('core', 'print', 'font-awesome');
+$THEME->sheets = array('aardvark', 'core', 'print', 'font-awesome');
 $THEME->javascripts_footer = array('profileblock');
 
 $THEME->lessfile = 'kent';
