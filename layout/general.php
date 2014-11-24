@@ -45,6 +45,37 @@ $bodyclasses = array(
     'kent-dist-' . $CFG->kent->distribution
 );
 
+// Custom CSS (if set).
+$customcolor = null;
+if (isloggedin() && !isguestuser()) {
+    global $DB, $USER, $SESSION;
+
+    if (!isset($SESSION->theme_kent_custom_color)) {
+        $customcolor = $DB->get_field_sql('
+            SELECT data
+            FROM {user_info_data} uid
+            INNER JOIN {user_info_field} uif
+                ON uif.id = uid.fieldid
+            WHERE uid.userid = :userid AND uif.shortname = :shortname
+        ', array(
+            'userid' => $USER->id,
+            'shortname' => 'themecolor'
+        ));
+
+        if ($customcolor) {
+            $customcolor = clean_param($customcolor, PARAM_ALPHANUM);
+            $customcolor = substr($customcolor, 0, 6);
+        }
+
+        $SESSION->theme_kent_custom_color = $customcolor;
+    }
+
+    $customcolor = $SESSION->theme_kent_custom_color;
+    if ($customcolor) {
+        $bodyclasses[] = 'kent-custom';
+    }
+}
+
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';
@@ -73,7 +104,13 @@ echo $OUTPUT->doctype() ?>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-    <?php echo $OUTPUT->standard_head_html(); ?>
+    <?php
+    echo $OUTPUT->standard_head_html();
+
+    if ($customcolor) {
+        echo "<style>#menuwrap { background-color: #{$customcolor} !important; }</style>";
+    }
+    ?>
 </head>
 <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses.' '.join(' ', $bodyclasses)) ?>">
 <?php echo $OUTPUT->standard_top_of_body_html(); ?>
