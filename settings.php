@@ -36,15 +36,6 @@ $previewconfig = NULL;
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
 $settings->add($setting);
 
-// Email url setting
-
-$name = 'theme_kent/emailurl';
-$title = get_string('emailurl','theme_kent');
-$description = get_string('emailurldesc', 'theme_kent');
-$default = '';
-$setting = new admin_setting_configtext($name, $title, $description, $default);
-$settings->add($setting);
-
 
 // Foot note setting
 $name = 'theme_kent/footnote';
