@@ -76,6 +76,10 @@ html body {
  */
 
 html body {
+    /*
+     * Theme of the future!
+     * All the styles :3
+     */
     &.kent-env-dev, &.kent-env-test {
         &.kent-dist-future {
             background: #FFFFFF;
@@ -135,9 +139,29 @@ html body {
             #page-footer #footerwrapper {
                 background: none;
             }
+
+            #headerwrap {
+                #profilename {
+                    #imageDivLink {
+                        background: none !important;
+                        width: auto;
+                        width: auto;
+                    }
+
+                    .fa {
+                        color: #999;
+                        font-size: 18px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
         }
     }
 
+    /*
+     * Overrides for live and such. 
+     */
     &.kent-env-dev, &.kent-env-test, &.kent-env-live {
         background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
         min-width: 1140px;
@@ -171,6 +195,14 @@ html body {
             #menuwrap {
                 background-color: #333333;
                 background-image: url([[pix:theme|menu/menugrad-cyan]]);
+            }
+        }
+
+        #headerwrap {
+            #profilename {
+                .fa {
+                    display: none;
+                }
             }
         }
     }

@@ -28,7 +28,8 @@ echo '<div class="profilelogin" id="profilelogin">';
 	echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
 ?>
 
-<a id="imageDivLink" href="javascript:theme_kent_toggle_block('profilebar', 'imageDivLink');">
+<a id="imageDivLink" href="javascript:theme_kent_toggle_block('profilebar', 'imageDivLink', 'profilechevron');">
+    <i class="fa fa-chevron-down" id="profilechevron"></i>
 </a>
 
 <?php
