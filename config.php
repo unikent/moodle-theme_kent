@@ -127,5 +127,3 @@ $THEME->blockrtlmanipulations = array(
     'side-pre' => 'side-post',
     'side-post' => 'side-pre'
 );
-
-$THEME->csspostprocess = 'kent_process_css';
