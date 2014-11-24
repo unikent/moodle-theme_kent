@@ -40,7 +40,11 @@ if (empty($PAGE->layout_options['nocourseheaderfooter'])) {
     }
 }
 
-$bodyclasses = array();
+$bodyclasses = array(
+    'kent-env-' . $CFG->kent->environment,
+    'kent-dist-' . $CFG->kent->distribution
+);
+
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';
@@ -58,6 +62,10 @@ if ($showsidepre && !$showsidepost) {
 }
 if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
+}
+
+if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
+    $bodyclasses[] = 'kent-navbar';
 }
 
 echo $OUTPUT->doctype() ?>

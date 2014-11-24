@@ -1,0 +1,158 @@
+html body {
+    background: #FFFFFF;
+    min-width: 1340px;
+
+    &.kent-navbar {
+        #page {
+            padding: 0;
+        }
+
+        .headermenu {
+            display: none;
+        }
+    }
+
+    a {
+        &, &:visited {
+            color: #264F9C;
+        }
+
+        &:hover, &:active {
+            color: #369;
+        }
+    }
+
+    #page {
+        padding-top: 10px;
+    }
+
+    #menuwrap {
+        overflow: hidden;
+    }
+
+    #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+        max-width: 1340px;
+    }
+
+    #page-footer #footerwrapper {
+        border-top: 1px solid #ccc;
+    }
+
+    #menuwrap .javascript-disabled .yui3-menuitem .yui3-menuitem-content {
+        padding-top: 10px !important;
+        display: inline-block;
+    }
+
+    .yui3-skin-sam {
+        .yui3-menu-horizontal {
+            .yui3-menu-label, .yui3-menuitem-content {
+                border: none;
+            }
+        }
+    }
+}
+
+/*
+ * Different styles for different Moodles.
+ */
+
+html body {
+    &.kent-env-dev, &.kent-env-test {
+        &.kent-dist-future {
+            background: #FFFFFF;
+            min-width: 1340px;
+
+            #menuwrap {
+                background: #05345C;
+            }
+
+            #headerwrap {
+                background: #FFFFFF;
+            }
+
+            #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+                max-width: 1340px;
+            }
+
+            #menuitemswrap {
+                #custommenu {
+                    .yui3-menuitem-active {
+                        background: #937227 !important;
+
+                        .yui3-menuitem-content {
+                            background: none !important;
+                        }
+                    }
+
+                    .yui3-menuitem {
+                        .yui3-menuitem-content {
+                            border: 0;
+                        }
+                    }
+                }
+            }
+
+            #profilebar {
+                &, #profilebar-innerwrap {
+                    border: none;
+                    background: none;
+                }
+            }
+
+            #jcontrols_button {
+                background: none;
+            }
+
+            #page-content {
+                border: none;
+            }
+
+            #page-footer {
+                #footerinner {
+                    border: none;
+                }
+            }
+
+            #page-footer #footerwrapper {
+                background: none;
+            }
+        }
+    }
+
+    &.kent-env-dev, &.kent-env-test, &.kent-env-live {
+        background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
+        min-width: 1140px;
+
+        #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+            max-width: 1140px;
+        }
+
+        #menuwrap {
+            background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
+        }
+
+        #headerwrap {
+            background: url([[pix:theme|header-background]]) repeat-x top;
+        }
+
+        &.kent-dist-training {
+            background-color: #F2F5FF;
+            background-image: url([[pix:theme|bodygrad-green]]);
+
+            #menuwrap {
+                background-color: #333333;
+                background-image: url([[pix:theme|menu/menugrad-green]]);
+            }
+        }
+
+        &.kent-dist-external {
+            background-color: #F2F5FF;
+            background-image: url([[pix:theme|bodygrad-cyan]]);
+
+            #menuwrap {
+                background-color: #333333;
+                background-image: url([[pix:theme|menu/menugrad-cyan]]);
+            }
+        }
+    }
+}

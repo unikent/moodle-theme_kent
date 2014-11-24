@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top !important;
+    background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
     min-width: 960px;
 }
 
