@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $THEME->name = 'kent';
+$THEME->doctype = 'html5';
 
 $THEME->parents = array('base', 'canvas');
 
@@ -29,7 +30,7 @@ if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
     $THEME->javascripts_footer[] = 'navbar';
 }
 
-$THEME->enable_dock = false;
+$THEME->enable_dock = true;
 
 $THEME->editor_sheets = array('editor');
 
