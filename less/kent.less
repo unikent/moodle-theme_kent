@@ -5,7 +5,15 @@ html body {
     background: #FFFFFF;
     min-width: 1340px;
 
+    #kent-bar {
+        display: none;
+    }
+
     &.kent-navbar {
+        #kent-bar {
+            display: block;
+        }
+
         #page {
             padding: 0;
         }
@@ -210,7 +218,7 @@ html body {
      * All the styles :3
      */
     &.kent-env-dev, &.kent-env-demo, &.kent-custom {
-        &.kent-dist-future, &.kent-dist-future-demo {
+        &.kent-future-theme {
             background: #FFFFFF;
             min-width: 1340px;
 
