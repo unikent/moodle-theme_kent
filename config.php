@@ -40,7 +40,7 @@ $THEME->layouts = array(
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
     ),
-    'general' => array(
+    'standard' => array(
         'file' => 'general.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
@@ -113,6 +113,12 @@ $THEME->layouts = array(
         'regions' => array(),
         'options' => array('nofooter' => true, 'nonavbar' => false, 'noblocks' => true),
     ),
+    // The pagelayout used when a redirection is occuring.
+    'redirect' => array(
+        'file' => 'embedded.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'nocourseheaderfooter' => true),
+    ),
     'report' => array(
         'file' => 'general.php',
         'regions' => array('side-pre'),
@@ -121,6 +127,13 @@ $THEME->layouts = array(
     'datool' => array(
         'file' => 'general.php',
         'regions' => array(),
+    ),
+    // The pagelayout used for safebrowser and securewindow.
+    'secure' => array(
+        'file' => 'general.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'nocustommenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
     ),
 );
 
