@@ -26,15 +26,9 @@ if (!isloggedin() or isguestuser()) {
 </div>
 
 <?php
-if (empty($CFG->loginhttps)) {
-    $wwwroot = $CFG->wwwroot;
-} else {
-    $wwwroot = str_replace("http://", "https://", $CFG->wwwroot);
-}
-
 if (!isloggedin() or isguestuser()) {
     echo '<div class="profilelogin" id="profilelogin">';
-    echo '<form id="login" method="post" action="'.$wwwroot.'/login/index.php">';
+    echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
     echo '<ul>';
     echo '<li><input type="submit" value="&nbsp;&nbsp;'.get_string('login').'&nbsp;&nbsp;" /></li>';
     echo '</ul>';
@@ -72,30 +66,53 @@ if (!isloggedin() or isguestuser()) {
                 <div class="profileoptions" id="profileoptions">
                     <table width="100%" border="0">
                     <tr>
-                    <td> <ul>
-                    <li><a href="<?php echo $CFG->wwwroot; ?>/my"><img src="<?php echo $OUTPUT->pix_url('profile/courses', 'theme')?>" />&nbsp;<?php echo get_string('mycourses');?></a></li>
-                                <li><a href="<?php echo $CFG->wwwroot; ?>/user/profile.php"><img src="<?php echo $OUTPUT->pix_url('profile/profile', 'theme')?>" />&nbsp;<?php echo get_string('myprofile');?></a></li>
-
-                                <li><a href="<?php echo $CFG->wwwroot; ?>/user/files.php"><img src="<?php echo $OUTPUT->pix_url('profile/myfiles', 'theme')?>" />&nbsp;<?php echo get_string('myfiles');?></a></li>
-
-                    </ul></td>
-                    <td><ul>
-                       <li><a href="<?php echo $CFG->wwwroot; ?>/calendar/view.php?view=month"><img src="<?php echo $OUTPUT->pix_url('profile/calendar', 'theme')?>" />&nbsp;<?php echo get_string('calendar','calendar');?></a></li>
-
-                    <li><a href="<?php echo $CFG->wwwroot; ?>/message/index.php "><img src="<?php echo $OUTPUT->pix_url('profile/email', 'theme')?>" />&nbsp;Messages</a></li>
-                    
-                    <li>
-                        <form class="loginForm" method="post" action="<?php echo $CFG->wwwroot; ?>/login/logout.php">
-                            <div>
-                                <input type="hidden" name="sesskey" value="<?php echo sesskey(); ?>">
-                                <img src="<?php echo $OUTPUT->pix_url('profile/logout', 'theme')?>" />
-                                <input type="submit" value="<?php echo get_string('logout');?>" class="login">
-                            </div>
-                        </form>
-                    </li>
-                    
-
-                    </ul></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="<?php echo $CFG->wwwroot; ?>/my" class="profile profile-courses">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    My courses
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $CFG->wwwroot; ?>/user/profile.php" class="profile profile-profile">
+                                    <i class="fa fa-user"></i>
+                                    My profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $CFG->wwwroot; ?>/user/files.php" class="profile profile-myfiles">
+                                    <i class="fa fa-folder"></i>
+                                    My private files
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="<?php echo $CFG->wwwroot; ?>/calendar/view.php?view=month" class="profile profile-calendar">
+                                    <i class="fa fa-calendar"></i>
+                                    Calendar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $CFG->wwwroot; ?>/message/index.php" class="profile profile-email">
+                                    <i class="fa fa-envelope"></i>
+                                    Messages
+                                </a>
+                            </li>
+                            <li>
+                                <form class="loginForm profile profile-logout" method="post" action="<?php echo $CFG->wwwroot; ?>/login/logout.php">
+                                    <div>
+                                        <i class="fa fa-sign-out"></i>
+                                        <input type="hidden" name="sesskey" value="<?php echo sesskey(); ?>">
+                                        <input type="submit" value="Log out" class="login">
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </td>
                     </tr>
                     </table>
                 </div>
