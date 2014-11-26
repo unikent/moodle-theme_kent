@@ -339,26 +339,32 @@ html body {
                 text-transform: capitalize;
             }
 
-            #profileoptions {
-                li {
-                    img {
-                        display: none;
-                    }
+            #profilebar {
+                .profilebar_block {
+                    display: none;
+                }
 
-                    .fa {
-                        color: #000;
-                        vertical-align: middle;
-                    }
-
-                    .profile {
-                        background: none !important;
-                    }
-
-                    &:hover {
-                        background-color: #05345C;
+                #profileoptions {
+                    li {
+                        img {
+                            display: none;
+                        }
 
                         .fa {
-                            color: #FFF;
+                            color: #000;
+                            vertical-align: middle;
+                        }
+
+                        .profile {
+                            background: none !important;
+                        }
+
+                        &:hover {
+                            background-color: #05345C;
+
+                            .fa {
+                                color: #FFF;
+                            }
                         }
                     }
                 }
