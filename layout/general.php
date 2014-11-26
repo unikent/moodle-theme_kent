@@ -100,40 +100,42 @@ if ($customcolor) {
 <div id="page">
         <div id="page-header">
             <div class="headermenu">
-                <?php 
-                if (!empty($PAGE->layout_options['langmenu'])) {
-                    echo $OUTPUT->lang_menu();
-                }
-                echo $OUTPUT->page_heading_menu() ?>
+<?php 
+if (!empty($PAGE->layout_options['langmenu'])) {
+    echo $OUTPUT->lang_menu();
+}
+
+echo $OUTPUT->page_heading_menu();
+?>
             </div>
             <div id="headerwrap">
                 <div id="logowrap">
                     <img src="<?php echo $OUTPUT->pix_url($CFG->logo_colour, 'theme')?>" id="logo"> 
                 </div>
                 <div class="profilepic" id="profilepic">
-                <?php
-                if (!isloggedin() or isguestuser()) {
-                    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
-                } else {
-                    echo $OUTPUT->user_picture($USER, array('size' => 80));
-                }
-                ?>
+<?php
+if (!isloggedin() or isguestuser()) {
+    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
+} else {
+    echo $OUTPUT->user_picture($USER, array('size' => 80));
+}
+?>
                 </div>
 
-                <?php
-                if (!isloggedin() or isguestuser()) {
-                    echo '<div class="profilelogin" id="profilelogin">';
-                    echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
-                    echo '<ul>';
-                    echo '<li><input type="submit" value="&nbsp;&nbsp;'.get_string('login').'&nbsp;&nbsp;" /></li>';
-                    echo '</ul>';
-                    echo '</form>';
-                    echo '</div>';
-                    echo '</div>';
-                } else {
-                    echo '<div class="profilename" id="profilename">';
-                    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
-                ?>
+<?php
+if (!isloggedin() or isguestuser()) {
+    echo '<div class="profilelogin" id="profilelogin">';
+    echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
+    echo '<ul>';
+    echo '<li><input type="submit" value="&nbsp;&nbsp;'.get_string('login').'&nbsp;&nbsp;" /></li>';
+    echo '</ul>';
+    echo '</form>';
+    echo '</div>';
+    echo '</div>';
+} else {
+    echo '<div class="profilename" id="profilename">';
+    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
+?>
 
                 <a id="imageDivLink" href="javascript:theme_kent_toggle_block('profilebar', 'imageDivLink', 'profilechevron');">
                     <i class="fa fa-chevron-down" id="profilechevron"></i>
@@ -149,12 +151,17 @@ if ($customcolor) {
                                 
                             </div>
 
-                            <div class="profilebar_events">
-                                <h4>Upcoming Events</h4>
-                                <?php
-                                echo theme_kent_get_upcoming_events();
-                                ?>
-                            </div>
+<?php
+    if (!$hasfuture) {
+        $events = theme_kent_get_upcoming_events();
+        echo <<<HTML
+        <div class=\"profilebar_events\">
+            <h4>Upcoming Events</h4>
+            {$events}
+        </div>
+HTML;
+    }
+?>
 
                             <div class="profilebar_account">
                                 <h4>Links</h4>
