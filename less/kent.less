@@ -314,9 +314,64 @@ html body {
                         height: 32px;
                     }
                 }
+
+                .usermenu {
+                    position: relative;
+
+                    .moodle-actionmenu {
+                        .menubar {
+                            & > li {
+                                width: 100%;
+    
+                                & > a {
+                                    padding-right: 0;
+                                    height: 86px;
+                                }
+                            }
+                        }
+
+                        .toggle-display {
+                            .userbutton {
+                                .usertext {
+                                    margin-top: 20px;
+                                    top: 30px;
+                                    color: #05345C;
+                                    font-size: 34px;
+                                    line-height: 42px;
+                                    padding-right: 30px;
+                                }
+
+                                .avatars {
+                                    height: 80px;
+                                    width: 80px;
+                                    margin-right: 0;
+
+                                    img {
+                                        margin-top: 4px;
+                                    }
+                                }
+                            }
+
+                            .caret {
+                                position: absolute;
+                                top: 50px;
+                                right: 90px;
+                                border-top: 7px solid #05345C;
+                                border-right: 7px solid transparent;
+                                border-left: 7px solid transparent;
+                            }
+                        }
+                    }
+
+                    .moodle-actionmenu[data-enhanced] .menu.align-tr-br {
+                        right: 80px;
+                    }
+                }
             }
 
             #menuwrap {
+                overflow: visible;
+
                 #homeicon {
                     a {
                         background: none !important;

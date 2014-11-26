@@ -112,15 +112,17 @@ echo $OUTPUT->page_heading_menu();
                 <div id="logowrap">
                     <img src="<?php echo $OUTPUT->pix_url($CFG->logo_colour, 'theme')?>" id="logo"> 
                 </div>
-                <div class="profilepic" id="profilepic">
 <?php
-if (!isloggedin() or isguestuser()) {
-    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
-} else {
-    echo $OUTPUT->user_picture($USER, array('size' => 80));
+if (!$hasfuture || !method_exists($OUTPUT, 'user_menu')) {
+    echo '<div class="profilepic" id="profilepic">';
+    if (!isloggedin() or isguestuser()) {
+        echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
+    } else {
+        echo $OUTPUT->user_picture($USER, array('size' => 80));
+    }
+    echo '</div>';
 }
 ?>
-                </div>
 
 <?php
 if (!isloggedin() or isguestuser()) {
@@ -133,8 +135,11 @@ if (!isloggedin() or isguestuser()) {
     echo '</div>';
     echo '</div>';
 } else {
-    echo '<div class="profilename" id="profilename">';
-    echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
+    if ($hasfuture && method_exists($OUTPUT, 'user_menu')) {
+        echo $OUTPUT->user_menu();
+    } else {
+        echo '<div class="profilename" id="profilename">';
+        echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'">'.$USER->firstname.' '.$USER->lastname.'</a>';
 ?>
 
                 <a id="imageDivLink" href="javascript:theme_kent_toggle_block('profilebar', 'imageDivLink', 'profilechevron');">
@@ -152,15 +157,15 @@ if (!isloggedin() or isguestuser()) {
                             </div>
 
 <?php
-    if (!$hasfuture) {
-        $events = theme_kent_get_upcoming_events();
-        echo <<<HTML
-        <div class=\"profilebar_events\">
-            <h4>Upcoming Events</h4>
-            {$events}
-        </div>
+        if (!$hasfuture) {
+            $events = theme_kent_get_upcoming_events();
+            echo <<<HTML
+            <div class=\"profilebar_events\">
+                <h4>Upcoming Events</h4>
+                {$events}
+            </div>
 HTML;
-    }
+        }
 ?>
 
                             <div class="profilebar_account">
@@ -224,9 +229,10 @@ HTML;
                     </div>
                 </div>
 
-                <?php
-                }
-                ?>
+<?php
+    }
+}
+?>
             </div>
         </div>
         

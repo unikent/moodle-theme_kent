@@ -22,6 +22,8 @@ $THEME->parents = array('base', 'canvas');
 $THEME->sheets = array('aardvark', 'core', 'print', 'font-awesome');
 $THEME->javascripts_footer = array('profileblock');
 
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+
 $THEME->lessfile = 'kent';
 $THEME->lessvariablescallback = 'theme_kent_less_variables';
 
