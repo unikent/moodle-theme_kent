@@ -55,6 +55,11 @@ if ($CFG->theme_kent_enable_navbar && $hasnavbar !== "0") {
     $bodyclasses[] = 'kent-navbar';
 }
 
+$hasnewprofilebar = $hasfuture && $CFG->branch == 28;
+if ($hasnewprofilebar) {
+    $bodyclasses[] = 'kent-new-profile-bar';
+}
+
 // Custom CSS (if set).
 $customcolor = \local_kent\User::get_user_preference("themecustomcolor");
 if ($customcolor) {
@@ -112,7 +117,7 @@ echo $OUTPUT->page_heading_menu();
                 <div id="logowrap">
                     
                     <?php
-if ($hasfuture) {
+if ($hasnewprofilebar) {
     echo "Moodle-" . $CFG->kent->distribution;
 } else {
     $logo = $OUTPUT->pix_url($CFG->logo_colour, 'theme');
@@ -121,7 +126,7 @@ if ($hasfuture) {
                     ?>
                 </div>
 <?php
-if (!$hasfuture || !method_exists($OUTPUT, 'user_menu')) {
+if (!$hasnewprofilebar) {
     echo '<div class="profilepic" id="profilepic">';
     if (!isloggedin() or isguestuser()) {
         echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
@@ -143,7 +148,7 @@ if (!isloggedin() or isguestuser()) {
     echo '</div>';
     echo '</div>';
 } else {
-    if ($hasfuture && method_exists($OUTPUT, 'user_menu')) {
+    if ($hasnewprofilebar) {
         echo $OUTPUT->user_menu();
     } else {
         echo '<div class="profilename" id="profilename">';
@@ -165,15 +170,13 @@ if (!isloggedin() or isguestuser()) {
                             </div>
 
 <?php
-        if (!$hasfuture) {
-            $events = theme_kent_get_upcoming_events();
-            echo <<<HTML
-            <div class=\"profilebar_events\">
-                <h4>Upcoming Events</h4>
-                {$events}
-            </div>
+        $events = theme_kent_get_upcoming_events();
+        echo <<<HTML
+        <div class="profilebar_events">
+            <h4>Upcoming Events</h4>
+            {$events}
+        </div>
 HTML;
-        }
 ?>
 
                             <div class="profilebar_account">

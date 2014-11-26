@@ -231,14 +231,22 @@ html body {
             }
 
             #headerwrap {
-                height: 60px;
                 background: #FFFFFF;
 
-                #logowrap {
-                    color: #05345C;
-                    font-size: 34px;
-                    margin-top: 7px;
-                    height: auto;
+                #profilename {
+                    #imageDivLink {
+                        background: none !important;
+                        width: auto;
+                        width: auto;
+                    }
+
+                    .fa {
+                        color: #CCC;
+                        font-size: 18px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        height: 32px;
+                    }
                 }
             }
 
@@ -306,73 +314,7 @@ html body {
                 background: none;
             }
 
-            #headerwrap {
-                #profilename {
-                    #imageDivLink {
-                        background: none !important;
-                        width: auto;
-                        width: auto;
-                    }
-
-                    .fa {
-                        color: #CCC;
-                        font-size: 18px;
-                        display: inline-block;
-                        vertical-align: middle;
-                        height: 32px;
-                    }
-                }
-
-                .usermenu {
-                    position: relative;
-                    height: 100%;
-
-                    .moodle-actionmenu {
-                        .menubar {
-                            margin: 0;
-
-                            & > li {
-                                width: 100%;
-    
-                                & > a {
-                                    padding: 0;
-                                }
-                            }
-                        }
-
-                        .toggle-display {
-                            .userbutton {
-                                .usertext {
-                                    color: #05345C;
-                                    font-size: 21px;
-                                    line-height: 25px;
-                                    padding-top: 21px;
-                                }
-
-                                .avatars {
-                                    vertical-align: top;
-                                    padding-top: 5px;
-                                    margin-right: 0;
-                                    height: auto;
-                                    width: auto;
-                                }
-                            }
-
-                            .caret {
-                                display: none;
-                            }
-                        }
-
-                        &.show {
-                            height: 100%;
-                        }
-                    }
-                }
-            }
-
             #menuwrap {
-                overflow: visible;
-
                 #homeicon {
                     a {
                         background: none !important;
@@ -424,6 +366,72 @@ html body {
 
                             .fa {
                                 color: #FFF;
+                            }
+                        }
+                    }
+                }
+            }
+
+            /**
+             * Styles for new profile bar.
+             */
+            &.kent-new-profile-bar {
+                #headerwrap {
+                    height: 60px;
+
+                    #logowrap {
+                        color: #05345C;
+                        font-size: 34px;
+                        margin-top: 7px;
+                        height: auto;
+                    }
+
+                    #menuwrap {
+                        overflow: visible;
+                    }
+
+                    .usermenu {
+                        position: relative;
+                        height: 100%;
+
+                        .moodle-actionmenu {
+                            .menubar {
+                                margin: 0;
+
+                                & > li {
+                                    width: 100%;
+        
+                                    & > a {
+                                        padding: 0;
+                                    }
+                                }
+                            }
+
+                            .toggle-display {
+                                .userbutton {
+                                    .usertext {
+                                        color: #05345C;
+                                        font-size: 21px;
+                                        line-height: 25px;
+                                        padding-top: 21px;
+                                    }
+
+                                    .avatars {
+                                        vertical-align: top;
+                                        padding-top: 5px;
+                                        margin-right: 0;
+                                        height: auto;
+                                        width: auto;
+                                    }
+                                }
+
+                                .caret {
+                                    display: none;
+                                }
+                            }
+
+                            &.show {
+                                height: 100%;
                             }
                         }
                     }
