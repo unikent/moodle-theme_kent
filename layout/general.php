@@ -127,7 +127,7 @@ if (!isloggedin() or isguestuser()) {
     echo '<div class="profilelogin" id="profilelogin">';
     echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
     echo '<ul>';
-    echo '<li><input type="submit" value="&nbsp;&nbsp;'.get_string('login').'&nbsp;&nbsp;" /></li>';
+    echo '<li><input type="submit" value="Log in" id="login_button" /></li>';
     echo '</ul>';
     echo '</form>';
     echo '</div>';
