@@ -234,10 +234,11 @@ HTML;
             <div id="homeicon">
                 <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
             </div>
-            <?php 
-            if ($hascustommenu) { ?>
-                <div id="menuitemswrap"><div id="custommenu"><?php echo $custommenu; ?></div></div>
-            <?php } ?>
+<?php 
+if ($hascustommenu) {
+    echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
+}
+?>
         </div>
         <div id="jcontrols_button" class="clearfix">
             <div class="jcontrolsleft">     
@@ -255,7 +256,7 @@ HTML;
         <?php if ($CFG->kent->distribution == "archive") { ?>
         <div class="archive_bar">
             <p>
-                Please note that this version of Moodle is the Kent Archive Moodle.  For your current course information, please visit <a href="https://moodle.kent.ac.uk/moodle">https://moodle.kent.ac.uk/moodle</a>.
+                Please note that this version of Moodle is the Kent Archive Moodle. For your current course information, please visit <a href="https://moodle.kent.ac.uk/moodle">https://moodle.kent.ac.uk/moodle</a>.
             </p>
         </div>
         <?php } ?>
@@ -267,9 +268,11 @@ HTML;
                 <div id="region-main-wrap">
                     <div id="region-main">
                         <div id="mainpadder" class="region-content">
-                            <?php echo $coursecontentheader; ?>
-                            <?php echo $OUTPUT->main_content() ?>
-                            <?php echo $coursecontentfooter; ?>
+                            <?php
+                            echo $coursecontentheader;
+                            echo $OUTPUT->main_content();
+                            echo $coursecontentfooter;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -295,10 +298,15 @@ HTML;
     <!-- END OF CONTENT --> 
 </div>      
 
-<?php if (!empty($coursefooter)) { ?>
-    <div id="course-footer"><?php echo $coursefooter; ?></div>
-<?php } ?>
- <?php if ($hasfooter) { ?>
+<?php
+if (!empty($coursefooter)) {
+    echo "<div id=\"course-footer\">{$coursefooter}</div>";
+}
+?>
+
+<?php
+if ($hasfooter) {
+?>
 <div id="page-footer" class="clearfix">
     <div id="footerwrapper">
         <div id="footerinner">
@@ -314,20 +322,24 @@ HTML;
             <?php echo $PAGE->theme->settings->footnote; ?>
             <div class="clearfix"></div>
             <div class="moodle-extra">
-                <?php
-                    if(has_capability('moodle/site:config', context_system::instance())) {
-                        echo $OUTPUT->standard_footer_html();
-                    }
-                ?>
+<?php
+    if (has_capability('moodle/site:config', context_system::instance())) {
+        echo $OUTPUT->standard_footer_html();
+    }
+?>
             </div>
         </div>
 </div>
 
- <?php } ?>
+<?php
+}
+?>
         <div class="clearfix"></div>
     </div>
 </div>
 
-<?php echo $OUTPUT->standard_end_of_body_html() ?>
+<?php
+echo $OUTPUT->standard_end_of_body_html();
+?>
 </body>
 </html>
