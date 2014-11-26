@@ -110,7 +110,15 @@ echo $OUTPUT->page_heading_menu();
             </div>
             <div id="headerwrap">
                 <div id="logowrap">
-                    <img src="<?php echo $OUTPUT->pix_url($CFG->logo_colour, 'theme')?>" id="logo"> 
+                    
+                    <?php
+if ($hasfuture) {
+    echo "Moodle-" . $CFG->kent->distribution;
+} else {
+    $logo = $OUTPUT->pix_url($CFG->logo_colour, 'theme');
+    echo "<img src=\"$logo\" id=\"logo\">";
+}
+                    ?>
                 </div>
 <?php
 if (!$hasfuture || !method_exists($OUTPUT, 'user_menu')) {

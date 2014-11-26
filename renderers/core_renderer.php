@@ -30,7 +30,7 @@ class theme_kent_core_renderer extends core_renderer
      * @return string
      */
     protected function render_user_picture(user_picture $userpicture) {
-        $userpicture->size = 80;
+        $userpicture->size = 50;
         return parent::render_user_picture($userpicture);
     }
 }

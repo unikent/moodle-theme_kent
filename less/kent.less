@@ -231,7 +231,15 @@ html body {
             }
 
             #headerwrap {
+                height: 60px;
                 background: #FFFFFF;
+
+                #logowrap {
+                    color: #05345C;
+                    font-size: 34px;
+                    margin-top: 7px;
+                    height: auto;
+                }
             }
 
             #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
@@ -317,15 +325,17 @@ html body {
 
                 .usermenu {
                     position: relative;
+                    height: 100%;
 
                     .moodle-actionmenu {
                         .menubar {
+                            margin: 0;
+
                             & > li {
                                 width: 100%;
     
                                 & > a {
-                                    padding-right: 0;
-                                    height: 86px;
+                                    padding: 0;
                                 }
                             }
                         }
@@ -334,26 +344,27 @@ html body {
                             .userbutton {
                                 .usertext {
                                     color: #05345C;
-                                    font-size: 34px;
-                                    line-height: 42px;
-                                    margin-top: 20px;
-                                    padding-right: 10px;
+                                    font-size: 21px;
+                                    line-height: 25px;
+                                    padding-top: 21px;
                                 }
 
                                 .avatars {
-                                    height: 80px;
-                                    width: 80px;
+                                    vertical-align: top;
+                                    padding-top: 5px;
                                     margin-right: 0;
-
-                                    img {
-                                        margin-top: 4px;
-                                    }
+                                    height: auto;
+                                    width: auto;
                                 }
                             }
 
                             .caret {
                                 display: none;
                             }
+                        }
+
+                        &.show {
+                            height: 100%;
                         }
                     }
                 }
