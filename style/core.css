@@ -1054,3 +1054,9 @@ body #chooseform .alloptions .subtype {
     padding-left: 75px;
 }
 
+.mod_turnitintooltwo .dataTables_wrapper table.dataTable th,
+.mod_turnitintooltwo .dataTables_wrapper table.dataTable td {
+  padding-left: 0;
+  padding-right: 0;
+  word-break: break-all;
+}
