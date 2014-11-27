@@ -231,20 +231,27 @@ html body {
 
                 #menuitemswrap {
                     #custommenu {
-                        .yui3-menuitem-active {
-                            background: #937227 !important;
-
-                            .yui3-menuitem-content {
-                                background: none !important;
-                            }
-                        }
-
-                        .yui3-menuitem {
-                            .yui3-menuitem-content {
+                        .yui3-menu {
+                            .yui3-menu-label {
                                 border: 0;
                             }
 
-                            &:hover {
+                            .yui3-menuitem-active, .yui3-menu-label-active {
+                                background: #937227 !important;
+                            }
+
+                            .yui3-menuitem-content {
+                                border: 0;
+                                background: none !important;
+                            }
+
+                            .yui3-menu-content {
+                                ul {
+                                    border: 0;
+                                }
+                            }
+
+                            .yui3-menuitem:hover {
                                 background-color: #937227;
                             }
                         }
