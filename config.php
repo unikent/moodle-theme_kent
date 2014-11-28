@@ -20,6 +20,7 @@ $THEME->doctype = 'html5';
 $THEME->parents = array('base', 'canvas');
 
 $THEME->sheets = array('aardvark', 'core', 'print', 'font-awesome');
+$THEME->javascripts = array();
 $THEME->javascripts_footer = array('profileblock');
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
@@ -30,6 +31,10 @@ $THEME->lessvariablescallback = 'theme_kent_less_variables';
 if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
     $THEME->sheets[] = 'navbar';
     $THEME->javascripts_footer[] = 'navbar';
+}
+
+if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
+    $THEME->javascripts[] = 'html5shiv';
 }
 
 $THEME->enable_dock = true;
