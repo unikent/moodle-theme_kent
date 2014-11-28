@@ -27,6 +27,16 @@ function theme_kent_less_variables($theme) {
     return array();
 }
 
+/**
+ * Future theme requires jQuery everywhere.
+ */
+function theme_kent_page_init(moodle_page $page) {
+    $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+    if ($hasfuture === "1") {
+        $page->requires->jquery();
+    }
+}
+
 
 /**
  * Returns a list of upcoming events.
