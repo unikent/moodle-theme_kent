@@ -11,6 +11,8 @@ $(function() {
         'Edit questions': 'fa-gear',
         'Edit page contents': 'fa-gear',
         'Search': 'fa-search',
+        'Preferences': 'fa-gear',
+        'Manage modules': 'fa-gear'
     };
 
     $(".kent-future-theme #editbuttons input[type=submit], #ousearch_searchbutton").each(function (k, e) {
