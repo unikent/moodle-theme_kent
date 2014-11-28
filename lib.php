@@ -34,6 +34,7 @@ function theme_kent_page_init(moodle_page $page) {
     $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
     if ($hasfuture === "1") {
         $page->requires->jquery();
+        $page->requires->js('/theme/kent/javascript/navbuttons.js');
     }
 }
 
