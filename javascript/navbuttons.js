@@ -7,11 +7,18 @@ $(function() {
         'Customise this page': 'fa-gear',
         'Stop customising this page': 'fa-gears',
         'Reset page to default': 'fa-undo',
-        'Search forums': 'fa-search'
+        'Search forums': 'fa-search',
+        'Edit questions': 'fa-gear',
+        'Edit page contents': 'fa-gear',
+        'Search': 'fa-search',
     };
 
-    $(".kent-future-theme #editbuttons input[type=submit]").each(function (k, e) {
+    $(".kent-future-theme #editbuttons input[type=submit], #ousearch_searchbutton").each(function (k, e) {
         var text = e.value;
+
+        if (e.title.length > 0) {
+            text = e.title
+        }
 
         if (text.substring(0, 11) == 'Update this') {
             overrides[text] = 'fa-gear';
