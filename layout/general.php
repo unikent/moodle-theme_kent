@@ -50,8 +50,8 @@ if ($hasfuture === "1") {
     $bodyclasses[] = 'kent-future-theme';
 }
 
-$hasnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
-if ($CFG->theme_kent_enable_navbar && $hasnavbar !== "0") {
+$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
+if ($CFG->theme_kent_enable_navbar && $haskentnavbar !== "0") {
     $bodyclasses[] = 'kent-navbar';
 }
 
@@ -255,6 +255,10 @@ HTML;
 if ($hascustommenu) {
     echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
 }
+
+if ($hasfuture && $hasnavbar) {
+    echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
+}
 ?>
         </div>
         <div id="jcontrols_button" class="clearfix">
@@ -265,9 +269,11 @@ if ($hascustommenu) {
                 </div>
             <?php } ?>
             </div>
-            <div id="ebutton">
-               <?php if ($hasnavbar) { echo $OUTPUT->page_heading_button(); } ?>
-           </div>
+<?php
+if (!$hasfuture && $hasnavbar) {
+    echo '<div id="ebutton">' . $OUTPUT->page_heading_button() . '</div>';
+}
+?>
 
         </div>  
         <?php if ($CFG->kent->distribution == "archive") { ?>
