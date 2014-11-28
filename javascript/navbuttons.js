@@ -1,10 +1,25 @@
 $(function() {
-    // For /my.
-    $("input[value='Customise this page']").hide().parent().append('<button title="Customise this page"><i class="fa fa-gear"></i></button>');
-    $("input[value='Stop customising this page']").hide().parent().append('<button title="Stop customising this page"><i class="fa fa-gears"></i></button>');
-    $("input[value='Reset page to default']").hide().parent().append('<button title="Reset page to default"><i class="fa fa-undo"></i></button>');
+    var overrides = {
+        'Turn editing on': 'fa-gear',
+        'Turn editing off': 'fa-gears',
+        'Blocks editing on': 'fa-gear',
+        'Blocks editing off': 'fa-gears',
+        'Customise this page': 'fa-gear',
+        'Stop customising this page': 'fa-gears',
+        'Reset page to default': 'fa-undo',
+        'Search forums': 'fa-search'
+    };
 
-    // For /course/view.php.
-    $("input[value='Turn editing on']").hide().parent().append('<button title="Turn editing on"><i class="fa fa-gear"></i></button>');
-    $("input[value='Turn editing off']").hide().parent().append('<button title="Turn editing off"><i class="fa fa-gears"></i></button>');
+    $(".kent-future-theme #editbuttons input[type=submit]").each(function (k, e) {
+        var text = e.value;
+
+        if (text.substring(0, 11) == 'Update this') {
+            overrides[text] = 'fa-gear';
+        }
+
+        if (text in overrides) {
+            var fa_class = overrides[text];
+            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class + '"></i></button>');
+        }
+    });
 });
