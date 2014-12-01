@@ -15,66 +15,75 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Returns variables for LESS.
  *
+ * We will inject some LESS variables from the settings that the user has defined
+ * for the theme. No need to write some custom LESS for this.
  *
- * @param unknown $css
- * @param unknown $theme
- * @return unknown
+ * @param theme_config $theme The theme config object.
+ * @return array of LESS variables without the @.
  */
-function kent_process_css($css, $theme) {
+function theme_kent_less_variables($theme) {
+    return array();
+}
 
-    // Set the menu hover color.
-    if (!empty($theme->settings->menuhovercolor)) {
-        $menuhovercolor = $theme->settings->menuhovercolor;
-    } else {
-        $menuhovercolor = null;
+/**
+ * Future theme requires jQuery everywhere.
+ */
+function theme_kent_page_init(moodle_page $page) {
+    $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+    if ($hasfuture === "1") {
+        $page->requires->jquery();
+        $page->requires->js('/theme/kent/javascript/navbuttons.js');
     }
-    $css = kent_set_menuhovercolor($css, $menuhovercolor);
-
-    // Set the background image for the graphic wrap.
-    if (!empty($theme->settings->graphicwrap)) {
-        $graphicwrap = $theme->settings->graphicwrap;
-    } else {
-        $graphicwrap = null;
-    }
-    $css = kent_set_graphicwrap($css, $graphicwrap);
-
-    return $css;
 }
 
 
 /**
- *
- *
- * @param unknown $css
- * @param unknown $menuhovercolor
- * @return unknown
+ * Returns a list of upcoming events.
  */
-function kent_set_menuhovercolor($css, $menuhovercolor) {
-    $tag = '[[setting:menuhovercolor]]';
-    $replacement = $menuhovercolor;
-    if (is_null($replacement)) {
-        $replacement = '#5faff2';
-    }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
-}
+function theme_kent_get_upcoming_events() {
+    global $CFG, $PAGE;
 
+    $calm = optional_param( 'cal_m', 0, PARAM_INT );
+    $caly = optional_param( 'cal_y', 0, PARAM_INT );
 
-/**
- *
- *
- * @param unknown $css
- * @param unknown $graphicwrap
- * @return unknown
- */
-function kent_set_graphicwrap($css, $graphicwrap) {
-    global $OUTPUT;
-    $tag = '[[setting:graphicwrap]]';
-    $replacement = $graphicwrap;
-    if (is_null($replacement)) {
-        $replacement = $OUTPUT->pix_url('graphics/fish', 'theme');
+    $cache = cache::make('theme_kent', 'kent_theme');
+    $cachekey = "upcoming-" . $calm . "-" . $caly;
+    $content = $cache->get($cachekey);
+
+    // Regen Cache?
+    if ($content === false) {
+        require_once($CFG->dirroot . '/calendar/lib.php');
+
+        // Being displayed at site level. This will cause the filter to fall back to auto-detecting
+        // the list of courses it will be grabbing events from.
+        $filtercourse = calendar_get_default_courses();
+
+        list($courses, $group, $user) = calendar_set_filters($filtercourse);
+
+        $defaultlookahead = CALENDAR_DEFAULT_UPCOMING_LOOKAHEAD;
+        if (isset($CFG->calendar_lookahead)) {
+            $defaultlookahead = intval($CFG->calendar_lookahead);
+        }
+
+        $lookahead = get_user_preferences('calendar_lookahead', $defaultlookahead);
+
+        $defaultmaxevents = CALENDAR_DEFAULT_UPCOMING_MAXEVENTS;
+        if (isset($CFG->calendar_maxevents)) {
+            $defaultmaxevents = intval($CFG->calendar_maxevents);
+        }
+
+        $maxevents = get_user_preferences('calendar_maxevents', 3);
+        $events = calendar_get_upcoming($courses, $group, $user, $lookahead, $maxevents);
+        $content = calendar_get_block_upcoming($events, 'view.php?view=day');
+
+        if (empty($content)) {
+            $content = '<div class="event"><p>No upcoming events!</p></div>';
+        }
+
+        $cache->set($cachekey, $content);
     }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
+
+    return $content;
 }

@@ -15,48 +15,29 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $THEME->name = 'kent';
+$THEME->doctype = 'html5';
 
-$THEME->parents = array('base', 'canvas', 'aardvark_kent');
+$THEME->parents = array('base', 'canvas');
 
-$THEME->sheets = array('core', 'print');
+$THEME->sheets = array('aardvark', 'core', 'print', 'font-awesome');
+$THEME->javascripts = array();
+$THEME->javascripts_footer = array('profileblock');
 
-if (!isset($CFG->theme_colour)) {
-    $CFG->theme_colour = 'blue';
-}
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
-switch($CFG->theme_colour) {
-    case "archive":
-        $THEME->sheets = array('core', 'archive');
-        break;
-    case "cyan":
-        $THEME->sheets = array('core', 'cyan');
-        break;
-    case "green":
-        $THEME->sheets = array('core', 'green');
-        break;
-    case "red":
-        $THEME->sheets = array('core', 'red');
-        break;
-    case "clean":
-        $THEME->sheets = array('core', 'clean');
-        break;
-    case "grey":
-        $THEME->sheets = array('core', 'grey');
-        break;
-    case "future":
-        $THEME->sheets = array('core', 'print', 'future');
-        break;
-    case "blue":
-    default:
-        $THEME->sheets = array('core', 'print');
-}
+$THEME->lessfile = 'kent';
+$THEME->lessvariablescallback = 'theme_kent_less_variables';
 
 if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
     $THEME->sheets[] = 'navbar';
-    $THEME->javascripts_footer = array('navbar');
+    $THEME->javascripts_footer[] = 'navbar';
 }
 
-$THEME->enable_dock = false;
+if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
+    $THEME->javascripts[] = 'html5shiv';
+}
+
+$THEME->enable_dock = true;
 
 $THEME->editor_sheets = array('editor');
 
@@ -66,7 +47,7 @@ $THEME->layouts = array(
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
     ),
-    'general' => array(
+    'standard' => array(
         'file' => 'general.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
@@ -139,6 +120,12 @@ $THEME->layouts = array(
         'regions' => array(),
         'options' => array('nofooter' => true, 'nonavbar' => false, 'noblocks' => true),
     ),
+    // The pagelayout used when a redirection is occuring.
+    'redirect' => array(
+        'file' => 'embedded.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'nocourseheaderfooter' => true),
+    ),
     'report' => array(
         'file' => 'general.php',
         'regions' => array('side-pre'),
@@ -148,11 +135,16 @@ $THEME->layouts = array(
         'file' => 'general.php',
         'regions' => array(),
     ),
+    // The pagelayout used for safebrowser and securewindow.
+    'secure' => array(
+        'file' => 'general.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('nofooter' => true, 'nonavbar' => true, 'nocustommenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
+    ),
 );
 
 $THEME->blockrtlmanipulations = array(
     'side-pre' => 'side-post',
     'side-post' => 'side-pre'
 );
-
-$THEME->csspostprocess = 'kent_process_css';

@@ -14,14 +14,27 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die;
+/**
+ * Overrides a few defaults.
+ *
+ * @package     theme_kent
+ * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class theme_kent_core_renderer extends core_renderer
+{
+    /**
+     * Internal implementation of user image rendering.
+     *
+     * @param user_picture $userpicture
+     * @return string
+     */
+    protected function render_user_picture(user_picture $userpicture) {
+        $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+        if ($hasfuture === "1") {
+            $userpicture->size = 50;
+        }
 
-if ($ADMIN->fulltree) {
-    // NavBar Setting.
-    $settings->add(new admin_setting_configcheckbox(
-        'theme_kent_enable_navbar',
-        'Enable Navbar',
-        'Enable Kent Navbar',
-        0
-    ));
+        return parent::render_user_picture($userpicture);
+    }
 }

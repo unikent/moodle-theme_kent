@@ -14,14 +14,4 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die;
-
-if ($ADMIN->fulltree) {
-    // NavBar Setting.
-    $settings->add(new admin_setting_configcheckbox(
-        'theme_kent_enable_navbar',
-        'Enable Navbar',
-        'Enable Kent Navbar',
-        0
-    ));
-}
+require_once('renderers/core_renderer.php');
