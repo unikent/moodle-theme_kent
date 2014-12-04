@@ -15,20 +15,26 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * UKC Theme
+ * Overrides a few defaults.
  *
- * @package    theme_kent
- * @copyright  2014 University of Kent
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     theme_kent
+ * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+class theme_kent_core_renderer extends core_renderer
+{
+    /**
+     * Internal implementation of user image rendering.
+     *
+     * @param user_picture $userpicture
+     * @return string
+     */
+    protected function render_user_picture(user_picture $userpicture) {
+        $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+        if ($hasfuture === "1") {
+            $userpicture->size = 50;
+        }
 
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2014120100;
-$plugin->requires  = 2013050100;
-$plugin->component = 'theme_kent';
-$plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100,
-    'theme_aardvark_kent'  => 2012050100
-);
+        return parent::render_user_picture($userpicture);
+    }
+}

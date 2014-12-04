@@ -1,1 +1,0 @@
-<?php require("general.php"); ?>
