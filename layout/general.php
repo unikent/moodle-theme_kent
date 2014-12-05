@@ -51,7 +51,7 @@ if ($hasfuture === "1") {
 }
 
 $haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
-if ($CFG->theme_kent_enable_navbar && $haskentnavbar !== "0") {
+if ($CFG->theme_kent_enable_navbar && $haskentnavbar === "1") {
     $bodyclasses[] = 'kent-navbar';
 }
 
