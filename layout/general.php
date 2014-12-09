@@ -47,7 +47,7 @@ $bodyclasses = array(
 
 $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
 if ($hasfuture === "1") {
-    $bodyclasses[] = 'kent-future-theme';
+    $bodyclasses[] = 'kent-custom kent-future-theme';
 }
 
 $haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
