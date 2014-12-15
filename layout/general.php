@@ -45,13 +45,18 @@ $bodyclasses = array(
     'kent-dist-' . $CFG->kent->distribution
 );
 
-$hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+$isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+if ($isfuture) {
+    $bodyclasses[] = 'kent-future';
+}
+
+$hasfuture = \local_kent\User::get_user_preference("enablefuturetheme", $isfuture ? "1" : "0");
 if ($hasfuture === "1") {
     $bodyclasses[] = 'kent-custom';
     $bodyclasses[] = 'kent-future-theme';
 }
 
-$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
+$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar", $isfuture ? "1" : "0");
 if ($CFG->theme_kent_enable_navbar && $haskentnavbar === "1") {
     $bodyclasses[] = 'kent-navbar';
 
@@ -75,13 +80,13 @@ if ($customcolor) {
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';
-    }else{
+    } else {
         $bodyclasses[] = 'side-post-only';
     }
 } else if ($showsidepost && !$showsidepre) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-post-only';
-    }else{
+    } else {
         $bodyclasses[] = 'side-pre-only';
     }
 } else if (!$showsidepost && !$showsidepre) {
@@ -91,7 +96,9 @@ if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
 
-echo $OUTPUT->doctype() ?>
+echo $OUTPUT->doctype();
+?>
+
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
