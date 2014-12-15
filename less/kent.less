@@ -1,9 +1,41 @@
 /*
- * Standard styles, not flavour-specific. 
+ * Kent Stylesheet.
  */
 html body {
-    background: #FFFFFF;
-    min-width: 1340px;
+    background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
+    min-width: 1140px;
+
+    /*
+     * Different colors for training.
+     */
+    &.kent-dist-training {
+        background-color: #F2F5FF;
+        background-image: url([[pix:theme|bodygrad-green]]);
+
+        #menuwrap {
+            background-color: #333333;
+            background-image: url([[pix:theme|menu/menugrad-green]]);
+        }
+    }
+
+    /*
+     * Different colors for external.
+     */
+    &.kent-dist-external {
+        background-color: #F2F5FF;
+        background-image: url([[pix:theme|bodygrad-cyan]]);
+
+        #menuwrap {
+            background-color: #333333;
+            background-image: url([[pix:theme|menu/menugrad-cyan]]);
+        }
+    }
+
+    &.path-grade-report-grader {
+        .gradeparent .cell {
+            white-space: normal;
+        }
+    }
 
     #kent-bar {
         display: none;
@@ -42,7 +74,7 @@ html body {
     }
 
     #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
-        max-width: 1340px;
+        max-width: 1140px;
     }
 
     #page-footer #footerwrapper {
@@ -63,6 +95,8 @@ html body {
     }
 
     #headerwrap {
+        background: url([[pix:theme|header-background]]) repeat-x top;
+
         #profilename {
             a {
                 vertical-align: middle;
@@ -79,10 +113,15 @@ html body {
                     background: url([[pix:theme|profile/up]]) center no-repeat;
                 }
             }
+
+            .fa {
+                display: none;
+            }
         }
     }
 
     #menuwrap {
+        background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
         overflow: hidden;
 
         #homeicon {
@@ -95,6 +134,18 @@ html body {
                 width: 100%;
                 height: 100%;
                 background: url([[pix:theme|menu/home_icon]]) center no-repeat;
+
+                .fa {
+                    display: none;
+                }
+            }
+        }
+
+        #custommenu {
+            .yui3-menu-horizontal {
+                .yui3-menu-label, .yui3-menuitem .yui3-menuitem-content {
+                    border: 0;
+                }
             }
         }
     }
@@ -108,393 +159,312 @@ html body {
                 width: 31px;
                 color: transparent;
             }
+
+            form.loginForm {
+                .login {
+                    padding-left: 40px;
+                }
+            }
+
+            .profile {
+                background: 10px center no-repeat;
+
+                &.profile-courses {
+                    background-image: url([[pix:theme|profile/courses]]);
+                }
+
+                &.profile-profile {
+                    background-image: url([[pix:theme|profile/profile]]);
+                }
+
+                &.profile-myfiles {
+                    background-image: url([[pix:theme|profile/myfiles]]);
+                }
+
+                &.profile-calendar {
+                    background-image: url([[pix:theme|profile/calendar]]);
+                }
+
+                &.profile-email {
+                    background-image: url([[pix:theme|profile/email]]);
+                }
+
+                &.profile-logout {
+                    background-image: url([[pix:theme|profile/logout]]);
+                }
+            }
         }
     }
 
-    &.path-grade-report-grader .gradeparent .cell {
-        white-space: normal;
-    }
-}
-
-/*
- * Different styles for different Moodles.
- */
-
-html body {
     /*
-     * Overrides for live and such. 
+     * Theme of the future!
+     * All the styles :3
      */
-    &.kent-env-dev, &.kent-env-demo, &.kent-env-live {
-        background: #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
-        min-width: 1140px;
-
-        #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
-            max-width: 1140px;
-        }
+    &.kent-future-theme {
+        background: #FFFFFF;
+        min-width: 1340px;
 
         #menuwrap {
-            background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
-        }
+            background: #05345C;
 
-        #headerwrap {
-            background: url([[pix:theme|header-background]]) repeat-x top;
-        }
-
-        &.kent-dist-training {
-            background-color: #F2F5FF;
-            background-image: url([[pix:theme|bodygrad-green]]);
-
-            #menuwrap {
-                background-color: #333333;
-                background-image: url([[pix:theme|menu/menugrad-green]]);
-            }
-        }
-
-        &.kent-dist-external {
-            background-color: #F2F5FF;
-            background-image: url([[pix:theme|bodygrad-cyan]]);
-
-            #menuwrap {
-                background-color: #333333;
-                background-image: url([[pix:theme|menu/menugrad-cyan]]);
-            }
-        }
-
-        #headerwrap {
-            #profilename {
-                .fa {
-                    display: none;
-                }
-            }
-        }
-
-        #menuwrap {
-            #homeicon {
-                a {
-                    .fa {
-                        display: none;
-                    }
-                }
-            }
-
-            #custommenu {
-                .yui3-menu-horizontal {
-                    .yui3-menu-label, .yui3-menuitem .yui3-menuitem-content {
-                        border: 0;
-                    }
-                }
-            }
-
-        }
-
-        #profileoptions {
-            li {
-                form.loginForm {
-                    .login {
-                        padding-left: 40px;
-                    }
-                }
-
-                .profile {
-                    background: 10px center no-repeat;
-
-                    &.profile-courses {
-                        background-image: url([[pix:theme|profile/courses]]);
-                    }
-
-                    &.profile-profile {
-                        background-image: url([[pix:theme|profile/profile]]);
-                    }
-
-                    &.profile-myfiles {
-                        background-image: url([[pix:theme|profile/myfiles]]);
-                    }
-
-                    &.profile-calendar {
-                        background-image: url([[pix:theme|profile/calendar]]);
-                    }
-
-                    &.profile-email {
-                        background-image: url([[pix:theme|profile/email]]);
-                    }
-
-                    &.profile-logout {
-                        background-image: url([[pix:theme|profile/logout]]);
-                    }
-                }
-            }
-        }
-
-        /*
-         * Theme of the future!
-         * All the styles :3
-         */
-        &.kent-future-theme {
-            background: #FFFFFF;
-            min-width: 1340px;
-
-            #menuwrap {
-                background: #05345C;
-
-                #menuitemswrap {
-                    #custommenu {
-                        .yui3-menu {
-                            .yui3-menu-label {
-                                border: 0;
-                            }
-
-                            .yui3-menuitem-active, .yui3-menu-label-active, .yui3-menuitem:hover, &:hover {
-                                background: #937227 !important;
-                            }
-
-                            .yui3-menuitem-content {
-                                border: 0;
-                                background: none !important;
-                            }
-
-                            .yui3-menu-content {
-                                ul {
-                                    border: 0;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                #editbuttons {
-                    &, .singlebutton {
-                        float: right;
-                    }
-
-                    input[type=submit], input[type=text], button {
-                        border: 0;
-                        border-radius: 0;
-                        outline: none !important;
-                        text-shadow: none;
-                        box-shadow: none;
-                    }
-
-                    input[type=submit], button {
-                        margin: 0;
-                        height: 38px;
-                        color: #FFF;
-                        font-size: 14px;
-                        background: none;
-
-                        .fa {
-                            color: #FFF;
-                            padding: 0 10px;
+            #menuitemswrap {
+                #custommenu {
+                    .yui3-menu {
+                        .yui3-menu-label {
+                            border: 0;
                         }
 
-                        &:hover {
+                        .yui3-menuitem-active, .yui3-menu-label-active {
                             background: #937227 !important;
                         }
-                    }
 
-                    input[type='text'], input[type='password'] {
-                        font-weight: normal;
-                        color: #333;
-                        padding: 2px 5px;
-                    }
-
-                    label, .helptooltip {
-                        display: none;
-                    }
-                }
-            }
-
-            #headerwrap {
-                background: #FFFFFF;
-
-                #profilename {
-                    #imageDivLink {
-                        background: none !important;
-                        width: auto;
-                        width: auto;
-                    }
-
-                    .fa {
-                        color: #CCC;
-                        font-size: 18px;
-                        display: inline-block;
-                        vertical-align: middle;
-                        height: 32px;
-                    }
-                }
-            }
-
-            #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
-                max-width: 1340px;
-            }
-
-            #homeicon {
-                &:hover {
-                    background: #937227;
-                }
-            }
-
-            #profilebar {
-                &, #profilebar-innerwrap {
-                    border: none;
-                    background: none;
-                }
-            }
-
-            #jcontrols_button {
-                background: none;
-
-                .jcontrolsleft {
-                    margin-left: 0;
-                }
-
-                #ebutton {
-                    .singlebutton {
-                        float: left;
-                        padding-left: 5px;
-                    }
-                }
-            }
-
-            #page-content {
-                border: none;
-            }
-
-            #page-footer {
-                #footerinner {
-                    border: none;
-                }
-            }
-
-            #page-footer #footerwrapper {
-                background: none;
-            }
-
-            #menuwrap {
-                #homeicon {
-                    padding: 0 10px;
-                    width: auto;
-
-                    a {
-                        background: none !important;
-
-                        .fa {
-                            display: inline-block;
-                            color: #FFF;
-                            font-size: 22px;
-                            padding: 9px 10px 0 10px;
-                        }
-                    }
-                }
-            }
-
-            .block {
-                .header {
-                    h2 {
-                        color: #555;
-                    }
-                }
-            }
-
-            .generalbox {
-                border: 0;
-            }
-
-            .breadcrumb {
-                text-transform: capitalize;
-            }
-
-            #profilebar {
-                .profilebar_block {
-                    display: none;
-                }
-
-                #profileoptions {
-                    li {
-                        img {
-                            display: none;
-                        }
-
-                        .fa {
-                            color: #000;
-                            vertical-align: middle;
-                        }
-
-                        .profile {
+                        .yui3-menuitem-content {
+                            border: 0;
                             background: none !important;
                         }
 
-                        &:hover {
-                            background-color: #05345C;
-
-                            .fa {
-                                color: #FFF;
+                        .yui3-menu-content {
+                            ul {
+                                border: 0;
                             }
                         }
                     }
                 }
             }
 
-            /**
-             * Styles for new profile bar.
-             */
-            &.kent-new-profile-bar {
-                #headerwrap {
-                    height: 60px;
+            #editbuttons {
+                &, .singlebutton {
+                    float: right;
+                }
 
-                    #logowrap {
-                        color: #05345C;
-                        font-size: 34px;
-                        margin-top: 7px;
-                        height: auto;
+                input[type=submit], input[type=text], button {
+                    border: 0;
+                    border-radius: 0;
+                    outline: none !important;
+                    text-shadow: none;
+                    box-shadow: none;
+                }
+
+                input[type=submit], button {
+                    margin: 0;
+                    height: 38px;
+                    color: #FFF;
+                    font-size: 14px;
+                    background: none;
+
+                    .fa {
+                        color: #FFF;
+                        padding: 0 10px;
                     }
 
-                    #menuwrap {
-                        overflow: visible;
+                    &:hover {
+                        background: #937227 !important;
+                    }
+                }
+
+                input[type='text'], input[type='password'] {
+                    font-weight: normal;
+                    color: #333;
+                    padding: 2px 5px;
+                }
+
+                label, .helptooltip {
+                    display: none;
+                }
+            }
+        }
+
+        #headerwrap {
+            background: #FFFFFF;
+
+            #profilename {
+                #imageDivLink {
+                    background: none !important;
+                    width: auto;
+                    width: auto;
+                }
+
+                .fa {
+                    color: #CCC;
+                    font-size: 18px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    height: 32px;
+                }
+            }
+        }
+
+        #headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+            max-width: 1340px;
+        }
+
+        #homeicon {
+            &:hover {
+                background: #937227;
+            }
+        }
+
+        #profilebar {
+            &, #profilebar-innerwrap {
+                border: none;
+                background: none;
+            }
+        }
+
+        #jcontrols_button {
+            background: none;
+
+            .jcontrolsleft {
+                margin-left: 0;
+            }
+
+            #ebutton {
+                .singlebutton {
+                    float: left;
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        #page-content {
+            border: none;
+        }
+
+        #page-footer {
+            #footerinner {
+                border: none;
+            }
+        }
+
+        #page-footer #footerwrapper {
+            background: none;
+        }
+
+        #menuwrap {
+            #homeicon {
+                padding: 0 10px;
+                width: auto;
+
+                a {
+                    background: none !important;
+
+                    .fa {
+                        display: inline-block;
+                        color: #FFF;
+                        font-size: 22px;
+                        padding: 9px 10px 0 10px;
+                    }
+                }
+            }
+        }
+
+        .block {
+            .header {
+                h2 {
+                    color: #555;
+                }
+            }
+        }
+
+        .generalbox {
+            border: 0;
+        }
+
+        .breadcrumb {
+            text-transform: capitalize;
+        }
+
+        #profilebar {
+            .profilebar_block {
+                display: none;
+            }
+
+            #profileoptions {
+                li {
+                    img {
+                        display: none;
                     }
 
-                    .usermenu {
-                        position: relative;
-                        height: 100%;
+                    .fa {
+                        color: #000;
+                        vertical-align: middle;
+                    }
 
-                        .moodle-actionmenu {
-                            .menubar {
-                                margin: 0;
+                    .profile {
+                        background: none !important;
+                    }
 
-                                & > li {
-                                    width: 100%;
-        
-                                    & > a {
-                                        padding: 0;
-                                    }
+                    &:hover {
+                        background-color: #05345C;
+
+                        .fa {
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
+         * Styles for new profile bar.
+         */
+        &.kent-new-profile-bar {
+            #headerwrap {
+                height: 60px;
+
+                #logowrap {
+                    color: #05345C;
+                    font-size: 34px;
+                    margin-top: 7px;
+                    height: auto;
+                }
+
+                #menuwrap {
+                    overflow: visible;
+                }
+
+                .usermenu {
+                    position: relative;
+                    height: 100%;
+
+                    .moodle-actionmenu {
+                        .menubar {
+                            margin: 0;
+
+                            & > li {
+                                width: 100%;
+    
+                                & > a {
+                                    padding: 0;
+                                }
+                            }
+                        }
+
+                        .toggle-display {
+                            .userbutton {
+                                .usertext {
+                                    color: #05345C;
+                                    font-size: 21px;
+                                    line-height: 25px;
+                                    padding-top: 21px;
+                                }
+
+                                .avatars {
+                                    vertical-align: top;
+                                    padding-top: 5px;
+                                    margin-right: 0;
+                                    height: auto;
+                                    width: auto;
                                 }
                             }
 
-                            .toggle-display {
-                                .userbutton {
-                                    .usertext {
-                                        color: #05345C;
-                                        font-size: 21px;
-                                        line-height: 25px;
-                                        padding-top: 21px;
-                                    }
-
-                                    .avatars {
-                                        vertical-align: top;
-                                        padding-top: 5px;
-                                        margin-right: 0;
-                                        height: auto;
-                                        width: auto;
-                                    }
-                                }
-
-                                .caret {
-                                    display: none;
-                                }
+                            .caret {
+                                display: none;
                             }
+                        }
 
-                            &.show {
-                                height: 100%;
-                            }
+                        &.show {
+                            height: 100%;
                         }
                     }
                 }
