@@ -91,6 +91,8 @@ if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
 
+$bodyclasses = array_unique($bodyclasses);
+
 echo $OUTPUT->doctype();
 ?>
 
