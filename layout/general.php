@@ -52,17 +52,12 @@ if ($isfuture) {
 
 $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme", $isfuture ? "1" : "0");
 if ($hasfuture === "1") {
-    $bodyclasses[] = 'kent-custom';
     $bodyclasses[] = 'kent-future-theme';
 }
 
 $haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar", $isfuture ? "1" : "0");
 if ($CFG->theme_kent_enable_navbar && $haskentnavbar === "1") {
     $bodyclasses[] = 'kent-navbar';
-
-    if (!in_array('kent-custom', $bodyclasses)) {
-        $bodyclasses[] = 'kent-custom';
-    }
 }
 
 $hasnewprofilebar = $hasfuture && $CFG->branch == 28;
