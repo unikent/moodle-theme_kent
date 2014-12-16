@@ -99,12 +99,15 @@ echo $OUTPUT->doctype();
 <?php
 echo $OUTPUT->standard_head_html();
 
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css\" />";
+
 if ($customcolor) {
     echo "<style>#menuwrap { background-color: #{$customcolor} !important; }</style>";
 }
 ?>
 </head>
 <body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
+
 <?php echo $OUTPUT->standard_top_of_body_html(); ?>
 
 <div id="page">
