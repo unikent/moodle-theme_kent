@@ -31,10 +31,16 @@ function theme_kent_less_variables($theme) {
  * Future theme requires jQuery everywhere.
  */
 function theme_kent_page_init(moodle_page $page) {
+    global $CFG;
+
     $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
     if ($hasfuture === "1") {
         $page->requires->jquery();
         $page->requires->js('/theme/kent/javascript/navbuttons.js');
+    }
+
+    if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
+        \local_tutorials\Page::on_load();
     }
 }
 

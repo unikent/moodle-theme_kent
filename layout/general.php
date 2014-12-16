@@ -14,10 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
-    \local_tutorials\Page::on_load();
-}
-
 $hasheading = $OUTPUT->page_heading();
 $hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
 $hasfooter = (empty($PAGE->layout_options['nofooter']));
