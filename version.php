@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014121500;
+$plugin->version   = 2014121501;
 $plugin->requires  = 2013050100;
 $plugin->component = 'theme_kent';
 $plugin->dependencies = array(

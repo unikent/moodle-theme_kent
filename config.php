@@ -19,7 +19,7 @@ $THEME->doctype = 'html5';
 
 $THEME->parents = array('base', 'canvas');
 
-$THEME->sheets = array('aardvark', 'core', 'core-fonts', 'print', 'font-awesome');
+$THEME->sheets = array('aardvark', 'core', 'print', 'font-awesome');
 $THEME->javascripts = array();
 $THEME->javascripts_footer = array('profileblock');
 
