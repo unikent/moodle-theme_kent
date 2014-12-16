@@ -95,7 +95,7 @@ echo $OUTPUT->doctype();
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon()?>" />
 <?php
 echo $OUTPUT->standard_head_html();
 
@@ -105,6 +105,7 @@ if ($customcolor) {
     echo "<style>#menuwrap { background-color: #{$customcolor} !important; }</style>";
 }
 ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
 
