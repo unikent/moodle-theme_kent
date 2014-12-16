@@ -343,16 +343,6 @@ html body {
             border: none;
         }
 
-        #page-footer {
-            #footerinner {
-                border: none;
-            }
-        }
-
-        #page-footer #footerwrapper {
-            background: none;
-        }
-
         #menuwrap {
             #homeicon {
                 padding: 0 10px;
@@ -412,6 +402,51 @@ html body {
 
                         .fa {
                             color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+
+        #page-footer {
+            #footerinner {
+                border: none;
+            }
+
+            #footerwrapper {
+                background: none;
+            }
+
+            /**
+             * Performance info styles.
+             */
+            .performanceinfo {
+                .cachesused .cache-definition-stats {
+                    border: 1px solid #CCC;
+                    border-radius: 5px;
+                    background: none;
+                    margin: 10px 5px;
+
+                    span {
+                        padding: 5px;
+                        font-size: 13px;
+
+                        &.cache-definition-stats-heading {
+                            background: none;
+                        }
+
+                        &.cache-store-stats {
+                            &.highhits {
+                                background-color: #3BFF73;
+                            }
+
+                            &.lowhits {
+                                background-color: #FFDB50;
+                            }
+
+                            &.nohits {
+                                background-color: #FF3C3B;
+                            }
                         }
                     }
                 }
