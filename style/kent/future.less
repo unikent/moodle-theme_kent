@@ -9,9 +9,12 @@
     #menuitemswrap {
         #custommenu {
             .yui3-menu {
-                .yui3-menu-label {
+                .yui3-menu-label,
+                .yui3-menuitem-content {
                     border: 0;
+                    padding: 12px 15px 0 15px !important;
                     display: inline-block;
+                    background: none !important;
 
                     &:hover {
                         background: #937227 !important;
@@ -20,12 +23,6 @@
 
                 .yui3-menuitem-active, .yui3-menu-label-active {
                     background: #937227 !important;
-                }
-
-                .yui3-menuitem-content {
-                    border: 0;
-                    background: none !important;
-                    padding: 12px 10px 0 10px !important;
                 }
 
                 .yui3-menu-content {
