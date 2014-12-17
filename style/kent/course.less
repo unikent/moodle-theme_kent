@@ -1,0 +1,112 @@
+/**
+ * Styles speciic to the course pages.
+ */
+
+.course-content {
+    .summary {
+        h1, h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #6f6f6f;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #999;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #aaa;
+        }
+    }
+
+    ul.weeks {
+        li.section {
+            margin: 0 0 10px 0;
+
+            .left, .right {
+                width: 30px;
+            }
+
+            .right img.icon {
+                padding: 0 0 7px 0;
+            }
+
+            .content {
+                margin: 0 30px;
+                padding: 20px;
+
+                .summary {
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #e5e5e5;
+                }
+            }
+        }
+    }
+}
+
+#chooseform {
+    .alloptions {
+        .nonoption {
+            padding-left: 40px;
+            padding-bottom: 5px;
+        }
+
+        .subtype {
+            padding-left: 75px;
+        }
+    }
+}
+
+.mod_turnitintooltwo {
+    .dataTables_wrapper {
+        table.dataTable {
+            th, td {
+                padding-left: 0;
+                padding-right: 0;
+                word-break: break-all;
+            }
+        }
+    }
+}
+
+.editor_atto_menu .dropdown-menu > li > a {
+    color: #000 !important;
+}
+
+// Fixes for grade report table alignment.
+&#page-grade-report-grader-index {
+    table {
+        &#fixed_column {
+            th {
+                padding: 0 4px 0 4px;
+            }
+
+            td {
+                padding-bottom: 0;
+            }
+        }
+
+        &#user-grades {
+            th {
+                padding: 0 4px 0 4px;
+            }
+        }
+    }
+
+    .right_scroller {
+        #user-grades {
+            td {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+// Quiz fix.
+&#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+    color: #333;
+}
