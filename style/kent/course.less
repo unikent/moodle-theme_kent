@@ -27,8 +27,14 @@
         li.section {
             margin: 0 0 10px 0;
 
+            &.current {
+                border-radius: 5px;
+                border: 1px solid #DDD;
+                background: none;
+            }
+
             .left, .right {
-                width: 30px;
+                width: 10px;
             }
 
             .right img.icon {
@@ -36,7 +42,7 @@
             }
 
             .content {
-                margin: 0 30px;
+                margin: 0 10px;
                 padding: 20px;
 
                 .summary {
