@@ -1,5 +1,8 @@
 /**
  * Kent theme imports.
+ *
+ * Future theme is pressed off to other style sheets.
+ * At some point we can remove aardvark and core and remove the future classifier.
  */
 
 @import "lib/aardvark";
@@ -8,14 +11,24 @@
 
 @import "kent/navbar";
 
-@import "kent/html";
 @import "kent/core";
 @import "kent/base";
-@import "kent/future";
 
-@import "kent/blocks";
-@import "kent/course";
-@import "kent/admin";
+/**
+ * Future styles.
+ */
+html body {
+    &.kent-future-theme {
+        background: #FFFFFF;
+        min-width: 1340px;
+
+        @import "kent/html";
+        @import "kent/future";
+        @import "kent/blocks";
+        @import "kent/course";
+        @import "kent/admin";
+    }
+}
 
 @media print
 {

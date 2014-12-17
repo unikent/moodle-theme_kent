@@ -2,82 +2,79 @@
  * Styles speciic to the course pages.
  */
 
-body {
-
-    .course-content {
-        .summary {
-            h1, h2 {
-                font-size: 20px;
-                font-weight: normal;
-                color: #6f6f6f;
-            }
-
-            h3 {
-                font-size: 18px;
-                font-weight: normal;
-                color: #999;
-            }
-
-            h4 {
-                font-size: 16px;
-                font-weight: normal;
-                color: #aaa;
-            }
+.course-content {
+    .summary {
+        h1, h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #6f6f6f;
         }
 
-        ul.weeks {
-            li.section {
-                margin: 0 0 10px 0;
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #999;
+        }
 
-                .left, .right {
-                    width: 30px;
-                }
+        h4 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #aaa;
+        }
+    }
 
-                .right img.icon {
-                    padding: 0 0 7px 0;
-                }
+    ul.weeks {
+        li.section {
+            margin: 0 0 10px 0;
 
-                .content {
-                    margin: 0 30px;
-                    padding: 20px;
+            .left, .right {
+                width: 30px;
+            }
 
-                    .summary {
-                        margin-bottom: 20px;
-                        border-bottom: 1px solid #e5e5e5;
-                    }
+            .right img.icon {
+                padding: 0 0 7px 0;
+            }
+
+            .content {
+                margin: 0 30px;
+                padding: 20px;
+
+                .summary {
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #e5e5e5;
                 }
             }
         }
     }
+}
 
-    #chooseform {
-        .alloptions {
-            .nonoption {
-                padding-left: 40px;
-                padding-bottom: 5px;
-            }
+#chooseform {
+    .alloptions {
+        .nonoption {
+            padding-left: 40px;
+            padding-bottom: 5px;
+        }
 
-            .subtype {
-                padding-left: 75px;
+        .subtype {
+            padding-left: 75px;
+        }
+    }
+}
+
+.mod_turnitintooltwo {
+    .dataTables_wrapper {
+        table.dataTable {
+            th, td {
+                padding-left: 0;
+                padding-right: 0;
+                word-break: break-all;
             }
         }
     }
+}
 
-    .mod_turnitintooltwo {
-        .dataTables_wrapper {
-            table.dataTable {
-                th, td {
-                    padding-left: 0;
-                    padding-right: 0;
-                    word-break: break-all;
-                }
-            }
-        }
-    }
-
-    .editor_atto_menu .dropdown-menu > li > a {
-        color: #000 !important;
-    }
+.editor_atto_menu .dropdown-menu > li > a {
+    color: #000 !important;
 }
 
 // Fixes for grade report table alignment.

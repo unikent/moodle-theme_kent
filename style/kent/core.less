@@ -1,7 +1,30 @@
-/**
- * @todo Everything in here should be merged into base.less
- */
+html {
+  background: transparent;
+}
 
+body {
+    background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
+    min-width: 960px;
+}
+
+body.tii-box {
+  background: none !important;
+}
+
+html a, body a,
+html a:visited, body a:visited,
+#kent_course_list_overview .course_details_ovrv .title a,
+#kent_category_list_overview .course_details_ovrv .title a {
+  color: #264F9C;
+}
+
+#page {
+  padding-top: 10px;
+}
+
+a:hover, a:active {
+    color: #369;
+}
 
 #custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover,
 #custommenu .yui3-menu-label-active,
@@ -14,6 +37,10 @@
 .profileoptions ul li:hover {
     background-color: #264F9C;
     color: #fff;
+}
+
+body.has_dock { 
+    margin-left:0px;
 }
 
 img.iconsmall {
@@ -520,6 +547,53 @@ color : #6f6f6f !important ;
     border:none;
     display: none;
 }
+
+/*.course-content ul.weeks {
+    margin: 0 20px;
+}*/
+
+.course-content .summary h1, h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #6f6f6f;
+}
+
+.course-content .summary h3 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #999;
+}
+
+.course-content .summary h4 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #aaa;
+}
+
+.course-content ul.weeks li.section {
+    margin: 0 0 10px 0;
+}
+
+    .course-content ul.weeks li.section .left, .course-content ul.weeks li.section .right {
+        width: 30px;
+    }
+
+        .course-content ul.weeks li.section .right img.icon {
+            padding: 0 0 7px 0;
+        }
+
+
+    .course-content ul.weeks li.section .content {
+        margin: 0 30px;
+        padding: 20px;
+    }
+    
+        .course-content ul.weeks li.section .content .summary {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+    
+        
     
 .path-course-view .course-content li.section {
     border : 1px solid #e5e5e5;
@@ -556,6 +630,31 @@ table.generalbox td {
 line-height : 10px;
 }
 
+input[type='text'], input[type='password'] {
+   outline: 0;
+   padding: 8px;
+   border: 1px solid #999;
+   color: #6f6f6f;
+   font-weight: bold;
+   margin-bottom: 10px;
+   margin-right: 10px;
+}
+
+input[type='text']:focus, input[type='password']:focus {
+   outline: 0;
+   border: 1px solid #90A6C8;
+}
+
+input[type='text'][disabled], input[type='password'][disabled] {
+    outline: 0;
+    padding: 8px;
+    border: 1px solid #DDDDDD;
+    background: #f8f8f8;
+}
+
+select {
+    min-width: 150px;
+}
 
 .course-content .section .activity {
     padding-bottom: 3px !important;
@@ -692,6 +791,106 @@ div#profilebar-block2{
 
 /* Button work */
 
+input[type="submit"],
+button[type="submit"],
+input[type="button"]{
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  padding: 2px 10px 2px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+  border: 1px solid #cccccc;
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  *margin-left: .3em;
+}
+input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"].active,
+input[type="submit"].disabled,
+button[type="submit"]:hover,
+button[type="submit"]:active,
+button[type="submit"].active,
+button[type="submit"].disabled,
+input[type="button"]:hover,
+input[type="button"]:active,
+input[type="button"].active,
+input[type="button"].disabled{
+  background-color: #e6e6e6;
+}
+input[type="submit"]:active,
+input[type="submit"].active,
+button[type="submit"]:active,
+button[type="submit"].active,
+input[type="button"]:active,
+input[type="button"].active{
+  background-color: #cccccc \9;
+}
+input[type="submit"]:first-child,
+button[type="submit"]:first-child,
+input[type="button"]:first-child{
+  *margin-left: 0;
+}
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+input[type="button"]:hover{
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+input[type="submit"]:focus,
+button[type="submit"]:focus,
+input[type="button"]:focus{
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input[type="submit"].active,
+input[type="submit"]:active,
+button[type="submit"].active,
+button[type="submit"]:active,
+input[type="button"].active,
+input[type="button"]:active{
+  background-image: none;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  outline: 0;
+}
 
 .block div.content input[type="submit"]{
     width: 152px;
@@ -796,5 +995,67 @@ img.iconlarge {
   width: auto;
 }
 
+#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+  color: #333;
+}
 
+body .block_course_overview .content {
+  margin: 0;
+}
 
+.block_private_files div.generalbox {
+  border: 0;
+  padding-bottom: 10px;
+}
+
+.block_private_files .singlebutton input[type=submit] {
+  white-space: normal;
+}
+
+/* Fixes for grade report table alignment */
+
+#page-grade-report-grader-index table#fixed_column th {
+  padding: 0 4px 0 4px;
+}
+
+#page-grade-report-grader-index table#user-grades th {
+  padding: 0 4px 0 4px;
+}
+
+#page-grade-report-grader-index .right_scroller #user-grades td, #page-grade-report-grader-index #fixed_column td {
+  padding-bottom: 0;
+}
+
+.editor_atto_menu .dropdown-menu > li > a {
+  color: #000 !important;
+}
+
+/* So this won't cause issues in Moodle 2.9 */
+table.generaltable > tbody > tr:nth-of-type(even) td {
+  background-color: #f9f9f9;
+}
+
+#page-admin-setting-messageinbound_mailsettings #id_s__messageinbound_hostssl {
+    width: 220px;
+}
+
+div.overflowbox {
+    overflow: auto;
+    border: 0;
+}
+
+body #chooseform .alloptions .nonoption {
+    padding-left: 40px;
+    padding-bottom: 5px;
+}
+
+body #chooseform .alloptions .subtype {
+    padding-left: 75px;
+}
+
+.mod_turnitintooltwo .dataTables_wrapper table.dataTable th,
+.mod_turnitintooltwo .dataTables_wrapper table.dataTable td {
+  padding-left: 0;
+  padding-right: 0;
+  word-break: break-all;
+}
