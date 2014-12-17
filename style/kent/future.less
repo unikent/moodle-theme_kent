@@ -11,6 +11,11 @@
             .yui3-menu {
                 .yui3-menu-label {
                     border: 0;
+                    display: inline-block;
+
+                    &:hover {
+                        background: #937227 !important;
+                    }
                 }
 
                 .yui3-menuitem-active, .yui3-menu-label-active {
@@ -20,11 +25,20 @@
                 .yui3-menuitem-content {
                     border: 0;
                     background: none !important;
+                    padding: 12px 10px 0 10px !important;
                 }
 
                 .yui3-menu-content {
                     ul {
                         border: 0;
+                    }
+
+                    li:hover {
+                         background: #937227 !important;
+
+                         a {
+                            text-decoration: none;
+                         }
                     }
                 }
             }
