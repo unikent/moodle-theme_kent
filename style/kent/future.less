@@ -1,0 +1,330 @@
+/*
+ * Future Stylesheet.
+ * 
+ * All the styles of the theme of the future!
+ */
+#menuwrap {
+    background: #05345C;
+
+    #menuitemswrap {
+        #custommenu {
+            .yui3-menu {
+                .yui3-menu-label,
+                .yui3-menuitem-content {
+                    border: 0;
+                    padding: 12px 15px 0 15px !important;
+                    display: inline-block;
+                    background: none !important;
+
+                    &:hover {
+                        background: #937227 !important;
+                    }
+                }
+
+                .yui3-menuitem-active, .yui3-menu-label-active {
+                    background: #937227 !important;
+                }
+
+                .yui3-menu-content {
+                    ul {
+                        border: 0;
+                    }
+
+                    li:hover {
+                         background: #937227 !important;
+
+                         a {
+                            text-decoration: none;
+                         }
+                    }
+                }
+            }
+        }
+    }
+
+    #editbuttons {
+        &, .singlebutton {
+            float: right;
+        }
+
+        input[type=submit], input[type=text], button {
+            border: 0;
+            border-radius: 0;
+            outline: none !important;
+            text-shadow: none;
+            box-shadow: none;
+        }
+
+        input[type=submit], button {
+            margin: 0;
+            height: 38px;
+            color: #FFF;
+            font-size: 14px;
+            background: none;
+
+            .fa {
+                color: #FFF;
+                padding: 0 10px;
+            }
+
+            &:hover {
+                background: #937227 !important;
+            }
+        }
+
+        input[type='text'], input[type='password'] {
+            font-weight: normal;
+            color: #333;
+            padding: 2px 5px;
+        }
+
+        label, .helptooltip {
+            display: none;
+        }
+    }
+}
+
+#headerwrap {
+    background: #FFFFFF;
+
+    #profilename {
+        #imageDivLink {
+            background: none !important;
+            width: auto;
+            width: auto;
+        }
+
+        .fa {
+            color: #CCC;
+            font-size: 18px;
+            display: inline-block;
+            vertical-align: middle;
+            height: 32px;
+        }
+    }
+
+    #profilelogin {
+        position: relative;
+        margin-top: 0;
+        height: 100%;
+
+        ul {
+            margin: 0;
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+        }
+    }
+}
+
+#headerwrap, #menuwrap, #jcontrols_button, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+    max-width: 1340px;
+}
+
+#homeicon {
+    &:hover {
+        background: #937227;
+    }
+}
+
+#profilebar {
+    &, #profilebar-innerwrap {
+        border: none;
+        background: none;
+    }
+}
+
+#jcontrols_button {
+    background: none;
+
+    .jcontrolsleft {
+        margin-left: 0;
+    }
+
+    #ebutton {
+        .singlebutton {
+            float: left;
+            padding-left: 5px;
+        }
+    }
+}
+
+#page-content {
+    border: none;
+}
+
+#menuwrap {
+    #homeicon {
+        padding: 0 10px;
+        width: auto;
+
+        a {
+            background: none !important;
+
+            .fa {
+                display: inline-block;
+                color: #FFF;
+                font-size: 22px;
+                padding: 9px 10px 0 10px;
+            }
+        }
+    }
+}
+
+.block {
+    .header {
+        h2 {
+            color: #555;
+        }
+    }
+}
+
+.generalbox {
+    border: 0;
+}
+
+.breadcrumb {
+    text-transform: capitalize;
+}
+
+#profilebar {
+    .profilebar_block {
+        display: none;
+    }
+
+    #profileoptions {
+        li {
+            img {
+                display: none;
+            }
+
+            .fa {
+                color: #000;
+                vertical-align: middle;
+            }
+
+            .profile {
+                background: none !important;
+            }
+
+            &:hover {
+                background-color: #05345C;
+
+                .fa {
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+
+#page-footer {
+    #footerinner {
+        border: none;
+    }
+
+    #footerwrapper {
+        background: none;
+    }
+
+    /**
+     * Performance info styles.
+     */
+    .performanceinfo {
+        .cachesused .cache-definition-stats {
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            background: none;
+            margin: 10px 5px;
+
+            span {
+                padding: 5px;
+                font-size: 13px;
+
+                &.cache-definition-stats-heading {
+                    background: none;
+                }
+
+                &.cache-store-stats {
+                    &.highhits {
+                        background-color: #3BFF73;
+                    }
+
+                    &.lowhits {
+                        background-color: #FFDB50;
+                    }
+
+                    &.nohits {
+                        background-color: #FF3C3B;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Styles for new profile bar.
+ */
+&.kent-new-profile-bar {
+    #headerwrap {
+        height: 60px;
+
+        #logowrap {
+            color: #05345C;
+            font-size: 34px;
+            margin-top: 7px;
+            height: auto;
+        }
+
+        #menuwrap {
+            overflow: visible;
+        }
+
+        .usermenu {
+            position: relative;
+            height: 100%;
+
+            .moodle-actionmenu {
+                .menubar {
+                    margin: 0;
+
+                    & > li {
+                        width: 100%;
+
+                        & > a {
+                            padding: 0;
+                        }
+                    }
+                }
+
+                .toggle-display {
+                    .userbutton {
+                        .usertext {
+                            color: #05345C;
+                            font-size: 21px;
+                            line-height: 25px;
+                            padding-top: 21px;
+                        }
+
+                        .avatars {
+                            vertical-align: top;
+                            padding-top: 5px;
+                            margin-right: 0;
+                            height: auto;
+                            width: auto;
+                        }
+                    }
+
+                    .caret {
+                        display: none;
+                    }
+                }
+
+                &.show {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

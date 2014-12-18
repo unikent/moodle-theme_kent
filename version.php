@@ -24,11 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014120100;
+$plugin->version   = 2014121501;
 $plugin->requires  = 2013050100;
 $plugin->component = 'theme_kent';
 $plugin->dependencies = array(
     'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100,
-    'theme_aardvark_kent'  => 2012050100
+    'theme_canvas'  => 2013050100
 );

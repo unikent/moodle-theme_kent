@@ -1,0 +1,101 @@
+/**
+ * Styles speciic to the course pages.
+ */
+
+.course-content {
+    .summary {
+        h1, h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #6f6f6f;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #999;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #aaa;
+        }
+    }
+
+    ul.weeks {
+        li.section {
+            border-radius: 5px;
+            margin: 0 0 10px 0;
+
+            &.current {
+                border: 1px solid #DDD;
+                background: none !important;
+            }
+
+            .left, .right {
+                width: 10px;
+            }
+
+            .right img.icon {
+                padding: 0 0 7px 0;
+            }
+
+            .content {
+                margin: 0 10px;
+                padding: 20px;
+
+                .summary {
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #e5e5e5;
+                }
+            }
+        }
+    }
+}
+
+#chooseform {
+    .alloptions {
+        .nonoption {
+            padding-left: 40px;
+            padding-bottom: 5px;
+        }
+
+        .subtype {
+            padding-left: 75px;
+        }
+    }
+}
+
+.editor_atto_menu .dropdown-menu > li > a {
+    color: #000 !important;
+}
+
+// Fixes for grade report table alignment.
+&#page-grade-report-grader-index {
+    table {
+        &#fixed_column {
+            th {
+                padding: 0 4px 0 4px;
+            }
+
+            td {
+                padding-bottom: 0;
+            }
+        }
+
+        &#user-grades {
+            th {
+                padding: 0 4px 0 4px;
+            }
+        }
+    }
+
+    .right_scroller {
+        #user-grades {
+            td {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

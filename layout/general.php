@@ -14,10 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
-    \local_tutorials\Page::on_load();
-}
-
 $hasheading = $OUTPUT->page_heading();
 $hasnavbar = (empty($PAGE->layout_options['nonavbar']) && $PAGE->has_navbar());
 $hasfooter = (empty($PAGE->layout_options['nofooter']));
@@ -45,19 +41,19 @@ $bodyclasses = array(
     'kent-dist-' . $CFG->kent->distribution
 );
 
-$hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
+$isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+if ($isfuture) {
+    $bodyclasses[] = 'kent-future';
+}
+
+$hasfuture = \local_kent\User::get_user_preference("enablefuturetheme", $isfuture ? "1" : "0");
 if ($hasfuture === "1") {
-    $bodyclasses[] = 'kent-custom';
     $bodyclasses[] = 'kent-future-theme';
 }
 
-$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar");
+$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar", $isfuture ? "1" : "0");
 if ($CFG->theme_kent_enable_navbar && $haskentnavbar === "1") {
     $bodyclasses[] = 'kent-navbar';
-
-    if (!in_array('kent-custom', $bodyclasses)) {
-        $bodyclasses[] = 'kent-custom';
-    }
 }
 
 $hasnewprofilebar = $hasfuture && $CFG->branch == 28;
@@ -75,13 +71,13 @@ if ($customcolor) {
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';
-    }else{
+    } else {
         $bodyclasses[] = 'side-post-only';
     }
 } else if ($showsidepost && !$showsidepre) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-post-only';
-    }else{
+    } else {
         $bodyclasses[] = 'side-pre-only';
     }
 } else if (!$showsidepost && !$showsidepre) {
@@ -91,20 +87,28 @@ if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
 
-echo $OUTPUT->doctype() ?>
+$bodyclasses = array_unique($bodyclasses);
+
+echo $OUTPUT->doctype();
+?>
+
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon()?>" />
 <?php
 echo $OUTPUT->standard_head_html();
+
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css\" />";
 
 if ($customcolor) {
     echo "<style>#menuwrap { background-color: #{$customcolor} !important; }</style>";
 }
 ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses.' '.join(' ', $bodyclasses)) ?>">
+<body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
+
 <?php echo $OUTPUT->standard_top_of_body_html(); ?>
 
 <div id="page">
