@@ -14,16 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$bodyclasses = array('kent-embedded');
-
-require(dirname(__FILE__) . "/includes/header.php");
+echo $OUTPUT->standard_end_of_body_html();
 ?>
-
-<div id="page">
-    <div id="content" class="clearfix">
-        <?php echo $OUTPUT->main_content() ?>
-    </div>
-</div>
-
-<?php
-require(dirname(__FILE__) . "/includes/footer.php");
+</body>
+</html>

@@ -70,6 +70,11 @@ $THEME->layouts = array(
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
     ),
+    'kentfrontpage' => array(
+        'file' => 'homepage.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'noblocks' => true, 'nonavbar' => true),
+    ),
     'admin' => array(
         'file' => 'general.php',
         'regions' => array('side-pre'),
