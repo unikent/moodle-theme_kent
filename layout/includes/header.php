@@ -63,13 +63,6 @@ if ($hasnewprofilebar) {
     $bodyclasses[] = 'kent-new-profile-bar';
 }
 
-// Custom CSS (if set).
-$customcolor = \local_kent\User::get_user_preference("themecustomcolor");
-if ($customcolor) {
-    $customcolor = clean_param($customcolor, PARAM_ALPHANUM);
-    $customcolor = substr($customcolor, 0, 6);
-}
-
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';
@@ -102,10 +95,6 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_head_html();
 
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css\" />";
-
-if ($customcolor) {
-    echo "<style>#menuwrap { background-color: #{$customcolor} !important; }</style>";
-}
 ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
