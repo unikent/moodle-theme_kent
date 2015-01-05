@@ -31,7 +31,7 @@ class theme_kent_core_renderer extends core_renderer
      */
     protected function render_user_picture(user_picture $userpicture) {
         $hasfuture = \local_kent\User::get_beta_preference("theme");
-        if ($hasfuture === "1") {
+        if ($hasfuture) {
             $userpicture->size = 50;
         }
 
