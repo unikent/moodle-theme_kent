@@ -42,6 +42,7 @@ if (!isset($bodyclasses)) {
 
 $bodyclasses[] = 'kent-env-' . $CFG->kent->environment;
 $bodyclasses[] = 'kent-dist-' . $CFG->kent->distribution;
+$bodyclasses[] = 'kent-navbar';
 
 $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
 if ($isfuture) {
@@ -51,11 +52,6 @@ if ($isfuture) {
 $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture === "1") {
     $bodyclasses[] = 'kent-future-theme';
-}
-
-$haskentnavbar = \local_kent\User::get_user_preference("enablekentnavbar", $isfuture ? "1" : "0");
-if ($CFG->theme_kent_enable_navbar && $haskentnavbar === "1") {
-    $bodyclasses[] = 'kent-navbar';
 }
 
 $hasnewprofilebar = $hasfuture && $CFG->branch == 28;
