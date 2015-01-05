@@ -48,7 +48,7 @@ if ($isfuture) {
     $bodyclasses[] = 'kent-future';
 }
 
-$hasfuture = \local_kent\User::get_user_preference("enablefuturetheme", $isfuture ? "1" : "0");
+$hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture === "1") {
     $bodyclasses[] = 'kent-future-theme';
 }
