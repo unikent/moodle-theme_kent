@@ -21,15 +21,11 @@ $THEME->parents = array('base', 'canvas');
 
 $THEME->sheets = array('theme');
 $THEME->javascripts = array();
-$THEME->javascripts_footer = array('profileblock');
+$THEME->javascripts_footer = array('profileblock', 'navbar');
 
 $THEME->supportscssoptimisation = false;
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-if (isset($CFG->theme_kent_enable_navbar) && $CFG->theme_kent_enable_navbar) {
-    $THEME->javascripts_footer[] = 'navbar';
-}
 
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
@@ -69,6 +65,11 @@ $THEME->layouts = array(
         'file' => 'general.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
+    ),
+    'kentfrontpage' => array(
+        'file' => 'homepage.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'noblocks' => true, 'nonavbar' => true),
     ),
     'admin' => array(
         'file' => 'general.php',

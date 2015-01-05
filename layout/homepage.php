@@ -14,27 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Overrides a few defaults.
- *
- * @package     theme_kent
- * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-class theme_kent_core_renderer extends core_renderer
-{
-    /**
-     * Internal implementation of user image rendering.
-     *
-     * @param user_picture $userpicture
-     * @return string
-     */
-    protected function render_user_picture(user_picture $userpicture) {
-        $hasfuture = \local_kent\User::get_beta_preference("theme");
-        if ($hasfuture) {
-            $userpicture->size = 50;
-        }
+$bodyclasses = array('kent-homepage');
 
-        return parent::render_user_picture($userpicture);
-    }
-}
+require(dirname(__FILE__) . "/includes/header.php");
+?>
+
+<div id="page">
+    <div id="content" class="clearfix">
+        <?php echo $OUTPUT->main_content() ?>
+    </div>
+</div>
+
+<?php
+require(dirname(__FILE__) . "/includes/footer.php");
