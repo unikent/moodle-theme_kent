@@ -1,0 +1,28 @@
+@border-radius-generic: 5px;
+
+@success-bg-color: #3BFF74;
+@success-border-color: #06B238;
+
+@warning-bg-color: #FFF58E;
+@warning-border-color: #FFEC3B;
+
+@error-bg-color: #FF3C3B;
+@error-border-color: #B21817;
+
+.kent-generic-box(@bg, @border) {
+    background-color: @bg;
+    border: 1px solid @border;
+    border-radius: @border-radius-generic;
+}
+
+.kent-generic-box-success {
+    .kent-generic-box(@success-bg-color, @success-border-color);
+}
+
+.kent-generic-box-warning {
+    .kent-generic-box(@warning-bg-color, @warning-border-color);
+}
+
+.kent-generic-box-error {
+    .kent-generic-box(@error-bg-color, @error-border-color);
+}
