@@ -21,8 +21,8 @@
 <head>
     <title>Oops!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="../style/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="../style/theme.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/theme.css" />
 </head>
 <body class="format-site course path-site safari dir-ltr lang-en yui-skin-sam yui3-skin-sam pagelayout-frontpage course-1 context-2 notloggedin kent-future kent-future-theme kent-navbar kent-new-profile-bar side-pre-only has_custom_menu has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post">
     <div id="page">
@@ -37,14 +37,8 @@
                 Please check <a href="http://status.kent.ac.uk">status.kent.ac.uk</a> for updates.</p>
                 <p>The reason given was:
                 <?php
-                $map = array(
-                    1 => "We could not find the data directory.",
-                    2 => "We could not write to the data directory.",
-                    3 => "The database was not reachable"
-                );
-
-                if (isset($_GET['r']) && isset($map[$_GET['r']])) {
-                    echo $map[$_GET['r']];
+                if (!empty($errormessage)) {
+                    echo $errormessage;
                 } else {
                     echo "unknown error.";
                 }
@@ -54,6 +48,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="../javascript/navbar.js"></script>
+    <script type="text/javascript" src="<?php echo $CFG->wwwroot; ?>/theme/kent/javascript/navbar.js"></script>
 </body>
 </html>
