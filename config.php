@@ -19,7 +19,7 @@ $THEME->doctype = 'html5';
 
 $THEME->parents = array('base', 'canvas');
 
-$THEME->sheets = array('theme');
+$THEME->sheets = array('theme', 'navbar');
 $THEME->javascripts = array();
 $THEME->javascripts_footer = array('profileblock', 'navbar');
 
