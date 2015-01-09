@@ -33,8 +33,9 @@ function theme_kent_less_variables($theme) {
 function theme_kent_page_init(moodle_page $page) {
     global $CFG;
 
-    $hasfuture = \local_kent\User::get_user_preference("enablefuturetheme");
-    if ($hasfuture === "1") {
+    $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+    $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
+    if ($hasfuture) {
         $page->requires->jquery();
         $page->requires->js('/theme/kent/javascript/navbuttons.js');
     }
