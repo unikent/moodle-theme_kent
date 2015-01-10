@@ -90,7 +90,9 @@ echo $OUTPUT->doctype();
 <?php
 echo $OUTPUT->standard_head_html();
 
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css\" />";
+$rev = theme_get_revision();
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css?{$rev}\" />";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/navbar.css?{$rev}\" />";
 ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
