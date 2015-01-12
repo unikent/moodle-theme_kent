@@ -1,8 +1,21 @@
 /*
  * Future Stylesheet.
  * 
- * All the styles of the theme of the future!
+ * @future
  */
+
+.block {
+    border-radius: @border-radius-generic;
+
+    div.header {
+        border-radius: @border-radius-generic;
+    }
+}
+
+#page {
+    padding: 0;
+}
+
 #menuwrap {
     background: #05345C;
 
@@ -49,7 +62,7 @@
 
         input[type=submit], input[type=text], button {
             border: 0;
-            border-radius: 0;
+            border-radius: @border-radius-generic;
             outline: none !important;
             text-shadow: none;
             box-shadow: none;
@@ -135,10 +148,13 @@
 }
 
 #jcontrols_button {
+    height: auto;
     background: none;
+    min-height: 20px;
 
     .jcontrolsleft {
         margin-left: 0;
+        height: auto;
     }
 
     #ebutton {
@@ -147,10 +163,53 @@
             padding-left: 5px;
         }
     }
+
+    .breadcrumb {
+        margin: 5px 0;
+
+        ul {
+            line-height: 15px;
+        }
+
+        span.arrow.sep {
+            width: auto;
+            padding: 0 5px;
+            background: none;
+            font-size: 13px;
+            color: #333;
+        }
+    }
 }
 
 #page-content {
     border: none;
+
+    #region-post-box {
+        padding-top: 0;
+    }
+
+    #region-main-box {
+        .region-content {
+            padding: 0 5px;
+
+            &#mainpadder {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    #region-pre {
+        > .region-content {
+            padding-left: 0;
+        }
+    }
+
+    #region-post {
+        > .region-content {
+            padding-right: 0;
+        }
+    }
 }
 
 #menuwrap {
@@ -233,7 +292,7 @@
     .performanceinfo {
         .cachesused .cache-definition-stats {
             border: 1px solid #CCC;
-            border-radius: 5px;
+            border-radius: @border-radius-generic;
             background: none;
             margin: 10px 5px;
 
@@ -341,8 +400,44 @@
 
                 &.show {
                     height: 100%;
+
+                    .menu {
+                        border-radius: @border-radius-generic;
+                    }
                 }
             }
         }
+    }
+}
+
+// Data tables.
+.dataTables_wrapper {
+    .dataTables_length,
+    .dataTables_filter {
+        margin-bottom: 5px;
+
+        input[type=search] {
+            margin-left: 5px;
+        }
+    }
+
+    .dataTables_info,
+    .dataTables_paginate {
+        margin-top: 5px;
+    }
+
+    .paginate_button {
+        margin: 0 3px;
+    }
+}
+
+.logselecform {
+    select {
+        margin: 2px;
+    }
+
+    input[type=submit] {
+        margin-top: 5px;
+        display: block;
     }
 }
