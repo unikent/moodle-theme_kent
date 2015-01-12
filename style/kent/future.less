@@ -172,6 +172,10 @@
 #page-content {
     border: none;
 
+    #region-post-box {
+        padding-top: 0;
+    }
+
     #region-main-box {
         .region-content {
             padding: 0 5px;
@@ -180,6 +184,18 @@
                 margin: 0;
                 padding: 0;
             }
+        }
+    }
+
+    #region-pre {
+        > .region-content {
+            padding-left: 0;
+        }
+    }
+
+    #region-post {
+        > .region-content {
+            padding-right: 0;
         }
     }
 }
