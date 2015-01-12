@@ -136,16 +136,35 @@
 }
 
 #jcontrols_button {
+    height: auto;
     background: none;
+    min-height: 20px;
 
     .jcontrolsleft {
         margin-left: 0;
+        height: auto;
     }
 
     #ebutton {
         .singlebutton {
             float: left;
             padding-left: 5px;
+        }
+    }
+
+    .breadcrumb {
+        margin: 5px 0;
+
+        ul {
+            line-height: 15px;
+        }
+
+        span.arrow.sep {
+            width: auto;
+            padding: 0 5px;
+            background: none;
+            font-size: 13px;
+            color: #333;
         }
     }
 }
