@@ -1,0 +1,46 @@
+/**
+ * Styles speciic to the training Moodle.
+ * 
+ * @future
+ */
+
+#menuwrap {
+    background: @kent-greenset-primary;
+
+    #menuitemswrap {
+        #custommenu {
+            .yui3-menu {
+                .yui3-menu-label,
+                .yui3-menuitem-content {
+                    &:hover {
+                        background: @kent-greenset-secondary !important;
+                    }
+                }
+
+                .yui3-menuitem-active, .yui3-menu-label-active {
+                    background: @kent-greenset-secondary !important;
+                }
+
+                .yui3-menu-content {
+                    li:hover {
+                         background: @kent-greenset-secondary !important;
+                    }
+                }
+            }
+        }
+    }
+
+    #editbuttons {
+        input[type=submit], button {
+            &:hover {
+                background: @kent-greenset-secondary !important;
+            }
+        }
+    }
+}
+
+#homeicon {
+    &:hover {
+        background: @kent-greenset-secondary;
+    }
+}
