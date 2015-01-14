@@ -99,6 +99,68 @@
 
 #headerwrap {
     background: #FFFFFF;
+    height: 60px;
+
+    #logowrap {
+        color: @kent-corp-primary;
+        font-size: 34px;
+        margin-top: 7px;
+        height: auto;
+    }
+
+    #menuwrap {
+        overflow: visible;
+    }
+
+    .usermenu {
+        position: relative;
+        height: 100%;
+
+        .moodle-actionmenu {
+            .menubar {
+                margin: 0;
+
+                & > li {
+                    width: 100%;
+
+                    & > a {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .toggle-display {
+                .userbutton {
+                    .usertext {
+                        color: @kent-corp-primary;
+                        font-size: 21px;
+                        line-height: 25px;
+                        padding-top: 21px;
+                    }
+
+                    .avatars {
+                        vertical-align: top;
+                        padding-top: 5px;
+                        margin-right: 0;
+                        height: auto;
+                        width: auto;
+                    }
+                }
+
+                .caret {
+                    display: none;
+                }
+            }
+
+            &.show {
+                height: 100%;
+
+                .menu {
+                    border-radius: @border-radius-generic;
+                }
+            }
+        }
+    }
 
     #profilename {
         #imageDivLink {
@@ -335,76 +397,6 @@
             .here {
                 .empty {
                     border-top: 1px solid #DDD;
-                }
-            }
-        }
-    }
-}
-
-/**
- * Styles for new profile bar.
- */
-&.kent-new-profile-bar {
-    #headerwrap {
-        height: 60px;
-
-        #logowrap {
-            color: @kent-corp-primary;
-            font-size: 34px;
-            margin-top: 7px;
-            height: auto;
-        }
-
-        #menuwrap {
-            overflow: visible;
-        }
-
-        .usermenu {
-            position: relative;
-            height: 100%;
-
-            .moodle-actionmenu {
-                .menubar {
-                    margin: 0;
-
-                    & > li {
-                        width: 100%;
-
-                        & > a {
-                            padding: 0;
-                        }
-                    }
-                }
-
-                .toggle-display {
-                    .userbutton {
-                        .usertext {
-                            color: @kent-corp-primary;
-                            font-size: 21px;
-                            line-height: 25px;
-                            padding-top: 21px;
-                        }
-
-                        .avatars {
-                            vertical-align: top;
-                            padding-top: 5px;
-                            margin-right: 0;
-                            height: auto;
-                            width: auto;
-                        }
-                    }
-
-                    .caret {
-                        display: none;
-                    }
-                }
-
-                &.show {
-                    height: 100%;
-
-                    .menu {
-                        border-radius: @border-radius-generic;
-                    }
                 }
             }
         }

@@ -52,7 +52,6 @@ if ($isfuture) {
 $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture) {
     $bodyclasses[] = 'kent-future-theme';
-    $bodyclasses[] = 'kent-new-profile-bar';
 }
 
 if ($showsidepre && !$showsidepost) {
