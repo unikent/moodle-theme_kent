@@ -30,7 +30,10 @@ class theme_kent_core_renderer extends core_renderer
      * @return string
      */
     protected function render_user_picture(user_picture $userpicture) {
-        $hasfuture = \local_kent\User::get_beta_preference("theme");
+        global $CFG;
+
+        $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+        $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
         if ($hasfuture) {
             $userpicture->size = 50;
         }
