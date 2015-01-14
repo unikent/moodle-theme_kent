@@ -32,7 +32,7 @@ echo $OUTPUT->page_heading_menu();
                 <div id="logowrap">
                     
                     <?php
-if ($hasnewprofilebar) {
+if ($hasfuture) {
     echo "Moodle-" . $CFG->kent->distribution;
 } else {
     $logo = $OUTPUT->pix_url($CFG->logo_colour, 'theme');
@@ -41,7 +41,7 @@ if ($hasnewprofilebar) {
                     ?>
                 </div>
 <?php
-if (!$hasnewprofilebar) {
+if (!$hasfuture) {
     echo '<div class="profilepic" id="profilepic">';
     if (!isloggedin() or isguestuser()) {
         echo '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$USER->id.'&amp;course='.$COURSE->id.'"><img src="'.$CFG->wwwroot.'/user/pix.php?file=/'.$USER->id.'/f1.jpg" width="80px" height="80px" title="Guest" alt="Guest" /></a>';
@@ -63,7 +63,7 @@ if (!isloggedin() or isguestuser()) {
     echo '</div>';
     echo '</div>';
 } else {
-    if ($hasnewprofilebar) {
+    if ($hasfuture) {
         echo $OUTPUT->user_menu();
     } else {
         echo '<div class="profilename" id="profilename">';
