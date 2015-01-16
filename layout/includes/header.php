@@ -54,11 +54,6 @@ if ($hasfuture) {
     $bodyclasses[] = 'kent-future-theme';
 }
 
-$hasnewprofilebar = $hasfuture && $CFG->branch == 28;
-if ($hasnewprofilebar) {
-    $bodyclasses[] = 'kent-new-profile-bar';
-}
-
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';

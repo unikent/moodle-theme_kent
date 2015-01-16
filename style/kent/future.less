@@ -17,7 +17,7 @@
 }
 
 #menuwrap {
-    background: #05345C;
+    background: @kent-corp-primary;
 
     #menuitemswrap {
         #custommenu {
@@ -30,12 +30,12 @@
                     background: none !important;
 
                     &:hover {
-                        background: #937227 !important;
+                        background: @kent-corp-highlight !important;
                     }
                 }
 
                 .yui3-menuitem-active, .yui3-menu-label-active {
-                    background: #937227 !important;
+                    background: @kent-corp-highlight !important;
                 }
 
                 .yui3-menu-content {
@@ -44,7 +44,7 @@
                     }
 
                     li:hover {
-                         background: #937227 !important;
+                         background: @kent-corp-highlight !important;
 
                          a {
                             text-decoration: none;
@@ -81,7 +81,7 @@
             }
 
             &:hover {
-                background: #937227 !important;
+                background: @kent-corp-highlight !important;
             }
         }
 
@@ -99,6 +99,68 @@
 
 #headerwrap {
     background: #FFFFFF;
+    height: 60px;
+
+    #logowrap {
+        color: @kent-corp-primary;
+        font-size: 34px;
+        margin-top: 7px;
+        height: auto;
+    }
+
+    #menuwrap {
+        overflow: visible;
+    }
+
+    .usermenu {
+        position: relative;
+        height: 100%;
+
+        .moodle-actionmenu {
+            .menubar {
+                margin: 0;
+
+                & > li {
+                    width: 100%;
+
+                    & > a {
+                        padding: 0;
+                    }
+                }
+            }
+
+            .toggle-display {
+                .userbutton {
+                    .usertext {
+                        color: @kent-corp-primary;
+                        font-size: 21px;
+                        line-height: 25px;
+                        padding-top: 21px;
+                    }
+
+                    .avatars {
+                        vertical-align: top;
+                        padding-top: 5px;
+                        margin-right: 0;
+                        height: auto;
+                        width: auto;
+                    }
+                }
+
+                .caret {
+                    display: none;
+                }
+            }
+
+            &.show {
+                height: 100%;
+
+                .menu {
+                    border-radius: @border-radius-generic;
+                }
+            }
+        }
+    }
 
     #profilename {
         #imageDivLink {
@@ -136,7 +198,7 @@
 
 #homeicon {
     &:hover {
-        background: #937227;
+        background: @kent-corp-highlight;
     }
 }
 
@@ -246,6 +308,7 @@
     text-transform: capitalize;
 }
 
+// Do we still need this? Future should always have it.
 #profilebar {
     .profilebar_block {
         display: none;
@@ -267,7 +330,7 @@
             }
 
             &:hover {
-                background-color: #05345C;
+                background-color: @kent-corp-primary;
 
                 .fa {
                     color: #FFF;
@@ -334,76 +397,6 @@
             .here {
                 .empty {
                     border-top: 1px solid #DDD;
-                }
-            }
-        }
-    }
-}
-
-/**
- * Styles for new profile bar.
- */
-&.kent-new-profile-bar {
-    #headerwrap {
-        height: 60px;
-
-        #logowrap {
-            color: #05345C;
-            font-size: 34px;
-            margin-top: 7px;
-            height: auto;
-        }
-
-        #menuwrap {
-            overflow: visible;
-        }
-
-        .usermenu {
-            position: relative;
-            height: 100%;
-
-            .moodle-actionmenu {
-                .menubar {
-                    margin: 0;
-
-                    & > li {
-                        width: 100%;
-
-                        & > a {
-                            padding: 0;
-                        }
-                    }
-                }
-
-                .toggle-display {
-                    .userbutton {
-                        .usertext {
-                            color: #05345C;
-                            font-size: 21px;
-                            line-height: 25px;
-                            padding-top: 21px;
-                        }
-
-                        .avatars {
-                            vertical-align: top;
-                            padding-top: 5px;
-                            margin-right: 0;
-                            height: auto;
-                            width: auto;
-                        }
-                    }
-
-                    .caret {
-                        display: none;
-                    }
-                }
-
-                &.show {
-                    height: 100%;
-
-                    .menu {
-                        border-radius: @border-radius-generic;
-                    }
                 }
             }
         }
