@@ -39,8 +39,8 @@ function theme_kent_page_init(moodle_page $page) {
         $page->requires->jquery();
         $page->requires->js('/theme/kent/javascript/navbuttons.js');
 
-        $page->theme->larrow = '<i class="fa fa-angle-left"></i>';
-        $page->theme->rarrow = '<i class="fa fa-angle-right"></i>';
+        $page->theme->larrow = '&lt;';
+        $page->theme->rarrow = '&gt;';
     }
 
     if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
