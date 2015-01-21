@@ -48,18 +48,25 @@
         margin: 0;
 
         #cboxClose {
-            background: none;
-            border: none;
-            bottom: 1px;
-            top: auto;
-            right: 1px;
-            width: 42px;
+            background: none !important;
+            border: none !important;
+            outline: none !important;
+            position: absolute;
+            top: 45px;
+            width: 90px;
+            padding: 0;
             text-indent: 0;
 
             &:after {
-                content: "Close";
+                content: "Close Window";
             }
         }
+    }
+}
+
+body.tii-box {
+    #page {
+        padding-top: 10px;
     }
 }
 
