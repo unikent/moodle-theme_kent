@@ -23,21 +23,4 @@
  */
 class theme_kent_core_renderer extends core_renderer
 {
-    /**
-     * Internal implementation of user image rendering.
-     *
-     * @param user_picture $userpicture
-     * @return string
-     */
-    protected function render_user_picture(user_picture $userpicture) {
-        global $CFG;
-
-        $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
-        $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
-        if ($hasfuture) {
-            $userpicture->size = 50;
-        }
-
-        return parent::render_user_picture($userpicture);
-    }
 }

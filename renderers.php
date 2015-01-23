@@ -14,4 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-require_once('renderers/core_renderer.php');
+$isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+$hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
+if ($hasfuture) {
+	require_once('renderers/future_renderer.php');
+} else {
+	require_once('renderers/current_renderer.php');
+}
