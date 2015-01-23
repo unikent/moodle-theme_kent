@@ -1,17 +1,22 @@
-.kent-generic-box(@bg, @border) {
+.kent-generic-box(@text, @bg, @border) {
     background-color: @bg;
     border: 1px solid @border;
     border-radius: @border-radius-generic;
+    color: @text;
+
+    a {
+    	color: @text;
+    }
 }
 
 .kent-generic-box-success {
-    .kent-generic-box(@success-bg-color, @success-border-color);
+    .kent-generic-box(@success-text-color, @success-bg-color, @success-border-color);
 }
 
 .kent-generic-box-warning {
-    .kent-generic-box(@warning-bg-color, @warning-border-color);
+    .kent-generic-box(@warning-text-color, @warning-bg-color, @warning-border-color);
 }
 
 .kent-generic-box-error {
-    .kent-generic-box(@error-bg-color, @error-border-color);
+    .kent-generic-box(@error-text-color, @error-bg-color, @error-border-color);
 }
