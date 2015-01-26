@@ -1,0 +1,73 @@
+/*
+ * Tabs.
+ *
+ * @future
+ */
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    border-bottom: 1px solid @border-color;
+    margin: 0 0 10px 0;
+
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    > li {
+        position: relative;
+        display: block;
+        float: left;
+
+        &.active {
+            border: 1px solid @border-color;
+            border-bottom: 0;
+            border-top-left-radius: @border-radius-small;
+            border-top-right-radius: @border-radius-small;
+        }
+
+        > a {
+            position: relative;
+            display: block;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: @border-radius-small;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+
+        &.disabled > a {
+            color: #000;
+
+            &:hover,
+            &:focus {
+                color: #000;
+                text-decoration: none;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            background-color: #FFF;
+            border-color: #000;
+        }
+    }
+
+    > li > a > img {
+        max-width: none;
+    }
+}
