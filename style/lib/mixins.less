@@ -1,7 +1,7 @@
 .kent-generic-box(@text, @bg, @border) {
     background-color: @bg;
     border: 1px solid @border;
-    border-radius: @border-radius-generic;
+    border-radius: @border-radius-small;
     color: @text;
 
     a {
@@ -19,4 +19,8 @@
 
 .kent-generic-box-error {
     .kent-generic-box(@error-text-color, @error-bg-color, @error-border-color);
+}
+
+.kent-generic-box-info {
+    .kent-generic-box(@info-text-color, @info-bg-color, @info-border-color);
 }
