@@ -375,15 +375,18 @@
 
                 &.cache-store-stats {
                     &.highhits {
-                        background-color: #3BFF73;
+                        background-color: @success-bg-color;
+                        color: @success-text-color;
                     }
 
                     &.lowhits {
-                        background-color: #FFDB50;
+                        background-color: @warning-bg-color;
+                        color: @warning-text-color;
                     }
 
                     &.nohits {
-                        background-color: #FF3C3B;
+                        background-color: @error-bg-color;
+                        color: @error-text-color;
                     }
                 }
             }
