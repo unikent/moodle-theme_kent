@@ -17,4 +17,10 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
+	$settings->add(new admin_setting_confightmleditor(
+		'theme_kent/footnote',
+		get_string('footnote', 'theme_kent'),
+		get_string('footnotedesc', 'theme_kent'),
+		''
+	));
 }
