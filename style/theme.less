@@ -5,12 +5,6 @@
  * At some point we can remove aardvark and core and remove the future classifier.
  */
 
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 @import "lib/variables";
 @import "lib/mixins";
 
@@ -18,8 +12,14 @@
 @import "lib/fa";
 
 @import "lib/bootstrap/variables.less";
+
+@import "lib/bootstrap/mixins/clearfix.less";
+@import "lib/bootstrap/mixins/responsive-visibility.less";
 @import "lib/bootstrap/mixins/grid-framework.less";
 @import "lib/bootstrap/mixins/grid.less";
+
+@import "lib/bootstrap/responsive-utilities.less";
+@import "lib/bootstrap/utilities.less";
 @import "lib/bootstrap/grid.less";
 
 @import "kent/navbar";
