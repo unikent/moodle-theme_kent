@@ -248,19 +248,17 @@ if ($hasfooter) {
 <div id="page-footer" class="clearfix">
     <div id="footerwrapper" class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 text-left">
                 <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <p style="text-align: center;">
                     <a target="_blank" href="http://www.kent.ac.uk/elearning/privacy/">Privacy and Data Protection</a>
-                </p>
-
-                <p style="text-align: center;">
+                    <br />
                     <a target="_blank" href="https://www.kent.ac.uk/itservices/forms/moodle/notice.html">Report this Content</a>
                 </p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 text-right">
                 <?php
                     echo $OUTPUT->login_info();
                     echo $OUTPUT->theme_switch_links();
