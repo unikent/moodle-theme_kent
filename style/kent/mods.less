@@ -74,3 +74,37 @@ body.tii-box {
 #page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
     color: #333;
 }
+
+// Grader fix.
+.path-grade-report-grader {
+    .gradeparent {
+        overflow: auto;
+    }
+}
+
+// Data tables.
+.dataTables_wrapper {
+    .dataTables_info,
+    .dataTables_paginate {
+        width: auto;
+        margin-top: 0;
+        bottom: 0;
+
+        .paginate_button {
+            display: inline;
+
+            &.disabled {
+                background: #CCC;
+                color: #333 !important;
+
+                &:hover {
+                    background: #CCC;
+                }
+            }
+        }
+    }
+
+    table.dataTable {
+        max-width: 100% !important;
+    }
+}

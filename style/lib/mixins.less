@@ -1,11 +1,19 @@
 .kent-generic-box(@text, @bg, @border) {
     background-color: @bg;
     border: 1px solid @border;
-    border-radius: @border-radius-generic;
+    border-radius: @border-radius-small;
     color: @text;
+    padding: 5px 0;
+    margin: 1em 0;
+    text-align: center;
 
     a {
-    	color: @text;
+    	color: darken(@text, 10%);
+        font-weight: 700;
+    }
+
+    strong {
+        font-weight: 700;
     }
 }
 
@@ -19,4 +27,13 @@
 
 .kent-generic-box-error {
     .kent-generic-box(@error-text-color, @error-bg-color, @error-border-color);
+}
+
+.kent-generic-box-info {
+    .kent-generic-box(@info-text-color, @info-bg-color, @info-border-color);
+}
+
+.kent-hidden {
+    display: none !important;
+    visibility: hidden !important;
 }

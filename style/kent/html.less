@@ -5,7 +5,18 @@
  */
 
 background: #FFFFFF;
-min-width: 1340px;
+
+@media (min-width: @screen-sm-min) {
+min-width: @container-sm;
+}
+
+@media (min-width: @screen-md-min) {
+min-width: @container-md;
+}
+
+@media (min-width: @screen-lg-min) {
+min-width: @container-lg;
+}
 
 a {
     &, &:visited {

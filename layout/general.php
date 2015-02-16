@@ -246,34 +246,41 @@ if (!empty($coursefooter)) {
 if ($hasfooter) {
 ?>
 <div id="page-footer" class="clearfix">
-    <div id="footerwrapper">
-        <div id="footerinner">
-            <div id="right_footer">
+    <div id="footerwrapper" class="container">
+        <div class="row">
+            <div class="col-md-3 text-left">
+                <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <p style="text-align: center;">
+                    <a target="_blank" href="http://www.kent.ac.uk/elearning/privacy/">Privacy and Data Protection</a>
+                    <br />
+                    <a target="_blank" href="https://www.kent.ac.uk/itservices/forms/moodle/notice.html">Report this Content</a>
+                </p>
+            </div>
+            <div class="col-md-3 text-right">
                 <?php
                     echo $OUTPUT->login_info();
                     echo $OUTPUT->theme_switch_links();
                 ?>
             </div>
-            <div id="left_footer">
-                <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
-            </div>
-            <?php echo $PAGE->theme->settings->footnote; ?>
-            <div class="clearfix"></div>
-            <div class="moodle-extra">
+        </div>
 <?php
     if (has_capability('moodle/site:config', context_system::instance())) {
+        echo '<div class="moodle-extra row">';
         echo $OUTPUT->standard_footer_html();
+        echo '</div>';
     }
 ?>
-            </div>
-        </div>
-</div>
+    </div>
 
 <?php
 }
 ?>
-        <div class="clearfix"></div>
-    </div>
+    <div class="clearfix"></div>
+</div>
+
+
 </div>
 
 <?php
