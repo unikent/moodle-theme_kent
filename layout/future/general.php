@@ -15,18 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
-$prespan = 3;
-$midspan = 6;
-$postspan = 3;
+$prespan = 2;
+$midspan = 8;
+$postspan = 2;
 
 if (!$hassidepre) {
     $prespan = 0;
-    $midspan += 3;
+    $midspan += 2;
 }
 
 if (!$hassidepost) {
     $postspan = 0;
-    $midspan += 3;
+    $midspan += 2;
 }
 ?>
 
