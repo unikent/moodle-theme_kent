@@ -13,6 +13,21 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+$prespan = 3;
+$midspan = 6;
+$postspan = 3;
+
+if (!$hassidepre) {
+    $prespan = 0;
+    $midspan += 3;
+}
+
+if (!$hassidepost) {
+    $postspan = 0;
+    $midspan += 3;
+}
 ?>
 
 <div id="page">
@@ -75,37 +90,42 @@ if ($hasnavbar) {
 </div>
 <div id="contentwrapper">   
     <!-- start OF moodle CONTENT -->
-    <div id="page-content">
-        <div id="region-main-box">
-            <div id="region-post-box">
-                <div id="region-main-wrap">
-                    <div id="region-main">
-                        <div id="mainpadder" class="region-content">
-                            <?php
-                            echo $coursecontentheader;
-                            echo $OUTPUT->main_content();
-                            echo $coursecontentfooter;
-                            ?>
-                        </div>
-                    </div>
-                </div>
-
-                <?php if ($hassidepre) { ?>
-                <div id="region-pre" class="block-region">
+    <div id="page-content" class="container">
+        <div class="row">
+            <?php
+            if ($hassidepre) {
+                $blocks = $OUTPUT->blocks('side-pre');
+                echo <<<HTML5
+                <div id="pre-region" class="block-region col-md-$prespan">
                     <div class="region-content">
-                           <?php echo $OUTPUT->blocks('side-pre'); ?>
+                        $blocks
                     </div>
                 </div>
-                <?php } ?>
+HTML5;
+            }
 
-                <?php if ($hassidepost) { ?>
-                <div id="region-post" class="block-region">
-                    <div class="region-content">
-                           <?php echo $OUTPUT->blocks('side-post'); ?>
-                    </div>
+            $maincontent = $OUTPUT->main_content();
+            echo <<<HTML5
+            <div id="main-region" class="col-md-$midspan">
+                <div id="main-padder" class="region-content">
+                    $coursecontentheader
+                    $maincontent
+                    $coursecontentfooter
                 </div>
-                <?php } ?>
             </div>
+HTML5;
+
+            if ($hassidepost) {
+                $blocks = $OUTPUT->blocks('side-post');
+                echo <<<HTML5
+                <div id="post-region" class="block-region col-md-$postspan">
+                    <div class="region-content">
+                        $blocks
+                    </div>
+                </div>
+HTML5;
+            }
+            ?>
         </div>
      </div>
     <!-- END OF CONTENT --> 
