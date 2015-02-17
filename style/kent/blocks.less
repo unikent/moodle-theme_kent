@@ -13,6 +13,7 @@
 
         h2 {
             color: #555;
+            padding-top: 7px;
         }
     }
 
@@ -21,33 +22,44 @@
             top: 3px
         }
     }
-}
 
-.block_course_overview {
-    .content {
-        margin: 0;
-    }
-}
+    &.block_kent_course_overview {
+        .content {
+            margin: 0;
 
-.block_private_files {
-    div.generalbox {
-        border: 0;
-        padding-bottom: 10px;
-    }
-
-    .singlebutton input[type=submit] {
-        white-space: normal;
-    }
-}
-
-#kent_course_list_overview {
-    li {
-        .visibility_tri {
-            top: 23px;
+            .form_container {
+                height: 35px;
+                padding: 5px;
+            }
         }
 
-        .course_adjust_visibility {
-            padding: 3px 0 0 5px;
+        #kent_course_list_overview {
+            li {
+                .visibility_tri {
+                    top: 23px;
+                }
+
+                .course_adjust_visibility {
+                    padding: 3px 0 0 5px;
+                }
+            }
+        }
+    }
+
+    &.block_course_overview {
+        .content {
+            margin: 0;
+        }
+    }
+
+    &.block_private_files {
+        div.generalbox {
+            border: 0;
+            padding-bottom: 10px;
+        }
+
+        .singlebutton input[type=submit] {
+            white-space: normal;
         }
     }
 }
