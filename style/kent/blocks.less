@@ -4,6 +4,25 @@
  * @future
  */
 
+.block {
+    border-radius: @border-radius-generic;
+
+    .header {
+        border-top-radius: @border-radius-generic;
+        border-bottom-radius: @border-radius-generic;
+
+        h2 {
+            color: #555;
+        }
+    }
+
+    div.block_action {
+        img, input {
+            top: 3px
+        }
+    }
+}
+
 .block_course_overview {
     .content {
         margin: 0;
