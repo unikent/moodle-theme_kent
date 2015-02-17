@@ -16,43 +16,44 @@
 ?>
 
 <div id="page">
-    <div id="page-header">
-        <div class="headermenu">
-<?php 
-if (!empty($PAGE->layout_options['langmenu'])) {
-    echo $OUTPUT->lang_menu();
-}
 
-echo $OUTPUT->page_heading_menu();
-?>
+<div id="page-header">
+    <div class="headermenu">
+        <?php 
+        if (!empty($PAGE->layout_options['langmenu'])) {
+            echo $OUTPUT->lang_menu();
+        }
+
+        echo $OUTPUT->page_heading_menu();
+        ?>
+    </div>
+    <div id="headerwrap">
+        <div id="logowrap">
+            <?php
+            echo "Moodle-" . $CFG->kent->distribution;
+            ?>
         </div>
-        <div id="headerwrap">
-            <div id="logowrap">
-                <?php
-                echo "Moodle-" . $CFG->kent->distribution;
-                ?>
-            </div>
-<?php
-if (!isloggedin() or isguestuser()) {
-    echo '<div class="profilelogin" id="profilelogin">';
-    echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
-    echo '<ul>';
-    echo '<li><input type="submit" value="Log in" id="login_button" /></li>';
-    echo '</ul>';
-    echo '</form>';
-    echo '</div>';
-    echo '</div>';
-} else {
-    echo $OUTPUT->user_menu();
-}
-?>
-            </div>
-        </div>
+        <?php
+        if (!isloggedin() or isguestuser()) {
+            echo '<div class="profilelogin" id="profilelogin">';
+            echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
+            echo '<ul>';
+            echo '<li><input type="submit" value="Log in" id="login_button" /></li>';
+            echo '</ul>';
+            echo '</form>';
+            echo '</div>';
+            echo '</div>';
+        } else {
+            echo $OUTPUT->user_menu();
+        }
+        ?>
+    </div>
+</div>
         
-        <div id="menuwrap">
-            <div id="homeicon">
-                <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
-            </div>
+<div id="menuwrap">
+    <div id="homeicon">
+        <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
+    </div>
 <?php 
 if ($hascustommenu) {
     echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
@@ -62,16 +63,16 @@ if ($hasnavbar) {
     echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
 }
 ?>
+</div>
+<div id="jcontrols_button" class="clearfix">
+    <div class="jcontrolsleft">     
+    <?php if ($hasnavbar) { ?>
+        <div class="navbar clearfix">
+            <div class="breadcrumb"> <?php echo $OUTPUT->navbar();  ?></div>
         </div>
-        <div id="jcontrols_button" class="clearfix">
-            <div class="jcontrolsleft">     
-            <?php if ($hasnavbar) { ?>
-                <div class="navbar clearfix">
-                    <div class="breadcrumb"> <?php echo $OUTPUT->navbar();  ?></div>
-                </div>
-            <?php } ?>
-            </div>
-        </div>
+    <?php } ?>
+    </div>
+</div>
 <div id="contentwrapper">   
     <!-- start OF moodle CONTENT -->
     <div id="page-content">
@@ -134,25 +135,23 @@ if ($hasfooter) {
             </div>
             <div class="col-md-3 text-right">
                 <?php
-                    echo $OUTPUT->login_info();
-                    echo $OUTPUT->theme_switch_links();
+                echo $OUTPUT->login_info();
+                echo $OUTPUT->theme_switch_links();
                 ?>
             </div>
         </div>
-<?php
-    if (has_capability('moodle/site:config', context_system::instance())) {
-        echo '<div class="moodle-extra row">';
-        echo $OUTPUT->standard_footer_html();
-        echo '</div>';
-    }
-?>
+        <?php
+        if (has_capability('moodle/site:config', context_system::instance())) {
+            echo '<div class="moodle-extra row">';
+            echo $OUTPUT->standard_footer_html();
+            echo '</div>';
+        }
+        ?>
     </div>
-
+    <div class="clearfix"></div>
+</div>
 <?php
 }
 ?>
-    <div class="clearfix"></div>
-</div>
-
 
 </div>

@@ -256,12 +256,10 @@ if ($hasfooter) {
     }
 ?>
     </div>
-
+    <div class="clearfix"></div>
+</div>
 <?php
 }
 ?>
-    <div class="clearfix"></div>
-</div>
-
 
 </div>
