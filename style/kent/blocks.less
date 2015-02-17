@@ -4,19 +4,107 @@
  * @future
  */
 
-.block_course_overview {
-    .content {
-        margin: 0;
-    }
-}
+.block {
+    border-radius: @border-radius-generic;
 
-.block_private_files {
-    div.generalbox {
-        border: 0;
-        padding-bottom: 10px;
+    .header {
+        border-top-radius: @border-radius-generic;
+        border-bottom-radius: @border-radius-generic;
+
+        h2 {
+            color: #555;
+            padding-top: 7px;
+        }
     }
 
-    .singlebutton input[type=submit] {
-        white-space: normal;
+    div.block_action {
+        img, input {
+            top: 3px
+        }
+    }
+
+    div.content {
+        input, input[type=submit], select {
+            width: 100%;
+        }
+    }
+
+    &.block_kent_course_overview {
+        .content {
+            margin: 0;
+
+            .form_container {
+                height: 35px;
+                padding: 5px;
+            }
+        }
+
+        #kent_course_list_overview {
+            li {
+                .title {
+                    .action-icon img {
+                        vertical-align: baseline;
+                    }
+                }
+
+                .visibility_tri {
+                    display: none;
+                }
+
+                .course_adjust_visibility {
+                    width: auto;
+                    display: inline;
+                    float: none;
+                    background: none;
+                    box-shadow: none;
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    outline: 0;
+                }
+            }
+
+            .course_details_ovrv.admin_width {
+                float: none;
+                width: auto;
+            }
+
+            .course_admin_options {
+                width: auto;
+                float: none;
+                padding: 0;
+                border-top: 1px solid #EFEFEF;
+
+                &.admin_hide {
+                    border-radius: 0;
+                    color: #6f6f6f;
+                }
+
+                .course_rollover_optns, .course_clear_optns {
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+
+    &.block_course_overview {
+        .content {
+            margin: 0;
+        }
+    }
+
+    &.block_private_files {
+        div.generalbox {
+            border: 0;
+            padding-bottom: 10px;
+        }
+
+        .singlebutton input[type=submit] {
+            white-space: normal;
+        }
     }
 }

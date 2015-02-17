@@ -16,7 +16,6 @@
 ?>
 
 <!DOCTYPE html>
-
 <html dir="ltr" lang="en" xml:lang="en">
 <head>
     <title>Oops!</title>
