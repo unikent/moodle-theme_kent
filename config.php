@@ -20,19 +20,16 @@ $THEME->doctype = 'html5';
 $THEME->parents = array('base', 'canvas');
 
 $THEME->sheets = array('theme');
+
 $THEME->javascripts = array();
-$THEME->javascripts_footer = array('profileblock', 'navbar');
-
-$THEME->supportscssoptimisation = false;
-
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
+$THEME->javascripts_footer = array('profileblock', 'navbar', 'bootstrap.min');
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
 }
 
+$THEME->supportscssoptimisation = false;
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->enable_dock = true;
-
 $THEME->editor_sheets = array('editor');
 
 $THEME->layouts = array(
