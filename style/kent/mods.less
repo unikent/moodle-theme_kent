@@ -48,18 +48,7 @@
         margin: 0;
 
         #cboxClose {
-            background: none !important;
-            border: none !important;
-            outline: none !important;
-            position: absolute;
-            top: 45px;
-            width: 90px;
-            padding: 0;
-            text-indent: 0;
-
-            &:after {
-                content: "Close Window";
-            }
+            display: none !important;
         }
     }
 }
@@ -67,6 +56,15 @@
 body.tii-box {
     #page {
         padding-top: 10px;
+
+        > .row {
+            margin: 0;
+        }
+
+        #main-region {
+            margin: 0 auto;
+            float: none;
+        }
     }
 }
 
