@@ -11,8 +11,6 @@
 @import "lib/aardvark";
 @import "lib/fa";
 
-@import "lib/bootstrap/variables";
-
 @import "lib/bootstrap/mixins/clearfix";
 @import "lib/bootstrap/mixins/vendor-prefixes";
 @import "lib/bootstrap/mixins/tab-focus";
@@ -51,6 +49,7 @@
  */
 html body {
     &.kent-future-theme {
+        @import "lib/bootstrap/breadcrumbs";
         @import "kent/html";
         @import "kent/future";
         @import "kent/blocks";
@@ -58,6 +57,7 @@ html body {
         @import "kent/admin";
         @import "kent/tabs";
         @import "kent/connect";
+        @import "kent/quiz";
 
         &.kent-dist-archive {
             @import "flavours/archive";
