@@ -22,7 +22,7 @@
 .make-xs-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   float: left;
-  width: percentage((@columns / @grid-columns));
+  width: percentage((@columns / @grid-columns)) !important;
   min-height: 1px;
   padding-left:  (@gutter / 2);
   padding-right: (@gutter / 2);
@@ -46,7 +46,7 @@
 
   @media (min-width: @screen-sm-min) {
     float: left;
-    width: percentage((@columns / @grid-columns));
+    width: percentage((@columns / @grid-columns)) !important;
   }
 }
 .make-sm-column-offset(@columns) {
@@ -74,7 +74,7 @@
 
   @media (min-width: @screen-md-min) {
     float: left;
-    width: percentage((@columns / @grid-columns));
+    width: percentage((@columns / @grid-columns)) !important;
   }
 }
 .make-md-column-offset(@columns) {
@@ -102,7 +102,7 @@
 
   @media (min-width: @screen-lg-min) {
     float: left;
-    width: percentage((@columns / @grid-columns));
+    width: percentage((@columns / @grid-columns)) !important;
   }
 }
 .make-lg-column-offset(@columns) {

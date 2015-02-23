@@ -1,8 +1,10 @@
 /*
  * Quiz.
+ * 
+ * @future
  */
 
-.path-mod-quiz {
+&.path-mod-quiz {
 	.qnbutton {
 		border: none;
 
@@ -10,37 +12,33 @@
 			border: 0 !important;
 		}
 	}
-}
 
-#page-mod-quiz-view #page {
-	h3,
-	.quizinfo,
-	.quizattempt,
-	.quizattempt .singlebutton,
-	.generalbox#feedback,
-	.generaltable.quizattemptsummary {
-		margin-left: 0;
-		margin-right: 0;
-		text-align: left;
-	}
-}
-
-#page-mod-quiz-review {
 	.que {
+		margin-bottom: 10px;
+
 		.info {
 			margin: 0;
 			background: none;
+			padding-left:  (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
+
+			.editquestion {
+				img {
+					margin-left: 0;
+					margin-right: 7px;
+				}
+			}
 		}
 
 		.content {
-			margin: 0 0 0 7em;
-			border-left: 1px solid #dadada;
+			margin: 0;
 			height: 100%;
+			padding-left:  (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
 		}
 
 		.formulation {
 			background: none;
-			border-bottom: 1px solid #dadada;
 		}
 
 		.outcome,
@@ -53,7 +51,23 @@
 	}
 }
 
-.mod-quiz-edit-content {
+&#page-mod-quiz-summary #page,
+&#page-mod-quiz-view #page {
+	h3,
+	.quizinfo,
+	.quizattempt,
+	.quizattempt .singlebutton,
+	.submitbtns .singlebutton,
+	.generalbox#feedback,
+	.generaltable.quizattemptsummary,
+	.generaltable.quizsummaryofattempt {
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
+	}
+}
+
+&.mod-quiz-edit-content {
 	.rpcontainerclass {
 		clear: both;
 		.clearfix();
@@ -73,5 +87,11 @@
 
 	#inputmaxgrade {
 		width: 75px;
+	}
+}
+
+&#page-mod-quiz-attempt, &#page-mod-quiz-review {
+	.submitbtns {
+		margin-top: 10px;
 	}
 }
