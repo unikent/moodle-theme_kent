@@ -83,7 +83,7 @@ if ($hasnavbar) {
     <div class="jcontrolsleft">     
     <?php if ($hasnavbar) { ?>
         <div class="navbar clearfix">
-            <div class="breadcrumb"> <?php echo $OUTPUT->navbar();  ?></div>
+            <?php echo $OUTPUT->navbar();  ?>
         </div>
     <?php } ?>
     </div>

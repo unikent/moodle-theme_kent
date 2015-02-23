@@ -25,6 +25,26 @@ class theme_kent_core_renderer extends core_renderer
 {
     private $_tabdepth;
 
+    /*
+     * This renders the navbar.
+     * Uses bootstrap compatible html.
+     */
+    public function navbar() {
+        $items = $this->page->navbar->get_items();
+        if (empty($items)) {
+            return '';
+        }
+        $breadcrumbs = array();
+        foreach ($items as $item) {
+            $item->hideicon = true;
+            $breadcrumbs[] = $this->render($item);
+        }
+        $divider = '<span class="divider">'.get_separator().'</span>';
+        $list_items = '<li>'.join(" $divider</li><li>", $breadcrumbs).'</li>';
+        $title = '<span class="accesshide">'.get_string('pagepath').'</span>';
+        return $title . "<ul class=\"breadcrumb\">$list_items</ul>";
+    }
+
     /**
      * Internal implementation of user image rendering.
      *
