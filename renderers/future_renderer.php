@@ -25,6 +25,48 @@ class theme_kent_core_renderer extends core_renderer
 {
     private $_tabdepth;
 
+    /*
+     * This renders a notification message.
+     * Uses bootstrap compatible html.
+     */
+    public function notification($message, $classes = 'notifyproblem') {
+        $message = clean_text($message);
+        $type = '';
+
+        if (($classes == 'notifyproblem') || ($classes == 'notifytiny')) {
+            $type = 'alert alert-error';
+        }
+        if ($classes == 'notifysuccess') {
+            $type = 'alert alert-success';
+        }
+        if ($classes == 'notifymessage') {
+            $type = 'alert alert-info';
+        }
+        if ($classes == 'redirectmessage') {
+            $type = 'alert alert-block alert-info';
+        }
+        return "<div class=\"$type\">$message</div>";
+    }
+
+    /*
+     * This renders the navbar.
+     * Uses bootstrap compatible html.
+     */
+    public function navbar() {
+        $items = $this->page->navbar->get_items();
+        if (empty($items)) {
+            return '';
+        }
+        $breadcrumbs = array();
+        foreach ($items as $item) {
+            $item->hideicon = true;
+            $breadcrumbs[] = $this->render($item);
+        }
+        $list_items = '<li>'.join("</li><li>", $breadcrumbs).'</li>';
+        $title = '<span class="accesshide">'.get_string('pagepath').'</span>';
+        return $title . "<ul class=\"breadcrumb\">$list_items</ul>";
+    }
+
     /**
      * Internal implementation of user image rendering.
      *
