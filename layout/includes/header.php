@@ -88,7 +88,7 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_head_html();
 
 $rev = theme_get_revision();
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css?{$rev}\" />";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/font-awesome.min.css?{$rev}\" />";
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/navbar/kent-header-light.css?{$rev}\" />";
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('8.0')) {
     echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/navbar/kent-header-font-ie8?{$rev}\" />";
