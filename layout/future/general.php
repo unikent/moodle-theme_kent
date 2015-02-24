@@ -30,7 +30,7 @@ if (!$hassidepost) {
 }
 ?>
 
-<div id="page">
+<div id="page" class="container">
 
 <div id="page-header">
     <div class="headermenu">
@@ -86,7 +86,7 @@ if ($hasnavbar) {
 <?php } ?>
 <div id="contentwrapper">   
     <!-- start OF moodle CONTENT -->
-    <div id="page-content" class="container">
+    <div id="page-content">
         <div class="row">
             <?php
             if ($hassidepre) {
