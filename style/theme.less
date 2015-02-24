@@ -50,14 +50,19 @@ html body {
     &.kent-future-theme {
         @import "lib/bootstrap/breadcrumbs";
         @import "lib/bootstrap/alerts";
-        @import "kent/html";
-        @import "kent/future";
-        @import "kent/blocks";
-        @import "kent/course";
-        @import "kent/admin";
-        @import "kent/tabs";
-        @import "kent/connect";
-        @import "kent/quiz";
+
+        @import "kent/future/reset";
+        @import "kent/future/html";
+        @import "kent/future/generic";
+        @import "kent/future/structure";
+        @import "kent/future/menu";
+
+        @import "kent/future/blocks";
+        @import "kent/future/course";
+        @import "kent/future/admin";
+        @import "kent/future/tabs";
+        @import "kent/future/quiz";
+        @import "kent/future/local_connect";
 
         &.kent-dist-archive {
             @import "flavours/archive";

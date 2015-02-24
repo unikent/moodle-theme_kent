@@ -44,7 +44,7 @@ if (!$hassidepost) {
     }
     ?>
     <div id="headerwrap" class="row">
-        <div id="logowrap" class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-6 brand">
             <?php
             echo "Moodle-" . $CFG->kent->distribution;
             ?>
