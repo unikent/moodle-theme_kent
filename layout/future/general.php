@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 $prespan = 2;
 $midspan = 8;
 $postspan = 2;
@@ -62,62 +61,60 @@ if (!$hassidepost) {
     <div id="homeicon">
         <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
     </div>
-<?php 
-if ($hascustommenu) {
-    echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
-}
+    <?php 
+    if ($hascustommenu) {
+        echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
+    }
 
-if ($hasnavbar) {
-    echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
-}
-?>
+    if ($hasnavbar) {
+        echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
+    }
+    ?>
 </div>
+
 <?php if ($hasnavbar) { ?>
 <div class="navbar row">
     <?php echo $OUTPUT->navbar();  ?>
 </div>
 <?php } ?>
-<div id="contentwrapper">   
-    <!-- start OF moodle CONTENT -->
-    <div id="page-content">
-        <div class="row">
-            <?php
-            if ($hassidepre) {
-                $blocks = $OUTPUT->blocks('side-pre');
-                echo <<<HTML5
-                <div id="pre-region" class="block-region col-md-$prespan">
-                    <div class="region-content">
-                        $blocks
-                    </div>
-                </div>
-HTML5;
-            }
 
-            $maincontent = $OUTPUT->main_content();
+<div id="contentwrapper" class="row">
+    <div id="page-content" class="row">
+        <?php
+        if ($hassidepre) {
+            $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
-            <div id="main-region" class="col-md-$midspan">
-                <div id="main-padder" class="region-content">
-                    $coursecontentheader
-                    $maincontent
-                    $coursecontentfooter
+            <div id="pre-region" class="block-region col-md-$prespan">
+                <div class="region-content">
+                    $blocks
                 </div>
             </div>
 HTML5;
+        }
 
-            if ($hassidepost) {
-                $blocks = $OUTPUT->blocks('side-post');
-                echo <<<HTML5
-                <div id="post-region" class="block-region col-md-$postspan">
-                    <div class="region-content">
-                        $blocks
-                    </div>
-                </div>
-HTML5;
-            }
-            ?>
+        $maincontent = $OUTPUT->main_content();
+        echo <<<HTML5
+        <div id="main-region" class="col-md-$midspan">
+            <div id="main-padder" class="region-content">
+                $coursecontentheader
+                $maincontent
+                $coursecontentfooter
+            </div>
         </div>
+HTML5;
+
+        if ($hassidepost) {
+            $blocks = $OUTPUT->blocks('side-post');
+            echo <<<HTML5
+            <div id="post-region" class="block-region col-md-$postspan">
+                <div class="region-content">
+                    $blocks
+                </div>
+            </div>
+HTML5;
+        }
+        ?>
      </div>
-    <!-- END OF CONTENT --> 
 </div>      
 
 <?php
@@ -129,8 +126,8 @@ if (!empty($coursefooter)) {
 <?php
 if ($hasfooter) {
 ?>
-<div id="page-footer" class="clearfix">
-    <div id="footerwrapper" class="container">
+<div id="page-footer" class="row">
+    <div id="footerwrapper">
         <div class="row">
             <div class="col-md-3 text-left">
                 <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
