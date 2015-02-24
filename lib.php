@@ -38,17 +38,26 @@ function theme_kent_page_init(moodle_page $page) {
     $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
     $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
     if ($hasfuture) {
+        $page->requires->css('/theme/kent/style/future.css');
         $page->requires->js('/theme/kent/javascript/navbuttons.js');
 
         $page->theme->larrow = '&lt;';
         $page->theme->rarrow = '&gt;';
+    } else {
+        $page->requires->css('/theme/kent/style/theme.css');
+    }
+
+    $page->requires->css('/theme/kent/style/font-awesome.min.css');
+    $page->requires->css('/theme/kent/style/kent-header-light.css');
+
+    if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('8.0')) {
+        $page->requires->css('/theme/kent/style/kent-header-font-ie8.css');
     }
 
     if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
         \local_tutorials\Page::on_load();
     }
 }
-
 
 /**
  * Returns a list of upcoming events.
