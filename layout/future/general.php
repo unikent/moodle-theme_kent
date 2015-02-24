@@ -79,15 +79,11 @@ if ($hasnavbar) {
 }
 ?>
 </div>
-<div id="jcontrols_button" class="clearfix">
-    <div class="jcontrolsleft">     
-    <?php if ($hasnavbar) { ?>
-        <div class="navbar clearfix">
-            <div class="breadcrumb"> <?php echo $OUTPUT->navbar();  ?></div>
-        </div>
-    <?php } ?>
-    </div>
+<?php if ($hasnavbar) { ?>
+<div class="navbar clearfix">
+    <div class="breadcrumb"> <?php echo $OUTPUT->navbar();  ?></div>
 </div>
+<?php } ?>
 <div id="contentwrapper">   
     <!-- start OF moodle CONTENT -->
     <div id="page-content" class="container">
