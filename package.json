@@ -1,0 +1,25 @@
+{
+    "name": "KentTheme",
+    "version": "2.0.0",
+    "description": "Kent Moodle Theme",
+    "main": "Gruntfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "University of Kent",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/unikent/moodle-theme_kent.git"
+    },
+    "bugs": {
+        "url": "https://github.com/unikent/moodle-theme_kent/issues"
+    },
+    "homepage": "https://github.com/unikent/moodle-theme_kent",
+    "devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-less": "~0.11.0",
+		"grunt-contrib-watch": "~0.6.1",
+		"jit-grunt": "~0.7.0"
+	}
+}
