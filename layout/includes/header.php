@@ -51,6 +51,7 @@ if ($isfuture) {
 
 $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture) {
+    $bodyclasses[] = 'bootstrap';
     $bodyclasses[] = 'kent-future-theme';
 } else {
     $bodyclasses[] = 'kent-current-theme';

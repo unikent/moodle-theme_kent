@@ -21,8 +21,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    "style/theme.css": "style/less/theme.less",
-                    "style/future.css": "style/less/future.less"
+                    "style/theme.css": "style/less/theme.less"
                 }
             }
         },
