@@ -15,19 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * UKC Theme
+ * Overrides a few defaults.
  *
- * @package    theme_kent
- * @copyright  2014 University of Kent
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     theme_kent
+ * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2015022401;
-$plugin->requires  = 2013050100;
-$plugin->component = 'theme_kent';
-$plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100
-);
+class theme_kent_core_renderer_maintenance extends core_renderer_maintenance
+{
+    use theme_kent_bootstrap_notifications;
+}

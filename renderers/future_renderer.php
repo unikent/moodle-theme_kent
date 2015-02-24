@@ -23,30 +23,9 @@
  */
 class theme_kent_core_renderer extends core_renderer
 {
+    use theme_kent_bootstrap_notifications;
+
     private $_tabdepth;
-
-    /*
-     * This renders a notification message.
-     * Uses bootstrap compatible html.
-     */
-    public function notification($message, $classes = 'notifyproblem') {
-        $message = clean_text($message);
-        $type = '';
-
-        if (($classes == 'notifyproblem') || ($classes == 'notifytiny')) {
-            $type = 'alert alert-error';
-        }
-        if ($classes == 'notifysuccess') {
-            $type = 'alert alert-success';
-        }
-        if ($classes == 'notifymessage') {
-            $type = 'alert alert-info';
-        }
-        if ($classes == 'redirectmessage') {
-            $type = 'alert alert-block alert-info';
-        }
-        return "<div class=\"$type\">$message</div>";
-    }
 
     /*
      * This renders the navbar.
