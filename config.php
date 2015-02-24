@@ -105,7 +105,6 @@ $THEME->layouts = array(
         'options' => array('nofooter' => true, 'nonavbar' => true),
     ),
     'embedded' => array(
-        'theme' => 'canvas',
         'file' => 'embedded.php',
         'regions' => array(),
         'options' => array('nofooter' => true, 'nonavbar' => true),
