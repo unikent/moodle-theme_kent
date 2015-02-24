@@ -9,6 +9,13 @@
     .container();
 }
 
+#page-header, #headerwrap, #menuwrap, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
+    float: none;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+}
+
 &.tii-box {
     #page {
         padding-top: 10px;
@@ -109,13 +116,14 @@
         height: auto;
     }
 
-    #menuwrap {
-        overflow: visible;
-    }
-
     .usermenu {
         position: relative;
         height: 100%;
+
+        .login {
+            display: block;
+            margin-top: 20px;
+        }
 
         .moodle-actionmenu {
             .menubar {
@@ -193,19 +201,25 @@
     }
 }
 
-#headerwrap, #menuwrap, #contentwrapper, #page-footer #footerwrapper, #page-content, #profilebar {
-    min-width: 0;
+#menuwrap {
+    overflow: visible;
+    width: auto;
+    .row();
 
-    @media (min-width: @screen-sm-min) {
-    max-width: @container-sm;
-    }
+    #homeicon {
+        padding: 0 10px;
+        width: auto;
 
-    @media (min-width: @screen-md-min) {
-    max-width: @container-md;
-    }
+        a {
+            background: none !important;
 
-    @media (min-width: @screen-lg-min) {
-    max-width: @container-lg;
+            .fa {
+                display: inline-block;
+                color: #FFF;
+                font-size: 22px;
+                padding: 9px 10px 0 10px;
+            }
+        }
     }
 }
 
@@ -243,29 +257,15 @@
     }
 }
 
-#page-content {
-    .region-content {
-        padding: 0;
+#contentwrapper {
+    .row();
 
-        > div > .singlebutton {
-            text-align: left;
-        }
-    }
-}
+    #page-content {
+        .region-content {
+            padding: 0;
 
-#menuwrap {
-    #homeicon {
-        padding: 0 10px;
-        width: auto;
-
-        a {
-            background: none !important;
-
-            .fa {
-                display: inline-block;
-                color: #FFF;
-                font-size: 22px;
-                padding: 9px 10px 0 10px;
+            > div > .singlebutton {
+                text-align: left;
             }
         }
     }

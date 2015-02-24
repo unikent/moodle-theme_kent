@@ -32,40 +32,33 @@ if (!$hassidepost) {
 
 <div id="page" class="container">
 
-<div id="page-header">
-    <div class="headermenu">
-        <?php 
-        if (!empty($PAGE->layout_options['langmenu'])) {
-            echo $OUTPUT->lang_menu();
-        }
+<div id="page-header" class="row">
+    <?php
+    $out = '';
+    if (!empty($PAGE->layout_options['langmenu'])) {
+        $out .= $OUTPUT->lang_menu();
+    }
 
-        echo $OUTPUT->page_heading_menu();
-        ?>
-    </div>
-    <div id="headerwrap">
-        <div id="logowrap">
+    $out .= $OUTPUT->page_heading_menu();
+    if (!empty($out)) {
+        echo '<div class="headermenu row">' . $out . '</div>';
+    }
+    ?>
+    <div id="headerwrap" class="row">
+        <div id="logowrap" class="col-xs-12 col-md-6">
             <?php
             echo "Moodle-" . $CFG->kent->distribution;
             ?>
         </div>
-        <?php
-        if (!isloggedin() or isguestuser()) {
-            echo '<div class="profilelogin" id="profilelogin">';
-            echo '<form id="login" method="post" action="'.$CFG->wwwroot.'/login/index.php">';
-            echo '<ul>';
-            echo '<li><input type="submit" value="Log in" id="login_button" /></li>';
-            echo '</ul>';
-            echo '</form>';
-            echo '</div>';
-            echo '</div>';
-        } else {
+        <div class="col-xs-12 col-md-6">
+            <?php
             echo $OUTPUT->user_menu();
-        }
-        ?>
+            ?>
+        </div>
     </div>
 </div>
         
-<div id="menuwrap">
+<div id="menuwrap" class="row">
     <div id="homeicon">
         <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
     </div>
@@ -80,7 +73,7 @@ if ($hasnavbar) {
 ?>
 </div>
 <?php if ($hasnavbar) { ?>
-<div class="navbar clearfix">
+<div class="navbar row">
     <?php echo $OUTPUT->navbar();  ?>
 </div>
 <?php } ?>
