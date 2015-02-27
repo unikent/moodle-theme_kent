@@ -1,0 +1,157 @@
+/*
+ * Future Stylesheet.
+ *
+ * This provides basic page structure.
+ * 
+ * @future
+ */
+
+#page {
+    .container();
+    padding: 0;
+
+	#page-header #headerwrap {
+	    height: 60px;
+
+	    .brand {
+	        color: @kent-corp-primary;
+	        font-size: 34px;
+	        margin-top: 7px;
+	    }
+
+	    .usermenu {
+	        position: relative;
+	        height: 100%;
+
+	        .login {
+	            display: block;
+	            margin-top: 20px;
+	        }
+
+	        .moodle-actionmenu {
+	            .menubar {
+	                margin: 0;
+
+	                & > li {
+	                    width: 100%;
+
+	                    & > a {
+	                        padding: 0;
+	                    }
+	                }
+	            }
+
+	            .toggle-display {
+	                height: auto;
+
+	                .userbutton {
+	                    display: block;
+	                    height: auto;
+
+	                    .usertext {
+	                        color: @kent-corp-primary;
+	                        font-size: 21px;
+	                        line-height: 25px;
+	                        padding-top: 21px;
+	                    }
+
+	                    .avatars {
+	                        vertical-align: top;
+	                        padding-top: 5px;
+	                        margin-right: 0;
+	                        height: auto;
+	                        width: auto;
+	                    }
+	                }
+
+	                .caret {
+	                    display: none;
+	                }
+	            }
+
+	            &.show {
+	                height: 100%;
+
+	                .menu {
+	                    border-radius: @border-radius-generic;
+	                }
+	            }
+	        }
+	    }
+	}
+
+	.navbar .breadcrumb {
+	    margin: 5px 0;
+	    padding: 0;
+    	text-transform: capitalize;
+
+	    ul {
+	        line-height: 15px;
+	    }
+
+	    > li+li:before {
+	        padding: 0 0 0 5px;
+	    }
+
+	    span.arrow.sep {
+	        width: auto;
+	        padding: 0 5px;
+	        background: none;
+	        font-size: 13px;
+	        color: #333;
+	    }
+	}
+
+	#contentwrapper {
+	    .row();
+
+	    #page-content {
+	        border: 0;
+
+	        .region-content {
+	            padding: 0;
+	        }
+	    }
+	}
+
+	#page-footer {
+		margin-top: 10px;
+
+	    .performanceinfo {
+	        margin: 0;
+
+	        .cachesused .cache-definition-stats {
+	            border: 1px solid #CCC;
+	            border-radius: @border-radius-generic;
+	            background: none;
+	            margin: 10px 5px;
+
+	            span {
+	                padding: 5px;
+	                font-size: 13px;
+
+	                &.cache-definition-stats-heading {
+	                    background: none;
+	                }
+
+	                &.cache-store-stats {
+	                    &.highhits {
+	                        background-color: @success-bg-color;
+	                        color: @success-text-color;
+	                    }
+
+	                    &.lowhits {
+	                        background-color: @warning-bg-color;
+	                        color: @warning-text-color;
+	                    }
+
+	                    &.nohits {
+	                        background-color: @error-bg-color;
+	                        color: @error-text-color;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+}

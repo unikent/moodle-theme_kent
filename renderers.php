@@ -17,7 +17,10 @@
 $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
 $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture) {
+	require_once('renderers/bootstrap.php');
 	require_once('renderers/future_renderer.php');
+	require_once('renderers/future_maintenance_renderer.php');
+	require_once('renderers/future_quiz_renderer.php');
 } else {
 	require_once('renderers/current_renderer.php');
 }

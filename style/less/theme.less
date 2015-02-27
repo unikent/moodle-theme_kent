@@ -1,17 +1,9 @@
 /**
- * Kent theme imports.
- *
- * Future theme is pressed off to other style sheets.
- * At some point we can remove aardvark and core and remove the future classifier.
+ * Kent theme.
  */
 
 @import "lib/variables";
 @import "lib/mixins";
-
-@import "lib/aardvark";
-@import "lib/fa";
-
-@import "lib/bootstrap/variables";
 
 @import "lib/bootstrap/mixins/clearfix";
 @import "lib/bootstrap/mixins/vendor-prefixes";
@@ -24,40 +16,54 @@
 @import "lib/bootstrap/mixins/buttons";
 @import "lib/bootstrap/mixins/forms";
 @import "lib/bootstrap/mixins/gradients";
+@import "lib/bootstrap/mixins/alerts";
 @import "lib/bootstrap/mixins/progress-bar";
+
+@import "lib/aardvark";
 
 @import "lib/bootstrap/responsive-utilities";
 @import "lib/bootstrap/utilities";
 @import "lib/bootstrap/grid";
-@import "lib/bootstrap/buttons";
-@import "lib/bootstrap/button-groups";
 
+/**
+ * Namespace these ones.
+ */
 .bootstrap {
+    @import "lib/bootstrap/buttons";
+    @import "lib/bootstrap/button-groups";
     @import "lib/bootstrap/forms";
+    @import "lib/bootstrap/input-groups";
     @import "lib/bootstrap/progress-bars";
+    @import "lib/bootstrap/breadcrumbs";
+    @import "lib/bootstrap/alerts";
 }
 
-
 @import "kent/navbar";
-
 @import "kent/typography";
-
 @import "kent/core";
 @import "kent/base";
 @import "kent/mods";
+@import "kent/auth";
+@import "kent/forms";
 
 /**
  * Future styles.
  */
 html body {
     &.kent-future-theme {
-        @import "kent/html";
-        @import "kent/future";
-        @import "kent/blocks";
-        @import "kent/course";
-        @import "kent/admin";
-        @import "kent/tabs";
-        @import "kent/connect";
+        @import "kent/future/reset";
+        @import "kent/future/html";
+        @import "kent/future/generic";
+        @import "kent/future/structure";
+        @import "kent/future/menu";
+        @import "kent/future/yui";
+
+        @import "kent/future/blocks";
+        @import "kent/future/course";
+        @import "kent/future/admin";
+        @import "kent/future/tabs";
+        @import "kent/future/quiz";
+        @import "kent/future/local_connect";
 
         &.kent-dist-archive {
             @import "flavours/archive";
@@ -74,5 +80,5 @@ html body {
 }
 
 @media print {
-    @import "print/base";
+    @import "kent/print/base";
 }

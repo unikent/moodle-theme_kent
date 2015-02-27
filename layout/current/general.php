@@ -167,12 +167,11 @@ if ($hascustommenu) {
                 </div>
             <?php } ?>
             </div>
-<?php
-if ($hasnavbar) {
-    echo '<div id="ebutton">' . $OUTPUT->page_heading_button() . '</div>';
-}
-?>
-
+            <?php
+            if ($hasnavbar) {
+                echo '<div id="ebutton">' . $OUTPUT->page_heading_button() . '</div>';
+            }
+            ?>
         </div>  
         <?php if ($CFG->kent->distribution == "archive") { ?>
         <div class="archive_bar">

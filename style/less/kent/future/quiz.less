@@ -1,0 +1,97 @@
+/*
+ * Quiz styles.
+ * 
+ * @future
+ */
+
+&.path-mod-quiz {
+	.qnbutton {
+		border: none;
+
+		.trafficlight {
+			border: 0 !important;
+		}
+	}
+
+	.que {
+		margin-bottom: 10px;
+
+		.info {
+			margin: 0;
+			background: none;
+			padding-left:  (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
+
+			.editquestion {
+				img {
+					margin-left: 0;
+					margin-right: 7px;
+				}
+			}
+		}
+
+		.content {
+			margin: 0;
+			height: 100%;
+			padding-left:  (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
+		}
+
+		.formulation {
+			background: none;
+		}
+
+		.outcome,
+		.correct,
+		.incorrect,
+		.notanswered,
+		.partiallycorrect {
+			background: none;
+		}
+	}
+}
+
+&#page-mod-quiz-summary #page,
+&#page-mod-quiz-view #page {
+	h3,
+	.quizinfo,
+	.quizattempt,
+	.quizattempt .singlebutton,
+	.submitbtns .singlebutton,
+	.generalbox#feedback,
+	.generaltable.quizattemptsummary,
+	.generaltable.quizsummaryofattempt {
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
+	}
+}
+
+&.mod-quiz-edit-content {
+	.rpcontainerclass {
+		clear: both;
+		.clearfix();
+	}
+
+	.moodle-actionmenu[data-enhanced] {
+		.toggle-display.textmenu .caret {
+			margin-top: 6px;
+			margin-left: 5px;
+		}
+
+		.menu.align-tr-br {
+			top: 100% !important;
+			width: 175px;
+		}
+	}
+
+	#inputmaxgrade {
+		width: 75px;
+	}
+}
+
+&#page-mod-quiz-attempt, &#page-mod-quiz-review {
+	.submitbtns {
+		margin-top: 10px;
+	}
+}

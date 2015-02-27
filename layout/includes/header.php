@@ -51,6 +51,7 @@ if ($isfuture) {
 
 $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
 if ($hasfuture) {
+    $bodyclasses[] = 'bootstrap';
     $bodyclasses[] = 'kent-future-theme';
 } else {
     $bodyclasses[] = 'kent-current-theme';
@@ -84,16 +85,9 @@ echo $OUTPUT->doctype();
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon()?>" />
-<?php
-echo $OUTPUT->standard_head_html();
-
-$rev = theme_get_revision();
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/fonts.css?{$rev}\" />";
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/navbar/kent-header-light.css?{$rev}\" />";
-if (core_useragent::is_ie() && !core_useragent::check_ie_version('8.0')) {
-    echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$CFG->wwwroot}/theme/kent/style/navbar/kent-header-font-ie8?{$rev}\" />";
-}
-?>
+    <?php
+    echo $OUTPUT->standard_head_html();
+    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>

@@ -44,11 +44,17 @@ function theme_kent_page_init(moodle_page $page) {
         $page->theme->rarrow = '&gt;';
     }
 
+    $page->requires->css('/theme/kent/style/font-awesome.min.css');
+    $page->requires->css('/theme/kent/style/kent-header-light.css');
+
+    if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('8.0')) {
+        $page->requires->css('/theme/kent/style/kent-header-font-ie8.css');
+    }
+
     if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
         \local_tutorials\Page::on_load();
     }
 }
-
 
 /**
  * Returns a list of upcoming events.

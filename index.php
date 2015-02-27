@@ -71,5 +71,4 @@ $PAGE->set_title($SITE->fullname);
 $PAGE->set_heading($SITE->fullname);
 
 echo $OUTPUT->header();
-
 echo $OUTPUT->footer();

@@ -4,8 +4,18 @@
  * @future
  */
 
+#kent-bar {
+    background: @kent-greenset-primary;
+}
+
 #menuwrap {
     background: @kent-greenset-primary;
+
+    #homeicon {
+        &:hover {
+            background: @kent-greenset-secondary;
+        }
+    }
 
     #menuitemswrap {
         #custommenu {
@@ -39,8 +49,8 @@
     }
 }
 
-#homeicon {
-    &:hover {
-        background: @kent-greenset-secondary;
+#page #page-header #headerwrap {
+    .brand, .usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+        color: @kent-greenset-primary;
     }
 }
