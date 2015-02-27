@@ -29,6 +29,12 @@
  * Namespace these ones.
  */
 .bootstrap {
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
     @import "lib/bootstrap/buttons";
     @import "lib/bootstrap/button-groups";
     @import "lib/bootstrap/forms";
@@ -38,6 +44,7 @@
     @import "lib/bootstrap/alerts";
 }
 
+@import "kent/reset";
 @import "kent/navbar";
 @import "kent/typography";
 @import "kent/core";
