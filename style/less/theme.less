@@ -15,11 +15,17 @@
 @import "lib/bootstrap/mixins/grid";
 @import "lib/bootstrap/mixins/buttons";
 @import "lib/bootstrap/mixins/forms";
+@import "lib/bootstrap/mixins/nav-divider";
+@import "lib/bootstrap/mixins/nav-vertical-align";
 @import "lib/bootstrap/mixins/gradients";
 @import "lib/bootstrap/mixins/alerts";
 @import "lib/bootstrap/mixins/progress-bar";
 
-@import "lib/aardvark";
+//.kent-current-theme {
+body {
+    @import "lib/aardvark";
+}
+//}
 
 @import "lib/bootstrap/responsive-utilities";
 @import "lib/bootstrap/utilities";
@@ -42,6 +48,8 @@
     @import "lib/bootstrap/progress-bars";
     @import "lib/bootstrap/breadcrumbs";
     @import "lib/bootstrap/alerts";
+    @import "lib/bootstrap/navbar";
+    @import "lib/bootstrap/navs";
 }
 
 @import "kent/reset";
@@ -62,7 +70,7 @@ html body {
         @import "kent/future/html";
         @import "kent/future/generic";
         @import "kent/future/structure";
-        @import "kent/future/menu";
+        //@import "kent/future/menu";
         @import "kent/future/yui";
 
         @import "kent/future/blocks";

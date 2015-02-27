@@ -13,6 +13,8 @@
     width: auto;
 
     #homeicon {
+        float: left;
+        text-align: center;
         padding: 0 10px;
         width: auto;
 
@@ -33,6 +35,10 @@
     }
 
     #menuitemswrap {
+        float: left;
+        font-size: 13px;
+        font-weight: 600;
+
         #custommenu {
             .yui3-menu {
                 .yui3-menu-label,
@@ -54,16 +60,28 @@
                 }
 
                 .yui3-menu-content {
+                    background: none;
+                    border: 0;
+
                     ul {
+                        background: @gray-darker;
                         border: 0;
-                    }
 
-                    li:hover {
-                         background: @kent-corp-highlight !important;
+                        li {
+                            a {
+                                margin: 0;
+                                color: #FFF;
+                                font-weight: 400;
+                            }
 
-                         a {
-                            text-decoration: none;
-                         }
+                            &:hover {
+                                background: @kent-corp-highlight !important;
+
+                                a {
+                                    text-decoration: none;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -73,6 +91,7 @@
     #editbuttons {
         &, .singlebutton {
             float: right;
+            margin: 0;
         }
 
         input[type=submit], input[type=text], button {
