@@ -79,7 +79,7 @@ if (!$hassidepost) {
 <?php } ?>
 
 <div id="contentwrapper" class="row">
-    <div id="page-content" class="row">
+    <div id="page-content">
         <?php
         if ($hassidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
