@@ -84,7 +84,7 @@ if (!$hassidepost) {
         if ($hassidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
-            <div id="pre-region" class="block-region col-md-$prespan">
+            <div id="region-pre" class="block-region col-md-$prespan">
                 <div class="region-content">
                     $blocks
                 </div>
@@ -106,7 +106,7 @@ HTML5;
         if ($hassidepost) {
             $blocks = $OUTPUT->blocks('side-post');
             echo <<<HTML5
-            <div id="post-region" class="block-region col-md-$postspan">
+            <div id="region-post" class="block-region col-md-$postspan">
                 <div class="region-content">
                     $blocks
                 </div>
