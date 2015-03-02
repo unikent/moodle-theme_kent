@@ -16,6 +16,7 @@
 }
 
 #menuwrap {
+    height: auto;
     overflow: visible;
 
     .navbar {
@@ -62,6 +63,11 @@
             padding: 10px 15px;
         }
 
+        .navbar-collapse {
+            border: 0;
+            box-shadow: none;
+        }
+
         .caret {
             border-top-color: #FFF;
             vertical-align: middle;
@@ -74,6 +80,7 @@
 
         .dropdown-menu {
             border: 0;
+            background: none;
             box-shadow: none;
             border-radius: 0;
             min-width: 200px;
@@ -100,6 +107,31 @@
                         background-color: @kent-corp-highlight;
                     }
                 }
+            }
+        }
+
+        .navbar-toggle {
+            border: 0;
+            margin: 0;
+            min-width: 50px;
+            padding: 12px 0;
+            border-radius: 0;
+            background: none !important;
+
+            &:hover {
+                background: none;
+
+                .icon-bar {
+                    background-color: @kent-corp-highlight;
+                }
+            }
+
+            .sr-only {
+                display: none;
+            }
+
+            .icon-bar {
+                background-color: #FFF;
             }
         }
     }
