@@ -120,7 +120,7 @@ if (!empty($coursefooter)) {
 if ($hasfooter) {
 ?>
 <div id="page-footer" class="row">
-    <div id="footerwrapper">
+    <div id="footerwrapper" class="container-fluid">
         <div class="row">
             <div class="col-md-3 text-left">
                 <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
