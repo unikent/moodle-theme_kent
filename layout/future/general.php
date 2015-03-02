@@ -57,7 +57,7 @@ if (!$hassidepost) {
     </div>
 </div>
         
-<div id="menuwrap" class="row" style="height:auto;">
+<div id="menuwrap" class="row">
     <?php 
     if ($hascustommenu) {
         echo $custommenu;

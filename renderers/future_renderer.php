@@ -160,15 +160,16 @@ class theme_kent_core_renderer extends core_renderer
                 </button>
                 <a class="navbar-brand" href="{$CFG->wwwroot}"><i class="fa fa-home"></i></a>
             </div>
+            <div class="collapse navbar-collapse">
 HTML5;
 
         // Other icons.
         if ($menu->has_children()) {
-            $content .= '<div class="collapse navbar-collapse"><ul class="nav navbar-nav">';
+            $content .= '<ul class="nav navbar-nav">';
             foreach ($menu->get_children() as $item) {
                 $content .= $this->render_custom_menu_item($item, 1);
             }
-            $content .= '</ul></div>';
+            $content .= '</ul>';
         }
 
         // Edit icon.
@@ -179,7 +180,7 @@ HTML5;
         </ul>
 HTML5;
 
-        return $content.'</div></nav>';
+        return $content.'</div></div></nav>';
     }
 
     /*
@@ -225,6 +226,7 @@ HTML5;
 
             $content .= '</a>';
             $content .= '<ul class="dropdown-menu" role="menu">';
+            $content .= '<li class="first"><span class="arrow"></span></li>';
 
             foreach ($menunode->get_children() as $menunode) {
                 $content .= $this->render_custom_menu_item($menunode, 0);

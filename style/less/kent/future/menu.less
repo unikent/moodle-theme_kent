@@ -6,127 +6,101 @@
  * @future
  */
 
-#menuwrap {
-    .row();
-    background: @kent-corp-primary;
-    overflow: visible;
-    width: auto;
+#page .navbar {
+    margin-bottom: 0;
+    border: 0;
 
-    #homeicon {
-        float: left;
-        text-align: center;
-        padding: 0 10px;
-        width: auto;
-
-        &:hover {
-            background: @kent-corp-highlight;
-        }
-
-        a {
-            background: none !important;
-
-            .fa {
-                display: inline-block;
-                color: #FFF;
-                font-size: 22px;
-                padding: 9px 10px 0 10px;
-            }
-        }
+    .container-fluid {
+        padding: 0;
     }
+}
 
-    #menuitemswrap {
-        float: left;
-        font-size: 13px;
-        font-weight: 600;
+#menuwrap {
+    overflow: visible;
 
-        #custommenu {
-            .yui3-menu {
-                .yui3-menu-label,
-                .yui3-menuitem-content {
-                    border: 0;
-                    padding: 12px 15px 0 15px !important;
-                    display: inline-block;
-                    background: none !important;
-                    height: 38px;
-                    width: 100%;
+    .navbar {
+        overflow: visible;
 
-                    &:hover {
-                        background: @kent-corp-highlight !important;
-                    }
+        .singlebutton {
+            input[type=submit], input[type=text], button {
+                border: 0;
+                border-radius: 0;
+                outline: none !important;
+                text-shadow: none;
+                box-shadow: none;
+            }
+
+            input[type=submit], button {
+                margin: 0;
+                height: 38px;
+                color: #FFF;
+                font-size: 14px;
+                background: none;
+
+                .fa {
+                    color: #FFF;
+                    padding: 0 10px;
                 }
 
-                .yui3-menuitem-active, .yui3-menu-label-active {
+                &:hover {
                     background: @kent-corp-highlight !important;
                 }
+            }
 
-                .yui3-menu-content {
-                    background: none;
-                    border: 0;
+            input[type='text'], input[type='password'] {
+                font-weight: normal;
+                color: #333;
+                padding: 2px 5px;
+            }
 
-                    ul {
-                        background: @gray-darker;
-                        border: 0;
+            label, .helptooltip {
+                display: none;
+            }
+        }
 
-                        li {
-                            a {
-                                margin: 0;
-                                color: #FFF;
-                                font-weight: 400;
-                            }
+        .navbar-brand {
+            padding: 10px 15px;
+        }
 
-                            &:hover {
-                                background: @kent-corp-highlight !important;
+        .caret {
+            border-top-color: #FFF;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
 
-                                a {
-                                    text-decoration: none;
-                                }
-                            }
-                        }
+        a:hover .caret {
+            border-top-color: #FFF;
+        }
+
+        .dropdown-menu {
+            border: 0;
+            box-shadow: none;
+            border-radius: 0;
+            min-width: 200px;
+
+            li.first {
+                span.arrow {
+                    display: block;
+                    width: 0;
+                    margin: 0 auto;
+                    border-bottom: 10px solid #2E2E2E;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                }
+            }
+
+            li {
+                a {
+                    color: #FFF;
+                    background-color: #2E2E2E;
+                    padding: 12px 15px;
+                    font-size: 12px;
+
+                    &:hover {
+                        background-color: @kent-corp-highlight;
                     }
                 }
             }
-        }
-    }
-
-    #editbuttons {
-        &, .singlebutton {
-            float: right;
-            margin: 0;
-        }
-
-        input[type=submit], input[type=text], button {
-            border: 0;
-            border-radius: 0;
-            outline: none !important;
-            text-shadow: none;
-            box-shadow: none;
-        }
-
-        input[type=submit], button {
-            margin: 0;
-            height: 38px;
-            color: #FFF;
-            font-size: 14px;
-            background: none;
-
-            .fa {
-                color: #FFF;
-                padding: 0 10px;
-            }
-
-            &:hover {
-                background: @kent-corp-highlight !important;
-            }
-        }
-
-        input[type='text'], input[type='password'] {
-            font-weight: normal;
-            color: #333;
-            padding: 2px 5px;
-        }
-
-        label, .helptooltip {
-            display: none;
         }
     }
 }
