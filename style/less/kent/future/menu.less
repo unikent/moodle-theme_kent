@@ -75,6 +75,10 @@
             box-shadow: none;
         }
 
+        .navbar-header {
+            margin: 0;
+        }
+
         .caret {
             border-top-color: #FFF;
             vertical-align: middle;
@@ -120,17 +124,12 @@
         .navbar-toggle {
             border: 0;
             margin: 0;
-            min-width: 50px;
-            padding: 12px 0;
+            padding: 12px 15px;
             border-radius: 0;
-            background: none !important;
+            background: none;
 
             &:hover {
-                background: none;
-
-                .icon-bar {
-                    background-color: @kent-corp-highlight;
-                }
+                background: @kent-corp-highlight;
             }
 
             .sr-only {
