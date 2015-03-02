@@ -31,4 +31,12 @@ $(function() {
             $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class + '"></i></button>');
         }
     });
+
+    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
+        var link = $(this).children(".dropdown-toggle");
+        var menu = $(this).children(".dropdown-menu");
+
+        var offset = (menu.outerWidth() - link.outerWidth()) / 2.0;
+        $(this).children(".dropdown-menu").css("margin-left", "-" + offset + "px");
+    });
 });

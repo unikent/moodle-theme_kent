@@ -192,7 +192,6 @@ HTML5;
 
         $content = '';
         if ($menunode->has_children()) {
-
             if ($level == 1) {
                 $class = 'dropdown';
             } else {
