@@ -15,7 +15,7 @@ $(function() {
         'Manage modules': 'fa-gear'
     };
 
-    $(".kent-future-theme #editbuttons input[type=submit], #ousearch_searchbutton").each(function (k, e) {
+    $(".kent-future-theme #menuwrap input[type=submit], .kent-future-theme #menuwrap #ousearch_searchbutton").each(function (k, e) {
         var text = e.value;
 
         if (e.title.length > 0) {

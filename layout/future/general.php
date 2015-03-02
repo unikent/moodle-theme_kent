@@ -58,16 +58,9 @@ if (!$hassidepost) {
 </div>
         
 <div id="menuwrap" class="row">
-    <div id="homeicon">
-        <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
-    </div>
     <?php 
     if ($hascustommenu) {
-        echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
-    }
-
-    if ($hasnavbar) {
-        echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
+        echo $custommenu;
     }
     ?>
 </div>
