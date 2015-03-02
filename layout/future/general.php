@@ -31,7 +31,7 @@ if (!$hassidepost) {
 
 <div id="page" class="container">
 
-<div id="page-header" class="row">
+<div id="page-header" class="container-fluid">
     <?php
     $out = '';
     if (!empty($PAGE->layout_options['langmenu'])) {
@@ -56,35 +56,32 @@ if (!$hassidepost) {
         </div>
     </div>
 </div>
-        
-<div id="menuwrap" class="row">
-    <div id="homeicon">
-        <a href="<?php echo $CFG->wwwroot; ?>"><i class="fa fa-home"></i></a>
-    </div>
-    <?php 
-    if ($hascustommenu) {
-        echo "<div id=\"menuitemswrap\"><div id=\"custommenu\">{$custommenu}</div></div>";
-    }
 
-    if ($hasnavbar) {
-        echo '<div id="editbuttons">' . $OUTPUT->page_heading_button() . '</div>';
-    }
-    ?>
-</div>
+<?php 
+if ($hascustommenu) {
+    echo '<div id="menuwrap" class="row">';
+    echo '<div class="col-md-12">';
+    echo $custommenu;
+    echo '</div>';
+    echo '</div>';
+}
 
-<?php if ($hasnavbar) { ?>
-<div class="navbar row">
-    <?php echo $OUTPUT->navbar();  ?>
-</div>
-<?php } ?>
+if ($hasnavbar) {
+    echo '<div class="navbar row">';
+    echo '<div class="col-md-12">';
+    echo $OUTPUT->navbar();
+    echo '</div>';
+    echo '</div>';
+}
+?>
 
 <div id="contentwrapper" class="row">
-    <div id="page-content" class="row">
+    <div id="page-content">
         <?php
         if ($hassidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
-            <div id="region-pre" class="block-region col-md-$prespan">
+            <div id="region-pre" class="block-region col-xs-12 col-md-$prespan">
                 <div class="region-content">
                     $blocks
                 </div>
@@ -94,7 +91,7 @@ HTML5;
 
         $maincontent = $OUTPUT->main_content();
         echo <<<HTML5
-        <div id="main-region" class="col-md-$midspan">
+        <div id="main-region" class="col-xs-12 col-md-$midspan">
             <div id="main-padder" class="region-content">
                 $coursecontentheader
                 $maincontent
@@ -106,7 +103,7 @@ HTML5;
         if ($hassidepost) {
             $blocks = $OUTPUT->blocks('side-post');
             echo <<<HTML5
-            <div id="region-post" class="block-region col-md-$postspan">
+            <div id="region-post" class="block-region col-xs-12 col-md-$postspan">
                 <div class="region-content">
                     $blocks
                 </div>
@@ -127,7 +124,7 @@ if (!empty($coursefooter)) {
 if ($hasfooter) {
 ?>
 <div id="page-footer" class="row">
-    <div id="footerwrapper">
+    <div id="footerwrapper" class="container-fluid">
         <div class="row">
             <div class="col-md-3 text-left">
                 <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>

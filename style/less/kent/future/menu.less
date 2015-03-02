@@ -6,108 +6,139 @@
  * @future
  */
 
-#menuwrap {
-    .row();
-    background: @kent-corp-primary;
-    overflow: visible;
-    width: auto;
+#page {
+    .navbar {
+        margin-bottom: 0;
+        border: 0;
 
-    #homeicon {
-        padding: 0 10px;
-        width: auto;
-
-        &:hover {
-            background: @kent-corp-highlight;
+        &.row {
+            min-height: 1px;
         }
 
-        a {
-            background: none !important;
-
-            .fa {
-                display: inline-block;
-                color: #FFF;
-                font-size: 22px;
-                padding: 9px 10px 0 10px;
-            }
+        .container-fluid {
+            padding: 0;
         }
     }
+}
 
-    #menuitemswrap {
-        #custommenu {
-            .yui3-menu {
-                .yui3-menu-label,
-                .yui3-menuitem-content {
-                    border: 0;
-                    padding: 12px 15px 0 15px !important;
-                    display: inline-block;
-                    background: none !important;
-                    height: 38px;
-                    width: 100%;
+#menuwrap {
+    height: auto;
+    overflow: visible;
+    .row();
 
-                    &:hover {
-                        background: @kent-corp-highlight !important;
-                    }
+    .navbar {
+        overflow: visible;
+
+        .singlebutton {
+            input[type=submit], input[type=text], button {
+                border: 0;
+                border-radius: 0;
+                outline: none !important;
+                text-shadow: none;
+                box-shadow: none;
+            }
+
+            input[type=submit], button {
+                margin: 0;
+                height: 38px;
+                color: #FFF;
+                font-size: 14px;
+                background: none;
+
+                .fa {
+                    color: #FFF;
+                    padding: 0 10px;
                 }
 
-                .yui3-menuitem-active, .yui3-menu-label-active {
+                &:hover {
                     background: @kent-corp-highlight !important;
                 }
+            }
 
-                .yui3-menu-content {
-                    ul {
-                        border: 0;
-                    }
+            input[type='text'], input[type='password'] {
+                font-weight: normal;
+                color: #333;
+                padding: 2px 5px;
+            }
 
-                    li:hover {
-                         background: @kent-corp-highlight !important;
-
-                         a {
-                            text-decoration: none;
-                         }
-                    }
-                }
+            label, .helptooltip {
+                display: none;
             }
         }
-    }
 
-    #editbuttons {
-        &, .singlebutton {
-            float: right;
+        .navbar-brand {
+            padding: 10px 15px;
         }
 
-        input[type=submit], input[type=text], button {
+        .navbar-collapse {
             border: 0;
-            border-radius: 0;
-            outline: none !important;
-            text-shadow: none;
             box-shadow: none;
         }
 
-        input[type=submit], button {
+        .navbar-header {
             margin: 0;
-            height: 38px;
-            color: #FFF;
-            font-size: 14px;
+        }
+
+        .caret {
+            border-top-color: #FFF;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        a:hover .caret {
+            border-top-color: #FFF;
+        }
+
+        .dropdown-menu {
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
+            min-width: 200px;
+
+            li.first {
+                span.arrow {
+                    display: block;
+                    width: 0;
+                    margin: 0 auto;
+                    border-bottom: 10px solid #2E2E2E;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                }
+            }
+
+            li {
+                a {
+                    color: #FFF;
+                    background-color: #2E2E2E;
+                    padding: 12px 15px;
+                    font-size: 12px;
+
+                    &:hover {
+                        background-color: @kent-corp-highlight;
+                    }
+                }
+            }
+        }
+
+        .navbar-toggle {
+            border: 0;
+            margin: 0;
+            padding: 12px 15px;
+            border-radius: 0;
             background: none;
 
-            .fa {
-                color: #FFF;
-                padding: 0 10px;
-            }
-
             &:hover {
-                background: @kent-corp-highlight !important;
+                background: @kent-corp-highlight;
             }
-        }
 
-        input[type='text'], input[type='password'] {
-            font-weight: normal;
-            color: #333;
-            padding: 2px 5px;
-        }
+            .sr-only {
+                display: none;
+            }
 
-        label, .helptooltip {
-            display: none;
+            .icon-bar {
+                background-color: #FFF;
+            }
         }
     }
 }

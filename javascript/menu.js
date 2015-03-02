@@ -15,7 +15,7 @@ $(function() {
         'Manage modules': 'fa-gear'
     };
 
-    $(".kent-future-theme #editbuttons input[type=submit], #ousearch_searchbutton").each(function (k, e) {
+    $(".kent-future-theme #menuwrap input[type=submit], .kent-future-theme #menuwrap #ousearch_searchbutton").each(function (k, e) {
         var text = e.value;
 
         if (e.title.length > 0) {
@@ -30,5 +30,13 @@ $(function() {
             var fa_class = overrides[text];
             $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class + '"></i></button>');
         }
+    });
+
+    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
+        var link = $(this).children(".dropdown-toggle");
+        var menu = $(this).children(".dropdown-menu");
+
+        var offset = (menu.outerWidth() - link.outerWidth()) / 2.0;
+        $(this).children(".dropdown-menu").css("margin-left", "-" + offset + "px");
     });
 });
