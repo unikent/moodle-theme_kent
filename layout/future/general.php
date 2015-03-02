@@ -31,7 +31,7 @@ if (!$hassidepost) {
 
 <div id="page" class="container">
 
-<div id="page-header" class="row">
+<div id="page-header" class="container-fluid">
     <?php
     $out = '';
     if (!empty($PAGE->layout_options['langmenu'])) {
@@ -56,20 +56,24 @@ if (!$hassidepost) {
         </div>
     </div>
 </div>
-        
-<div id="menuwrap" class="row">
-    <?php 
-    if ($hascustommenu) {
-        echo $custommenu;
-    }
-    ?>
-</div>
 
-<?php if ($hasnavbar) { ?>
-<div class="navbar row">
-    <?php echo $OUTPUT->navbar();  ?>
-</div>
-<?php } ?>
+<?php 
+if ($hascustommenu) {
+    echo '<div id="menuwrap" class="row">';
+    echo '<div class="col-md-12">';
+    echo $custommenu;
+    echo '</div>';
+    echo '</div>';
+}
+
+if ($hasnavbar) {
+    echo '<div class="navbar row">';
+    echo '<div class="col-md-12">';
+    echo $OUTPUT->navbar();
+    echo '</div>';
+    echo '</div>';
+}
+?>
 
 <div id="contentwrapper" class="row">
     <div id="page-content">
