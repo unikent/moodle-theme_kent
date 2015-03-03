@@ -21,7 +21,9 @@
 @import "lib/bootstrap/mixins/alerts";
 @import "lib/bootstrap/mixins/progress-bar";
 
-@import "lib/aardvark";
+body {
+    @import "lib/aardvark";
+}
 
 @import "lib/bootstrap/responsive-utilities";
 @import "lib/bootstrap/utilities";
@@ -87,15 +89,15 @@ html body {
         @import "kent/future/turnitin";
 
         &.kent-dist-archive {
-            @import "flavours/archive";
+            .kent-theme-flavour(@kent-redset-primary, @kent-redset-secondary, @kent-redset-secondary);
         }
 
         &.kent-dist-external {
-            @import "flavours/external";
+            .kent-theme-flavour(@kent-coalset-primary, @kent-coalset-secondary, @kent-coalset-secondary);
         }
 
         &.kent-dist-training {
-            @import "flavours/training";
+            .kent-theme-flavour(@kent-greenset-primary, @kent-greenset-secondary, @kent-greenset-secondary);
         }
     }
 }

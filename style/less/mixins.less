@@ -37,3 +37,69 @@
     display: none !important;
     visibility: hidden !important;
 }
+
+.kent-theme-flavour(@primary, @secondary, @highlight) {
+    #kent-bar {
+        background: @primary;
+    }
+
+    .navbar-default {
+        background: @primary;
+
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            background: @highlight;
+        }
+
+        .navbar-nav {
+            > li {
+                a:hover,
+                a:focus {
+                    background: @highlight;
+                }
+            }
+
+            > .open {
+                > a,
+                > a:hover,
+                > a:focus {
+                    background: @highlight;
+                }
+            }
+        }
+    }
+
+    #menuwrap {
+        .navbar {
+            .singlebutton {
+                input[type=submit], button {
+                    &:hover {
+                        background: @highlight !important;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover {
+                            background: @highlight;
+                        }
+                    }
+                }
+            }
+
+            .navbar-toggle {
+                &:hover {
+                    background: @highlight;
+                }
+            }
+        }
+    }
+
+    #page #page-header #headerwrap {
+        .brand, .usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+            color: @primary;
+        }
+    }
+}
