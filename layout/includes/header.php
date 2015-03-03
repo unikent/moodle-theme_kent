@@ -44,13 +44,11 @@ $bodyclasses[] = 'kent-env-' . $CFG->kent->environment;
 $bodyclasses[] = 'kent-dist-' . $CFG->kent->distribution;
 $bodyclasses[] = 'kent-navbar';
 
-$isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
-if ($isfuture) {
+if (\theme_kent\core::is_future()) {
     $bodyclasses[] = 'kent-future';
 }
 
-$hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
-if ($hasfuture) {
+if (\theme_kent\core::is_beta()) {
     $bodyclasses[] = 'bootstrap';
     $bodyclasses[] = 'kent-future-theme';
 } else {

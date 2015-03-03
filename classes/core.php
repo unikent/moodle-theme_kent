@@ -14,11 +14,32 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (\theme_kent\core::is_beta()) {
-	require_once('renderers/bootstrap.php');
-	require_once('renderers/future_renderer.php');
-	require_once('renderers/future_maintenance_renderer.php');
-	require_once('renderers/future_quiz_renderer.php');
-} else {
-	require_once('renderers/current_renderer.php');
+namespace theme_kent;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Theme Kent core utils.
+ */
+class core
+{
+	/**
+	 * Are we a future dist?
+	 */
+	public static function is_future() {
+		global $CFG;
+		return $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+	}
+
+	/**
+	 * Are we in Beta mode?
+	 */
+	public static function is_beta() {
+		static $result = null;
+		if ($result === null) {
+		    $result = \local_kent\User::get_beta_preference("theme", static::is_future() ? "1" : "0");
+		}
+
+		return $result;
+	}
 }

@@ -16,7 +16,7 @@
 
 require(dirname(__FILE__) . "/includes/header.php");
 
-if ($hasfuture) {
+if (\theme_kent\core::is_beta()) {
     require(dirname(__FILE__) . "/future/general.php");
 } else {
     require(dirname(__FILE__) . "/current/general.php");
