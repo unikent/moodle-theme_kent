@@ -82,6 +82,12 @@
         .navbar-nav {
             margin-right: 0;
             margin-left: 0;
+
+            &.navbar-right {
+                @media (min-width: @screen-sm-min) {
+                    margin-right: -5px;
+                }
+            }
         }
 
         .caret {
