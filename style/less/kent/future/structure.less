@@ -56,10 +56,11 @@
 		                        color: @kent-corp-primary;
 		                        font-size: 21px;
 		                        line-height: 25px;
-		                        padding-top: 15px;
+								padding-top: 15px;
 		                    }
 
 		                    .avatars {
+		                    	position: relative;
 		                        vertical-align: top;
 		                        margin-right: 0;
 		                        height: auto;
@@ -121,11 +122,15 @@
 	#page-footer {
 		margin-top: 10px;
 
+		#footerwrapper {
+			border-color: @border-color;
+		}
+
 	    .performanceinfo {
 	        margin: 0;
 
 	        .cachesused .cache-definition-stats {
-	            border: 1px solid #CCC;
+	            border: 1px solid @border-color;
 	            border-radius: @border-radius-generic;
 	            background: none;
 	            margin: 10px 5px;
@@ -157,5 +162,38 @@
 	            }
 	        }
 	    }
+	}
+}
+
+&.userloggedinas {
+	#page {
+		#page-header {
+			#headerwrap {
+				.usermenu {
+					.moodle-actionmenu {
+						.toggle-display {
+							.userbutton {
+								.usertext {
+									padding-top: 0;
+								}
+
+			                    .avatars {
+			                        .avatar {
+			                        	&.current {
+			                        		position: absolute;
+											width: 40px;
+											height: 40px;
+											top: 5px;
+											left: 5px;
+											margin-top: 0;
+			                        	}
+			                        }
+			                    }
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
