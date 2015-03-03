@@ -37,7 +37,19 @@ class core
 	public static function is_beta() {
 		static $result = null;
 		if ($result === null) {
-		    $result = \local_kent\User::get_beta_preference("theme", static::is_future() ? "1" : "0");
+		    $result = \local_kent\User::get_beta_preference("theme", static::is_future() ? true : false);
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Are we in fullscreen mode?
+	 */
+	public static function is_fullscreen() {
+		static $result = null;
+		if ($result === null) {
+		    $result = \local_kent\User::get_beta_preference("theme_fullscreen", false);
 		}
 
 		return $result;

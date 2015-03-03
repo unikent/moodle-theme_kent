@@ -51,6 +51,10 @@ if (\theme_kent\core::is_future()) {
 if (\theme_kent\core::is_beta()) {
     $bodyclasses[] = 'bootstrap';
     $bodyclasses[] = 'kent-future-theme';
+
+    if (\theme_kent\core::is_fullscreen()) {
+        $bodyclasses[] = 'kent-fullscreen';
+    }
 } else {
     $bodyclasses[] = 'kent-current-theme';
 }
