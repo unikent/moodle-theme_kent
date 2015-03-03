@@ -21,9 +21,14 @@
 		        color: @kent-corp-primary;
 		        font-size: 34px;
 		        margin-top: 2px;
+
+                @media (max-width: @screen-xs-max) {
+                	text-align: center;
+                }
 		    }
 
 		    .usermenu {
+		    	float: none;
 		        position: relative;
 		        height: 100%;
 
@@ -41,6 +46,11 @@
 
 		                    & > a {
 		                        padding: 0;
+		                        text-align: right;
+
+		                        @media (max-width: @screen-xs-max) {
+		                        	text-align: center;
+		                        }
 		                    }
 		                }
 		            }
@@ -124,6 +134,15 @@
 
 		#footerwrapper {
 			border-color: @border-color;
+		
+			.col-xs-12 {
+				&.text-left,
+				&.text-right {
+	                @media (max-width: @screen-xs-max) {
+	                	text-align: center;
+	                }
+				}
+			}
 		}
 
 	    .performanceinfo {

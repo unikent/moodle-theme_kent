@@ -44,12 +44,12 @@ if (!$hassidepost) {
     }
     ?>
     <div id="headerwrap" class="row">
-        <div class="col-xs-12 col-md-6 brand">
+        <div class="col-xs-12 col-sm-6 brand">
             <?php
             echo "Moodle-" . $CFG->kent->distribution;
             ?>
         </div>
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-sm-6">
             <?php
             echo $OUTPUT->user_menu();
             ?>
@@ -126,17 +126,15 @@ if ($hasfooter) {
 <div id="page-footer" class="row">
     <div id="footerwrapper" class="container-fluid">
         <div class="row">
-            <div class="col-md-3 text-left">
+            <div class="col-xs-12 col-sm-3 text-left">
                 <a href="mailto:helpdesk@kent.ac.uk?subject=Moodle help">Contact Helpdesk</a>
             </div>
-            <div class="col-md-6 text-center">
-                <p style="text-align: center;">
-                    <a target="_blank" href="http://www.kent.ac.uk/elearning/privacy/">Privacy and Data Protection</a>
-                    <br />
-                    <a target="_blank" href="https://www.kent.ac.uk/itservices/forms/moodle/notice.html">Report this Content</a>
-                </p>
+            <div class="col-xs-12 col-sm-6 text-center">
+                <a target="_blank" href="http://www.kent.ac.uk/elearning/privacy/">Privacy and Data Protection</a>
+                <br />
+                <a target="_blank" href="https://www.kent.ac.uk/itservices/forms/moodle/notice.html">Report this Content</a>
             </div>
-            <div class="col-md-3 text-right">
+            <div class="col-xs-12 col-sm-3 text-right">
                 <?php
                 echo $OUTPUT->login_info();
                 echo $OUTPUT->theme_switch_links();
