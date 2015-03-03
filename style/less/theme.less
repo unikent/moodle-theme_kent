@@ -49,19 +49,25 @@
     @import "lib/bootstrap/navs";
 }
 
-@import "kent/reset";
-@import "kent/navbar";
-@import "kent/typography";
-@import "kent/core";
-@import "kent/base";
-@import "kent/mods";
-@import "kent/auth";
-@import "kent/forms";
-
 /**
- * Future styles.
+ * Kent styles.
  */
 html body {
+    @import "kent/reset";
+    @import "kent/navbar";
+    @import "kent/typography";
+    @import "kent/core";
+    @import "kent/base";
+    @import "kent/mods";
+    @import "kent/auth";
+    @import "kent/forms";
+    @import "kent/docking";
+
+    &.kent-current-theme {
+        @import "kent/current/core";
+        @import "kent/current/structure";
+    }
+
     &.kent-future-theme {
         @import "kent/future/reset";
         @import "kent/future/html";

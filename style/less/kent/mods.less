@@ -38,7 +38,7 @@
     }
 }
 
-.path-mod-turnitintooltwo {
+&.path-mod-turnitintooltwo {
     #colorbox {
         position: fixed !important;
         top: 50px !important;
@@ -53,7 +53,9 @@
     }
 }
 
-body.tii-box {
+&.tii-box {
+    background: none !important;
+
     #page {
         padding-top: 10px;
 
@@ -69,12 +71,12 @@ body.tii-box {
 }
 
 // Quiz fix.
-#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+&#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
     color: #333;
 }
 
 // Grader fix.
-.path-grade-report-grader {
+&.path-grade-report-grader {
     .gradeparent {
         overflow: auto;
     }

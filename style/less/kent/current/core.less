@@ -1,0 +1,258 @@
+/**
+ * Core page styles.
+ * 
+ * @current
+ */
+
+background : #F2F5FF url([[pix:theme|bodygrad-blue]]) repeat-x top;
+min-width: 960px;
+
+#graphicwrap {
+    padding-top: 10px;
+    background: none !important;
+}
+
+#headerwrap {
+    background : url([[pix:theme|header-background]]) repeat-x top;
+    height : 100px;
+    width : auto;
+    min-width : 760px;
+    max-width : 1140px;
+}
+
+#custommenu div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover,
+#custommenu .yui3-menu-label-active,
+#custommenu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-active,
+#custommenu .yui3-menu .yui3-menu .yui3-menu-label-menuvisible,
+#custommenu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu .yui3-menu .yui3-menuitem-active .yui3-menuitem-content,
+#custommenu .yui3-menu-content li:hover,
+.profileoptions ul li:hover {
+    background-color: #264F9C;
+    color: #fff;
+}
+
+.yui3-menu-horizontal .yui3-menu-label, .yui3-menu-horizontal .yui3-menuitem .yui3-menuitem-content {
+    height: 26px;
+    padding-top: 12px !important;
+    text-transform: none;
+    font-size: 14px;
+    line-height: normal !important;
+}
+
+.yui3-menu-content li:hover {
+    background: #6279A3 !important ;
+}
+
+div.yui3-menu.custom_menu_submenu .yui3-menu-content li a:hover {
+    background: #6279A3 !important ;
+}
+
+#headerwrap #logowrap #logo {
+    margin-top: 0;
+}
+
+#profilepic {
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+#profilelogin {
+    margin-top: 36px;
+
+    .loginform {
+        margin: 0px;
+    }
+
+    .loginsubmit {
+        width: 55px;
+        display: inline;
+    }
+}
+
+#profilename {
+    width: auto;
+}
+
+#profilebar {
+    min-width: 760px;
+    max-width: 1140px;
+    width: auto;
+
+	.block div.header {
+	    border: 1px solid #c7c7c7;
+	    background: #d6d6d6;
+	}
+
+	.block-region {
+		.commands {
+		    border-top: 1px solid #D6D6D6;
+		    background: #cccccc;
+		}
+
+		.content {
+		    background: #dedede;
+		    border: 1px solid #c7c7c7;
+		    -webkit-border-bottom-left-radius: 5px;
+		    -webkit-border-bottom-right-radius: 5px;
+		    -moz-border-radius-bottomleft: 5px;
+		    -moz-border-radius-bottomright: 5px;
+		    border-bottom-left-radius: 5px;
+		    border-bottom-right-radius: 5px;
+		}
+	}
+
+	.profilebarclear {
+	    padding-bottom: 0px;
+	}
+
+    #profilebar-innerwrap {
+		border: none;
+		background: #e2e2e2;
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+		border-radius: 0px;
+	}
+
+	.profileoptions {
+		&, a, form {
+			background-color: transparent !important;
+			color: inherit !important;
+			padding-left: 10px;
+		}
+
+		ul {
+			margin-left: 0px;
+
+			li {
+		        -webkit-border-radius: 5px;
+		        -moz-border-radius: 5px;
+		        border-radius: 5px;
+		        padding: 5px;
+		        padding-left: 10px;
+		        display: block;
+				
+				a {
+			        width: 100%;
+			        height: 100%;
+			        display: block;
+			    }
+		    }
+		}
+
+		.loginForm {
+			position: relative;
+
+			.login {
+				outline: none;
+				background: none;
+				border: none;
+				text-shadow: none;
+				box-shadow: none;
+				text-align:left;
+				padding: 0 0 0 36px;
+				margin-left: 5px;
+				width: 140px;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0px;
+			}
+		}
+
+		li:hover .loginForm .login {
+			color: #fff;
+		}
+	}
+}
+
+div#jcontrols_button {
+    width: auto;
+    min-width: 760px;
+    max-width: 1140px;
+    min-height: 30px;
+    height: auto;
+
+    span.arrow {
+	    margin-bottom: 0px;
+	}
+}
+
+div.jcontrolsleft {
+    max-width: none;
+    height: 30px;
+}
+
+#menuwrap {
+    height: 38px;
+    width: auto;
+    min-width: 760px;
+    max-width: 1140px;
+    background: #333333 url([[pix:theme|menu/menugrad-blue]]) repeat-x;
+}
+
+#homeicon {
+    margin-top: 11px;
+}
+
+#custommenu {
+    height: 38px;
+}
+
+#contentwrapper {
+    width: auto;
+    min-width: 760px;
+    max-width: 1140px;
+    margin-bottom: 0px;
+}
+
+#page-content {
+    min-width : 760px;
+    max-width : 1140px;
+    border-bottom: 1px solid #e3e3e3;
+
+    #block-region-side-pre {
+	    margin-top: 1px;
+	    left: 213px;
+	}
+
+	#block-region-side-post {
+	    margin-top: 1px;
+	    left: -13px;
+	}
+}
+
+&.side-pre-only #page-content #block-region-side-pre {
+    left: 13px;
+}
+
+&.side-pre-only #page-content #region-main {
+    margin-left: 210px;
+}
+
+div#jcontrols_button span.arrow.sep {
+	background: url([[pix:theme|nav/breadcrumb]]) no-repeat center 3px;
+	width: 30px;
+}
+
+#page-content #region-main {
+	padding: 0px !important;
+}
+
+#page-content #region-main-box .region-content {
+    padding: 5px;
+}
+
+#mainpadder {
+	padding: 0px;
+	margin: 0 20px;
+}
+
+#page-footer #footerwrapper {
+    background: #efefef;
+    width: auto;
+    margin-top: 0px;
+    min-width: 760px;
+    max-width: 1140px;
+}
