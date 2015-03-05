@@ -40,11 +40,36 @@
             .form_container {
                 height: 35px;
                 padding: 5px;
+
+                border-bottom: 1px solid @border-color;
+            }
+
+            .rollover_admin_notification {
+                border: none;
+                border-bottom: 1px solid @border-color;
+                background: none;
+            }
+
+            .paging-top {
+                display: none;
             }
         }
 
         #kent_course_list_overview {
+            background: none;
+            padding: 0;
+            border: none;
+
             li {
+                padding: 5px 10px;
+                border: none;
+                border-bottom: 1px solid @border-color;
+
+                &:last-child {
+                    border: none;
+                    margin-bottom: 0;
+                }
+
                 .title {
                     .action-icon img {
                         vertical-align: baseline;
@@ -81,11 +106,22 @@
                 width: auto;
                 float: none;
                 padding: 0;
-                border-top: 1px solid #EFEFEF;
+                border: none;
+                margin: 0 -10px -5px -10px;
 
                 &.admin_hide {
                     border-radius: 0;
                     color: #6f6f6f;
+                }
+
+                .new {
+                    color: @info-text-color;
+                    background-color: @info-bg-color;
+
+                    &:hover {
+                        color: darken(@info-text-color, 10%);
+                        background-color: darken(@info-bg-color, 10%);
+                    }
                 }
 
                 .course_rollover_optns, .course_clear_optns {
