@@ -6,12 +6,12 @@
 
 .block {
     border: 1px solid @border-color;
-    border-radius: @border-radius-generic;
+    border-radius: @border-radius-base;
     padding: 0;
 
     .header {
-        border-top-radius: @border-radius-generic;
-        border-bottom-radius: @border-radius-generic;
+        border-top-radius: @border-radius-base;
+        border-bottom-radius: @border-radius-base;
 
         h2 {
             color: #333;
@@ -36,6 +36,8 @@
     &.block_kent_course_overview {
         .content {
             margin: 0;
+            border-bottom-left-radius: @border-radius-base;
+            border-bottom-right-radius: @border-radius-base;
 
             .form_container {
                 height: 35px;
@@ -50,8 +52,8 @@
                 background: none;
             }
 
-            .paging-top {
-                display: none;
+            .paging {
+                border: none;
             }
         }
 
@@ -66,7 +68,6 @@
                 border-bottom: 1px solid @border-color;
 
                 &:last-child {
-                    border: none;
                     margin-bottom: 0;
                 }
 
