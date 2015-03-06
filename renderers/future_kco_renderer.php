@@ -14,12 +14,25 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (\theme_kent\core::is_beta()) {
-	require_once('renderers/bootstrap.php');
-	require_once('renderers/future_renderer.php');
-	require_once('renderers/future_maintenance_renderer.php');
-	require_once('renderers/future_quiz_renderer.php');
-	require_once('renderers/future_kco_renderer.php');
-} else {
-	require_once('renderers/current_renderer.php');
+require_once($CFG->dirroot . '/blocks/kent_course_overview/renderer.php');
+
+/**
+ * Overrides a few defaults.
+ *
+ * @package     theme_kent
+ * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class theme_kent_block_kent_course_overview_renderer extends block_kent_course_overview_renderer
+{
+    /**
+     * Render a paging bar.
+     */
+    public function render_paging_bar($paging, $position) {
+        if ($position != 'top' && $paging != '<div class="paging"></div>') {
+            return $paging;
+        }
+
+        return '';
+    }
 }
