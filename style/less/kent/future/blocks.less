@@ -6,16 +6,17 @@
 
 .block {
     border: 1px solid @border-color;
-    border-radius: @border-radius-generic;
+    border-radius: @border-radius-base;
     padding: 0;
 
     .header {
-        border-top-radius: @border-radius-generic;
-        border-bottom-radius: @border-radius-generic;
+        border-top-radius: @border-radius-base;
+        border-bottom-radius: @border-radius-base;
 
         h2 {
-            color: #555;
-            padding-top: 7px;
+            color: #333;
+            font-size: 13px;
+            padding-top: 9px;
             text-transform: capitalize;
         }
     }
@@ -35,15 +36,47 @@
     &.block_kent_course_overview {
         .content {
             margin: 0;
+            border-bottom-left-radius: @border-radius-base;
+            border-bottom-right-radius: @border-radius-base;
 
             .form_container {
                 height: 35px;
                 padding: 5px;
+
+                border-bottom: 1px solid @border-color;
+            }
+
+            .rollover_admin_notification {
+                border: none;
+                border-bottom: 1px solid @border-color;
+                background: none;
+            }
+
+            .paging {
+                border: none;
+                border-top: 1px solid @border-color;
+            }
+
+            .co_no_crs {
+                border: none;
             }
         }
 
         #kent_course_list_overview {
+            background: none;
+            padding: 0;
+            border: none;
+
             li {
+                padding: 5px 10px;
+                border: none;
+                border-bottom: 1px solid @border-color;
+
+                &:last-child {
+                    border: none;
+                    margin-bottom: 0;
+                }
+
                 .title {
                     .action-icon img {
                         vertical-align: baseline;
@@ -80,11 +113,22 @@
                 width: auto;
                 float: none;
                 padding: 0;
-                border-top: 1px solid #EFEFEF;
+                border: none;
+                margin: 0 -10px -5px -10px;
 
                 &.admin_hide {
                     border-radius: 0;
                     color: #6f6f6f;
+                }
+
+                .new {
+                    color: @info-text-color;
+                    background-color: @info-bg-color;
+
+                    &:hover {
+                        color: darken(@info-text-color, 10%);
+                        background-color: darken(@info-bg-color, 10%);
+                    }
                 }
 
                 .course_rollover_optns, .course_clear_optns {

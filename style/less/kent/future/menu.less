@@ -30,6 +30,8 @@
         overflow: visible;
 
         .singlebutton {
+            float: right;
+
             input[type=submit], input[type=text], button {
                 border: 0;
                 border-radius: 0;
@@ -77,6 +79,13 @@
 
         .navbar-header {
             margin: 0;
+        }
+
+        .navbar-nav {
+            @media (max-width: @screen-xs-max) {
+                margin-right: 0;
+                margin-left: 0;
+            }
         }
 
         .caret {

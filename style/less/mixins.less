@@ -1,0 +1,105 @@
+.kent-generic-box(@text, @bg, @border) {
+    background-color: @bg;
+    border: 1px solid @border;
+    border-radius: @border-radius-small;
+    color: @text;
+    padding: 5px 0;
+    margin: 1em 0;
+    text-align: center;
+
+    a {
+    	color: darken(@text, 10%);
+        font-weight: 700;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+}
+
+.kent-generic-box-success {
+    .kent-generic-box(@success-text-color, @success-bg-color, @success-border-color);
+}
+
+.kent-generic-box-warning {
+    .kent-generic-box(@warning-text-color, @warning-bg-color, @warning-border-color);
+}
+
+.kent-generic-box-error {
+    .kent-generic-box(@error-text-color, @error-bg-color, @error-border-color);
+}
+
+.kent-generic-box-info {
+    .kent-generic-box(@info-text-color, @info-bg-color, @info-border-color);
+}
+
+.kent-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.kent-theme-flavour(@primary, @secondary, @highlight) {
+    #kent-bar {
+        background: @primary;
+    }
+
+    .navbar-default {
+        background: @primary;
+
+        .navbar-brand:hover,
+        .navbar-brand:focus {
+            background: @highlight;
+        }
+
+        .navbar-nav {
+            > li {
+                a:hover,
+                a:focus {
+                    background: @highlight;
+                }
+            }
+
+            > .open {
+                > a,
+                > a:hover,
+                > a:focus {
+                    background: @highlight;
+                }
+            }
+        }
+    }
+
+    #menuwrap {
+        .navbar {
+            .singlebutton {
+                input[type=submit], button {
+                    &:hover {
+                        background: @highlight !important;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover {
+                            background: @highlight;
+                        }
+                    }
+                }
+            }
+
+            .navbar-toggle {
+                &:hover {
+                    background: @highlight;
+                }
+            }
+        }
+    }
+
+    #page #page-header #headerwrap {
+        .brand, .usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+            color: @primary;
+        }
+    }
+}

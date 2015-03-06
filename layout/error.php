@@ -22,7 +22,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/theme.css" />
 </head>
-<body class="format-site course path-site safari dir-ltr lang-en yui-skin-sam yui3-skin-sam pagelayout-frontpage course-1 context-2 notloggedin kent-future kent-future-theme kent-navbar side-pre-only has_custom_menu has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post">
+<body class="format-site course path-site safari dir-ltr lang-en yui-skin-sam yui3-skin-sam pagelayout-frontpage course-1 context-2 notloggedin kent-future-theme kent-navbar side-pre-only has_custom_menu has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post">
     <div id="page">
         <div id="page-header">
             <div id="headerwrap">

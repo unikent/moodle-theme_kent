@@ -187,7 +187,7 @@ HTML5;
      * This code renders the custom menu items for the
      * bootstrap dropdown menu.
      */
-    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0 ) {
+    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0) {
         static $submenucount = 0;
 
         $content = '';
@@ -251,5 +251,44 @@ HTML5;
         }
 
         return $content;
+    }
+
+    /**
+     * Internal implementation of paging bar rendering.
+     *
+     * @param paging_bar $pagingbar
+     * @return string
+     */
+    protected function render_paging_bar(paging_bar $pagingbar) {
+        $pagingbar = clone($pagingbar);
+        $pagingbar->prepare($this, $this->page, $this->target);
+
+        if ($pagingbar->totalcount > $pagingbar->perpage) {
+            $output = '';
+
+            if (!empty($pagingbar->previouslink)) {
+                $output .= '&#160;(' . $pagingbar->previouslink . ')&#160;';
+            }
+
+            if (!empty($pagingbar->firstlink)) {
+                $output .= '&#160;' . $pagingbar->firstlink . '&#160;...';
+            }
+
+            foreach ($pagingbar->pagelinks as $link) {
+                $output .= "&#160;&#160;$link";
+            }
+
+            if (!empty($pagingbar->lastlink)) {
+                $output .= '&#160;...' . $pagingbar->lastlink . '&#160;';
+            }
+
+            if (!empty($pagingbar->nextlink)) {
+                $output .= '&#160;&#160;(' . $pagingbar->nextlink . ')';
+            }
+
+            return html_writer::tag('div', $output, array('class' => 'paging'));
+        }
+
+        return '';
     }
 }

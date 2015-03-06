@@ -35,9 +35,7 @@ function theme_kent_page_init(moodle_page $page) {
 
     $page->requires->jquery();
 
-    $isfuture = $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
-    $hasfuture = \local_kent\User::get_beta_preference("theme", $isfuture ? "1" : "0");
-    if ($hasfuture) {
+    if (\theme_kent\core::is_beta()) {
         $page->requires->js('/theme/kent/javascript/menu.js');
 
         $page->theme->larrow = '&lt;';
