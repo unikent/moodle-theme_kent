@@ -51,6 +51,28 @@
             display: none !important;
         }
     }
+
+    #colorbox.upload {
+        min-width: 1140px;
+        right: 0;
+        left: 0 !important;
+        margin-right: auto;
+        margin-left: auto;
+
+        &,
+        > #cboxWrapper,
+        > #cboxWrapper > div > #cboxMiddleLeft,
+        > #cboxWrapper > div > #cboxContent,
+        > #cboxWrapper > div > #cboxContent > #cboxLoadedContent {
+            min-height: 160px;
+        }
+
+        > #cboxWrapper,
+        > #cboxWrapper > div > #cboxContent,
+        > #cboxWrapper > div > #cboxContent > #cboxLoadedContent {
+            width: 100% !important;
+        }
+    }
 }
 
 &.tii-box {
