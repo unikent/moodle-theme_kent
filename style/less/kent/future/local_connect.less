@@ -13,28 +13,111 @@
 				margin: 0;
 			}
 		}
+
+		.table-responsive {
+			border: 1px solid @border-color;
+			border-radius: @border-radius-base;
+		}
+
+		#datable_wrapper {
+			#datable {
+				thead {
+					tr {
+						background: none;
+					}
+				}
+				
+				tbody {
+					tr.parent {
+						background: none;
+
+						&.even {
+							background: #F7F7F7;
+						}
+
+						&.even:hover,
+						&:hover {
+							background: #F5F5F5;
+
+							td {
+								background: none;
+							}
+						}
+					}
+				}
+			}
+
+			.dataTables_paginate {
+				background: none;
+				border: none;
+				height: 44px;
+
+				span {
+					color: #05345c;
+				}
+
+				a {
+					background: @kent-corp-primary;
+					border: 1px solid @kent-corp-primary;
+					color: #FFF !important;
+
+					&:hover {
+						background: darken(@kent-corp-primary, 10%);
+						border: 1px solid darken(@kent-corp-primary, 10%);
+					}
+				}
+			}
+		}
 	}
 
 	#right_bar_wrap {
-		#jobs_wrapper {
-			#select_buttons {
-				height: 47px;
+		text-align: center;
 
-				.sel_btn {
-					width: 50%;
-					height: 26px;
-					padding: 5px 2px;
+		.data_refresh {
+			margin-bottom: 10px;
+		}
+
+		#jobs_wrapper {
+			padding: 10px;
+
+			#select_buttons {
+				height: auto;
+				padding: 0;
+				border: none;
+				border-radius: 0;
+			}
+
+			#jobs {
+				margin: 10px -10px;
+				border: none;
+  				border-top: 1px solid @border-color;
+  				border-bottom: 1px solid @border-color;
+			}
+
+			#process_jobs {
+				padding: 0;
+			}
+
+			#dasearch {
+				&,
+				input {
+					margin: 0;
 				}
+			}
+
+			#options_bar {
+				text-align: left;
 			}
 		}
 	}
 }
 
-#key_button {
-	right: 0;
-	width: 176px;
+#key {
+	border: none;
+	border-radius: 0;
 
-	#key_button_wrap {
-		height: 100%;
+	&.in,
+	&.collapsing {
+		display: block;
 	}
 }
