@@ -31,7 +31,7 @@ class theme_kent_local_connect_renderer extends local_connect_renderer
 	public function render_index() {
 		echo <<<HTML5
 		<p>
-		    <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#key" aria-expanded="false" aria-controls="key">
+		    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#key" aria-expanded="false" aria-controls="key">
 		        Show Key
 		    </button>
 		</p>
@@ -49,42 +49,45 @@ class theme_kent_local_connect_renderer extends local_connect_renderer
 		</div>
 
 		<div id="da_wrapper" class="row">
-		    <div id="dapage_app" class="col-md-10">
-		        <table id="datable">
-		            <thead>
-		                <tr>
-		                    <th>Id</th>
-		                    <th>Status</th>
-		                    <th>Code</th>
-		                    <th>Name</th>
-		                    <th>Campus</th>
-		                    <th>Duration</th>
-		                    <th>Version</th>
-		                    <th>Options</th>
-		                </tr>
-		            </thead>
-		            <tfoot>
-		                    <th></th>
-		                    <th id="filter-status"></th>
-		                    <th></th>
-		                    <th></th>
-		                    <th></th>
-		                    <th></th>
-		                    <th></th>
-		                    <th></th>
-		            </tfoot>
-		            <tbody>
-		            </tbody>
-		        </table>
+		    <div id="dapage_app" class="col-xs-12 col-sm-10">
+		    	<div class="table-responsive">
+			        <table id="datable" class="table">
+			            <thead>
+			                <tr>
+			                    <th>Id</th>
+			                    <th>Status</th>
+			                    <th>Code</th>
+			                    <th>Name</th>
+			                    <th>Campus</th>
+			                    <th>Duration</th>
+			                    <th>Version</th>
+			                    <th>Options</th>
+			                </tr>
+			            </thead>
+			            <tfoot>
+			                    <th></th>
+			                    <th id="filter-status"></th>
+			                    <th></th>
+			                    <th></th>
+			                    <th></th>
+			                    <th></th>
+			                    <th></th>
+			                    <th></th>
+			            </tfoot>
+			            <tbody>
+			            </tbody>
+			        </table>
+		    	</div>
 		    </div>
-		    <div id="right_bar_wrap" class="col-md-2">
-		        <div class="data_refresh">Refresh deliveries</div>
+
+		    <div id="right_bar_wrap" class="col-xs-12 col-sm-2">
+		        <div class="data_refresh btn btn-info">Refresh deliveries</div>
 
 		        <div id="jobs_wrapper">
-		            <div id="select_buttons">
-		                <div class="sel_btn" id="select_all"> Select all</div>
-		                <div class="sel_btn" id="deselect_all"> Deselect all</div>
-		            </div>
+			        <div id="select_buttons" class="btn-group" role="group" aria-label="Selections">
+						<button id="select_all" type="button" class="btn btn-success">Select all</button>
+						<button id="deselect_all" type="button" class="btn btn-danger">Deselect all</button>
+					</div>
 
 		            <div id="jobs">
 		                <div class="job_number_text">you currently have</div>

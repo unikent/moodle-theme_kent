@@ -14,10 +14,12 @@
 			}
 		}
 
-		#datable_wrapper {
+		.table-responsive {
 			border: 1px solid @border-color;
 			border-radius: @border-radius-base;
+		}
 
+		#datable_wrapper {
 			#datable {
 				tbody {
 					tr.parent {
@@ -63,24 +65,27 @@
 	}
 
 	#right_bar_wrap {
+		text-align: center;
+
+		.data_refresh {
+			margin-bottom: 10px;
+		}
+
 		#jobs_wrapper {
 			padding: 10px;
 
 			#select_buttons {
-				height: 47px;
+				height: auto;
 				padding: 0;
 				border: none;
 				border-radius: 0;
-
-				.sel_btn {
-					width: 50%;
-					height: 26px;
-					padding: 5px 2px;
-				}
 			}
 
 			#jobs {
-				margin: 0 -10px 10px -10px;
+				margin: 10px -10px;
+				border: none;
+  				border-top: 1px solid @border-color;
+  				border-bottom: 1px solid @border-color;
 			}
 
 			#process_jobs {
@@ -92,6 +97,10 @@
 				input {
 					margin: 0;
 				}
+			}
+
+			#options_bar {
+				text-align: left;
 			}
 		}
 	}
