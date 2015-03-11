@@ -13,6 +13,50 @@
 				margin: 0;
 			}
 		}
+
+		#datable_wrapper {
+			#datable {
+				tbody {
+					tr.parent {
+						background: none;
+
+						&.even {
+							background: #F7F7F7;
+						}
+
+						&.even:hover,
+						&:hover {
+							background: #F5F5F5;
+
+							td {
+								background: none;
+							}
+						}
+					}
+				}
+			}
+
+			.dataTables_paginate {
+				background: none;
+				border: none;
+				height: 44px;
+
+				span {
+					color: #05345c;
+				}
+
+				a {
+					background: @kent-corp-primary;
+					border: 1px solid @kent-corp-primary;
+					color: #FFF !important;
+
+					&:hover {
+						background: darken(@kent-corp-primary, 10%);
+						border: 1px solid darken(@kent-corp-primary, 10%);
+					}
+				}
+			}
+		}
 	}
 
 	#right_bar_wrap {
