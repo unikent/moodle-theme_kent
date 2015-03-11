@@ -15,6 +15,9 @@
 		}
 
 		#datable_wrapper {
+			border: 1px solid @border-color;
+			border-radius: @border-radius-base;
+
 			#datable {
 				tbody {
 					tr.parent {
@@ -61,8 +64,13 @@
 
 	#right_bar_wrap {
 		#jobs_wrapper {
+			padding: 10px;
+
 			#select_buttons {
 				height: 47px;
+				padding: 0;
+				border: none;
+				border-radius: 0;
 
 				.sel_btn {
 					width: 50%;
@@ -70,15 +78,31 @@
 					padding: 5px 2px;
 				}
 			}
+
+			#jobs {
+				margin: 0 -10px 10px -10px;
+			}
+
+			#process_jobs {
+				padding: 0;
+			}
+
+			#dasearch {
+				&,
+				input {
+					margin: 0;
+				}
+			}
 		}
 	}
 }
 
-#key_button {
-	right: 0;
-	width: 176px;
+#key {
+	border: none;
+	border-radius: 0;
 
-	#key_button_wrap {
-		height: 100%;
+	&.in,
+	&.collapsing {
+		display: block;
 	}
 }
