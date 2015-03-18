@@ -76,7 +76,7 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
         return <<<HTML5
             <div class="form_container">
                 <form id="module_search" action="{$CFG->wwwroot}/course/search.php" method="GET">
-                    <div class="input-group">
+                    <div class="input-group input-group-sm">
                         <input class="form-control" type="text" name="search" placeholder="Module search" />
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
