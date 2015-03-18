@@ -5,13 +5,14 @@
  */
 
 .block {
+    overflow: hidden;
     border: 1px solid @border-color;
     border-radius: @border-radius-base;
     padding: 0;
 
     .header {
-        border-top-radius: @border-radius-base;
-        border-bottom-radius: @border-radius-base;
+        border: 0;
+        border-radius: 0;
 
         h2 {
             color: #333;
@@ -23,7 +24,8 @@
 
     div.block_action {
         img, input {
-            top: 3px
+            top: 3px;
+            vertical-align: baseline;
         }
     }
 
