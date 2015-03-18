@@ -35,4 +35,35 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
 
         return '';
     }
+
+    /**
+     * Print teachers.
+     */
+    public function render_teachers($teachers) {
+    	static $tid = 0;
+
+    	$id = 'teacherscollapse' . ($tid++);
+
+        $stafftoggle = '<i class="fa fa-chevron-down"></i> ' . get_string('staff_toggle', 'block_kent_course_overview');
+        $showhide = \html_writer::tag('a', $stafftoggle, array(
+            'data-toggle' => 'collapse',
+            'href' => '#' . $id,
+            'aria-expanded' => 'false',
+            'aria-controls' => $id,
+        ));
+
+        $staff = '';
+        foreach ($teachers as $teacher) {
+            $staff .= \html_writer::tag('span', $teacher);
+        }
+
+        $staffwell = \html_writer::tag('div', $staff, array(
+            'class' => 'well'
+        ));
+
+        return $showhide . \html_writer::tag('div', $staffwell, array(
+        	'id' => $id,
+            'class' => 'collapse'
+        ));
+    }
 }
