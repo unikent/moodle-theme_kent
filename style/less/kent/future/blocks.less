@@ -11,13 +11,14 @@
     padding: 0;
 
     .header {
-        border: 0;
-        border-radius: 0;
         background: @gray-lighter;
+        min-height: 33px;
+        border: 1px solid #FFF;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: @border-radius-base;
 
         h2 {
             color: @text-color;
-            font-size: 13px;
             padding-top: 9px;
             text-transform: capitalize;
         }
@@ -25,6 +26,7 @@
 
     div.block_action {
         img, input {
+            position: relative;
             top: 3px;
             vertical-align: baseline;
         }
