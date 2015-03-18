@@ -66,4 +66,24 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
             'class' => 'collapse'
         ));
     }
+
+    /**
+     * Returns search box.
+     */
+    public function render_search_box() {
+        global $CFG;
+
+        return <<<HTML5
+            <div class="form_container">
+                <form id="module_search" action="{$CFG->wwwroot}/course/search.php" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search" placeholder="Module search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+HTML5;
+    }
 }
