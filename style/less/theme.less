@@ -3,27 +3,10 @@
  */
 
 @import "variables";
-@import "mixins";
 
-@import "lib/bootstrap/mixins/clearfix";
-@import "lib/bootstrap/mixins/vendor-prefixes";
-@import "lib/bootstrap/mixins/tab-focus";
-@import "lib/bootstrap/mixins/border-radius";
-@import "lib/bootstrap/mixins/opacity";
-@import "lib/bootstrap/mixins/responsive-visibility";
-@import "lib/bootstrap/mixins/grid-framework";
-@import "lib/bootstrap/mixins/grid";
-@import "lib/bootstrap/mixins/buttons";
-@import "lib/bootstrap/mixins/forms";
-@import "lib/bootstrap/mixins/nav-divider";
-@import "lib/bootstrap/mixins/nav-vertical-align";
-@import "lib/bootstrap/mixins/gradients";
-@import "lib/bootstrap/mixins/alerts";
-@import "lib/bootstrap/mixins/progress-bar";
-@import "lib/bootstrap/mixins/text-emphasis";
-@import "lib/bootstrap/mixins/text-overflow";
-@import "lib/bootstrap/mixins/table-row";
-@import "lib/bootstrap/mixins/background-variant";
+@import "mixins";
+@import "lib/bootstrap/mixins";
+@import "lib/bootstrap/normalize";
 
 body {
     @import "lib/aardvark";
@@ -33,14 +16,18 @@ body {
 @import "lib/bootstrap/utilities";
 @import "lib/bootstrap/grid";
 
+@import "kent/reset";
+
 /**
  * Namespace these ones.
  */
 .bootstrap {
     * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        .box-sizing(border-box);
+    }
+    *:before,
+    *:after {
+        .box-sizing(border-box);
     }
 
     @import "lib/bootstrap/type";
@@ -62,7 +49,6 @@ body {
  * Kent styles.
  */
 html body {
-    @import "kent/reset";
     @import "kent/navbar";
     @import "kent/core";
     @import "kent/base";
@@ -77,6 +63,8 @@ html body {
     }
 
     &.kent-future-theme {
+        @import "lib/bootstrap/scaffolding";
+
         @import "kent/future/reset";
         @import "kent/future/html";
         @import "kent/future/generic";

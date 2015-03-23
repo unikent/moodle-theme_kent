@@ -35,4 +35,55 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
 
         return '';
     }
+
+    /**
+     * Print teachers.
+     */
+    public function render_teachers($teachers) {
+    	static $tid = 0;
+
+    	$id = 'teacherscollapse' . ($tid++);
+
+        $stafftoggle = '<i class="fa fa-chevron-down"></i> ' . get_string('staff_toggle', 'block_kent_course_overview');
+        $showhide = \html_writer::tag('a', $stafftoggle, array(
+            'data-toggle' => 'collapse',
+            'href' => '#' . $id,
+            'aria-expanded' => 'false',
+            'aria-controls' => $id,
+        ));
+
+        $staff = '';
+        foreach ($teachers as $teacher) {
+            $staff .= \html_writer::tag('span', $teacher);
+        }
+
+        $staffwell = \html_writer::tag('div', $staff, array(
+            'class' => 'well'
+        ));
+
+        return $showhide . \html_writer::tag('div', $staffwell, array(
+        	'id' => $id,
+            'class' => 'collapse'
+        ));
+    }
+
+    /**
+     * Returns search box.
+     */
+    public function render_search_box() {
+        global $CFG;
+
+        return <<<HTML5
+            <div class="form_container">
+                <form id="module_search" action="{$CFG->wwwroot}/course/search.php" method="GET">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control" type="text" name="search" placeholder="Module search" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+HTML5;
+    }
 }

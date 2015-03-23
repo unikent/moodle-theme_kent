@@ -5,17 +5,20 @@
  */
 
 .block {
+    overflow: hidden;
     border: 1px solid @border-color;
     border-radius: @border-radius-base;
     padding: 0;
 
     .header {
-        border-top-radius: @border-radius-base;
-        border-bottom-radius: @border-radius-base;
+        background: @gray-lighter;
+        min-height: 33px;
+        border: 1px solid #FFF;
+        border-top-left-radius: @border-radius-base;
+        border-top-right-radius: @border-radius-base;
 
         h2 {
-            color: #333;
-            font-size: 13px;
+            color: @text-color;
             padding-top: 9px;
             text-transform: capitalize;
         }
@@ -23,7 +26,9 @@
 
     div.block_action {
         img, input {
-            top: 3px
+            position: relative;
+            top: 3px;
+            vertical-align: baseline;
         }
     }
 
@@ -40,8 +45,9 @@
             border-bottom-right-radius: @border-radius-base;
 
             .form_container {
-                height: 35px;
+                height: auto;
                 padding: 5px;
+                background: @gray-lighter;
 
                 border-bottom: 1px solid @border-color;
             }

@@ -32,7 +32,7 @@ $(function() {
         }
     });
 
-    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
+    $(".kent-future-theme #menuwrap .dropdown").on('show.bs.dropdown', function() {
         var link = $(this).children(".dropdown-toggle");
         var menu = $(this).children(".dropdown-menu");
 
