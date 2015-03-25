@@ -1,25 +1,25 @@
-&.pagelayout-report #page-content {
+.pagelayout-report #page-content {
     overflow: auto;
 }
 
-&#page-admin-course-category .generalbox th {
+#page-admin-course-category .generalbox th {
     font-size: inherit;
     border-bottom-width: 1px !important;
 }
 
-&#page-admin-index .block .header h2 {
+#page-admin-index .block .header h2 {
     padding: 8px 0 0 10px;
 }
 
-&#page-course-info h2.main {
+#page-course-info h2.main {
     line-height : 10px;
 }
 
-&.editing .section .activity .mod-indent-outer {
+.editing .section .activity .mod-indent-outer {
     padding-left: 24px;
 }
 
-&.path-course-view {
+.path-course-view {
     li.activity span.autocompletion,
     li.activity form.togglecompletion {
         right: -33px;
@@ -40,15 +40,25 @@
     }
 }
 
-&#page-mod-quiz-report #tablecontainer .no-overflow {
+.path-mod-quiz {
+    .qnbutton.flagged {
+        background-color: #ffffd9;
+
+        &, .thispageholder {
+            border: 1px solid #c00000;
+        }
+    }
+}
+
+#page-mod-quiz-report #tablecontainer .no-overflow {
     overflow: auto;
 }
 
-&#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
     color: #333;
 }
 
-&#page-grade-report-grader-index {
+#page-grade-report-grader-index {
     table#fixed_column th {
         padding: 0 4px 0 4px;
     }
@@ -62,7 +72,7 @@
     }
 }
 
-&#page-admin-setting-messageinbound_mailsettings #id_s__messageinbound_hostssl {
+#page-admin-setting-messageinbound_mailsettings #id_s__messageinbound_hostssl {
     width: 220px;
 }
 
@@ -332,32 +342,6 @@ table.generalbox {
     }
 }
 
-input[type='text'], input[type='password'] {
-   outline: 0;
-   padding: 8px;
-   border: 1px solid #999;
-   color: #6f6f6f;
-   font-weight: bold;
-   margin-bottom: 10px;
-   margin-right: 10px;
-}
-
-input[type='text']:focus, input[type='password']:focus {
-   outline: 0;
-   border: 1px solid #90A6C8;
-}
-
-input[type='text'][disabled], input[type='password'][disabled] {
-    outline: 0;
-    padding: 8px;
-    border: 1px solid #DDDDDD;
-    background: #f8f8f8;
-}
-
-select {
-    min-width: 150px;
-}
-
 .course-content .section .activity {
     padding-bottom: 3px !important;
 
@@ -392,16 +376,6 @@ img.iconsmall,
 
 .contentafterlink {
     padding-left: 19px;
-}
-
-&.path-mod-quiz {
-    .qnbutton.flagged {
-        background-color: #ffffd9;
-
-        &, .thispageholder {
-            border: 1px solid #c00000;
-        }
-    }
 }
 
 .section_add_menus .horizontal{

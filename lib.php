@@ -42,7 +42,7 @@ function theme_kent_page_init(moodle_page $page) {
         $page->theme->larrow = '&lt;';
         $page->theme->rarrow = '&gt;';
     } else {
-        $page->requires->css('/theme/kent/style/current.css');
+        $page->requires->css('/theme/kent/style/bootstrap.css');
     }
 
     $page->requires->css('/theme/kent/style/font-awesome.min.css');
