@@ -4,25 +4,27 @@
  * @future
  */
 
-background: #FFFFFF;
-min-width: 0;
-
-@media (min-width: @screen-sm-min) {
-min-width: @container-sm;
-}
-
-@media (min-width: @screen-md-min) {
-min-width: @container-md;
-}
-
-@media (min-width: @screen-lg-min) {
-min-width: @container-lg;
-}
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+body {
+    background: #FFFFFF;
+    min-width: 0;
+
+    @media (min-width: @screen-sm-min) {
+    min-width: @container-sm;
+    }
+
+    @media (min-width: @screen-md-min) {
+    min-width: @container-md;
+    }
+
+    @media (min-width: @screen-lg-min) {
+    min-width: @container-lg;
+    }
 }
 
 a {

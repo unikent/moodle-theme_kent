@@ -1,0 +1,31 @@
+/**
+ * Kent theme.
+ */
+
+@import "lib/bootstrap/variables";
+@import "variables";
+@import "mixins";
+@import "lib/bootstrap/mixins";
+
+body {
+    @import "lib/aardvark";
+}
+
+@import "kent/reset";
+
+/**
+ * Kent styles.
+ */
+html body {
+    @import "kent/navbar";
+    @import "kent/core";
+    @import "kent/base";
+    @import "kent/mods";
+    @import "kent/auth";
+    @import "kent/forms";
+    @import "kent/docking";
+}
+
+@media print {
+    @import "kent/print/base";
+}
