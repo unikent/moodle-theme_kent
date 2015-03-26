@@ -2,99 +2,29 @@
  * Kent theme.
  */
 
-@import "variables";
-
-@import "mixins";
+@import "lib/bootstrap/variables";
+@import "kent/variables";
+@import "kent/mixins";
 @import "lib/bootstrap/mixins";
-@import "lib/bootstrap/normalize";
 
-body {
-    @import "lib/aardvark";
-}
-
-@import "lib/bootstrap/responsive-utilities";
-@import "lib/bootstrap/utilities";
-@import "lib/bootstrap/grid";
+@import "lib/aardvark";
 
 @import "kent/reset";
+@import "kent/navbar";
+@import "kent/core";
 
-/**
- * Namespace these ones.
- */
-.bootstrap {
-    * {
-        .box-sizing(border-box);
-    }
-    *:before,
-    *:after {
-        .box-sizing(border-box);
-    }
-
-    @import "lib/bootstrap/type";
-    @import "lib/bootstrap/component-animations";
-    @import "lib/bootstrap/buttons";
-    @import "lib/bootstrap/button-groups";
-    @import "lib/bootstrap/forms";
-    @import "lib/bootstrap/input-groups";
-    @import "lib/bootstrap/progress-bars";
-    @import "lib/bootstrap/breadcrumbs";
-    @import "lib/bootstrap/alerts";
-    @import "lib/bootstrap/navbar";
-    @import "lib/bootstrap/navs";
-    @import "lib/bootstrap/wells";
-    @import "lib/bootstrap/tables";
-}
+@import "kent/base";
+@import "kent/mods";
+@import "kent/auth";
+@import "kent/forms";
+@import "kent/docking";
 
 /**
  * Kent styles.
  */
-html body {
-    @import "kent/navbar";
-    @import "kent/core";
-    @import "kent/base";
-    @import "kent/mods";
-    @import "kent/auth";
-    @import "kent/forms";
-    @import "kent/docking";
-
-    &.kent-current-theme {
-        @import "kent/current/core";
-        @import "kent/current/structure";
-    }
-
-    &.kent-future-theme {
-        @import "lib/bootstrap/scaffolding";
-
-        @import "kent/future/reset";
-        @import "kent/future/html";
-        @import "kent/future/generic";
-        @import "kent/future/structure";
-        @import "kent/future/menu";
-        @import "kent/future/yui";
-        @import "kent/future/jquery";
-        @import "kent/future/datatables";
-        @import "kent/future/forms";
-        @import "kent/future/blocks";
-        @import "kent/future/course";
-        @import "kent/future/assign";
-        @import "kent/future/admin";
-        @import "kent/future/tabs";
-        @import "kent/future/quiz";
-        @import "kent/future/local_connect";
-        @import "kent/future/turnitin";
-
-        &.kent-dist-archive {
-            .kent-theme-flavour(@kent-redset-primary, @kent-redset-secondary, @kent-redset-secondary);
-        }
-
-        &.kent-dist-external {
-            .kent-theme-flavour(@kent-coalset-primary, @kent-coalset-secondary, @kent-coalset-secondary);
-        }
-
-        &.kent-dist-training {
-            .kent-theme-flavour(@kent-greenset-primary, @kent-greenset-secondary, @kent-greenset-secondary);
-        }
-    }
+body.kent-current-theme {
+    @import "kent/current/core";
+    @import "kent/current/structure";
 }
 
 @media print {

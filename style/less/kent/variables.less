@@ -1,0 +1,96 @@
+/**
+ * This defines the Kent brand for Moodle.
+ *
+ * See http://www.kent.ac.uk/brand/visual/colour.html
+ */
+
+@kent-blue: #003882;
+
+@kent-corp-primary: #05345C;
+@kent-corp-secondary: #263566;
+@kent-corp-highlight: #937227;
+
+@kent-grad-primary: #671115;
+@kent-grad-secondary: #450003;
+@kent-grad-highlight: #937227;
+
+@kent-undergrad-primary: #05345C;
+@kent-undergrad-highlight: #9ca1bd;
+
+@kent-redset-primary: #671115;
+@kent-redset-secondary: #DE5433;
+
+@kent-coalset-primary: #3f3f38;
+@kent-coalset-secondary: #937227;
+@kent-coalset-secondary-alt: #91a19c;
+@kent-coalset-secondary-alt2: #c7c4bf;
+
+@kent-plumset-primary: #5e2750;
+@kent-plumset-secondary: #c0a6b9;
+@kent-plumset-secondary-alt: #937227;
+
+@kent-greenset-primary: #133520;
+@kent-greenset-secondary: #AFBD20;
+
+// Less brand-specific, Moodle things.
+
+@border-color: #DADADA;
+
+@success-text-color: #3c763d;
+@success-bg-color: #dff0d8;
+@success-border-color: #d6e9c6;
+
+@warning-text-color: #8a6d3b;
+@warning-bg-color: #fcf8e3;
+@warning-border-color: #faebcc;
+
+@error-text-color: #a94442;
+@error-bg-color: #f2dede;
+@error-border-color: #ebccd1;
+
+@info-text-color: #31708f;
+@info-bg-color: #d9edf7;
+@info-border-color: #bce8f1;
+
+// -------------------------
+// Bootstrap overrides
+// -------------------------
+
+@brand-primary: @kent-corp-primary;
+@brand-success: @success-bg-color;
+@brand-info: @info-bg-color;
+@brand-warning: @warning-bg-color;
+@brand-danger: @error-bg-color;
+
+@line-height-base: 1.2857142857142858;
+@line-height-computed: floor((@font-size-base * @line-height-base));
+
+@padding-small-vertical: 4px;
+@padding-small-horizontal: 8px;
+
+@btn-success-color: darken(@btn-success-bg, 50%);
+@btn-info-color: darken(@btn-info-bg, 50%);
+@btn-warning-color: darken(@btn-warning-bg, 50%);
+@btn-danger-color: darken(@btn-danger-bg, 50%);
+
+@screen-lg: 1340px;
+
+@container-large-desktop: (1300px + @grid-gutter-width);
+@grid-gutter-width: 10px;
+
+@navbar-height: 38px;
+@navbar-border-radius: 0;
+@navbar-default-color: #FFF;
+@navbar-default-bg: @kent-corp-primary;
+@navbar-default-border: @kent-corp-primary;
+@navbar-default-link-color: #FFF;
+@navbar-default-link-hover-color: #FFF;
+@navbar-default-link-hover-bg: @kent-corp-highlight;
+@navbar-default-link-active-color: #FFF;
+@navbar-default-link-active-bg: @kent-corp-highlight;
+@navbar-default-brand-hover-color: @navbar-default-link-hover-color;
+@navbar-default-brand-hover-bg: @navbar-default-link-hover-bg;
+
+@breadcrumb-bg: #FFF;
+@breadcrumb-color: #666;
+@breadcrumb-separator: ">";

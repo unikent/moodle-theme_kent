@@ -36,10 +36,13 @@ function theme_kent_page_init(moodle_page $page) {
     $page->requires->jquery();
 
     if (\theme_kent\core::is_beta()) {
+        $page->requires->css('/theme/kent/style/future.css');
         $page->requires->js('/theme/kent/javascript/menu.js');
 
         $page->theme->larrow = '&lt;';
         $page->theme->rarrow = '&gt;';
+    } else {
+        $page->requires->css('/theme/kent/style/bootstrap.css');
     }
 
     $page->requires->css('/theme/kent/style/font-awesome.min.css');
