@@ -51,6 +51,7 @@ trait theme_kent_bootstrap_notifications {
             
             case 'notifymessage':
             case 'redirectmessage':
+            default:
                 $type = 'alert alert-info';
             break;
         }
