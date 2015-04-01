@@ -72,7 +72,7 @@ class theme_kent_core_course_management_renderer extends core_course_management_
 	        ));
 
 	        $output .= html_writer::start_tag('span', array('class' => 'input-group-btn'));
-	       		$output .= html_writer::tag('button', get_string('go'), array(
+	       		$output .= html_writer::tag('button', '<i class="fa fa-search"></i>', array(
 	       			'class' => 'btn btn-default',
 	            	'type' => 'button'
 	            ));
