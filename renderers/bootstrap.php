@@ -22,22 +22,45 @@ trait theme_kent_bootstrap_notifications {
     public function notification($message, $classes = 'notifyproblem') {
         $message = clean_text($message);
         $type = '';
+        $dismissable = false;
 
-        if (($classes == 'notifyproblem') || ($classes == 'notifytiny')) {
-            $type = 'alert alert-danger';
+        // Support dismissable notifications.
+        if (strpos($classes, ' ') !== false) {
+            $classes = explode(' ', $classes);
+
+            if ($classes[1] == 'dismissable') {
+                $dismissable = true;
+            }
+
+            $classes = $classes[0];
         }
-        if ($classes == 'notifysuccess') {
-            $type = 'alert alert-success';
+
+        switch ($classes) {
+            case 'notifyproblem':
+            case 'notifytiny':
+                $type = 'alert alert-danger';
+            break;
+
+            case 'notifysuccess':
+                $type = 'alert alert-success';
+            break;
+            
+            case 'notifywarning':
+                $type = 'alert alert-warning';
+            break;
+            
+            case 'notifymessage':
+            case 'redirectmessage':
+                $type = 'alert alert-info';
+            break;
         }
-        if ($classes == 'notifywarning') {
-            $type = 'alert alert-warning';
+
+        $button = '';
+        if ($dismissable) {
+            $type .= ' alert-dismissible';
+            $button = '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
         }
-        if ($classes == 'notifymessage') {
-            $type = 'alert alert-info';
-        }
-        if ($classes == 'redirectmessage') {
-            $type = 'alert alert-info';
-        }
-        return "<div class=\"$type\" role=\"alert\">$message</div>";
+
+        return "<div class=\"{$type}\" role=\"alert\">{$button}{$message}</div>";
     }
 }
