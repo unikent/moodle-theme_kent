@@ -21,50 +21,52 @@ trait theme_kent_bootstrap_notifications {
      */
     public function notification($message, $classes = 'notifyproblem') {
         $message = clean_text($message);
-        $type = '';
-        $dismissable = false;
 
         // Support dismissable notifications.
+        $dismissable = false;
         if (strpos($classes, ' ') !== false) {
-            $classes = explode(' ', $classes);
-
-            if ($classes[1] == 'dismissable') {
-                $dismissable = true;
+            $parts = explode(' ', $classes);
+            $classes = array();
+            foreach ($parts as $part) {
+                if ($part == 'dismissable') {
+                    $dismissable = true;
+                } else {
+                    $classes[] = $part;
+                }
             }
-
-            $classes = $classes[0];
+            $classes = implode(' ', $classes);
         }
 
         switch ($classes) {
             case 'notifyproblem':
             case 'notifytiny':
-                $type = 'alert alert-danger';
+                $classes = 'alert alert-danger';
             break;
 
             case 'notifysuccess':
-                $type = 'alert alert-success';
+                $classes = 'alert alert-success';
             break;
             
             case 'notifywarning':
-                $type = 'alert alert-warning';
+                $classes = 'alert alert-warning';
             break;
             
             case 'notifymessage':
             case 'redirectmessage':
-                $type = 'alert alert-info';
+                $classes = 'alert alert-info';
             break;
 
             default:
-                $type = $classes;
+                $classes = $classes;
             break;
         }
 
         $button = '';
         if ($dismissable) {
-            $type .= ' alert-dismissible';
+            $classes .= ' alert-dismissible';
             $button = '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
         }
 
-        return "<div class=\"{$type}\" role=\"alert\">{$button}{$message}</div>";
+        return "<div class=\"{$classes}\" role=\"alert\">{$button}{$message}</div>";
     }
 }
