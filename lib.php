@@ -37,7 +37,7 @@ function theme_kent_page_init(moodle_page $page) {
 
     if (\theme_kent\core::is_beta()) {
         $page->requires->css('/theme/kent/style/future.css');
-        $page->requires->js('/theme/kent/javascript/menu.js');
+        $page->requires->js('/theme/kent/javascript/future.js');
 
         $page->theme->larrow = '&lt;';
         $page->theme->rarrow = '&gt;';

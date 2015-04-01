@@ -21,23 +21,52 @@ trait theme_kent_bootstrap_notifications {
      */
     public function notification($message, $classes = 'notifyproblem') {
         $message = clean_text($message);
-        $type = '';
 
-        if (($classes == 'notifyproblem') || ($classes == 'notifytiny')) {
-            $type = 'alert alert-danger';
+        // Support dismissable notifications.
+        $dismissable = false;
+        if (strpos($classes, ' ') !== false) {
+            $parts = explode(' ', $classes);
+            $classes = array();
+            foreach ($parts as $part) {
+                if ($part == 'dismissable') {
+                    $dismissable = true;
+                } else {
+                    $classes[] = $part;
+                }
+            }
+            $classes = implode(' ', $classes);
         }
-        if ($classes == 'notifysuccess') {
-            $type = 'alert alert-success';
+
+        switch ($classes) {
+            case 'notifyproblem':
+            case 'notifytiny':
+                $classes = 'alert alert-danger';
+            break;
+
+            case 'notifysuccess':
+                $classes = 'alert alert-success';
+            break;
+            
+            case 'notifywarning':
+                $classes = 'alert alert-warning';
+            break;
+            
+            case 'notifymessage':
+            case 'redirectmessage':
+                $classes = 'alert alert-info';
+            break;
+
+            default:
+                $classes = $classes;
+            break;
         }
-        if ($classes == 'notifywarning') {
-            $type = 'alert alert-warning';
+
+        $button = '';
+        if ($dismissable) {
+            $classes .= ' alert-dismissible';
+            $button = '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
         }
-        if ($classes == 'notifymessage') {
-            $type = 'alert alert-info';
-        }
-        if ($classes == 'redirectmessage') {
-            $type = 'alert alert-info';
-        }
-        return "<div class=\"$type\" role=\"alert\">$message</div>";
+
+        return "<div class=\"{$classes}\" role=\"alert\">{$button}{$message}</div>";
     }
 }
