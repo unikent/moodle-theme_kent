@@ -30,7 +30,7 @@ class theme_kent_block_settings_renderer extends block_settings_renderer
         $content = html_writer::start_tag('form', array('class'=>'adminsearchform', 'method'=>'get', 'action'=>$formtarget, 'role' => 'search'));
         $content .= html_writer::start_tag('div');
 
-        $content .= html_writer::start_tag('div', array('class' => 'input-group'));
+        $content .= html_writer::start_tag('div', array('class' => 'input-group input-group-sm'));
             $content .= html_writer::empty_tag('input', array(
                 'type' => 'text',
                 'id' => 'adminsearchquery',
