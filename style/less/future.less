@@ -76,6 +76,8 @@ html body {
         @import "kent/future/quiz";
         @import "kent/future/local_connect";
         @import "kent/future/turnitin";
+        @import "kent/future/enrol";
+        @import "kent/future/groups";
     }
 
     &.kent-dist-archive {
@@ -89,4 +91,8 @@ html body {
     &.kent-dist-training {
         .kent-theme-flavour(@kent-greenset-primary, @kent-greenset-secondary, @kent-greenset-secondary);
     }
+}
+
+@media print {
+    @import "kent/future/print";
 }

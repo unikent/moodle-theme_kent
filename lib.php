@@ -36,20 +36,20 @@ function theme_kent_page_init(moodle_page $page) {
     $page->requires->jquery();
 
     if (\theme_kent\core::is_beta()) {
-        $page->requires->css('/theme/kent/style/future.css');
-        $page->requires->js('/theme/kent/javascript/future.js');
+        $page->requires->css('/theme/kent/style/future.css?rev=' . $CFG->themerev);
+        $page->requires->js('/theme/kent/javascript/future.js?rev=' . $CFG->themerev);
 
         $page->theme->larrow = '&lt;';
         $page->theme->rarrow = '&gt;';
     } else {
-        $page->requires->css('/theme/kent/style/bootstrap.css');
+        $page->requires->css('/theme/kent/style/bootstrap.css?rev=' . $CFG->themerev);
     }
 
-    $page->requires->css('/theme/kent/style/font-awesome.min.css');
-    $page->requires->css('/theme/kent/style/kent-header-light.css');
+    $page->requires->css('/theme/kent/style/font-awesome.min.css?rev=' . $CFG->themerev);
+    $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
 
     if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('9.0')) {
-        $page->requires->css('/theme/kent/style/kent-header-font-ie8.css');
+        $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
     }
 
     if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {

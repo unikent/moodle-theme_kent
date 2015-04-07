@@ -15,6 +15,45 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once($CFG->dirroot . '/blocks/kent_course_overview/renderer.php');
+require_once($CFG->dirroot . '/blocks/settings/renderer.php');
+
+/**
+ * Overrides a few defaults.
+ *
+ * @package     theme_kent
+ * @copyright   2015 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class theme_kent_block_settings_renderer extends block_settings_renderer
+{
+    public function search_form(moodle_url $formtarget, $searchvalue) {
+        $content = html_writer::start_tag('form', array('class'=>'adminsearchform', 'method'=>'get', 'action'=>$formtarget, 'role' => 'search'));
+        $content .= html_writer::start_tag('div');
+
+        $content .= html_writer::start_tag('div', array('class' => 'input-group input-group-sm'));
+            $content .= html_writer::empty_tag('input', array(
+                'type' => 'text',
+                'id' => 'adminsearchquery',
+                'name' => 'query',
+                'value' => s($searchvalue),
+                'class' => 'form-control',
+                'placeholder' => s(get_string('searchinsettings', 'admin'))
+            ));
+
+            $content .= html_writer::start_tag('span', array('class' => 'input-group-btn'));
+                $content .= html_writer::tag('button', '<i class="fa fa-search"></i>', array(
+                    'class' => 'btn btn-default',
+                    'type' => 'button'
+                ));
+            $content .= html_writer::end_tag('span');
+        $content .= html_writer::end_tag('div');
+
+        $content .= html_writer::end_tag('div');
+        $content .= html_writer::end_tag('form');
+        return $content;
+    }
+}
+
 
 /**
  * Overrides a few defaults.
@@ -77,7 +116,7 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
             <div class="form_container">
                 <form id="module_search" action="{$CFG->wwwroot}/course/search.php" method="GET">
                     <div class="input-group input-group-sm">
-                        <input class="form-control" type="text" name="search" placeholder="Module search" />
+                        <input class="form-control" type="text" name="search" placeholder="Search modules" />
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                         </span>
@@ -85,5 +124,29 @@ class theme_kent_block_kent_course_overview_renderer extends block_kent_course_o
                 </form>
             </div>
 HTML5;
+    }
+
+    /**
+     * Print admin links.
+     */
+    public function render_admin_links($links) {
+        global $DB, $USER, $OUTPUT;
+
+        $content = '';
+        foreach ($links as $link => $text) {
+            $content .= \html_writer::start_tag('li');
+            $content .= \html_writer::tag('a', $text, array(
+                'href' => $link
+            ));
+            $content .= \html_writer::end_tag('li');
+        }
+
+        if (!empty($content)) {
+            $content = \html_writer::tag('ul', $content);
+            $content = \html_writer::tag('p', get_string('admin_course_text', 'block_kent_course_overview')) . $content;
+            return $OUTPUT->box($content, 'generalbox rollover_admin_notification');
+        }
+
+        return '';
     }
 }

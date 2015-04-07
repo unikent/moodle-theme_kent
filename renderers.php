@@ -19,8 +19,9 @@ if (\theme_kent\core::is_beta()) {
 	require_once('renderers/future_renderer.php');
 	require_once('renderers/future_maintenance_renderer.php');
 	require_once('renderers/future_quiz_renderer.php');
-	require_once('renderers/future_kco_renderer.php');
 	require_once('renderers/future_connect_renderer.php');
+	require_once('renderers/future_course_renderer.php');
+	require_once('renderers/future_block_renderers.php');
 } else {
 	require_once('renderers/current_renderer.php');
 }

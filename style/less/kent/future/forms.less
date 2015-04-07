@@ -6,6 +6,15 @@
  * @future
  */
 
+.singlebutton {
+	input[type=submit] {
+		.btn();
+		.btn-primary();
+
+		text-shadow: none;
+	}
+}
+
 .mform {
 	fieldset {
 		border: 0 !important;
@@ -17,8 +26,42 @@
 	}
 
 	.fitemtitle {
+		padding-right: 5px;
+
 		label {
 			font-weight: bold;
 		}
+	}
+
+	input, select, textarea {
+		.form-control();
+	}
+}
+
+&#page-enrol-users #filterform {
+	margin-bottom: 5px;
+
+	fieldset > div {
+		background: none;
+	}
+
+	input, select, textarea {
+		display: inline-block;
+		width: auto;
+	}
+
+	input[type=submit] {
+		width: auto;
+
+		.btn();
+		.btn-default();
+	}
+
+	.fitem {
+		display: inline-block;
+	}
+
+	.fitem_fgroup, .fgroup {
+		display: block;
 	}
 }
