@@ -126,6 +126,10 @@ $THEME->layouts = array(
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
+    'fullwidth' => array(
+        'file' => 'general.php',
+        'regions' => array(),
+    ),
     'datool' => array(
         'file' => 'general.php',
         'regions' => array(),
