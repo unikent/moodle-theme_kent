@@ -18,7 +18,7 @@
  * Overrides a few defaults.
  *
  * @package     theme_kent
- * @copyright   2014 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @copyright   2015 Skylar Kelty <S.Kelty@kent.ac.uk>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class theme_kent_core_renderer extends core_renderer

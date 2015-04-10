@@ -15,7 +15,7 @@ $(function() {
         'Manage modules': 'fa-gear'
     };
 
-    $(".kent-future-theme #menuwrap input[type=submit], .kent-future-theme #menuwrap #ousearch_searchbutton").each(function (k, e) {
+    $("#menuwrap input[type=submit], #menuwrap #ousearch_searchbutton").each(function (k, e) {
         var text = e.value;
 
         if (e.title.length > 0) {
@@ -32,7 +32,7 @@ $(function() {
         }
     });
 
-    $(".kent-future-theme #menuwrap .dropdown").on('show.bs.dropdown', function() {
+    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
         var link = $(this).children(".dropdown-toggle");
         var menu = $(this).children(".dropdown-menu");
 
