@@ -69,31 +69,29 @@
 @import "kent/navbar";
 @import "kent/core";
 
-@import "kent/base";
-@import "kent/mods";
-@import "kent/auth";
-@import "kent/forms";
-@import "kent/docking";
-@import "kent/tables";
 
-html body {
-    &.kent-future-theme {
-        @import "kent/reset";
-        @import "kent/generic";
-        @import "kent/structure";
-        @import "kent/menu";
-        @import "kent/yui";
-        @import "kent/jquery";
-        @import "kent/blocks";
-        @import "kent/course";
-        @import "kent/assign";
-        @import "kent/admin";
-        @import "kent/tabs";
-        @import "kent/quiz";
-        @import "kent/local_connect";
-        @import "kent/enrol";
-        @import "kent/groups";
-    }
+body {
+    @import "kent/base";
+    @import "kent/mods";
+    @import "kent/auth";
+    @import "kent/forms";
+    @import "kent/docking";
+    @import "kent/tables";
+    @import "kent/reset";
+    @import "kent/generic";
+    @import "kent/structure";
+    @import "kent/menu";
+    @import "kent/yui";
+    @import "kent/jquery";
+    @import "kent/blocks";
+    @import "kent/course";
+    @import "kent/assign";
+    @import "kent/admin";
+    @import "kent/tabs";
+    @import "kent/quiz";
+    @import "kent/local_connect";
+    @import "kent/enrol";
+    @import "kent/groups";
 
     &.kent-dist-training {
         .kent-theme-flavour(@kent-greenset-primary, @kent-greenset-secondary, @kent-greenset-secondary);

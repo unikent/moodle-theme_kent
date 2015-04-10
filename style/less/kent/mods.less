@@ -2,43 +2,77 @@
  * Mod styles.
  */
 
-.mod_turnitintooltwo {
-    .dataTables_wrapper {
-        table.dataTable {
-            th, td {
-                padding-left: 0;
-                padding-right: 0;
+&.path-mod-turnitintooltwo {
+    .mod_turnitintooltwo {
+        .dataTables_wrapper {
+            table.dataTable {
+                th, td {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+
+            table.submissionsDataTable {
+                > td.sorting_1 {
+                    word-break: break-all;
+                }
             }
         }
 
-        table.submissionsDataTable {
-            > td.sorting_1 {
-                word-break: break-all;
+        .refresh_link, .refreshing_link {
+            width: 220px;
+        }
+
+        .messages_inbox {
+            &:hover {
+                text-decoration: none;
+            }
+
+            img {
+                top: 0;
             }
         }
-    }
 
-    .ui-tabs {
-        .ui-tabs-nav {
-            padding: 0;
-            background: 0;
-
+        .ui-tabs {
             border: 0;
-            border-top: 1px solid #AAA;
 
-            border-radius: @border-radius-base;
+            .ui-tabs-nav {
+                padding: 0;
+                background: 0;
+
+                border: 0;
+                border-radius: 0;
+            }
+
+            .ui-tabs-panel {
+                border: 1px solid @border-color;
+            }
+        }
+
+        .tii_links_container {
+            .turnitin_submit_error,
+            .turnitin_submit_success {
+                display: none;
+            }
+        }
+
+        .partDetails {
+            border: 1px solid @border-color;
+
+            th {
+                border-bottom: 1px solid @border-color;
+            }
+
+            td {
+                border: 1px solid @border-color;
+            }
+        }
+
+        .introduction, .peermark_instructions {
+            border-bottom: 1px solid @border-color;
         }
     }
 
-    .tii_links_container {
-        .turnitin_submit_error,
-        .turnitin_submit_success {
-            display: none;
-        }
-    }
-}
-
-.path-mod-turnitintooltwo {
     #colorbox {
         position: fixed !important;
         top: 50px !important;
@@ -75,7 +109,7 @@
     }
 }
 
-body.tii-box {
+&.tii-box {
     background: none !important;
 
     #page {
@@ -93,41 +127,14 @@ body.tii-box {
 }
 
 // Quiz fix.
-#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
+&#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
     color: #333;
 }
 
 // Grader fix.
-.path-grade-report-grader {
+&.path-grade-report-grader {
     .gradeparent {
         overflow: auto;
-    }
-}
-
-// Data tables.
-.dataTables_wrapper {
-    .dataTables_info,
-    .dataTables_paginate {
-        width: auto;
-        margin-top: 0;
-        bottom: 0;
-
-        .paginate_button {
-            display: inline;
-
-            &.disabled {
-                background: #CCC;
-                color: #333 !important;
-
-                &:hover {
-                    background: #CCC;
-                }
-            }
-        }
-    }
-
-    table.dataTable {
-        max-width: 100% !important;
     }
 }
 

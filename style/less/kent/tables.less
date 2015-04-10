@@ -17,7 +17,7 @@ tr.r1 td {
 	background: none;
 }
 
-#page-report-progress-index #completion-progress,
+&#page-report-progress-index #completion-progress,
 .environmenttable {
 	th,
 	td,
@@ -32,10 +32,22 @@ tr.r1 td {
 }
 
 .dataTables_wrapper {
-	.dataTables_paginate,
-	.dataTables_info {
-		.paginate_button.disabled {
-			display: none;
+    .dataTables_info,
+    .dataTables_paginate {
+        width: auto;
+        margin-top: 0;
+        bottom: 0;
+
+		.paginate_button {
+            display: inline;
+
+            &.disabled {
+				display: none;
+            }
 		}
 	}
+
+    table.dataTable {
+        max-width: 100% !important;
+    }
 }
