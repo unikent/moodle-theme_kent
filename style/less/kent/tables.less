@@ -1,9 +1,5 @@
 /*
- * Future Stylesheet.
- *
  * This provides tables styles.
- * 
- * @future
  */
 
 table, table.generaltable, table.flexible {
@@ -33,4 +29,13 @@ tr.r1 td {
 
 .calendartable {
 	border: 0;
+}
+
+.dataTables_wrapper {
+	.dataTables_paginate,
+	.dataTables_info {
+		.paginate_button.disabled {
+			display: none;
+		}
+	}
 }
