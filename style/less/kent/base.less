@@ -2,15 +2,19 @@
  * Kent Stylesheet.
  */
 
-& {
-    .has_dock { 
-        margin-left:0px;
-    }
+&.has_dock { 
+    margin-left:0px;
+}
 
-    .path-grade-report-grader {
-        .gradeparent .cell {
-            white-space: normal;
-        }
+&.path-grade-report-grader {
+    .gradeparent .cell {
+        white-space: normal;
+    }
+}
+
+&.pagelayout-report {
+    #page {
+        .container();
     }
 }
 
