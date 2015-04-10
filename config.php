@@ -22,7 +22,7 @@ $THEME->parents = array('base', 'canvas');
 $THEME->sheets = array('theme');
 
 $THEME->javascripts = array();
-$THEME->javascripts_footer = array('profileblock', 'navbar', 'theme');
+$THEME->javascripts_footer = array('profileblock', 'navbar', 'bootstrap.min', 'theme');
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
 }
@@ -32,6 +32,9 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->enable_dock = true;
 $THEME->editor_sheets = array('editor');
 
+$THEME->larrow = '&lt;';
+$THEME->rarrow = '&gt;';
+        
 $THEME->layouts = array(
     'base' => array(
         'file' => 'general.php',

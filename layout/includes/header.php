@@ -43,20 +43,15 @@ if (!isset($bodyclasses)) {
 $bodyclasses[] = 'kent-env-' . $CFG->kent->environment;
 $bodyclasses[] = 'kent-dist-' . $CFG->kent->distribution;
 $bodyclasses[] = 'kent-navbar';
+$bodyclasses[] = 'bootstrap';
+$bodyclasses[] = 'kent-future-theme';
+
+if (\theme_kent\core::is_fullscreen()) {
+    $bodyclasses[] = 'kent-fullscreen';
+}
 
 if (\theme_kent\core::is_future()) {
     $bodyclasses[] = 'kent-future';
-}
-
-if (\theme_kent\core::is_beta()) {
-    $bodyclasses[] = 'bootstrap';
-    $bodyclasses[] = 'kent-future-theme';
-
-    if (\theme_kent\core::is_fullscreen()) {
-        $bodyclasses[] = 'kent-fullscreen';
-    }
-} else {
-    $bodyclasses[] = 'kent-current-theme';
 }
 
 if ($showsidepre && !$showsidepost) {
@@ -86,7 +81,7 @@ echo $OUTPUT->doctype();
 <html <?php echo $OUTPUT->htmlattributes() ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon()?>" />
+    <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
     <?php
     echo $OUTPUT->standard_head_html();
     ?>

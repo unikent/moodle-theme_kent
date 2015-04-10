@@ -32,18 +32,6 @@ class core
 	}
 
 	/**
-	 * Are we in Beta mode?
-	 */
-	public static function is_beta() {
-		static $result = null;
-		if ($result === null) {
-		    $result = \local_kent\User::get_beta_preference("theme", static::is_future() ? true : false);
-		}
-
-		return $result;
-	}
-
-	/**
 	 * Are we in fullscreen mode?
 	 */
 	public static function is_fullscreen() {

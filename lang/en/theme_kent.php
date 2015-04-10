@@ -26,5 +26,3 @@ $string['menuhovercolordesc'] = 'Change the colour of linked items on the menu b
 
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'The content from this textarea will be displayed in the footer of every page.';
-
-$string['cachedef_kent_theme'] = 'Kent Theme';
