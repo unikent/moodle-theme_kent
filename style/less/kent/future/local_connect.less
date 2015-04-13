@@ -15,21 +15,25 @@
 		}
 
 		.table-responsive {
-			border: 1px solid @border-color;
-			border-radius: @border-radius-base;
+			border: none;
+			border-radius: 0;
 		}
 
 		#datable_wrapper {
 			#datable {
+				border-collapse: collapse !important;
+
 				thead {
 					tr {
 						background: none;
+						border: none !important;
 					}
 				}
 				
 				tbody {
 					tr.parent {
 						background: none;
+						border: none !important;
 
 						&.even {
 							background: #F7F7F7;
@@ -43,6 +47,10 @@
 								background: none;
 							}
 						}
+					}
+
+					td {
+						border: 1px solid @table-border-color !important;
 					}
 				}
 			}
@@ -60,6 +68,7 @@
 					background: @kent-corp-primary;
 					border: 1px solid @kent-corp-primary;
 					color: #FFF !important;
+					margin: 0 3px;
 
 					&:hover {
 						background: darken(@kent-corp-primary, 10%);

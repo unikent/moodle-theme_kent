@@ -15,7 +15,7 @@
 	}
 }
 
-.mform {
+form {
 	fieldset {
 		border: 0 !important;
 		background: none;
@@ -33,12 +33,28 @@
 		}
 	}
 
-	input, select, textarea {
+	select,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"] {
 		.form-control();
+		margin-bottom: 5px;
 	}
 }
 
-&#page-enrol-users #filterform {
+#page-enrol-users #filterform {
 	margin-bottom: 5px;
 
 	fieldset > div {
@@ -63,5 +79,47 @@
 
 	.fitem_fgroup, .fgroup {
 		display: block;
+	}
+}
+
+.logselecform {
+    select {
+        margin-right: 5px;
+        width: auto;
+        display: inline-block;
+        float: left;
+    }
+
+    input[type="submit"] {
+		.btn();
+		.btn-primary();
+
+		display: block;
+        clear: both;
+		text-shadow: none;
+    }
+}
+
+.forumsearch {
+	margin: 3px 3px 0 0;
+
+	.helptooltip {
+		display: none;
+	}
+
+	#search {
+	  	float: left;
+  		width: auto;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	button {
+		.btn();
+		.btn-default();
+
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		border-left: 0;
 	}
 }

@@ -5,14 +5,18 @@
  */
 
 .userenrolment {
-	border: none;
-	.table();
-
-	> tbody > tr:nth-of-type(odd) {
-		background: none;
-	}
-
 	td {
 		border-color: @border-color !important;
+	}
+
+	.col_enrol {
+		.enrolment {
+			border: none;
+			background: none;
+			
+			> span {
+				display: block;
+			}
+		}
 	}
 }
