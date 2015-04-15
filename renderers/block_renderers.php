@@ -43,7 +43,7 @@ class theme_kent_block_settings_renderer extends block_settings_renderer
             $content .= html_writer::start_tag('span', array('class' => 'input-group-btn'));
                 $content .= html_writer::tag('button', '<i class="fa fa-search"></i>', array(
                     'class' => 'btn btn-default',
-                    'type' => 'button'
+                    'type' => 'submit'
                 ));
             $content .= html_writer::end_tag('span');
         $content .= html_writer::end_tag('div');
