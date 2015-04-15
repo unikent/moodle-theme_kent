@@ -10,22 +10,52 @@
     .alert-danger();
 }
 
-.dataTables_wrapper {
-    .dataTables_length,
-    .dataTables_filter {
-        margin-bottom: 5px;
+&#page-user-profile {
+    .node_category, .path-user .node_category {
+        li {
+            list-style-type: square;
 
-        input[type=search] {
-            margin-left: 5px;
+            &.contentnode {
+                list-style-type: none;
+                margin-left: -25px;
+            }
         }
     }
 
-    .dataTables_info,
-    .dataTables_paginate {
-        margin-top: 5px;
-    }
+    .userprofile {
+        .fullprofilelink {
+            text-align: center;
+            margin: 10px;
+        }
 
-    .paginate_button {
-        margin: 0 3px;
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .profile_tree {
+            .content-columns(2);
+
+            section {
+                display: inline-block;
+                width: 100%;
+            }
+        }
+
+        dl {
+            &.list {
+                .dl-horizontal;
+            }
+
+            dt {
+                width: auto;
+            }
+
+            dd {
+                margin-left: 10px;
+                display: block;
+                clear: both;
+                float: none;
+            }
+        }
     }
 }
