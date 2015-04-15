@@ -26,10 +26,12 @@ $custommenu = $OUTPUT->custom_menu();
 $hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
 $haslogo = (!empty($PAGE->theme->settings->logo));
 
-$courseheader = $coursecontentheader = $coursecontentfooter = $coursefooter = '';
+$coursecontentheader = isset($coursecontentheader) ? $coursecontentheader : '';
+
+$courseheader = $coursecontentfooter = $coursefooter = '';
 if (empty($PAGE->layout_options['nocourseheaderfooter'])) {
     $courseheader = $OUTPUT->course_header();
-    $coursecontentheader = $OUTPUT->course_content_header();
+    $coursecontentheader .= $OUTPUT->course_content_header();
     if (empty($PAGE->layout_options['nocoursefooter'])) {
         $coursecontentfooter = $OUTPUT->course_content_footer();
         $coursefooter = $OUTPUT->course_footer();

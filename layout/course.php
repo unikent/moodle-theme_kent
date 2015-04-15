@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 if (\theme_kent\core::is_beta()) {
+    $coursecontentheader = "";
+
     if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
         // Add error message if we have been scheduled for deletion.
         $cmenabled = get_config("local_catman", "enable");
