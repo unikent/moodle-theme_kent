@@ -28,7 +28,7 @@ class core
 	 */
 	public static function is_future() {
 		global $CFG;
-		return $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+		return $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo' || $CFG->kent->distribution == '2015';
 	}
 
 	/**
