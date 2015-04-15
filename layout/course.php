@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-require(dirname(__FILE__) . "/includes/header.php");
-
 if (\theme_kent\core::is_beta()) {
     if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
         // Add error message if we have been scheduled for deletion.
@@ -53,5 +51,3 @@ HTML5;
 } else {
     require(dirname(__FILE__) . "/current/general.php");
 }
-
-require(dirname(__FILE__) . "/includes/footer.php");
