@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+$coursecontentheader = "";
 if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
     // Add error message if we have been scheduled for deletion.
     $cmenabled = get_config("local_catman", "enable");
