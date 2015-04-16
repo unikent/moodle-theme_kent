@@ -85,33 +85,33 @@ echo \html_writer::start_tag('div', array(
         if ($hassidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
-            <div id="region-pre" class="block-region col-xs-12 col-md-$prespan">
+            <section id="region-pre" class="block-region col-xs-12 col-md-$prespan">
                 <div class="region-content">
                     $blocks
                 </div>
-            </div>
+            </section>
 HTML5;
         }
 
         $maincontent = $OUTPUT->main_content();
         echo <<<HTML5
-        <div id="region-main" class="col-xs-12 col-md-$midspan">
+        <section id="region-main" class="col-xs-12 col-md-$midspan">
             <div id="main-padder" class="region-content">
                 $coursecontentheader
                 $maincontent
                 $coursecontentfooter
             </div>
-        </div>
+        </section>
 HTML5;
 
         if ($hassidepost) {
             $blocks = $OUTPUT->blocks('side-post');
             echo <<<HTML5
-            <div id="region-post" class="block-region col-xs-12 col-md-$postspan">
+            <section id="region-post" class="block-region col-xs-12 col-md-$postspan">
                 <div class="region-content">
                     $blocks
                 </div>
-            </div>
+            </section>
 HTML5;
         }
         ?>
