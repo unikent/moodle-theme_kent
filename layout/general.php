@@ -20,12 +20,12 @@ $prespan = 2;
 $midspan = 8;
 $postspan = 2;
 
-if (!$hassidepre) {
+if (!$showsidepre) {
     $prespan = 0;
     $midspan += 2;
 }
 
-if (!$hassidepost) {
+if (!$showsidepost) {
     $postspan = 0;
     $midspan += 2;
 }
@@ -82,7 +82,7 @@ echo \html_writer::start_tag('div', array(
 
     <div id="page-content">
         <?php
-        if ($hassidepre) {
+        if ($showsidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
             <section id="region-pre" class="block-region col-xs-12 col-md-$prespan">
@@ -96,7 +96,7 @@ HTML5;
         $maincontent = $OUTPUT->main_content();
         echo <<<HTML5
         <section id="region-main" class="col-xs-12 col-md-$midspan">
-            <div id="main-padder" class="region-content">
+            <div class="region-content">
                 $coursecontentheader
                 $maincontent
                 $coursecontentfooter
@@ -104,7 +104,7 @@ HTML5;
         </section>
 HTML5;
 
-        if ($hassidepost) {
+        if ($showsidepost) {
             $blocks = $OUTPUT->blocks('side-post');
             echo <<<HTML5
             <section id="region-post" class="block-region col-xs-12 col-md-$postspan">
