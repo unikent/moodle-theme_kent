@@ -95,7 +95,7 @@ HTML5;
 
         $maincontent = $OUTPUT->main_content();
         echo <<<HTML5
-        <div id="main-region" class="col-xs-12 col-md-$midspan">
+        <div id="region-main" class="col-xs-12 col-md-$midspan">
             <div id="main-padder" class="region-content">
                 $coursecontentheader
                 $maincontent
