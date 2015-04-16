@@ -2,15 +2,9 @@
  * This provides basic page structure.
  */
 
-&.kent-fullscreen {
-	#page {
-		width: 100%;
-	}
-}
-
 &.pagelayout-redirect {
-	#content {
-		margin: 5% auto;
+	#page {
+		margin-top: 10px;
 	}
 }
 
@@ -19,7 +13,6 @@
 }
 
 #page {
-    .container();
     padding-top: 0;
     font-size: @font-size-base;
 
@@ -32,7 +25,6 @@
 
 		#headerwrap {
 		    height: 50px;
-		    .row();
 
 		    .brand {
 		        color: @kent-corp-primary;
@@ -148,7 +140,9 @@
 	}
 
 	#contentwrapper {
-	    .row();
+	    &.spacer {
+	    	margin-top: 10px;
+	    }
 
 	    #page-content {
 	        border: 0;

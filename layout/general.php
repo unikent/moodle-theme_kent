@@ -31,8 +31,6 @@ if (!$hassidepost) {
 }
 ?>
 
-<div id="page" class="container">
-
 <div id="page-header" class="container-fluid">
     <?php
     $out = '';
@@ -75,9 +73,13 @@ if ($hasnavbar) {
     echo '</div>';
     echo '</div>';
 }
+
+echo \html_writer::start_tag('div', array(
+    'id' => 'contentwrapper',
+    'class' => $hasnavbar ? 'row' : 'row spacer'
+));
 ?>
 
-<div id="contentwrapper" class="row">
     <div id="page-content">
         <?php
         if ($hassidepre) {
@@ -155,7 +157,5 @@ if ($hasfooter) {
 </div>
 <?php
 }
-
-echo '</div>';
 
 require(dirname(__FILE__) . "/includes/footer.php");

@@ -91,4 +91,14 @@ echo $OUTPUT->doctype();
 </head>
 <body <?php echo $OUTPUT->body_attributes($bodyclasses); ?>>
 
-<?php echo $OUTPUT->standard_top_of_body_html(); ?>
+<?php
+
+echo $OUTPUT->standard_top_of_body_html();
+
+echo \html_writer::start_tag('div', array(
+    'class' => \theme_kent\core::is_fullscreen() ? 'container-fluid' : 'container'
+));
+
+echo \html_writer::start_tag('div', array(
+    'id' => 'page'
+));
