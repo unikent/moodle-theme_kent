@@ -141,7 +141,7 @@ class theme_kent_local_connect_renderer extends local_connect_renderer
 							</div>
 			            </div>
 			            <div id="dasearch" class="form-group">
-			                <input type="text" class="form-control" id="dasearch-box" name="dasearch-box" placeholder="Search" />
+			            	<input type="search" class="form-control" id="dasearch-box" name="dasearch-box" placeholder="Search" />
 			            </div>
 			        </div>
 		        </div>
