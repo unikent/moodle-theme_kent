@@ -14,50 +14,11 @@
     .row();
 }
 
-.span12 {
-    .make-xs-column(12);
+/* Generate span1 -> span12 aliases */
+.generate-column-alias(@n, @i: 1) when (@i =< @n) {
+  .span@{i} {
+    .make-xs-column(@i);
+  }
+  .generate-column-alias(@n, (@i + 1));
 }
-
-.span11 {
-    .make-xs-column(11);
-}
-
-.span10 {
-    .make-xs-column(10);
-}
-
-.span9 {
-    .make-xs-column(9);
-}
-
-.span8 {
-    .make-xs-column(8);
-}
-
-.span7 {
-    .make-xs-column(7);
-}
-
-.span6 {
-    .make-xs-column(6);
-}
-
-.span5 {
-    .make-xs-column(5);
-}
-
-.span4 {
-    .make-xs-column(4);
-}
-
-.span3 {
-    .make-xs-column(3);
-}
-
-.span2 {
-    .make-xs-column(2);
-}
-
-.span1 {
-    .make-xs-column(1);
-}
+.generate-column-alias(12);
