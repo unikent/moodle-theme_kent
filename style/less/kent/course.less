@@ -3,26 +3,6 @@
  */
 
 .course-content {
-    .summary {
-        h1, h2 {
-            font-size: 20px;
-            font-weight: normal;
-            color: #6f6f6f;
-        }
-
-        h3 {
-            font-size: 18px;
-            font-weight: normal;
-            color: #999;
-        }
-
-        h4 {
-            font-size: 16px;
-            font-weight: normal;
-            color: #aaa;
-        }
-    }
-
     ul.weeks {
         li.section {
             border-radius: @border-radius-base;
@@ -46,10 +26,43 @@
                 padding: 10px;
 
                 .summary {
-                    margin-bottom: 20px;
-                    border-bottom: 1px solid #e5e5e5;
+                    margin-bottom: 10px;
                 }
             }
+        }
+    }
+
+    .content {
+        .summary {
+            border-bottom: 1px solid @border-color;
+            margin: 0 -30px 10px -30px;
+            padding: 0 30px;
+            min-height: 10px;
+        }
+
+        ul.section {
+            border: none;
+            padding-top: 0;
+        }
+    }
+
+    .summary {
+        h1, h2 {
+            font-size: 20px;
+            font-weight: normal;
+            color: #6f6f6f;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #999;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: normal;
+            color: #aaa;
         }
     }
 
