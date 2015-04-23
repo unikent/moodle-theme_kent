@@ -96,7 +96,7 @@ HTML5;
         $maincontent = $OUTPUT->main_content();
         echo <<<HTML5
         <section id="region-main" class="col-xs-12 col-md-$midspan">
-            <div class="region-content">
+            <div class="region-content container-fluid">
                 $coursecontentheader
                 $maincontent
                 $coursecontentfooter
