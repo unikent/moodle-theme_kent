@@ -18,14 +18,14 @@ $coursecontentheader = "";
 if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
     // Add error message if we have been scheduled for deletion.
     $cmenabled = get_config("local_catman", "enable");
-    if ($cmenabled && \local_catman\core::is_scheduled($COURSE)) {
+    if ($cmenabled &&  \local_catman\core::is_scheduled($COURSE)) {
         $time = \local_catman\core::get_expiration($COURSE);
         $time = strftime("%d/%m/%Y %H:%M", $time);
-        $coursecontentheader .= $OUTPUT->notification("This course has been scheduled for deletion on {$time}.");
+        $coursecontentheader .= $OUTPUT->notification("<i class=\"fa fa-exclamation-triangle\"></i> This course has been scheduled for deletion on {$time}.", 'notifyproblem');
     }
 
     if (!$COURSE->visible) {
-        $coursecontentheader .= $OUTPUT->notification('This course is not currently visible to students.', 'notifywarning');
+        $coursecontentheader .= $OUTPUT->notification('<i class="fa fa-exclamation-circle"></i> This course is not currently visible to students.', 'notifywarning');
     }
 
     // Grab a list of notifications from local_kent.
@@ -36,11 +36,20 @@ if (has_capability('moodle/course:update', \context_course::instance($COURSE->id
             continue;
         }
 
-        $coursecontentheader .= <<<HTML5
-        <div class="alert alert-warning alert-dismissible" role="alert">
+        $classes = "alert alert-{$notification->type}";
+        $dismiss = '';
+        if ($notification->dismissable) {
+            $classes .= ' alert-dismissible';
+            $dismiss .= <<<HTML5
             <button type="button" class="close cnid-dismiss" data-dismiss="alert" data-id="{$notification->id}" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
+HTML5;
+        }
+
+        $coursecontentheader .= <<<HTML5
+        <div class="{$classes}" role="alert">
+            {$dismiss}
             {$notification->message}
         </div>
 HTML5;
