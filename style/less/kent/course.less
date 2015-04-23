@@ -100,3 +100,30 @@
         list-style: none;
     }
 }
+
+#course-category-listings {
+    border: 1px solid @border-color;
+    margin-bottom: 0;
+
+    > div {
+        padding: 0;
+
+        &#category-listing {
+            border-right: 1px solid @border-color;
+        }
+
+        &#course-listing {
+            border-left: 1px solid @border-color;
+            margin-left: -1px;
+
+            > div {
+                border: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+        > div {
+            border: 0 !important;
+        }
+    }
+}
