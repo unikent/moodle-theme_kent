@@ -2,8 +2,24 @@
  * Styles speciic to the course pages.
  */
 
+&.editing {
+    .course-content {
+        ul.weeks, ul.topics {
+            li.section {
+                .left, .right {
+                    display: block;
+                }
+            }
+        }
+
+        .content {
+            margin: 0 20px !important;
+        }
+    }
+}
+
 .course-content {
-    ul.weeks {
+    ul.weeks, ul.topics {
         li.section {
             border-radius: @border-radius-base;
             margin: 0 0 10px 0;
@@ -15,6 +31,7 @@
 
             .left, .right {
                 width: 20px;
+                display: none;
             }
 
             .right img.icon {
@@ -22,8 +39,14 @@
             }
 
             .content {
-                margin: 0 20px;
+                margin: 0;
                 padding: 10px;
+
+                h3 {
+                    font-size: 14px;
+                    padding-bottom: 0px;
+                    margin: 2px 0;
+                }
 
                 .summary {
                     margin-bottom: 10px;
@@ -32,10 +55,25 @@
         }
     }
 
+    ul.weeks {
+        .content {
+            .summary {
+                margin: 0 -10px 10px -10px;
+            }
+        }
+    }
+
+    ul.topics {
+        .content {
+            .summary {
+                margin: 0 -40px 10px -40px;
+            }
+        }
+    }
+
     .content {
         .summary {
             border-bottom: 1px solid @border-color;
-            margin: 0 -30px 10px -30px;
             padding: 0 30px;
             min-height: 10px;
         }
@@ -44,6 +82,10 @@
             border: none;
             padding-top: 0;
         }
+    }
+
+    .main .content {
+        background: transparent;
     }
 
     .summary {
