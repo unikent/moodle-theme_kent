@@ -103,6 +103,7 @@ HTML5;
             </div>
         </section>
 HTML5;
+        unset($maincontent);
 
         if ($showsidepost) {
             $blocks = $OUTPUT->blocks('side-post');
