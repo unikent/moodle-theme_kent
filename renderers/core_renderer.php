@@ -291,4 +291,82 @@ HTML5;
 
         return '';
     }
+
+    /**
+     * Replace some icons.
+     * @param  pix_icon $icon [description]
+     * @return [type]         [description]
+     */
+    public function render_pix_icon(pix_icon $icon) {
+        // Disabled, for now.
+        return parent::render_pix_icon($icon);
+
+        static $icons = array(
+            'add' => 'plus',
+            'book' => 'book',
+            'chapter' => 'file',
+            'docs' => 'question-circle',
+            'generate' => 'gift',
+            'i/marker' => 'lightbulb-o',
+            'i/dragdrop' => 'arrows',
+            'i/loading' => 'refresh fa-spin fa-2x',
+            'i/loading_small' => 'refresh fa-spin',
+            'i/backup' => 'cloud-download',
+            'i/checkpermissions' => 'user',
+            'i/edit' => 'pencil',
+            'i/filter' => 'filter',
+            'i/grades' => 'table',
+            'i/group' => 'group',
+            'i/groupn' => 'group',
+            'i/groupv' => 'group',
+            'i/groups' => 'group',
+            'i/hide' => 'eye',
+            'i/import' => 'upload',
+            'i/move_2d' => 'arrows',
+            'i/navigationitem' => 'file',
+            'i/outcomes' => 'magic',
+            'i/publish' => 'globe',
+            'i/reload' => 'refresh',
+            'i/report' => 'list-alt',
+            'i/restore' => 'cloud-upload',
+            'i/return' => 'repeat',
+            'i/roles' => 'user',
+            'i/cohort' => 'users',
+            'i/scales' => 'signal',
+            'i/settings' => 'cogs',
+            'i/show' => 'eye-slash',
+            'i/switchrole' => 'random',
+            'i/user' => 'user',
+            'i/users' => 'user',
+            't/right' => 'arrow-right',
+            't/left' => 'arrow-left',
+            't/edit_menu' => 'cogs',
+            'i/withsubcat' => 'indent',
+            'i/permissions' => 'key',
+            't/cohort' => 'users',
+            'i/assignroles' => 'lock',
+            't/assignroles' => 'lock',
+            't/delete' => 'times-circle',
+            't/edit' => 'cog',
+            't/hide' => 'eye',
+            't/show' => 'eye-slash',
+            't/up' => 'arrow-up',
+            't/down' => 'arrow-down',
+            't/copy' => 'copy',
+            't/block_to_dock' => 'caret-square-o-left',
+            't/sort' => 'sort',
+            't/sort_asc' => 'sort-asc',
+            't/sort_desc' => 'sort-desc',
+            't/grades' => 'th-list',
+            't/preview' => 'search',
+        );
+
+        if (array_key_exists($icon->pix, $icons)) {
+            $alt = $icon->attributes['alt'];
+            $icon = $icons[$icon->pix];
+            return "<i class=\"fa fa-$icon icon\" title=\"$alt\">";
+        } else {
+            return parent::render_pix_icon($icon);
+        }
+    }
 }
