@@ -82,3 +82,92 @@ class theme_kent_core_question_renderer extends core_question_renderer
         return $output;
     }
 }
+
+class theme_kent_mod_quiz_edit_renderer extends \mod_quiz\output\edit_renderer
+{
+    /**
+     * Render the edit page
+     *
+     * @param \quiz $quizobj object containing all the quiz settings information.
+     * @param structure $structure object containing the structure of the quiz.
+     * @param \question_edit_contexts $contexts the relevant question bank contexts.
+     * @param \moodle_url $pageurl the canonical URL of this page.
+     * @param array $pagevars the variables from {@link question_edit_setup()}.
+     * @return string HTML to output.
+     */
+    public function edit_page(\quiz $quizobj, \mod_quiz\structure $structure,
+            \question_edit_contexts $contexts, \moodle_url $pageurl, array $pagevars) {
+        $output = '';
+
+        // Page title.
+        $output .= $this->heading_with_help(get_string('editingquizx', 'quiz',
+                format_string($quizobj->get_quiz_name())), 'editingquiz', 'quiz', '',
+                get_string('basicideasofquiz', 'quiz'), 2);
+
+        // Information at the top.
+        $output .= $this->quiz_state_warnings($structure);
+        $output .= $this->quiz_information($structure);
+
+        // Show the questions organised into sections and pages.
+        $output .= $this->start_section_list();
+
+        foreach ($structure->get_sections() as $section) {
+            $output .= $this->start_section($structure, $section);
+            $output .= $this->questions_in_section($structure, $section, $contexts, $pagevars, $pageurl);
+
+            if ($structure->is_last_section($section)) {
+                $output .= \html_writer::start_div('last-add-menu');
+                $output .= \html_writer::tag('span', $this->add_menu_actions($structure, 0,
+                        $pageurl, $contexts, $pagevars), array('class' => 'add-menu-outer'));
+                $output .= \html_writer::end_div();
+            }
+
+            $output .= $this->end_section();
+        }
+
+        $output .= $this->end_section_list();
+
+        $output .= $this->repaginate_button($structure, $pageurl);
+
+        $output .= $this->maximum_grade_input($structure, $pageurl);
+        $output .= $this->total_marks($quizobj->get_quiz());
+        
+        // Initialise the JavaScript.
+        $this->initialise_editing_javascript($structure, $contexts, $pagevars, $pageurl);
+
+        // Include the contents of any other popups required.
+        if ($structure->can_be_edited()) {
+            $popups = '';
+
+            $popups .= $this->question_bank_loading();
+            $this->page->requires->yui_module('moodle-mod_quiz-quizquestionbank',
+                    'M.mod_quiz.quizquestionbank.init',
+                    array('class' => 'questionbank', 'cmid' => $structure->get_cmid()));
+
+            $popups .= $this->random_question_form($pageurl, $contexts, $pagevars);
+            $this->page->requires->yui_module('moodle-mod_quiz-randomquestion',
+                    'M.mod_quiz.randomquestion.init');
+
+            $output .= \html_writer::div($popups, 'mod_quiz_edit_forms');
+
+            // Include the question chooser.
+            $output .= $this->question_chooser();
+            $this->page->requires->yui_module('moodle-mod_quiz-questionchooser', 'M.mod_quiz.init_questionchooser');
+        }
+
+        return $output;
+    }
+
+    /**
+     * Render the total marks available for the quiz.
+     *
+     * @param \stdClass $quiz the quiz settings from the database.
+     * @return string HTML to output.
+     */
+    public function total_marks($quiz) {
+        $totalmark = \html_writer::span(quiz_format_grade($quiz, $quiz->sumgrades), 'mod_quiz_summarks');
+        return \html_writer::tag('div',
+                get_string('totalmarksx', 'quiz', $totalmark),
+                array('class' => 'totalpoints'));
+    }
+}
