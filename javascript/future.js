@@ -1,18 +1,18 @@
 $(function() {
     var overrides = {
-        'Turn editing on': ['fa-pencil-square-o', ' Edit'],
-        'Turn editing off': ['fa-pencil-square', ' Edit Off'],
-        'Blocks editing on': ['fa-gear', ''],
-        'Blocks editing off': ['fa-gears', ''],
-        'Customise this page': ['fa-gear', ''],
-        'Stop customising this page': ['fa-gears', ''],
-        'Reset page to default': ['fa-undo', ''],
-        'Search forums': ['fa-search', ''],
-        'Edit questions': ['fa-gear', ''],
-        'Edit page contents': ['fa-gear', ''],
-        'Search': ['fa-search', ''],
-        'Preferences': ['fa-gear', ''],
-        'Manage modules': ['fa-gear', '']
+        'Turn editing on': 'fa-gear',
+        'Turn editing off': 'fa-gears',
+        'Blocks editing on': 'fa-gear',
+        'Blocks editing off': 'fa-gears',
+        'Customise this page': 'fa-gear',
+        'Stop customising this page': 'fa-gears',
+        'Reset page to default': 'fa-undo',
+        'Search forums': 'fa-search',
+        'Edit questions': 'fa-gear',
+        'Edit page contents': 'fa-gear',
+        'Search': 'fa-search',
+        'Preferences': 'fa-gear',
+        'Manage modules': 'fa-gear'
     };
 
     $(".kent-future-theme #menuwrap input[type=submit], .kent-future-theme #menuwrap #ousearch_searchbutton").each(function (k, e) {
@@ -28,7 +28,7 @@ $(function() {
 
         if (text in overrides) {
             var fa_class = overrides[text];
-            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class[0] + '">' + fa_class[1] + '</i></button>');
+            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class + '"></i></button>');
         }
     });
 
