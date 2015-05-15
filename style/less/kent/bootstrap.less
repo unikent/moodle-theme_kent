@@ -3,6 +3,15 @@
 */
 .alert {
   margin-bottom: 10px;
+  padding-left:30px;
+  position: relative;
+
+  i.fa {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
 
   img.activityicon {
     margin-right: 3px;
@@ -10,12 +19,8 @@
     width: 16px;
   }
 
-  & > ul.list {
-    margin-left: 3em;
-
-    li {
-      margin-bottom: 2px;
-    }
+  & > ul.list li {
+    margin-bottom: 2px;
   }
 }
 
