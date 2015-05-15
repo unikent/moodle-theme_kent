@@ -242,6 +242,12 @@
 	}
 }
 
+&.userloggedinas, &.userswitchedrole {
+	#headerwrap .usermenu .userbutton .usertext {
+		padding-top: 0 !important;
+	}
+}
+
 &.userloggedinas {
 	#page {
 		#page-header {
@@ -250,10 +256,6 @@
 					.moodle-actionmenu {
 						.toggle-display {
 							.userbutton {
-								.usertext {
-									padding-top: 0;
-								}
-
 			                    .avatars {
 			                        .avatar {
 			                        	&.current {
