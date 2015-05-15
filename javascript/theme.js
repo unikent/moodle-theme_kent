@@ -2,17 +2,17 @@ $(function() {
     var overrides = {
         'Turn editing on': ['fa-pencil-square-o', ' Edit'],
         'Turn editing off': ['fa-pencil-square', ' Edit Off'],
-        'Blocks editing on': ['fa-gear', ''],
-        'Blocks editing off': ['fa-gears', ''],
-        'Customise this page': ['fa-gear', ''],
-        'Stop customising this page': ['fa-gears', ''],
+        'Blocks editing on': ['fa-pencil-square-o', ''],
+        'Blocks editing off': ['fa-pencil-square', ''],
+        'Customise this page': ['fa-pencil-square-o', ''],
+        'Stop customising this page': ['fa-pencil-square', ''],
         'Reset page to default': ['fa-undo', ''],
         'Search forums': ['fa-search', ''],
-        'Edit questions': ['fa-gear', ''],
-        'Edit page contents': ['fa-gear', ''],
+        'Edit questions': ['fa-pencil-square-o', ''],
+        'Edit page contents': ['fa-pencil-square', ''],
         'Search': ['fa-search', ''],
-        'Preferences': ['fa-gear', ''],
-        'Manage modules': ['fa-gear', '']
+        'Preferences': ['fa-pencil-square-o', ''],
+        'Manage modules': ['fa-pencil-square-o', '']
     };
 
     $("#menuwrap input[type=submit], #menuwrap #ousearch_searchbutton").each(function (k, e) {
