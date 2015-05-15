@@ -1,7 +1,7 @@
 $(function() {
     var overrides = {
-        'Turn editing on': ['fa-pencil-square-o', ' Edit'],
-        'Turn editing off': ['fa-pencil-square', ' Edit Off'],
+        'Turn editing on': ['fa-pencil-square-o', 'Edit'],
+        'Turn editing off': ['fa-pencil-square', 'Edit Off'],
         'Blocks editing on': ['fa-pencil-square-o', ''],
         'Blocks editing off': ['fa-pencil-square', ''],
         'Customise this page': ['fa-pencil-square-o', ''],
@@ -28,7 +28,13 @@ $(function() {
 
         if (text in overrides) {
             var fa_class = overrides[text];
-            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class[0] + '">' + fa_class[1] + '</i></button>');
+
+            var span = '';
+            if(fa_class[1].length > 0) {
+                span = '<span>' + fa_class[1] + '</span>';
+            }
+
+            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class[0] + '"></i>' + span + '</button>');
         }
     });
 
