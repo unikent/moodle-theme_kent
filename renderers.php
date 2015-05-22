@@ -20,4 +20,3 @@ require_once('renderers/maintenance_renderer.php');
 require_once('renderers/quiz_renderer.php');
 require_once('renderers/course_renderer.php');
 require_once('renderers/block_renderers.php');
-require_once('renderers/connect_renderer.php');
