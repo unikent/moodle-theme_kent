@@ -31,7 +31,7 @@ if (!$showsidepost) {
 }
 ?>
 
-<div id="page-header" class="container-fluid">
+<div id="page-header" class="row">
     <?php
     $out = '';
     if (!empty($PAGE->layout_options['langmenu'])) {
@@ -57,12 +57,10 @@ if (!$showsidepost) {
     </div>
 </div>
 
-<?php 
+<?php
 if ($hascustommenu) {
     echo '<div id="menuwrap" class="row">';
-    echo '<div class="col-md-12">';
     echo $custommenu;
-    echo '</div>';
     echo '</div>';
 }
 
