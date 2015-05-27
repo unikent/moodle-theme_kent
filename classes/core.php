@@ -23,23 +23,23 @@ defined('MOODLE_INTERNAL') || die();
  */
 class core
 {
-	/**
-	 * Are we a future dist?
-	 */
-	public static function is_future() {
-		global $CFG;
-		return $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
-	}
+    /**
+     * Are we a future dist?
+     */
+    public static function is_future() {
+        global $CFG;
+        return $CFG->kent->distribution == 'future' || $CFG->kent->distribution == 'future-demo';
+    }
 
-	/**
-	 * Are we in fullscreen mode?
-	 */
-	public static function is_fullscreen() {
-		static $result = null;
-		if ($result === null) {
-		    $result = \local_kent\User::get_beta_preference("theme_fullscreen", false);
-		}
+    /**
+     * Are we in fullscreen mode?
+     */
+    public static function is_fullscreen() {
+        static $result = null;
+        if ($result === null) {
+            $result = \local_kent\User::get_beta_preference("theme_fullscreen", false);
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 }
