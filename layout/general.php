@@ -31,7 +31,7 @@ if (!$showsidepost) {
 }
 ?>
 
-<div id="page-header" class="row">
+<div id="page-header">
     <?php
     $out = '';
     if (!empty($PAGE->layout_options['langmenu'])) {
@@ -49,7 +49,7 @@ if (!$showsidepost) {
             echo "Moodle-" . $CFG->kent->distribution;
             ?>
         </div>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6 user">
             <?php
             echo $OUTPUT->user_menu();
             ?>
