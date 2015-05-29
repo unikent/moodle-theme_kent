@@ -1,6 +1,6 @@
 {
     "name": "Kent-Theme",
-    "version": "2015.04.10",
+    "version": "2015.05.29",
     "description": "Kent Moodle Theme",
     "main": "Gruntfile.js",
     "scripts": {

@@ -27,4 +27,4 @@ $string['choosereadme'] = '<div class="clearfix"><div class="theme_screenshot">
 <img src="kent/pix/screenshot.jpg" />
 
 <h2>About kent</h2>
-<p>Kent is a three column fixed-width theme for Moodle 2.8+ based on Aardvark which was originally created by Shaun Daubney for <a href="http://www.newbury-college.ac.uk">Newbury College</a> with help from Mary Evans.</p>';
+<p>Moodle theme for the University of Kent, based on Aardvark and Bootstrap.</p>';
