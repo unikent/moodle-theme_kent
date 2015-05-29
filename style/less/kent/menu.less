@@ -51,11 +51,19 @@
 
                 .fa {
                     color: #FFF;
-                    padding: 0 10px;
+                    padding: 0 5px;
                 }
 
                 &:hover {
                     background: @kent-corp-highlight !important;
+                }
+
+                &.navicon {
+                    padding: 1px 10px;
+
+                    & > span {
+                        padding: 0 4px;
+                    }
                 }
             }
 
@@ -68,16 +76,6 @@
 
             label, .helptooltip {
                 display: none;
-            }
-
-            button {
-                & > i.fa {
-                    padding: 0 5px;
-                }
-
-                & > span {
-                    padding: 0 4px;
-                }
             }
         }
 

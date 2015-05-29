@@ -34,7 +34,7 @@ $(function() {
                 span = '<span>' + fa_class[1] + '</span>';
             }
 
-            $(e).hide().parent().append('<button title="' + text + '"><i class="fa ' + fa_class[0] + '"></i>' + span + '</button>');
+            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class[0] + '"></i>' + span + '</button>');
         }
     });
 
