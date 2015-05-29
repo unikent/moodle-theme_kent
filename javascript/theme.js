@@ -1,18 +1,18 @@
 $(function() {
     var overrides = {
-        'Turn editing on': ['fa-pencil-square-o', 'Edit'],
-        'Turn editing off': ['fa-pencil-square', 'Edit Off'],
-        'Blocks editing on': ['fa-pencil-square-o', ''],
-        'Blocks editing off': ['fa-pencil-square', ''],
-        'Customise this page': ['fa-pencil-square-o', ''],
-        'Stop customising this page': ['fa-pencil-square', ''],
-        'Reset page to default': ['fa-undo', ''],
-        'Search forums': ['fa-search', ''],
-        'Edit questions': ['fa-pencil-square-o', ''],
-        'Edit page contents': ['fa-pencil-square', ''],
-        'Search': ['fa-search', ''],
-        'Preferences': ['fa-pencil-square-o', ''],
-        'Manage modules': ['fa-pencil-square-o', '']
+        'Turn editing on': 'fa-pencil-square-o',
+        'Turn editing off': 'fa-pencil-square',
+        'Blocks editing on': 'fa-pencil-square-o',
+        'Blocks editing off': 'fa-pencil-square',
+        'Customise this page': 'fa-pencil-square-o',
+        'Stop customising this page': 'fa-pencil-square',
+        'Reset page to default': 'fa-undo',
+        'Search forums': 'fa-search',
+        'Edit questions': 'fa-pencil-square-o',
+        'Edit page contents': 'fa-pencil-square',
+        'Search': 'fa-search',
+        'Preferences': 'fa-pencil-square-o',
+        'Manage modules': 'fa-pencil-square-o'
     };
 
     $("#menuwrap input[type=submit], #menuwrap #ousearch_searchbutton").each(function (k, e) {
@@ -29,12 +29,7 @@ $(function() {
         if (text in overrides) {
             var fa_class = overrides[text];
 
-            var span = '';
-            if(fa_class[1].length > 0) {
-                span = '<span>' + fa_class[1] + '</span>';
-            }
-
-            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class[0] + '"></i>' + span + '</button>');
+            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class + '"></i><span>' + text + '</span></button>');
         }
     });
 
