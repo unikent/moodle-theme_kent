@@ -141,3 +141,42 @@
 .forumpost .row {
     margin: 0;
 }
+
+&.path-mod-forum {
+    .discussionname {
+        float: left;
+    }
+
+    .discussionsubscription {
+        float: right;
+        margin-top: 0;
+
+        > a > img {
+            width: 21px;
+        }
+    }
+
+    .discussioncontrols {
+        clear: both;
+
+        .discussioncontrol {
+            &.exporttoportfolio.noavailable {
+                display: none;
+            }
+
+            &.displaymode {
+                text-align: left;
+            }
+         }
+    }
+
+    .preload-subscribe, .preload-unsubscribe {
+        display: none;
+    }
+
+    #forummenu {
+        select {
+            margin-right: 10px;
+        }
+    }
+}
