@@ -1,0 +1,32 @@
+/*
+ * Global HTML style overrides.
+ */
+
+body {
+    background: #FFFFFF;
+    min-width: 0;
+
+    @media (min-width: @screen-sm-min) {
+        min-width: @container-sm;
+    }
+
+    @media (min-width: @screen-md-min) {
+        min-width: @container-md;
+    }
+
+    @media (min-width: @screen-lg-min) {
+        min-width: @container-lg;
+    }
+}
+
+a {
+    outline: none;
+}
+
+table {
+	caption {
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 1.231em;
+	}
+}

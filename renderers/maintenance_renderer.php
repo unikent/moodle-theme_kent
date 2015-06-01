@@ -14,10 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$bodyclasses = array('kent-homepage');
-
-require(dirname(__FILE__) . "/includes/header.php");
-
-echo $OUTPUT->main_content();
-
-require(dirname(__FILE__) . "/includes/footer.php");
+/**
+ * Overrides a few defaults.
+ *
+ * @package     theme_kent
+ * @copyright   2015 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class theme_kent_core_renderer_maintenance extends core_renderer_maintenance
+{
+    use theme_kent_bootstrap_notifications;
+}

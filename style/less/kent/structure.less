@@ -1,0 +1,288 @@
+/*
+ * This provides basic page structure.
+ */
+
+&.pagelayout-redirect {
+	#page {
+		margin-top: 10px;
+	}
+}
+
+.generalbox {
+    border: 0;
+}
+
+#page {
+    padding-top: 0;
+    font-size: @font-size-base;
+
+    .region-content {
+    	padding: 0;
+    }
+
+    .block-region {
+    	min-height: 0;
+    }
+
+    #dndupload-status {
+    	top: -47px;
+    	box-shadow: none;
+    }
+
+	#page-header {
+		padding: 5px 0;
+
+		#headerwrap {
+		    height: auto;
+		    margin-left: -5px;
+		    margin-right: -5px;
+
+		    > .user {
+		    	padding-right: 0;
+		    }
+
+		    > .brand {
+		        color: @kent-corp-primary;
+		        font-size: 34px;
+		        margin-top: 2px;
+
+                @media (max-width: @screen-xs-max) {
+                	text-align: center;
+                }
+		    }
+
+		    .usermenu {
+		    	float: none;
+		        position: relative;
+		        height: 100%;
+		        text-align: right;
+
+		        .login {
+		            display: block;
+		            margin-top: 25px;
+		        }
+
+		        .moodle-actionmenu {
+		            .menubar {
+		                margin: 0;
+
+		                & > li {
+		                    width: 100%;
+
+		                    & > a {
+		                        padding: 0;
+		                        text-align: right;
+
+		                        @media (max-width: @screen-xs-max) {
+		                        	text-align: center;
+		                        }
+		                    }
+		                }
+		            }
+
+		            .toggle-display {
+		                height: auto;
+
+		                .userbutton {
+		                    display: block;
+		                    height: auto;
+
+		                    .usertext {
+		                        color: @kent-corp-primary;
+		                        font-size: 21px;
+		                        line-height: 25px;
+								padding-top: 10px;
+		                    }
+
+		                    .avatars {
+		                    	position: relative;
+		                        vertical-align: top;
+		                        margin-right: 0;
+		                        height: auto;
+		                        width: auto;
+		                    }
+		                }
+
+		                .caret {
+		                    display: none;
+		                }
+		            }
+
+	            	.menu {
+	                    .menu-action.icon img {
+						    width: 20px;
+						    height: 20px;
+						}
+
+						.filler {
+							border-bottom-color: @border-color;
+						}
+		            }
+
+		            &.show {
+		                height: 100%;
+
+		                .menu {
+		                    border-radius: @border-radius-base;
+		                }
+		            }
+		        }
+		    }
+		}
+	}
+
+	.navbar .breadcrumb {
+	    margin: 5px 0;
+	    padding: 0;
+    	text-transform: capitalize;
+	    font-size: 0.9em;
+
+	    ul {
+	        line-height: 15px;
+	    }
+
+	    > li+li:before {
+	        padding: 0 0 0 5px;
+	    }
+
+	    span.arrow.sep {
+	        width: auto;
+	        padding: 0 5px;
+	        background: none;
+	        font-size: 13px;
+	        color: #333;
+	    }
+	}
+
+	#contentwrapper {
+	    &.spacer {
+	    	margin-top: 10px;
+	    }
+
+	    #page-content {
+	        border: 0;
+	        
+        	> div > h2 {
+        		margin-top: 0;
+        	}
+
+		    #region-main {
+		    	padding: 0;
+				padding-left:  (@grid-gutter-width / 2);
+				padding-right: (@grid-gutter-width / 2);
+		    	margin: 0;
+
+		        .region-content {
+			    	overflow: auto;
+			    	.container-fluid();
+
+			    	> div {
+			    		> .h1,
+			    		> .h2,
+			    		> .h3,
+			    		> h1,
+			    		> h2,
+			    		> h3 {
+			    			margin-top: 0;
+			    		}
+			    	}
+			    }
+		    }
+	    }
+	}
+
+	#page-footer {
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		#footerwrapper {
+			border-color: @border-color;
+		
+			.col-xs-12 {
+				&.text-left,
+				&.text-right {
+	                @media (max-width: @screen-xs-max) {
+	                	text-align: center;
+	                }
+				}
+			}
+		}
+
+	    .performanceinfo {
+	        margin: 0;
+
+	        .cachesused .cache-definition-stats {
+	            border: 1px solid @border-color;
+	            border-radius: @border-radius-base;
+	            background: none;
+	            margin: 10px 5px;
+
+	            span {
+	                padding: 5px;
+	                font-size: 13px;
+
+	                &.cache-definition-stats-heading {
+	                    background: none;
+
+	                    > span {
+	                    	padding: 0;
+	                    	display: inline;
+	                    }
+	                }
+
+	                &.cache-store-stats {
+	                    &.highhits {
+	                        background-color: @success-bg-color;
+	                        color: @success-text-color;
+	                    }
+
+	                    &.lowhits {
+	                        background-color: @warning-bg-color;
+	                        color: @warning-text-color;
+	                    }
+
+	                    &.nohits {
+	                        background-color: @error-bg-color;
+	                        color: @error-text-color;
+	                    }
+	                }
+	            }
+	        }
+	    }
+	}
+}
+
+&.userloggedinas, &.userswitchedrole {
+	#headerwrap .usermenu .userbutton .usertext {
+		padding-top: 0 !important;
+	}
+}
+
+&.userloggedinas {
+	#page {
+		#page-header {
+			#headerwrap {
+				.usermenu {
+					.moodle-actionmenu {
+						.toggle-display {
+							.userbutton {
+			                    .avatars {
+			                        .avatar {
+			                        	&.current {
+			                        		position: absolute;
+											width: 40px;
+											height: 40px;
+											top: 5px;
+											left: 5px;
+											margin-top: 0;
+			                        	}
+			                        }
+			                    }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

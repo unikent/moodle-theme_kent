@@ -38,6 +38,8 @@ trait theme_kent_bootstrap_notifications {
         }
 
         switch ($classes) {
+            case 'notifydanger':
+            case 'notifyerror':
             case 'notifyproblem':
             case 'notifytiny':
                 $classes = 'alert alert-danger';
@@ -51,6 +53,7 @@ trait theme_kent_bootstrap_notifications {
                 $classes = 'alert alert-warning';
             break;
             
+            case 'notifyinfo':
             case 'notifymessage':
             case 'redirectmessage':
                 $classes = 'alert alert-info';
