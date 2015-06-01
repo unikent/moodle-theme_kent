@@ -14,14 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-if (\theme_kent\core::is_beta()) {
-	require_once('renderers/bootstrap.php');
-	require_once('renderers/future_renderer.php');
-	require_once('renderers/future_maintenance_renderer.php');
-	require_once('renderers/future_quiz_renderer.php');
-	require_once('renderers/future_connect_renderer.php');
-	require_once('renderers/future_course_renderer.php');
-	require_once('renderers/future_block_renderers.php');
-} else {
-	require_once('renderers/current_renderer.php');
-}
+require_once('renderers/bootstrap.php');
+require_once('renderers/core_renderer.php');
+require_once('renderers/maintenance_renderer.php');
+require_once('renderers/quiz_renderer.php');
+require_once('renderers/course_renderer.php');
+require_once('renderers/block_renderers.php');

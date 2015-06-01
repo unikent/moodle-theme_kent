@@ -1,16 +1,244 @@
-/**
- * Form styles
+/*
+ * This provides forms styles.
  */
 
-.bootstrap {
-	label {
-		font-weight: normal;
-		margin-bottom: 0;
-	}
+label {
+	font-size: 14px;
+	font-weight: normal;
+}
 
+form, .mform {
 	fieldset {
+		border: 0 !important;
+		background: none;
+		margin-bottom: 10px;
+
 		&.hidden {
 			display: block !important;
 		}
+
+		&.collapsed {
+			border-color: transparent !important;
+			background: none;
+
+			legend {
+				margin-bottom: 0px;
+			}
+		}
+
+		legend {
+			width: auto;
+			border: 0;
+		}
 	}
+
+	.fitemtitle {
+		padding-right: 5px;
+
+		label {
+			font-weight: bold;
+		}
+	}
+
+	.fitem_actionbuttons {
+		margin-top: 10px;
+	}
+
+	input[type="submit"],
+	input[type="button"] {
+		.btn();
+		.btn-primary();
+		text-shadow: none;
+		box-shadow: none;
+
+		&.fp-btn-choose {
+			margin-bottom: 5px;
+		}
+	}
+
+	input[name=cancel] {
+		.btn();
+		.btn-danger();
+	}
+
+	select,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="color"] {
+		.form-control();
+		margin-bottom: 5px;
+	}
+
+	textarea {
+		height: auto;
+	}
+
+	select {
+		width: auto;
+		max-width: 100%;
+  		display: inline-block;
+
+  		&[multiple],
+  		&[size] {
+  			height: auto;
+  		}
+	}
+
+	img.iconhelp,
+	.helplink img {
+		vertical-align: middle;
+	}
+}
+
+&#page-enrol-users #filterform {
+	margin-bottom: 5px;
+
+	fieldset > div {
+		background: none;
+	}
+
+	input, select, textarea {
+		display: inline-block;
+		width: auto;
+	}
+
+	input[type=submit] {
+		width: auto;
+	}
+
+	.fitem {
+		display: inline-block;
+	}
+
+	.fitem_fgroup, .fgroup {
+		display: block;
+	}
+}
+
+.logselecform {
+    select {
+        margin-right: 5px;
+        width: auto;
+        display: inline-block;
+        float: left;
+    }
+
+    input[type="submit"] {
+		display: block;
+        clear: both;
+    }
+}
+
+.forumsearch {
+	margin: 3px 3px 0 0;
+
+	.helptooltip {
+		display: none;
+	}
+
+	#search {
+	  	float: left;
+  		width: auto;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	button {
+		.btn();
+		.btn-default();
+		text-shadow: none;
+		box-shadow: none;
+
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		border-left: 0;
+	}
+}
+
+#coursecat-management {
+	#course-category-listings {
+		h3 {
+			padding: 10px 15px;
+		}
+
+		.detail-pair {
+			margin: 0;
+			padding: 10px 0;
+
+			> * {
+				line-height: inherit;
+				width: 100% !important;
+			}
+
+			.pair-value {
+				margin-left: 15px !important;
+			}
+		}
+	}
+}
+
+.ui-dialog-buttonset button {
+	.btn();
+	.btn-primary();
+	text-shadow: none;
+	box-shadow: none;
+}
+
+.pendingcourserequests {
+	.cell > .singlebutton:first-child {
+		margin-bottom: 10px !important;
+	}
+}
+
+&.path-grade-edit-outcome {
+	.courseoutcomes {
+		select {
+			min-width: 150px;
+		}
+
+		.arrow_button {
+			input {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.capabilitysearchui {
+	margin-bottom: 5px;
+
+	label {
+		margin-right: 5px;
+	}
+
+	input[type=text] {
+		.form-control();
+		margin-bottom: 5px;
+	}
+
+	input[type=button] {
+		.btn();
+		.btn-primary();
+		text-shadow: none;
+		box-shadow: none;
+	}
+}
+
+input#repaginatecommand {
+	.btn();
+	.btn-primary();
+	text-shadow: none;
+	box-shadow: none;
 }

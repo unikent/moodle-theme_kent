@@ -1,0 +1,229 @@
+/**
+ * Styles speciic to the course pages.
+ */
+
+&.path-course-view {
+    .course-content {
+        ul.weeks, ul.topics {
+            li.section {
+                border-radius: @border-radius-base;
+                margin: 0 0 10px 0;
+
+                &.current {
+                    border: 1px solid @border-color;
+                    background: none !important;
+                }
+
+                .left, .right {
+                    width: 20px;
+                    display: none;
+                }
+
+                .right img.icon {
+                    padding: 0 0 7px 0;
+                }
+
+                .content {
+                    margin: 0;
+                    padding: 10px;
+
+                    h3 {
+                        font-size: 13px;
+                        font-weight: bold;
+                        margin: 2px 0;
+                        padding: 0 1px;
+                    }
+
+                    .summary {
+                        margin: 0 -10px 10px;
+                        padding: 0;
+                        border-bottom: 1px solid @border-color;
+                        
+                        .no-overflow {
+                            margin: 0;
+                            padding: 10px;
+                            font-size: 12px;
+                            font-style: italic;
+                            color: #666;
+                        }
+                    }
+                }
+            }
+        }
+
+        ul.weeks {
+            .content {
+                .summary {
+                    margin: 0 -10px 10px -10px;
+                }
+            }
+        }
+
+        ul.topics {
+            .content {
+                .summary {
+                    margin: 0 -40px 10px -40px;
+                }
+            }
+        }
+
+        li.section {
+            border: 1px solid @border-color;
+            background: #FFF;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        .content {
+            .summary {
+                border-bottom: 1px solid @border-color;
+                padding: 0 30px;
+                min-height: 10px;
+            }
+
+            ul.section {
+                border: none;
+                padding-top: 0;
+            }
+        }
+
+        .main .content {
+            background: transparent;
+        }
+
+        .summary {
+            h1, h2 {
+                font-size: 20px;
+                font-weight: normal;
+                color: #6f6f6f;
+            }
+
+            h3 {
+                font-size: 18px;
+                font-weight: normal;
+                color: #999;
+            }
+
+            h4 {
+                font-size: 16px;
+                font-weight: normal;
+                color: #aaa;
+            }
+        }
+
+        #completionprogressid.completionprogress {
+            display: none;
+        }
+    }
+
+    &.editing {
+        .course-content {
+            ul.weeks, ul.topics {
+                li.section {
+                    .left, .right {
+                        display: block !important;
+                    }
+
+                    .content {
+                        margin: 0 20px !important;
+
+                        .summary {
+                            margin: 0 -30px 10px;
+                            padding: 0 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*li.activity {
+            &.quiz {
+                .menu-action.editing_delete {
+                    display: none;
+                }
+            }
+        }*/
+
+        .section .activity .mod-indent-outer {
+            padding-left: 24px;
+        }
+    }
+}
+
+.editor_atto_menu .dropdown-menu > li > a {
+    color: #000 !important;
+}
+
+// Fixes for grade report table alignment.
+&#page-grade-report-grader-index {
+    table {
+        &#fixed_column {
+            th {
+                padding: 0 4px 0 4px;
+            }
+
+            td {
+                padding-bottom: 0;
+            }
+        }
+
+        &#user-grades {
+            th {
+                padding: 0 4px 0 4px;
+            }
+        }
+    }
+
+    .right_scroller {
+        #user-grades {
+            td {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.collapseexpand.collapse-all.disabled {
+    display: none;
+}
+
+.export-actions, .progress-actions {
+    li {
+        list-style: none;
+    }
+}
+
+#course-category-listings {
+    border: 1px solid @border-color;
+    margin-bottom: 0;
+
+    > div {
+        padding: 0;
+
+        &#category-listing {
+            border-right: 1px solid @border-color;
+        }
+
+        &#course-listing {
+            border-left: 1px solid @border-color;
+            margin-left: -1px;
+
+            > div {
+                border: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+        > div {
+            border: 0 !important;
+        }
+    }
+}
+
+&.jschooser .choosercontainer #chooseform {
+    .selected .typesummary {
+        left: 17.4em;
+    }
+}

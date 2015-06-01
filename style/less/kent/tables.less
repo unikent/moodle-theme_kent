@@ -1,0 +1,63 @@
+/*
+ * This provides tables styles.
+ */
+
+table, table.generaltable, table.flexible {
+	.table();
+	.table-bordered();
+	.table-striped();
+	.table-hover();
+}
+
+table.flexible {
+	.table-responsive();
+}
+
+tr.r1 td {
+	background: none;
+}
+
+&#page-report-progress-index #completion-progress,
+.environmenttable {
+	th,
+	td,
+	.cell {
+		padding: @table-cell-padding;
+		border-top: 1px solid @table-border-color;
+	}
+}
+
+.calendartable {
+	border: 0;
+}
+
+.dataTables_wrapper {
+    .dataTables_info,
+    .dataTables_paginate {
+        width: auto;
+        margin-top: 5px;
+        bottom: 0;
+
+		.paginate_button {
+            display: inline;
+        	margin: 0 3px;
+
+            &.disabled {
+				display: none;
+            }
+		}
+	}
+
+    .dataTables_length,
+    .dataTables_filter {
+        margin-bottom: 5px;
+
+        input[type=search] {
+            margin-left: 5px;
+        }
+    }
+
+    table.dataTable {
+        max-width: 100% !important;
+    }
+}

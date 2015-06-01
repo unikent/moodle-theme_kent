@@ -35,16 +35,6 @@ function theme_kent_page_init(moodle_page $page) {
 
     $page->requires->jquery();
 
-    if (\theme_kent\core::is_beta()) {
-        $page->requires->css('/theme/kent/style/future.css?rev=' . $CFG->themerev);
-        $page->requires->js('/theme/kent/javascript/future.js?rev=' . $CFG->themerev);
-
-        $page->theme->larrow = '&lt;';
-        $page->theme->rarrow = '&gt;';
-    } else {
-        $page->requires->css('/theme/kent/style/bootstrap.css?rev=' . $CFG->themerev);
-    }
-
     $page->requires->css('/theme/kent/style/font-awesome.min.css?rev=' . $CFG->themerev);
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
 
@@ -55,53 +45,4 @@ function theme_kent_page_init(moodle_page $page) {
     if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
         \local_tutorials\Page::on_load();
     }
-}
-
-/**
- * Returns a list of upcoming events.
- */
-function theme_kent_get_upcoming_events() {
-    global $CFG, $PAGE;
-
-    $calm = optional_param( 'cal_m', 0, PARAM_INT );
-    $caly = optional_param( 'cal_y', 0, PARAM_INT );
-
-    $cache = cache::make('theme_kent', 'kent_theme');
-    $cachekey = "upcoming-" . $calm . "-" . $caly;
-    $content = $cache->get($cachekey);
-
-    // Regen Cache?
-    if ($content === false) {
-        require_once($CFG->dirroot . '/calendar/lib.php');
-
-        // Being displayed at site level. This will cause the filter to fall back to auto-detecting
-        // the list of courses it will be grabbing events from.
-        $filtercourse = calendar_get_default_courses();
-
-        list($courses, $group, $user) = calendar_set_filters($filtercourse);
-
-        $defaultlookahead = CALENDAR_DEFAULT_UPCOMING_LOOKAHEAD;
-        if (isset($CFG->calendar_lookahead)) {
-            $defaultlookahead = intval($CFG->calendar_lookahead);
-        }
-
-        $lookahead = get_user_preferences('calendar_lookahead', $defaultlookahead);
-
-        $defaultmaxevents = CALENDAR_DEFAULT_UPCOMING_MAXEVENTS;
-        if (isset($CFG->calendar_maxevents)) {
-            $defaultmaxevents = intval($CFG->calendar_maxevents);
-        }
-
-        $maxevents = get_user_preferences('calendar_maxevents', 3);
-        $events = calendar_get_upcoming($courses, $group, $user, $lookahead, $maxevents);
-        $content = calendar_get_block_upcoming($events, 'view.php?view=day');
-
-        if (empty($content)) {
-            $content = '<div class="event"><p>No upcoming events!</p></div>';
-        }
-
-        $cache->set($cachekey, $content);
-    }
-
-    return $content;
 }

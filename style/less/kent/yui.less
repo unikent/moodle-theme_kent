@@ -1,0 +1,56 @@
+/*
+ * YUI Styles.
+ */
+
+.moodle-dialogue-base {
+	.moodle-dialogue-lightbox {
+		background-color: rgba(0, 0, 0, 0.8);
+		opacity: 1;
+		filter: alpha(opacity=100);
+		-ms-filter: "alpha(opacity=100)";
+	}
+
+	.moodle-dialogue-wrap {
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		border-radius: @border-radius-base;
+
+		.moodle-dialogue-hd, .moodle-dialogue-hd.yui3-widget-hd {
+			background: none;
+			border-radius: 0;
+			font-size: 14px;
+		}
+
+		.moodle-dialogue-bd {
+			background: none;
+		}
+	}
+
+	.chooserdialogue-course-modchooser {
+		.choosercontainer {
+			#chooseform {
+				.alloptions {
+					box-shadow: none;
+					-webkit-box-shadow: none;
+					-moz-box-shadow: none;
+
+					.option {
+						input[type=radio] {
+							margin: 0;
+						}
+					}
+
+			        .nonoption {
+			            padding-left: 30px;
+			            padding-bottom: 5px;
+			        }
+
+			        .subtype {
+			            padding-left: 75px;
+			        }
+				}
+			}
+		}
+	}
+}

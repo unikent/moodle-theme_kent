@@ -17,13 +17,7 @@
 $bodyclasses = array('kent-embedded');
 
 require(dirname(__FILE__) . "/includes/header.php");
-?>
 
-<div id="page">
-    <div id="content" class="clearfix">
-        <?php echo $OUTPUT->main_content() ?>
-    </div>
-</div>
+echo $OUTPUT->main_content();
 
-<?php
 require(dirname(__FILE__) . "/includes/footer.php");
