@@ -46,6 +46,18 @@
 
 .generate-column-alias(12);
 
-.panel-group .panel-heading {
-  border-bottom: 1px solid @border-color;
+.panel-group {
+  .panel {
+    box-shadow: none;
+
+    .panel-heading {
+      border-bottom: 0;
+      border-radius: @border-radius-base;
+    }
+
+    .panel-collapse {
+      border-top: 1px solid @border-color;
+    }
+
+  }
 }
