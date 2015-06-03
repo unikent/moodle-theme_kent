@@ -222,3 +222,26 @@ input#repaginatecommand {
 	text-shadow: none;
 	box-shadow: none;
 }
+
+#groupeditform {
+	> div > table {
+		width: 100%;
+
+		> tbody > tr {
+			background: none;
+
+			td {
+				border: none;
+			}
+		}
+	}
+
+	input[type=submit] {
+		.btn();
+		.btn-default();
+	}
+
+	select {
+		min-width: 50%;
+	}
+}
