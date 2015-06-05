@@ -40,4 +40,6 @@ $(function() {
         var offset = (menu.outerWidth() - link.outerWidth()) / 2.0;
         $(this).children(".dropdown-menu").css("margin-left", "-" + offset + "px");
     });
+
+    $("select,textarea,input[type=text],input[type=password],input[type=datetime],input[type=datetime-local],input[type=date],input[type=month],input[type=time],input[type=week],input[type=number],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=color]").addClass("form-control");
 });

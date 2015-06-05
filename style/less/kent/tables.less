@@ -61,3 +61,29 @@ tr.r1 td {
         max-width: 100% !important;
     }
 }
+
+.panel .no-overflow {
+    padding-bottom: 0;
+}
+
+.panel > table,
+.panel .no-overflow > table {
+    margin: 0 !important;
+    border: 0 !important;
+
+    tr {
+        th, td {
+            border-bottom: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: 0;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: 0;
+        }
+    }
+}

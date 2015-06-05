@@ -2,46 +2,62 @@
 * This provides bootstrap overrides for generic elements.
 */
 .alert {
-  margin-bottom: 10px;
-  padding-left:30px;
-  position: relative;
+    margin-bottom: 10px;
+    padding-left:30px;
+    position: relative;
 
-  i.fa {
-    display: block;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-  }
-
-  img.activityicon {
-    margin-right: 3px;
-    height: 16px;
-    width: 16px;
-  }
-
-  & > ul.list {
-    margin-top: 4px;
-    
-    li {
-      margin-bottom: 2px;
+    i.fa {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 12px;
     }
-  }
+
+    img.activityicon {
+        margin-right: 3px;
+        height: 16px;
+        width: 16px;
+    }
+
+    & > ul.list {
+        margin-top: 4px;
+        
+        li {
+            margin-bottom: 2px;
+        }
+    }
 }
 
 .alert-error {
-  .alert-danger();
+    .alert-danger();
 }
 
 .row-fluid {
-  .row();
+    .row();
 }
 
 /* Generate span1 -> span12 aliases */
 .generate-column-alias(@n, @i: 1) when (@i =< @n) {
-  .span@{i} {
-    .make-xs-column(@i);
-  }
-  .generate-column-alias(@n, (@i + 1));
+    .span@{i} {
+        .make-xs-column(@i);
+    }
+    .generate-column-alias(@n, (@i + 1));
 }
 
 .generate-column-alias(12);
+
+.panel-group {
+    .panel {
+        box-shadow: none;
+
+        .panel-heading {
+            border-bottom: 0;
+            border-radius: @border-radius-base;
+        }
+
+        .panel-collapse {
+            border-top: 1px solid @border-color;
+        }
+
+    }
+}
