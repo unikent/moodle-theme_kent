@@ -83,7 +83,7 @@ echo \html_writer::start_tag('div', array(
         if ($showsidepre) {
             $blocks = $OUTPUT->blocks('side-pre');
             echo <<<HTML5
-            <section id="region-pre" class="block-region col-xs-12 col-md-$prespan">
+            <section id="region-pre" class="col-xs-12 col-md-$prespan">
                 <div class="region-content">
                     $blocks
                 </div>
@@ -106,7 +106,7 @@ HTML5;
         if ($showsidepost) {
             $blocks = $OUTPUT->blocks('side-post');
             echo <<<HTML5
-            <section id="region-post" class="block-region col-xs-12 col-md-$postspan">
+            <section id="region-post" class="col-xs-12 col-md-$postspan">
                 <div class="region-content">
                     $blocks
                 </div>
