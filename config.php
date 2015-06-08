@@ -31,10 +31,11 @@ $THEME->supportscssoptimisation = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->enable_dock = true;
 $THEME->editor_sheets = array('editor');
+$THEME->blockrendermethod = 'blocks';
 
 $THEME->larrow = '&lt;';
 $THEME->rarrow = '&gt;';
-        
+
 $THEME->layouts = array(
     'base' => array(
         'file' => 'general.php',
@@ -144,9 +145,4 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => true, 'nocustommenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
     ),
-);
-
-$THEME->blockrtlmanipulations = array(
-    'side-pre' => 'side-post',
-    'side-post' => 'side-pre'
 );
