@@ -145,8 +145,3 @@ $THEME->layouts = array(
         'options' => array('nofooter' => true, 'nonavbar' => true, 'nocustommenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
     ),
 );
-
-$THEME->blockrtlmanipulations = array(
-    'side-pre' => 'side-post',
-    'side-post' => 'side-pre'
-);

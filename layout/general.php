@@ -16,19 +16,22 @@
 
 require(dirname(__FILE__) . "/includes/header.php");
 
-$prespan = 2;
+$prespan = 4;
 $midspan = 8;
 $postspan = 2;
+$mainspan = 10;
 
 if (!$showsidepre) {
     $prespan = 0;
-    $midspan += 2;
+    $midspan += 4;
 }
 
 if (!$showsidepost) {
     $postspan = 0;
     $midspan += 2;
+    $mainspan += 2;
 }
+
 ?>
 
 <div id="page-header">
@@ -78,43 +81,21 @@ echo \html_writer::start_tag('div', array(
 ));
 ?>
 
-    <div id="page-content">
-        <?php
-        if ($showsidepre) {
-            $blocks = $OUTPUT->blocks('side-pre');
-            echo <<<HTML5
-            <section id="region-pre" class="col-xs-12 col-md-$prespan">
-                <div class="region-content">
-                    $blocks
-                </div>
-            </section>
-HTML5;
-        }
-
-        $maincontent = $OUTPUT->main_content();
-        echo <<<HTML5
-        <section id="region-main" class="col-xs-12 col-md-$midspan">
-            <div class="region-content container-fluid">
-                $coursecontentheader
-                $maincontent
-                $coursecontentfooter
+    <div id="page-content" class="row">
+        <div id="region-main-box" class="<?php echo "col-xs-12 col-md-$mainspan"; ?>">
+            <div class="row">
+                <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan pull-right"; ?>">
+                    <?php
+                    echo $coursecontentheader;
+                    echo $OUTPUT->main_content();
+                    echo $coursecontentfooter;
+                    ?>
+                </section>
+                <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
             </div>
-        </section>
-HTML5;
-        unset($maincontent);
-
-        if ($showsidepost) {
-            $blocks = $OUTPUT->blocks('side-post');
-            echo <<<HTML5
-            <section id="region-post" class="col-xs-12 col-md-$postspan">
-                <div class="region-content">
-                    $blocks
-                </div>
-            </section>
-HTML5;
-        }
-        ?>
-     </div>
+        </div>
+        <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
+    </div>
 </div>      
 
 <?php
