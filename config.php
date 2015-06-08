@@ -31,10 +31,11 @@ $THEME->supportscssoptimisation = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->enable_dock = true;
 $THEME->editor_sheets = array('editor');
+$THEME->blockrendermethod = 'blocks';
 
 $THEME->larrow = '&lt;';
 $THEME->rarrow = '&gt;';
-        
+
 $THEME->layouts = array(
     'base' => array(
         'file' => 'general.php',
