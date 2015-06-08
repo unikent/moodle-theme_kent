@@ -81,17 +81,15 @@ echo \html_writer::start_tag('div', array(
 
     <div id="page-content" class="row">
         <div id="region-main-box">
-            <div class="row">
-                <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
-                <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan"; ?>">
-                    <?php
-                    echo $coursecontentheader;
-                    echo $OUTPUT->main_content();
-                    echo $coursecontentfooter;
-                    ?>
-                </section>
-                <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
-            </div>
+            <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
+            <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan"; ?>">
+                <?php
+                echo $coursecontentheader;
+                echo $OUTPUT->main_content();
+                echo $coursecontentfooter;
+                ?>
+            </section>
+            <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
         </div>
     </div>
 </div>      
