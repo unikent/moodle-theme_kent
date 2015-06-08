@@ -16,26 +16,18 @@
 
 require(dirname(__FILE__) . "/includes/header.php");
 
-// Page structure:
-//
-// <       mainspan      > <postspan>
-// < prespan > < midspan >
-//
-
+$prespan = 2;
+$midspan = 8;
 $postspan = 2;
-$mainspan = 10;
-
-$prespan = 3;
-$midspan = 9;
 
 if (!$showsidepre) {
     $prespan = 0;
-    $midspan += 3;
+    $midspan += 2;
 }
 
 if (!$showsidepost) {
     $postspan = 0;
-    $mainspan += 2;
+    $midspan += 2;
 }
 
 ?>
@@ -88,19 +80,19 @@ echo \html_writer::start_tag('div', array(
 ?>
 
     <div id="page-content" class="row">
-        <div id="region-main-box" class="<?php echo "col-xs-12 col-md-$mainspan"; ?>">
+        <div id="region-main-box">
             <div class="row">
-                <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan pull-right"; ?>">
+                <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
+                <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan"; ?>">
                     <?php
                     echo $coursecontentheader;
                     echo $OUTPUT->main_content();
                     echo $coursecontentfooter;
                     ?>
                 </section>
-                <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
+                <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
             </div>
         </div>
-        <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan pull-right"); ?>
     </div>
 </div>      
 
