@@ -16,19 +16,25 @@
 
 require(dirname(__FILE__) . "/includes/header.php");
 
-$prespan = 4;
-$midspan = 8;
+// Page structure:
+//
+// <       mainspan      > <postspan>
+// < prespan > < midspan >
+//
+
 $postspan = 2;
 $mainspan = 10;
 
+$prespan = 3;
+$midspan = 9;
+
 if (!$showsidepre) {
     $prespan = 0;
-    $midspan += 4;
+    $midspan += 3;
 }
 
 if (!$showsidepost) {
     $postspan = 0;
-    $midspan += 2;
     $mainspan += 2;
 }
 
@@ -94,7 +100,7 @@ echo \html_writer::start_tag('div', array(
                 <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
             </div>
         </div>
-        <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
+        <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan pull-right"); ?>
     </div>
 </div>      
 
