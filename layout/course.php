@@ -17,6 +17,7 @@
 $coursecontentheader = "";
 if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
     // Add error message if we have been scheduled for deletion.
+    // TODO: move this to Kent notification system.
     $cmenabled = get_config("local_catman", "enable");
     if ($cmenabled &&  \local_catman\core::is_scheduled($COURSE)) {
         $time = \local_catman\core::get_expiration($COURSE);
@@ -25,7 +26,7 @@ if (has_capability('moodle/course:update', \context_course::instance($COURSE->id
     }
 
     if (!$COURSE->visible) {
-        $coursecontentheader .= $OUTPUT->notification('<i class="fa fa-exclamation-circle"></i> This course is not currently visible to students.', 'notifywarning');
+        $coursecontentheader .= $OUTPUT->notification('<i class="fa fa-exclamation-circle"></i> This course is not currently visible to students.', 'notifyinfo');
     }
 
     // Grab a list of notifications from local_kent.
