@@ -166,26 +166,27 @@
         		margin-top: 0;
         	}
 
+        	#region-main-box {
+        		left: 0;
+        		width: 100%;
+        	}
+
 		    #region-main {
 		    	padding: 0;
 				padding-left:  (@grid-gutter-width / 2);
 				padding-right: (@grid-gutter-width / 2);
 		    	margin: 0;
+		    	overflow: visible;
 
-		        .region-content {
-			    	overflow: auto;
-			    	.container-fluid();
-
-			    	> div {
-			    		> .h1,
-			    		> .h2,
-			    		> .h3,
-			    		> h1,
-			    		> h2,
-			    		> h3 {
-			    			margin-top: 0;
-			    		}
-			    	}
+		        > div[role='main'] {
+		    		> .h1,
+		    		> .h2,
+		    		> .h3,
+		    		> h1,
+		    		> h2,
+		    		> h3 {
+		    			margin-top: 0;
+		    		}
 			    }
 		    }
 	    }
