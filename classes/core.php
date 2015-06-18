@@ -42,4 +42,16 @@ class core
 
         return $result;
     }
+
+    /**
+     * Are we in contrast mode?
+     */
+    public static function is_contrast() {
+        static $result = null;
+        if ($result === null) {
+            $result = \local_kent\User::get_beta_preference("theme_contrast", false);
+        }
+
+        return $result;
+    }
 }
