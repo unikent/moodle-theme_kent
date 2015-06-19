@@ -79,7 +79,7 @@ echo \html_writer::start_tag('div', array(
 ));
 ?>
 
-    <div id="page-content" class="row">
+    <div id="page-content">
         <div id="region-main-box">
             <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
             <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan"; ?>">

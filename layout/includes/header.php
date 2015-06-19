@@ -52,6 +52,10 @@ if (\theme_kent\core::is_fullscreen()) {
     $bodyclasses[] = 'kent-fullscreen';
 }
 
+if (\theme_kent\core::is_contrast()) {
+    $bodyclasses[] = 'kent-contrast';
+}
+
 if (\theme_kent\core::is_future()) {
     $bodyclasses[] = 'kent-future';
 }
