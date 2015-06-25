@@ -23,7 +23,7 @@ if (has_capability('moodle/course:update', \context_course::instance($COURSE->id
     // Grab a list of notifications from local_kent.
     $notifications = \local_notifications\core::get_notifications($COURSE->id);
     foreach ($notifications as $notification) {
-        if ($notification->is_visible()) {
+        if (!$notification->is_visible()) {
             continue;
         }
 
