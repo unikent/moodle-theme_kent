@@ -27,6 +27,11 @@ if (has_capability('moodle/course:update', \context_course::instance($COURSE->id
             continue;
         }
 
+        $message = $notification->render();
+        if (empty($message)) {
+            continue;
+        }
+
         $classes = "alert " . $notification->get_level();
         $dismiss = '';
         if ($notification->is_dismissble()) {
@@ -42,7 +47,6 @@ HTML5;
         $icon = \html_writer::tag('i', '', array(
             'class' => 'fa ' . $notification->get_icon()
         ));
-        $message = $notification->render();
 
         $coursecontentheader .= <<<HTML5
         <div class="{$classes}" role="alert">
