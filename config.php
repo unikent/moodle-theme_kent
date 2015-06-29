@@ -29,7 +29,7 @@ if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
 
 $THEME->supportscssoptimisation = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-$THEME->enable_dock = true;
+$THEME->enable_dock = false;
 $THEME->editor_sheets = array('editor');
 $THEME->blockrendermethod = 'blocks';
 
