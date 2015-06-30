@@ -23,37 +23,11 @@ if (has_capability('moodle/course:update', \context_course::instance($COURSE->id
     // Grab a list of notifications from local_kent.
     $notifications = \local_notifications\core::get_notifications($COURSE->id);
     foreach ($notifications as $notification) {
-        if (!$notification->is_visible()) {
-            continue;
-        }
+        $coursecontentheader .= $notification->render();
+    }
 
-        $message = $notification->render();
-        if (empty($message)) {
-            continue;
-        }
-
-        $classes = "alert " . $notification->get_level();
-        $dismiss = '';
-        if ($notification->is_dismissble()) {
-            $id = $notification->get_id();
-            $classes .= ' alert-dismissible';
-            $dismiss .= <<<HTML5
-            <button type="button" class="close cnid-dismiss" data-dismiss="alert" data-id="{$id}" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-HTML5;
-        }
-
-        $icon = \html_writer::tag('i', '', array(
-            'class' => 'fa ' . $notification->get_icon()
-        ));
-
-        $coursecontentheader .= <<<HTML5
-        <div class="{$classes}" role="alert">
-            {$dismiss}
-            {$icon} {$message}
-        </div>
-HTML5;
+    if (!empty($coursecontentheader)) {
+        $coursecontentheader = \html_writer::div($coursecontentheader, 'course-alerts');
     }
 }
 
