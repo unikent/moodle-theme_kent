@@ -22,7 +22,7 @@ $THEME->parents = array('base', 'canvas');
 $THEME->sheets = array('theme');
 
 $THEME->javascripts = array();
-$THEME->javascripts_footer = array('profileblock', 'navbar', 'bootstrap.min', 'theme');
+$THEME->javascripts_footer = array('profileblock', 'navbar', 'bootstrap.min');
 if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
 }
