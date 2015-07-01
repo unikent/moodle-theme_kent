@@ -22,11 +22,11 @@
  /**
   * @module theme_kent/notifications
   */
-define(['core/jquery', 'core/ajax'], function($, ajax) {
+define(['jquery', 'core/ajax'], function(jquery, ajax) {
     return {
         init: function() {
-            $(".cnid-dismiss").on("click", function() {
-                var id = $(this).attr('data-id');
+            jquery(".cnid-dismiss").on("click", function() {
+                var id = jquery(this).attr('data-id');
 
                 // Fire and forget.
                 ajax.call([{
