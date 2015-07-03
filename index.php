@@ -25,7 +25,7 @@ echo $OUTPUT->header();
 
 echo <<<HTML5
 <div id="loginbox">
-	<h1>Kent's Moodle Theme</h1>
+	<h1>Hello!</h1>
 </div>
 
 
@@ -66,13 +66,13 @@ $(function() {
 	min-height: 40px;
 	margin-top: 100px;
 	border: 1px solid #FFF;
-	border-radius: 30px;
+	border-radius: 20px;
 }
 
 #loginbox h1 {
 	display: block;
 	margin: 40px 0;
-	color: #fff;
+	color: #555;
 	text-align: center;
 }
 </style>
