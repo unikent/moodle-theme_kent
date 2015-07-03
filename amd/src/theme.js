@@ -20,7 +20,7 @@
  */
 
  /**
-  * @module theme_kent/menu
+  * @module theme_kent/theme
   */
 define([], function() {
     return {
