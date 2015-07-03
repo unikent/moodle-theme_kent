@@ -59,6 +59,8 @@ define([], function() {
 		        }
 		    });
 
+		    $("#menuwrap .navbar .singlebutton").show();
+
 		    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
 		        var link = $(this).children(".dropdown-toggle");
 		        var menu = $(this).children(".dropdown-menu");
