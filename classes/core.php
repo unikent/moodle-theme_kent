@@ -37,7 +37,7 @@ class core
     public static function is_fullscreen() {
         static $result = null;
         if ($result === null) {
-            $result = \local_kent\User::get_beta_preference("theme_fullscreen", false);
+            $result = \local_kent\User::get_preference("theme_fullscreen", false);
         }
 
         return $result;
@@ -49,7 +49,19 @@ class core
     public static function is_contrast() {
         static $result = null;
         if ($result === null) {
-            $result = \local_kent\User::get_beta_preference("theme_contrast", false);
+            $result = \local_kent\User::get_preference("theme_contrast", false);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Are we hiding menu text?
+     */
+    public static function is_menu_text_hidden() {
+        static $result = null;
+        if ($result === null) {
+            $result = \local_kent\User::get_preference("theme_menu_hide_text", false);
         }
 
         return $result;

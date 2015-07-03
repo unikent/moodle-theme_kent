@@ -25,7 +25,7 @@
 define([], function() {
     return {
         init: function() {
-    	    var overrides = {
+		    var overrides = {
 		        'Turn editing on': 'fa-pencil-square-o',
 		        'Turn editing off': 'fa-pencil-square',
 		        'Blocks editing on': 'fa-pencil-square-o',
@@ -55,7 +55,7 @@ define([], function() {
 		        if (text in overrides) {
 		            var fa_class = overrides[text];
 
-		            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class + '"></i><span>' + text + '</span></button>');
+		            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class + '"></i><span class="icontext">' + text + '</span></button>');
 		        }
 		    });
 
