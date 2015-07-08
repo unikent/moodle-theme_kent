@@ -47,7 +47,7 @@ if (!$showsidepost) {
     <div id="headerwrap" class="row">
         <div class="col-xs-12 col-sm-6 brand">
             <?php
-            echo "Moodle-" . $CFG->kent->distribution;
+            echo $CFG->fullname;
             ?>
         </div>
         <div class="col-xs-12 col-sm-6 user">
