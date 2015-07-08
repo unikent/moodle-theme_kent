@@ -1,4 +1,3 @@
-<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -14,20 +13,29 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * University of Kent Theme
- *
+/*
  * @package    theme_kent
- * @copyright  2015 University of Kent
+ * @copyright  2015 Skylar Kelty <S.Kelty@kent.ac.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+ /**
+  * @module theme_kent/notifications
+  */
+define(['jquery', 'core/ajax'], function(jquery, ajax) {
+    return {
+        init: function() {
+            jquery(".cnid-dismiss").on("click", function() {
+                var id = jquery(this).attr('data-id');
 
-$plugin->version   = 2015070800;
-$plugin->requires  = 2015051100;
-$plugin->component = 'theme_kent';
-$plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100
-);
+                // Fire and forget.
+                ajax.call([{
+                    methodname: 'local_notifications_dismiss',
+                    args: {
+                        id: id
+                    }
+                }]);
+            });
+        }
+    };
+});

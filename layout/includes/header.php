@@ -56,6 +56,10 @@ if (\theme_kent\core::is_contrast()) {
     $bodyclasses[] = 'kent-contrast';
 }
 
+if (\theme_kent\core::is_menu_text_hidden()) {
+    $bodyclasses[] = 'kent-hidemenutext';
+}
+
 if (\theme_kent\core::is_future()) {
     $bodyclasses[] = 'kent-future';
 }

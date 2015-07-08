@@ -34,6 +34,8 @@ function theme_kent_page_init(moodle_page $page) {
     global $CFG;
 
     $page->requires->jquery();
+    $page->requires->js_call_amd('theme_kent/notifications', 'init', array());
+    $page->requires->js_call_amd('theme_kent/theme', 'init', array());
 
     $page->requires->css('/theme/kent/style/font-awesome.min.css?rev=' . $CFG->themerev);
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
