@@ -22,6 +22,10 @@
   // Provide class for links that match alerts
   .alert-link {
     font-weight: @alert-link-font-weight;
+
+    &.close {
+      margin-left: 10px;
+    }
   }
 
   // Improve alignment and spacing of inner content
@@ -37,18 +41,14 @@
 
 // Dismissible alerts
 //
-// Expand the right padding and account for the close button's positioning.
 
 .alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
 .alert-dismissible {
-  padding-right: (@alert-padding + 20);
 
-  // Adjust close link position
+  // Center the close icon in dismissible
   .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
+    width: 21px;
+    text-align: center;
   }
 }
 
