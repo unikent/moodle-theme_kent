@@ -76,7 +76,6 @@ define([], function() {
                     $(this).wrap("<pre class=\"" + $(this).attr('class') + "\">");
                 });
 
-                $("head").append('<link rel="stylesheet" href="' + M.cfg.wwwroot + '/theme/kent/style/prism.css" type="text/css" />');
                 $.getScript(M.cfg.wwwroot + '/theme/kent/javascript/prism.js', function() {
                     Prism.highlightAll();
                 });
