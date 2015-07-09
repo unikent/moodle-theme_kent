@@ -22,30 +22,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/theme.css" />
 </head>
-<body class="format-site course path-site safari dir-ltr lang-en yui-skin-sam yui3-skin-sam pagelayout-frontpage course-1 context-2 notloggedin kent-future-theme kent-navbar side-pre-only has_custom_menu has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post">
-    <div id="page">
-        <div id="page-header">
-            <div id="headerwrap">
-                <div id="logowrap">Oops!</div>
-            </div>
-        </div>
-        <div id="contentwrapper">
-            <div>
-                <p>Something went wrong, we are most likely aware of the problem and working to resolve it now.<br />
-                Please check <a href="http://status.kent.ac.uk">status.kent.ac.uk</a> for updates.</p>
-                <p>The reason given was:
-                <?php
-                if (!empty($errormessage)) {
-                    echo $errormessage;
-                } else {
-                    echo "unknown error.";
-                }
-                ?>
-                </p>
-            </div>
-        </div>
+<body>
+    <div class="container text-center" style="margin-top: 10px;">
+        <p>Oops!</p>
+        <p>Something went wrong, we are most likely aware of the problem and working to resolve it now.<br />
+        Please check <a href="http://status.kent.ac.uk">status.kent.ac.uk</a> for updates.</p>
+        <p>The reason given was:
+        <?php
+        if (!empty($errormessage)) {
+            echo $errormessage;
+        } else {
+            echo "unknown error.";
+        }
+        ?>
+        </p>
     </div>
 
-    <script type="text/javascript" src="<?php echo $CFG->wwwroot; ?>/theme/kent/javascript/navbar.js"></script>
+    <script src="//static.kent.ac.uk/navbar/kent-header-light.min.js" type="text/javascript" async="async"></script>
 </body>
 </html>
