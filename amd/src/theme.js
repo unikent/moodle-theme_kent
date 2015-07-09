@@ -70,6 +70,17 @@ define([], function() {
 		    });
 
 		    $("select,textarea,input[type=text],input[type=password],input[type=datetime],input[type=datetime-local],input[type=date],input[type=month],input[type=time],input[type=week],input[type=number],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=color]").addClass("form-control");
+
+            if ($('code[class*="language-"]').length > 0) {
+                $('code[class*="language-"]').each(function() {
+                    $(this).wrap("<pre class=\"" + $(this).attr('class') + "\">");
+                });
+
+                $("head").append('<link rel="stylesheet" href="' + M.cfg.wwwroot + '/theme/kent/style/prism.css" type="text/css" />');
+                $.getScript(M.cfg.wwwroot + '/theme/kent/javascript/prism.js', function() {
+                    Prism.highlightAll();
+                });
+            }
         }
     }
 });
