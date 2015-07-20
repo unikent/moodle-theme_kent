@@ -17,7 +17,16 @@
 $coursecontentheader = "";
 if (has_capability('moodle/course:update', \context_course::instance($COURSE->id))) {
     if (!$COURSE->visible) {
-        $coursecontentheader .= $OUTPUT->notification('<i class="fa fa-exclamation-circle"></i> This course is not currently visible to students.', 'notifyinfo');
+        $link = new \moodle_url('/course/edit.php', array(
+            'id' => $COURSE->id
+        ));
+
+        $link = \html_writer::link($link, '<i class="fa fa-pencil"></i>', array(
+            'class' => 'alert-link alert-dropdown close'
+        ));
+
+        $i = '<i class="fa fa-exclamation-circle"></i>';
+        $coursecontentheader .= $OUTPUT->notification("{$i} This course is not currently visible to students. {$link}", 'notifyinfo');
     }
 
     // Grab a list of notifications from local_kent.
