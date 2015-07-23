@@ -33,6 +33,7 @@ $regions = theme_kent_grid($hassidepre, $hassidepost);
     ?>
     <div id="headerwrap" class="row">
         <div class="col-xs-12 col-sm-6 brand">
+            <span class="kf-moodle"></span>
             <?php
             echo $CFG->fullname;
             ?>
