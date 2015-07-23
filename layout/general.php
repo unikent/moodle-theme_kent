@@ -16,20 +16,7 @@
 
 require(dirname(__FILE__) . "/includes/header.php");
 
-$prespan = 2;
-$midspan = 8;
-$postspan = 2;
-
-if (!$showsidepre) {
-    $prespan = 0;
-    $midspan += 2;
-}
-
-if (!$showsidepost) {
-    $postspan = 0;
-    $midspan += 2;
-}
-
+$regions = theme_kent_grid($hassidepre, $hassidepost);
 ?>
 
 <div id="page-header">
@@ -79,22 +66,23 @@ echo \html_writer::start_tag('div', array(
 ));
 ?>
 
-    <div id="page-content">
-        <div id="region-main-box">
-            <?php echo $OUTPUT->blocks('side-pre', "col-xs-12 col-md-$prespan"); ?>
-            <section id="region-main" class="<?php echo "col-xs-12 col-md-$midspan"; ?>">
-                <?php
-                echo $coursecontentheader;
-                echo $OUTPUT->main_content();
-                echo $coursecontentfooter;
-                ?>
-            </section>
-            <?php echo $OUTPUT->blocks('side-post', "col-xs-12 col-md-$postspan"); ?>
-        </div>
+<div id="page-content">
+    <div id="region-main-box">
+        <section id="region-main" class="<?php echo $regions['content']; ?>">
+            <?php
+            echo $coursecontentheader;
+            echo $OUTPUT->main_content();
+            echo $coursecontentfooter;
+            ?>
+        </section>
+        <?php echo $OUTPUT->blocks('side-pre', $regions['pre']); ?>
+        <?php echo $OUTPUT->blocks('side-post', $regions['post']); ?>
     </div>
-</div>      
+</div>
 
 <?php
+echo \html_writer::end_tag('div');
+
 if (!empty($coursefooter)) {
     echo "<div id=\"course-footer\">{$coursefooter}</div>";
 }
