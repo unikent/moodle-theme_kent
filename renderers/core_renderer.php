@@ -26,6 +26,7 @@ class theme_kent_core_renderer extends core_renderer
     use theme_kent_bootstrap_notifications;
 
     private $_tabdepth;
+    private $_in_usermenu;
 
     /*
      * This renders the navbar.
@@ -47,13 +48,32 @@ class theme_kent_core_renderer extends core_renderer
     }
 
     /**
+     * Construct a user menu, returning HTML that can be echoed out by a
+     * layout file.
+     *
+     * @param stdClass $user A user object, usually $USER.
+     * @param bool $withlinks true if a dropdown should be built.
+     * @return string HTML fragment.
+     */
+    public function user_menu($user = null, $withlinks = null) {
+        $this->_in_usermenu = true;
+        $result = parent::user_menu($user, $withlinks);
+        $this->_in_usermenu = false;
+
+        return $result;
+    }
+
+    /**
      * Internal implementation of user image rendering.
      *
      * @param user_picture $userpicture
      * @return string
      */
     protected function render_user_picture(user_picture $userpicture) {
-        $userpicture->size = 50;
+        if ($this->_in_usermenu) {
+            $userpicture->size = 50;
+        }
+
         return parent::render_user_picture($userpicture);
     }
 
