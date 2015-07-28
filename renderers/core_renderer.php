@@ -72,6 +72,7 @@ class theme_kent_core_renderer extends core_renderer
     protected function render_user_picture(user_picture $userpicture) {
         if ($this->_in_usermenu) {
             $userpicture->size = 50;
+            $userpicture->class = 'img-circle';
         }
 
         return parent::render_user_picture($userpicture);
