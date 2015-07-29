@@ -64,6 +64,10 @@ if (\theme_kent\core::is_future()) {
     $bodyclasses[] = 'kent-future';
 }
 
+if (\theme_kent\core::has_light_menu()) {
+    $bodyclasses[] = 'light-menu';
+}
+
 if ($showsidepre && !$showsidepost) {
     if (!right_to_left()) {
         $bodyclasses[] = 'side-pre-only';

@@ -66,4 +66,16 @@ class core
 
         return $result;
     }
+
+    /**
+     * Do we want the light menu?
+     */
+    public static function has_light_menu() {
+        static $result = null;
+        if ($result === null) {
+            $result = \local_kent\User::get_beta_preference("theme_lightnav", false);
+        }
+
+        return $result;
+    }
 }
