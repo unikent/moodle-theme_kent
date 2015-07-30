@@ -32,5 +32,24 @@ body.light-menu {
 		.caret {
 			border-top-color: @kent-corp-primary !important;
 		}
+
+		.dropdown-menu {
+			li {
+				&.first {
+					span.arrow {
+						border-bottom-color: @beta-nav-bg;
+					}
+				}
+
+				a {
+					background-color: @beta-nav-bg;
+					color: @kent-corp-primary;
+
+					&:hover {
+						background-color: @beta-nav-bg-hover;
+					}
+				}
+			}
+		}
 	}
 }
