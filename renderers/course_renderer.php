@@ -161,10 +161,31 @@ class theme_kent_core_course_renderer extends core_course_renderer
             $actions = $_actions;
             unset($_actions);
         }
-        foreach ($actions as $action) {
+        foreach ($actions as $k => $action) {
             if ($action instanceof action_menu_link) {
                 $action->add_class('cm-edit-action');
             }
+
+            if (($k == 'groupsseparate' || $k == 'groupsvisible' || $k == 'groupsnone') && $action instanceof action_menu_link_primary) {
+                switch ($k) {
+                    case 'groupsseparate':
+                        $action->icon = new \fa_icon('fa-user-secret');
+                    break;
+
+                    case 'groupsvisible':
+                        $action->icon = new \fa_icon('fa-users');
+                    break;
+
+                    case 'groupsnone':
+                        $action->icon = new \fa_icon('fa-user');
+                    break;
+                }
+            }
+
+            if ($k == 'update') {
+                $action->icon = new \fa_icon('fa-edit');
+            }
+
             $menu->add($action);
         }
         $menu->attributes['class'] .= ' section-cm-edit-actions commands';
