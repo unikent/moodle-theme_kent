@@ -87,6 +87,93 @@ class theme_kent_core_course_renderer extends core_course_renderer
 
         return $output;
     }
+
+    /**
+     * Renders HTML for displaying the sequence of course module editing buttons
+     *
+     * @see course_get_cm_edit_actions()
+     *
+     * @param action_link[] $actions Array of action_link objects
+     * @param cm_info $mod The module we are displaying actions for.
+     * @param array $displayoptions additional display options:
+     *     ownerselector => A JS/CSS selector that can be used to find an cm node.
+     *         If specified the owning node will be given the class 'action-menu-shown' when the action
+     *         menu is being displayed.
+     *     constraintselector => A JS/CSS selector that can be used to find the parent node for which to constrain
+     *         the action menu to when it is being displayed.
+     *     donotenhance => If set to true the action menu that gets displayed won't be enhanced by JS.
+     * @return string
+     */
+    public function course_section_cm_edit_actions($actions, cm_info $mod = null, $displayoptions = array()) {
+        global $CFG;
+
+        if (empty($actions)) {
+            return '';
+        }
+
+        if (isset($displayoptions['ownerselector'])) {
+            $ownerselector = $displayoptions['ownerselector'];
+        } else if ($mod) {
+            $ownerselector = '#module-'.$mod->id;
+        } else {
+            debugging('You should upgrade your call to '.__FUNCTION__.' and provide $mod', DEBUG_DEVELOPER);
+            $ownerselector = 'li.activity';
+        }
+
+        if (isset($displayoptions['constraintselector'])) {
+            $constraint = $displayoptions['constraintselector'];
+        } else {
+            $constraint = '.course-content';
+        }
+
+        $menu = new action_menu();
+        $menu->set_owner_selector($ownerselector);
+        $menu->set_constraint($constraint);
+        $menu->set_alignment(action_menu::TR, action_menu::BR);
+        $menu->set_menu_trigger('<i class="fa fa-cog"></i>');
+        if (isset($CFG->modeditingmenu) && !$CFG->modeditingmenu || !empty($displayoptions['donotenhance'])) {
+            $menu->do_not_enhance();
+
+            // Swap the left/right icons.
+            // Normally we have have right, then left but this does not
+            // make sense when modactionmenu is disabled.
+            $moveright = null;
+            $_actions = array();
+            foreach ($actions as $key => $value) {
+                if ($key === 'moveright') {
+
+                    // Save moveright for later.
+                    $moveright = $value;
+                } else if ($moveright) {
+
+                    // This assumes that the order was moveright, moveleft.
+                    // If we have a moveright, then we should place it immediately after the current value.
+                    $_actions[$key] = $value;
+                    $_actions['moveright'] = $moveright;
+
+                    // Clear the value to prevent it being used multiple times.
+                    $moveright = null;
+                } else {
+
+                    $_actions[$key] = $value;
+                }
+            }
+            $actions = $_actions;
+            unset($_actions);
+        }
+        foreach ($actions as $action) {
+            if ($action instanceof action_menu_link) {
+                $action->add_class('cm-edit-action');
+            }
+            $menu->add($action);
+        }
+        $menu->attributes['class'] .= ' section-cm-edit-actions commands';
+
+        // Prioritise the menu ahead of all other actions.
+        $menu->prioritise = true;
+
+        return $this->render($menu);
+    }
 }
 
 
