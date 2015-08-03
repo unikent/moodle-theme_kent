@@ -15,12 +15,7 @@
                 }
 
                 .left, .right {
-                    width: 20px;
                     display: none;
-                }
-
-                .right img.icon {
-                    padding: 0 0 7px 0;
                 }
 
                 .content {
@@ -30,14 +25,20 @@
                     h3 {
                         font-size: 13px;
                         font-weight: bold;
-                        margin: 2px 0;
+                        margin: 0 0 10px 0;
                         padding: 0 1px;
+
+                        &.accesshide {
+                            position: relative;
+                            left: 0;
+                        }
                     }
 
                     .summary {
-                        margin: 0 -10px 10px;
+                        margin: 0 -10px;
                         padding: 0;
-                        border-bottom: 1px solid @border-color;
+                        border-top: 1px solid @border-color;
+                        border-bottom: none;
                         
                         .no-overflow {
                             margin: 0;
@@ -72,6 +73,10 @@
 
             &.hidden {
                 display: none;
+            }
+
+            ul li.activity {
+                padding: 10px 0;
             }
         }
 
@@ -121,16 +126,44 @@
         .course-content {
             ul.weeks, ul.topics {
                 li.section {
+                    position: relative;
+
                     .left, .right {
                         display: block !important;
                     }
 
-                    .content {
-                        margin: 0 20px !important;
+                    .left {
+                        img.icon {
+                            margin: 3px 0 0 10px;
+                        }
+                    }
 
+                    .right {
+                        width: auto;
+                        margin-right: 30px;
+                        padding: 4px 0px;
+
+                        a {
+                            margin: 0 5px;
+                            font-size: 19px;
+                            color: #999;
+                            text-decoration: none;
+                        }
+                    }
+
+                    h3 {
+                        margin-left: 25px;
+                    }
+
+                    .content {
                         .summary {
-                            margin: 0 -30px 10px;
                             padding: 0 20px;
+
+                            img.edit {
+                                position: absolute;
+                                right: 5px;
+                                top: 5px;
+                            }
                         }
                     }
                 }
@@ -148,8 +181,14 @@
             }
         }
 
-        .section .activity .mod-indent-outer {
-            padding-left: 24px;
+        .section .activity {
+            .mod-indent-outer {
+                padding-left: 24px;
+            }
+        }
+
+        .section-modchooser {
+            padding-top: 10px;
         }
     }
 }
