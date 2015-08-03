@@ -26,6 +26,7 @@ class theme_kent_core_renderer extends core_renderer
     use theme_kent_bootstrap_notifications;
 
     private $_tabdepth;
+    private $_in_usermenu;
 
     /*
      * This renders the navbar.
@@ -41,9 +42,25 @@ class theme_kent_core_renderer extends core_renderer
             $item->hideicon = true;
             $breadcrumbs[] = $this->render($item);
         }
-        $list_items = '<li>'.join("</li><li>", $breadcrumbs).'</li>';
+        $listitems = '<li>'.join("</li><li>", $breadcrumbs).'</li>';
         $title = '<span class="accesshide">'.get_string('pagepath').'</span>';
-        return $title . "<ul class=\"breadcrumb\">$list_items</ul>";
+        return $title . "<ul class=\"breadcrumb\">$listitems</ul>";
+    }
+
+    /**
+     * Construct a user menu, returning HTML that can be echoed out by a
+     * layout file.
+     *
+     * @param stdClass $user A user object, usually $USER.
+     * @param bool $withlinks true if a dropdown should be built.
+     * @return string HTML fragment.
+     */
+    public function user_menu($user = null, $withlinks = null) {
+        $this->_in_usermenu = true;
+        $result = parent::user_menu($user, $withlinks);
+        $this->_in_usermenu = false;
+
+        return $result;
     }
 
     /**
@@ -53,7 +70,11 @@ class theme_kent_core_renderer extends core_renderer
      * @return string
      */
     protected function render_user_picture(user_picture $userpicture) {
-        $userpicture->size = 50;
+        if ($this->_in_usermenu) {
+            $userpicture->size = 50;
+            $userpicture->class = 'img-circle';
+        }
+
         return parent::render_user_picture($userpicture);
     }
 
@@ -81,7 +102,7 @@ class theme_kent_core_renderer extends core_renderer
                 $this->_tabdepth--;
             }
         }
-        
+
         $classes = array('nav', 'nav-tabs', 'nav-tabs-' . $this->_tabdepth);
         if ($this->_tabdepth == 0) {
             $classes[] = 'nav-tabs-first';
@@ -266,27 +287,45 @@ HTML5;
         if ($pagingbar->totalcount > $pagingbar->perpage) {
             $output = '';
 
-            if (!empty($pagingbar->previouslink)) {
-                $output .= '&#160;(' . $pagingbar->previouslink . ')&#160;';
+            $previouslinkclass = '';
+            if (empty($pagingbar->previouslink)) {
+                $previouslinkclass = 'disabled';
             }
 
+            $previouslink = html_writer::link(new moodle_url($pagingbar->baseurl, array(
+                $pagingbar->pagevar => empty($pagingbar->previouslink) ? $pagingbar->page : $pagingbar->page - 1
+            )), '&laquo;', array('aria-label' => 'Previous'));
+            $output .= \html_writer::tag('li', $previouslink, array('class' => $previouslinkclass));
+
             if (!empty($pagingbar->firstlink)) {
-                $output .= '&#160;' . $pagingbar->firstlink . '&#160;...';
+                $output .= '<li>' . $pagingbar->firstlink . '</li>';
+                $output .= '<li class="disabled"><a>...</a></li>';
             }
 
             foreach ($pagingbar->pagelinks as $link) {
-                $output .= "&#160;&#160;$link";
+                if (strpos($link, '<span class="current-page">') === 0) {
+                    $output .= "<li class=\"active\">$link</li>";
+                } else {
+                    $output .= "<li>$link</li>";
+                }
             }
 
             if (!empty($pagingbar->lastlink)) {
-                $output .= '&#160;...' . $pagingbar->lastlink . '&#160;';
+                $output .= '<li class="disabled"><a>...</a></li>';
+                $output .= '<li>' . $pagingbar->lastlink . '</li>';
             }
 
-            if (!empty($pagingbar->nextlink)) {
-                $output .= '&#160;&#160;(' . $pagingbar->nextlink . ')';
+            $nextlinkclass = '';
+            if (empty($pagingbar->nextlink)) {
+                $nextlinkclass = 'disabled';
             }
 
-            return html_writer::tag('div', $output, array('class' => 'paging'));
+            $nextlink = html_writer::link(new moodle_url($pagingbar->baseurl, array(
+                $pagingbar->pagevar => empty($pagingbar->nextlink) ? $pagingbar->page : $pagingbar->page + 1
+            )), '&raquo;', array('aria-label' => 'Next'));
+            $output .= \html_writer::tag('li', $nextlink, array('class' => $nextlinkclass));
+
+            return html_writer::tag('nav', html_writer::tag('ul', $output, array('class' => 'pagination')));
         }
 
         return '';

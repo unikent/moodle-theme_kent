@@ -200,3 +200,50 @@
 .panoptotac_content {
     height: auto;
 }
+
+#site-news-forum {
+    > h2 {
+        margin-top: 0;
+        padding-bottom: 5px;
+    }
+
+    .forumpost {
+        border: 0;
+        border-bottom: 1px solid @kent-corp-primary;
+
+        div.row {
+            &.header {
+                background: none;
+                margin-bottom: 0;
+            }
+
+            &.maincontent {
+                .left {
+                    width: auto;
+                    max-width: 80px;
+                }
+            }
+
+            .left {
+                width: 80px;
+            }
+        }
+
+        .topic {
+            margin-left: 90px;
+
+            .subject {
+                font-size: 22px;
+                color: @kent-corp-primary;
+            }
+
+            .author {
+                color: #666666;
+            }
+        }
+
+        .content {
+            padding: 0 10px;
+        }
+    }
+}

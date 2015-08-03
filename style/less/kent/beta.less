@@ -1,0 +1,55 @@
+/**
+ * Un-approved styles.
+ */
+
+@beta-nav-bg: #eaeff3;
+@beta-nav-bg-hover: #cbd4dd;
+@beta-nav-border: #234b6e;
+
+body.light-menu {
+	#menuwrap .navbar.navbar-default {
+		background-color: @beta-nav-bg;
+		border-top: 1px solid @beta-nav-border;
+
+		form button,
+		.navbar-nav > li > a,
+		.navbar-brand {
+			color: @kent-corp-primary !important;
+
+			&:hover, &:focus {
+	    		background-color: @beta-nav-bg-hover !important;
+	    	}
+		}
+
+		form button .fa {
+			color: @kent-corp-primary !important;
+		}
+
+		.navbar-nav > .open > a {
+			background-color: @beta-nav-bg-hover;
+		}
+
+		.caret {
+			border-top-color: @kent-corp-primary !important;
+		}
+
+		.dropdown-menu {
+			li {
+				&.first {
+					span.arrow {
+						border-bottom-color: @beta-nav-bg;
+					}
+				}
+
+				a {
+					background-color: @beta-nav-bg;
+					color: @kent-corp-primary;
+
+					&:hover {
+						background-color: @beta-nav-bg-hover;
+					}
+				}
+			}
+		}
+	}
+}
