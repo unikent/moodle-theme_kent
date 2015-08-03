@@ -48,10 +48,6 @@ $bodyclasses[] = 'kent-navbar';
 $bodyclasses[] = 'bootstrap';
 $bodyclasses[] = 'kent-future-theme';
 
-if (\theme_kent\core::is_fullscreen()) {
-    $bodyclasses[] = 'kent-fullscreen';
-}
-
 if (\theme_kent\core::is_contrast()) {
     $bodyclasses[] = 'kent-contrast';
 }
@@ -108,7 +104,7 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_top_of_body_html();
 
 echo \html_writer::start_tag('div', array(
-    'class' => \theme_kent\core::is_fullscreen() ? 'container-fluid' : 'container'
+    'class' => 'container-fluid container-responsive-pad'
 ));
 
 echo \html_writer::start_tag('div', array(
