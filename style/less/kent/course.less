@@ -173,6 +173,10 @@
                         .activityinstance {
                             float: left;
                             padding-right: 0;
+
+                            .editing_title {
+                                margin-left: 8px;
+                            }
                         }
 
                         .commands {
@@ -184,22 +188,24 @@
                             float: left;
 
                             .section-cm-edit-actions {
-                                .fa {
-                                    color: #999;
-                                }
-
                                 .textmenu {
+                                    margin-left: 0;
+
                                     > .caret {
                                         display: none;
                                     }
+                                }
+
+                                img.iconsmall {
+                                    margin: 0;
                                 }
 
                                 > ul > li {
                                     display: block;
                                     float: left;
 
-                                    .fa {
-                                        font-size: 18px;
+                                    a {
+                                        padding: 0 5px;
                                     }
                                 }
                             }

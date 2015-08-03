@@ -105,7 +105,7 @@ class theme_kent_core_course_renderer extends core_course_renderer
      * @return string
      */
     public function course_section_cm_edit_actions($actions, cm_info $mod = null, $displayoptions = array()) {
-        global $CFG;
+        global $CFG, $OUTPUT;
 
         if (empty($actions)) {
             return '';
@@ -130,7 +130,7 @@ class theme_kent_core_course_renderer extends core_course_renderer
         $menu->set_owner_selector($ownerselector);
         $menu->set_constraint($constraint);
         $menu->set_alignment(action_menu::TR, action_menu::BR);
-        $menu->set_menu_trigger('<i class="fa fa-cog"></i>');
+        $menu->set_menu_trigger($OUTPUT->pix_icon('t/edit', 'Edit Settings'));
         if (isset($CFG->modeditingmenu) && !$CFG->modeditingmenu || !empty($displayoptions['donotenhance'])) {
             $menu->do_not_enhance();
 
@@ -164,26 +164,6 @@ class theme_kent_core_course_renderer extends core_course_renderer
         foreach ($actions as $k => $action) {
             if ($action instanceof action_menu_link) {
                 $action->add_class('cm-edit-action');
-            }
-
-            if (($k == 'groupsseparate' || $k == 'groupsvisible' || $k == 'groupsnone') && $action instanceof action_menu_link_primary) {
-                switch ($k) {
-                    case 'groupsseparate':
-                        $action->icon = new \fa_icon('fa-user-secret');
-                    break;
-
-                    case 'groupsvisible':
-                        $action->icon = new \fa_icon('fa-users');
-                    break;
-
-                    case 'groupsnone':
-                        $action->icon = new \fa_icon('fa-user');
-                    break;
-                }
-            }
-
-            if ($k == 'update') {
-                $action->icon = new \fa_icon('fa-edit');
             }
 
             $menu->add($action);
