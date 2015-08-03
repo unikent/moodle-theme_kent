@@ -403,9 +403,21 @@ HTML5;
         if (array_key_exists($icon->pix, $icons)) {
             $alt = $icon->attributes['alt'];
             $icon = $icons[$icon->pix];
-            return "<i class=\"fa fa-$icon icon\" title=\"$alt\">";
+            return "<i class=\"fa fa-$icon icon\" title=\"$alt\"></i>";
         } else {
             return parent::render_pix_icon($icon);
         }
+    }
+
+    /**
+     * Render an FA icon.
+     *
+     * @param  fa_icon $icon [description]
+     * @return [type]         [description]
+     */
+    public function render_fa_icon(\fa_icon $icon) {
+        $alt = $icon->attributes['alt'];
+        $class = $icon->attributes['class'];
+        return "<i class=\"fa $class icon\" title=\"$alt\"></i>";
     }
 }
