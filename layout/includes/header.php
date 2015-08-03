@@ -108,7 +108,7 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_top_of_body_html();
 
 echo \html_writer::start_tag('div', array(
-    'class' => \theme_kent\core::is_fullscreen() ? 'container-fluid' : 'container'
+    'class' => 'container-fluid container-responsive-pad'
 ));
 
 echo \html_writer::start_tag('div', array(
