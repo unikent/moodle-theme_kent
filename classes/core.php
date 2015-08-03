@@ -32,18 +32,6 @@ class core
     }
 
     /**
-     * Are we in fullscreen mode?
-     */
-    public static function is_fullscreen() {
-        static $result = null;
-        if ($result === null) {
-            $result = \local_kent\User::get_preference("theme_fullscreen", false);
-        }
-
-        return $result;
-    }
-
-    /**
      * Are we in contrast mode?
      */
     public static function is_contrast() {

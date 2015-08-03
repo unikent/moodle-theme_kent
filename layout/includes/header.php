@@ -48,10 +48,6 @@ $bodyclasses[] = 'kent-navbar';
 $bodyclasses[] = 'bootstrap';
 $bodyclasses[] = 'kent-future-theme';
 
-if (\theme_kent\core::is_fullscreen()) {
-    $bodyclasses[] = 'kent-fullscreen';
-}
-
 if (\theme_kent\core::is_contrast()) {
     $bodyclasses[] = 'kent-contrast';
 }
