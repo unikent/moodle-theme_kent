@@ -200,14 +200,26 @@
                                     margin: 0;
                                 }
 
-                                > ul > li {
-                                    display: block;
-                                    float: left;
+                                > ul {
+                                    > li {
+                                        display: block;
+                                        float: left;
 
-                                    a {
-                                        padding: 0 5px;
+                                        a {
+                                            padding: 0 5px;
+                                        }
+                                    }
+
+                                    &.menu {
+                                        > li a {
+                                            padding: 5px 15px;
+                                        }
                                     }
                                 }
+                            }
+
+                            .filler {
+                                display: none;
                             }
                         }
                     }
