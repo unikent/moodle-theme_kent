@@ -420,4 +420,35 @@ HTML5;
         $class = $icon->attributes['class'];
         return "<i class=\"fa $class icon\" title=\"$alt\"></i>";
     }
+
+    /**
+     * Produces a header for a block
+     *
+     * @param block_contents $bc
+     * @return string
+     */
+    protected function block_header(block_contents $bc) {
+        $title = '';
+        if ($bc->title) {
+            $attributes = array();
+            if ($bc->blockinstanceid) {
+                $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
+            }
+            $title = html_writer::tag('h2', $bc->title, $attributes);
+        }
+
+        $blockid = null;
+        if (isset($bc->attributes['id'])) {
+            $blockid = $bc->attributes['id'];
+        }
+        $controlshtml = $this->block_controls($bc->controls, $blockid);
+
+        $output = '';
+        if ($title || $controlshtml) {
+            $actionshtml = html_writer::tag('div', '', array('class' => 'block_action'));
+            $actionshtml = html_writer::tag('div', $actionshtml . $controlshtml, array('class' => 'block_actions'));
+            $output .= html_writer::tag('div', html_writer::tag('div', $title . $actionshtml, array('class' => 'title')), array('class' => 'header'));
+        }
+        return $output;
+    }
 }

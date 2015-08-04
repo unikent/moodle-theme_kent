@@ -23,6 +23,8 @@
                 margin: 0;
                 padding: 0 2px;
                 border-top: 1px solid #fff;
+                display: inline-block !important;
+                position: static;
 
                 .icon {
                     margin-right: 8px;
@@ -34,12 +36,14 @@
                     height: auto;
                     border: none;
                     background: none;
+
                 }
             }
         }
     }
 
     .header {
+        position: relative;
         background: transparent;
         min-height: 33px;
         border: 1px solid #FFF;
@@ -52,26 +56,31 @@
             text-transform: capitalize;
             font-weight: bold;
             font-size: 13px;
+            display: inline-block;
         }
 
-        .block_action {
-            img, input {
-                opacity: 0.4;
-                outline: none;
-                transition: opacity 0.2s ease-in-out;
+        .block_actions {
+            float: right;
+            padding: 5px 5px 0 0;
 
-                &:hover {
-                    opacity: 1;
+            .block_action {
+                display: inline-block;
+                float: none;
+                margin: 0;
+
+                img, input {
+                    position: relative;
+                    top: 3px;
+                    vertical-align: baseline;
+                    outline: none;
                 }
             }
-        }
-    }
 
-    div.block_action {
-        img, input {
-            position: relative;
-            top: 3px;
-            vertical-align: baseline;
+            a {
+                &:focus {
+                    outline: none;
+                }
+            }
         }
     }
 
