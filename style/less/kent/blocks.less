@@ -10,9 +10,40 @@
 
     &.hidden {
         display: block !important;
+
+        div.header {
+            border: 1px solid #fff;
+            border-radius: 4px;
+        }
+    }
+
+    &.block_with_controls {
+        div.header {
+            div.commands {
+                margin: 0;
+                padding: 0 2px;
+                border-top: 1px solid #fff;
+                display: inline-block !important;
+                position: static;
+
+                .icon {
+                    margin-right: 8px;
+                }
+
+                a img {
+                    margin-right : 3px;
+                    width: auto;
+                    height: auto;
+                    border: none;
+                    background: none;
+
+                }
+            }
+        }
     }
 
     .header {
+        position: relative;
         background: transparent;
         min-height: 33px;
         border: 1px solid #FFF;
@@ -21,24 +52,43 @@
 
         h2 {
             color: @text-color;
-            padding-top: 9px;
+            padding: 9px 0 0 10px;
             text-transform: capitalize;
             font-weight: bold;
             font-size: 13px;
+            display: inline-block;
         }
-    }
 
-    div.block_action {
-        img, input {
-            position: relative;
-            top: 3px;
-            vertical-align: baseline;
+        .block_actions {
+            float: right;
+            padding: 5px 5px 0 0;
+
+            .block_action {
+                display: inline-block;
+                float: none;
+                margin: 0;
+
+                img, input {
+                    position: relative;
+                    top: 3px;
+                    vertical-align: baseline;
+                    outline: none;
+                }
+            }
+
+            a {
+                &:focus {
+                    outline: none;
+                }
+            }
         }
     }
 
     div.content {
         font-size: 12px;
         padding: 10px;
+        border-top: 1px solid #e3e3e3;
+        overflow: hidden;
 
         input, input[type=submit], select {
             width: 100%;
@@ -172,8 +222,24 @@
     }
 
     &.block_calendar_month {
+        .filters,
+        .eventskey {
+            display: none;
+        }
+
+
         table.minicalendar {
             margin: 0;
+
+            &.calendartable {
+                tr {
+                    background: none;
+                }
+
+                th, td {
+                    padding: 5px 0;
+                }
+            }
         }
     }
 
