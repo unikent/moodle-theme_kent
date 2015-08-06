@@ -223,18 +223,27 @@
 	    .performanceinfo {
 	        margin: 0;
 
-	        .cachesused .cache-definition-stats {
+			.blocksused .block-stats-heading {
+    			display: block;
+	            font-weight: bold;
+			}
+
+	        .cachesused .cache-definition-stats,
+	        .blocksused .block-instance-stats {
 	            border: 1px solid @border-color;
 	            border-radius: @border-radius-base;
 	            background: none;
 	            margin: 10px 5px;
+            	display: inline-block;
 
 	            span {
 	                padding: 5px;
 	                font-size: 13px;
 
-	                &.cache-definition-stats-heading {
+	                &.cache-definition-stats-heading,
+	                &.block-instance-stats-heading {
 	                    background: none;
+	                    color: #000;
 
 	                    > span {
 	                    	padding: 0;
@@ -242,7 +251,8 @@
 	                    }
 	                }
 
-	                &.cache-store-stats {
+	                &.cache-store-stats,
+	                &.block-stats {
 	                    &.highhits {
 	                        background-color: @success-bg-color;
 	                        color: @success-text-color;
