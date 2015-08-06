@@ -1,0 +1,137 @@
+/**
+ * Forum styles.
+ */
+
+.forumpost {
+	.row {
+		margin: 0;
+
+		&.side {
+	        .commands {
+	        	text-align: left;
+	        }
+		}
+
+		&.maincontent {
+			padding-top: 10px;
+		}
+
+		&.side, &.maincontent {
+			.left {
+				width: 0;
+			}
+		}
+
+		.left {
+			width: 65px;
+		}
+
+		.topic {
+			padding-top: 5px;
+			margin-left: 65px;
+
+			.subject {
+                font-size: 22px;
+                color: @kent-corp-primary;
+			}
+
+            .author {
+                color: #666666;
+            }
+		}
+
+		.options {
+			margin-left: 0;
+		}
+	}
+}
+
+&.path-mod-forum {
+    #intro {
+        margin: 0;
+    }
+
+    .discussionname {
+        float: left;
+    }
+
+    div.discussionsubscription {
+        float: right;
+        margin-top: 0;
+
+        > a > img {
+            display: none;
+        }
+    }
+
+    .discussiontoggle > img {
+        width: 21px;
+    }
+
+    .discussioncontrols {
+        clear: both;
+
+        .discussioncontrol {
+            &.exporttoportfolio.noavailable {
+                display: none;
+            }
+
+            &.displaymode {
+                text-align: left !important;
+            }
+
+            &.movediscussion {
+            	input[type=submit] {
+	            	margin-top: 5px;
+	            }
+            }
+         }
+    }
+
+    .preload-subscribe, .preload-unsubscribe {
+        display: none;
+    }
+
+    #forummenu {
+        select {
+            margin-right: 10px;
+        }
+    }
+
+    .nav .forumsearch {
+        .navicon {
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+#site-news-forum {
+    > h2 {
+        margin-top: 0;
+        padding-bottom: 5px;
+    }
+
+    .forumpost {
+        border: 0;
+        border-bottom: 1px solid @kent-corp-primary;
+
+        div.row {
+            &.header {
+                background: none;
+                margin-bottom: 0;
+            }
+
+            &.maincontent {
+                .left {
+                    width: 0;
+                }
+            }
+        }
+
+        .content {
+            padding: 5px 0;
+        }
+    }
+}
