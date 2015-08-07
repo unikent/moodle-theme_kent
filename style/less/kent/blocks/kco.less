@@ -2,7 +2,7 @@
  * KCO block styles.
  */
 
-.block_kent_course_overview {
+.block.block_kent_course_overview {
     .content {
         margin: 0;
         border-bottom-left-radius: @border-radius-base;
@@ -39,9 +39,14 @@
 
         li {
             width: auto;
-            margin: 5px 10px;
+            margin: 5px 0px;
+            padding: 0 10px;
             border: none;
             border-bottom: 1px solid @border-color;
+
+            &:first-child {
+                margin-top: 0;
+            }
 
             &:last-child {
                 border: none;

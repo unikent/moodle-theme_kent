@@ -51,10 +51,6 @@ body.kent-contrast {
     overflow: auto;
 }
 
-#page-mod-quiz-edit .questionbankwindow.block div.header div.title h2 {
-    color: #333;
-}
-
 #page-grade-report-grader-index {
     table#fixed_column th {
         padding: 0 4px 0 4px;
@@ -73,7 +69,7 @@ a,
 a:visited,
 #kent_course_list_overview .course_details_ovrv .title a,
 #kent_category_list_overview .course_details_ovrv .title a {
-    color: #264F9C;
+    color: @link-color;
 }
 
 a:hover {
@@ -81,36 +77,23 @@ a:hover {
 }
 
 a:hover, a:active {
-    color: #369;
-}
-
-a.dimmed {
-    opacity: 1;
-    -moz-opacity: 1;
-    filter:alpha(opacity=1);
+    color: @link-hover-color;
 }
 
 #page {
     padding-top: 10px;
 }
 
-td.maincalendar table.calendartable th, table.rolecap .header, .generaltable .header, .forumheaderlist .header, .files .header, .editcourse .header, .logtable .header, #attempts .header, table#categoryquestions th {
+td.maincalendar table.calendartable th,
+table.rolecap .header,
+.generaltable .header,
+.forumheaderlist .header,
+.files .header,
+.editcourse .header,
+.logtable .header,
+#attempts .header,
+table#categoryquestions th {
     border-bottom: 1px solid #ddd;
-}
-
-.archive_bar {
-    width: auto;
-    min-width: 760px;
-    max-width: 1140px;
-    margin: 0 auto;
-    text-indent: 10px;
-    background-color: #fad7d7;
-    border-bottom: 1px solid #c8acac;
-
-    p {
-        padding: 10px;
-        margin: 0px;
-    }
 }
 
 .arrow, .arrow_button input {
@@ -171,11 +154,14 @@ h3.sectionname, h2.headingblock, h2.main, h3.main, h2.main a, h3.main a, div.log
     margin: 0 10px;
 }
 
-.mform .fitem {
-    margin-bottom: 10px;
-}
-.mform .fitem fieldset.felement {
-    border: none !important;
+.mform {
+    .fitem {
+        margin-bottom: 10px;
+
+        fieldset.felement {
+            border: none !important;
+        }
+    }
 }
 
 .generaltable .header a, .forumheaderlist .header a, th.header.questionnametext a {
@@ -307,12 +293,12 @@ img.iconsmall,
 
 #ebutton {
     margin-bottom: 2px;
-}
 
-#ebutton #navsearchbox {
-    padding: 1px;
-    font-size: 12px;
-    margin-bottom: 0px;
+    #navsearchbox {
+        padding: 1px;
+        font-size: 12px;
+        margin-bottom: 0px;
+    }
 }
 
 #page-footer,
@@ -324,29 +310,24 @@ img.iconsmall,
     .fm-btn-choosefile {
         font-size: 13px !important;
     }
-} 
-
-.kent_course_locked {
-    padding: 10px;
 }
 
-.kent_course_unlocked {
-    padding: 10px;
+.hidedock {
+    .block_action, .commands {
+        display: none;
+    }
 }
 
-.hidedock .block_action,
-.hidedock .commands {
-    display: none;
-}
+.sitetopic .section .activity,
+.course-content .section .activity {
+    &:hover {
+        background-color: transparent;
+    }
 
-.sitetopic .section .activity:hover, .course-content .section .activity:hover {
-    background-color: transparent;
-}
-
-.sitetopic .section .activity img.activityicon,
-.course-content .section .activity img.activityicon {
-    width: 16px;
-    height: 16px;
+    img.activityicon {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 img.iconlarge {
@@ -367,7 +348,8 @@ img.iconlarge {
     background-color: #1F4A89;
 }
 
-.yui3-skin-sam .yui3-menu-content, .yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-content {
+.yui3-skin-sam .yui3-menu-content,
+.yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-content {
     padding-top: 0px;
 }
 
@@ -375,11 +357,13 @@ img.iconlarge {
     background-color: #1F4A89;
 }
 
-#kent_course_list_overview .synopsistext ul, #kent_category_list_overview .synopsistext ul {
+#kent_course_list_overview .synopsistext ul,
+#kent_category_list_overview .synopsistext ul {
     list-style-type: circle;
 }
 
-#kent_course_list_overview .synopsistext li, #kent_category_list_overview .synopsistext li {
+#kent_course_list_overview .synopsistext li,
+#kent_category_list_overview .synopsistext li {
     background: none;
     border: none;
     box-shadow: none;
