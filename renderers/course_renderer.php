@@ -138,7 +138,7 @@ class theme_kent_core_course_renderer extends core_course_renderer
             // Normally we have have right, then left but this does not
             // make sense when modactionmenu is disabled.
             $moveright = null;
-            $_actions = array();
+            $tmpactions = array();
             foreach ($actions as $key => $value) {
                 if ($key === 'moveright') {
 
@@ -148,18 +148,18 @@ class theme_kent_core_course_renderer extends core_course_renderer
 
                     // This assumes that the order was moveright, moveleft.
                     // If we have a moveright, then we should place it immediately after the current value.
-                    $_actions[$key] = $value;
-                    $_actions['moveright'] = $moveright;
+                    $tmpactions[$key] = $value;
+                    $tmpactions['moveright'] = $moveright;
 
                     // Clear the value to prevent it being used multiple times.
                     $moveright = null;
                 } else {
 
-                    $_actions[$key] = $value;
+                    $tmpactions[$key] = $value;
                 }
             }
-            $actions = $_actions;
-            unset($_actions);
+            $actions = $tmpactions;
+            unset($tmpactions);
         }
         foreach ($actions as $k => $action) {
             if ($action instanceof action_menu_link) {
@@ -281,90 +281,6 @@ trait theme_kent_course_edit_options
      */
     protected function section_left_content($section, $course, $onsectionpage) {
         return '';
-    }
-
-    /**
-     * Generate the edit controls of a section
-     *
-     * @param stdClass $course The course entry from DB
-     * @param stdClass $section The course_section entry from DB
-     * @param bool $onsectionpage true if being printed on a section page
-     * @return array of links with edit controls
-     */
-    protected function section_edit_controls($course, $section, $onsectionpage = false) {
-        global $PAGE;
-
-        if (!$PAGE->user_is_editing()) {
-            return array();
-        }
-
-        $coursecontext = context_course::instance($course->id);
-        $isstealth = isset($course->numsections) && ($section->section > $course->numsections);
-
-        if ($onsectionpage) {
-            $baseurl = course_get_url($course, $section->section);
-        } else {
-            $baseurl = course_get_url($course);
-        }
-        $baseurl->param('sesskey', sesskey());
-
-        $controls = array();
-
-        $url = clone($baseurl);
-        if (!$isstealth && has_capability('moodle/course:sectionvisibility', $coursecontext)) {
-            if ($section->visible) { // Show the hide/show eye.
-                $strhidefromothers = get_string('hidefromothers', 'format_'.$course->format);
-                $url->param('hide', $section->section);
-                $controls[] = html_writer::link($url,
-                    html_writer::tag('i', '', array('class' => 'fa fa-eye-slash icon hide')),
-                    array('title' => $strhidefromothers, 'class' => 'editing_showhide'));
-            } else {
-                $strshowfromothers = get_string('showfromothers', 'format_'.$course->format);
-                $url->param('show',  $section->section);
-                $controls[] = html_writer::link($url,
-                    html_writer::tag('i', '', array('class' => 'fa fa-eye icon hide')),
-                    array('title' => $strshowfromothers, 'class' => 'editing_showhide'));
-            }
-        }
-
-        if (course_can_delete_section($course, $section)) {
-            if (get_string_manager()->string_exists('deletesection', 'format_'.$course->format)) {
-                $strdelete = get_string('deletesection', 'format_'.$course->format);
-            } else {
-                $strdelete = get_string('deletesection');
-            }
-            $url = new moodle_url('/course/editsection.php', array('id' => $section->id,
-                'sr' => $onsectionpage ? $section->section : 0, 'delete' => 1));
-            $controls[] = html_writer::link($url,
-                html_writer::tag('i', '', array('class' => 'fa fa-times icon delete')),
-                array('title' => $strdelete));
-        }
-
-        if (!$isstealth && !$onsectionpage && has_capability('moodle/course:movesections', $coursecontext)) {
-            $url = clone($baseurl);
-            if ($section->section > 1) { // Add a arrow to move section up.
-                $url->param('section', $section->section);
-                $url->param('move', -1);
-                $strmoveup = get_string('moveup');
-
-                $controls[] = html_writer::link($url,
-                    html_writer::tag('i', '', array('class' => 'fa fa-sort-up icon up')),
-                    array('title' => $strmoveup, 'class' => 'moveup'));
-            }
-
-            $url = clone($baseurl);
-            if ($section->section < $course->numsections) { // Add a arrow to move section down.
-                $url->param('section', $section->section);
-                $url->param('move', 1);
-                $strmovedown = get_string('movedown');
-
-                $controls[] = html_writer::link($url,
-                    html_writer::tag('i', '', array('class' => 'fa fa-sort-down icon down')),
-                    array('title' => $strmovedown, 'class' => 'movedown'));
-            }
-        }
-
-        return $controls;
     }
 }
 
