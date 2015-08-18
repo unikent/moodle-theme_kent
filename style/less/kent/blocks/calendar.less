@@ -18,7 +18,38 @@
             }
 
             th, td {
+                border: none;
                 padding: 5px 0;
+
+                &.hasevent {
+                    padding: 0;
+
+                    a {
+                        padding: 5px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.calendar-event-panel {
+    background: transparent;
+    border: none;
+
+    .yui3-overlay-content {
+        h2.eventtitle {
+            font-size: 16px;
+        }
+
+        .eventcontent {
+            .smallicon {
+                width: 24px;
+                height: 24px;
+            }
+
+            a {
+                margin-left: 5px;
             }
         }
     }
