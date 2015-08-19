@@ -25,9 +25,9 @@ class theme_kent_core_renderer extends core_renderer
 {
     use theme_kent_bootstrap_notifications;
 
-    private $_tabdepth = 0;
-    private $_in_usermenu = false;
-    private $_block_perf_data = array();
+    private static $tabdepth = 0;
+    private static $inusermenu = false;
+    private static $blockperfdata = array();
 
     /*
      * This renders the navbar.
@@ -57,9 +57,9 @@ class theme_kent_core_renderer extends core_renderer
      * @return string HTML fragment.
      */
     public function user_menu($user = null, $withlinks = null) {
-        $this->_in_usermenu = true;
+        static::$inusermenu = true;
         $result = parent::user_menu($user, $withlinks);
-        $this->_in_usermenu = false;
+        static::$inusermenu = false;
 
         return $result;
     }
@@ -71,7 +71,7 @@ class theme_kent_core_renderer extends core_renderer
      * @return string
      */
     protected function render_user_picture(user_picture $userpicture) {
-        if ($this->_in_usermenu) {
+        if (static::$inusermenu) {
             $userpicture->size = 50;
             $userpicture->class = 'img-circle';
         }
@@ -94,23 +94,23 @@ class theme_kent_core_renderer extends core_renderer
         foreach ($tabtree->subtree as $tab) {
             $firstrow .= $this->render($tab);
             if (($tab->selected || $tab->activated) && !empty($tab->subtree) && $tab->subtree !== array()) {
-                $this->_tabdepth++;
+                static::$tabdepth++;
                 $secondrow = $this->tabtree($tab->subtree);
-                $this->_tabdepth--;
+                static::$tabdepth--;
             }
         }
 
-        $classes = array('nav', 'nav-tabs', 'nav-tabs-' . $this->_tabdepth);
-        if ($this->_tabdepth == 0) {
+        $classes = array('nav', 'nav-tabs', 'nav-tabs-' . static::$tabdepth);
+        if (static::$tabdepth == 0) {
             $classes[] = 'nav-tabs-first';
         }
-        if ($this->_tabdepth > 0 && empty($secondrow)) {
+        if (static::$tabdepth > 0 && empty($secondrow)) {
             $classes[] = 'nav-tabs-last';
         }
 
         $tabs = html_writer::tag('ul', $firstrow, array('class' => implode(' ', $classes))) . $secondrow;
 
-        if ($this->_tabdepth == 0) {
+        if (static::$tabdepth == 0) {
             $tabs = html_writer::tag('div', $tabs, array('class' => 'nav-tabset'));
         }
 
@@ -434,8 +434,8 @@ HTML5;
             $title = html_writer::tag('h2', $bc->title, $attributes);
         }
 
-        if (!isset($this->_block_perf_data[$bc->blockinstanceid])) {
-            $this->_block_perf_data[$bc->blockinstanceid] = $bc;
+        if (!isset(static::$blockperfdata[$bc->blockinstanceid])) {
+            static::$blockperfdata[$bc->blockinstanceid] = $bc;
         }
 
         $blockid = null;
@@ -480,7 +480,7 @@ HTML5;
                 $performanceinfo .= '<div class="blocksused">';
                 $performanceinfo .= '<span class="block-stats-heading">Block load times</span>';
 
-                foreach ($this->_block_perf_data as $block) {
+                foreach (static::$blockperfdata as $block) {
                     if (!isset($block->loadtime) || $block->loadtime < 0.0001) {
                         continue;
                     }
