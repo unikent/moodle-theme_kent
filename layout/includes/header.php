@@ -22,7 +22,7 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
 $showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
 
-$custommenu = empty($PAGE->layout_options['nocustommenu']) ? '' : $OUTPUT->custom_menu();
+$custommenu = empty($PAGE->layout_options['nocustommenu']) ? $OUTPUT->custom_menu() : '';
 
 $haslogo = (!empty($PAGE->theme->settings->logo));
 
