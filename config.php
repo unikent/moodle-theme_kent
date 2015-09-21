@@ -145,4 +145,9 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
         'options' => array('nofooter' => true, 'nonavbar' => true, 'nocustommenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
     ),
+    'standalone' => array(
+        'file' => 'standalone.php',
+        'regions' => array(),
+        'options' => array('nofooter' => true, 'nousermenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
+    ),
 );

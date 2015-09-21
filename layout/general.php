@@ -40,14 +40,16 @@ $regions = theme_kent_grid($hassidepre, $hassidepost);
         </div>
         <div class="col-xs-12 col-sm-6 user">
             <?php
-            echo $OUTPUT->user_menu();
+            if (empty($PAGE->layout_options['nousermenu'])) {
+                echo $OUTPUT->user_menu();
+            }
             ?>
         </div>
     </div>
 </div>
 
 <?php
-if ($hascustommenu) {
+if (!empty($custommenu)) {
     echo '<div id="menuwrap" class="row">';
     echo $custommenu;
     echo '</div>';

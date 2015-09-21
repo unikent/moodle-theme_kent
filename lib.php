@@ -83,3 +83,39 @@ function theme_kent_grid($hassidepre, $hassidepost) {
     }
     return $regions;
 }
+
+function theme_kent_build_custom_menu() {
+    global $CFG;
+
+    $list = '';
+    $custommenu = new custom_menu($CFG->custommenuitems, current_language());
+    foreach ($custommenu->get_children() as $menunode) {
+        if ($menunode->has_children()) {
+            $list .= '<li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
+            $list .= $menunode->get_text();
+            $list .= '<span class="caret"></span></a>';
+            $list .= '<ul class="dropdown-menu">';
+            foreach ($menunode->get_children() as $childnode) {
+                $link = html_writer::link(
+                    $childnode->get_url(),
+                    $childnode->get_text(),
+                    array('title' => $childnode->get_title())
+                );
+                $list .= '<li role="presentation">' . $link . '</li>';
+            }
+            $list .= '</ul>';
+            $list .= '</li>';
+
+        } else {
+            $link = html_writer::link(
+                $menunode->get_url(),
+                $menunode->get_text(),
+                array('title' => $menunode->get_title())
+            );
+            $list .= '<li role="presentation">' . $link . '</li>';
+        }
+    }
+
+    return $list;
+}

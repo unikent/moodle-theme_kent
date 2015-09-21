@@ -14,20 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * University of Kent Theme
- *
- * @package    theme_kent
- * @copyright  2015 University of Kent
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+echo $OUTPUT->doctype();
+?>
+<html <?php echo $OUTPUT->htmlattributes(); ?>>
 
-defined('MOODLE_INTERNAL') || die;
+<head>
+    <title>Oops!</title>
+    <?php
+    echo $OUTPUT->standard_head_html();
+    ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body <?php echo $OUTPUT->body_attributes(); ?>>
+    <?php echo $OUTPUT->standard_top_of_body_html(); ?>
 
-$plugin->version   = 2015091800;
-$plugin->requires  = 2015051100;
-$plugin->component = 'theme_kent';
-$plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100
-);
+    <div class="container text-center" style="margin-top: 10px;">
+        <?php echo $OUTPUT->main_content(); ?>
+    </div>
+
+    <?php echo $OUTPUT->standard_end_of_body_html(); ?>
+</body>
+</html>
