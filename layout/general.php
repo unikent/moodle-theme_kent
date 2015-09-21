@@ -47,7 +47,7 @@ $regions = theme_kent_grid($hassidepre, $hassidepost);
 </div>
 
 <?php
-if ($hascustommenu) {
+if (!empty($custommenu)) {
     echo '<div id="menuwrap" class="row">';
     echo $custommenu;
     echo '</div>';

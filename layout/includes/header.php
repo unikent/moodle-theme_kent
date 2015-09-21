@@ -22,8 +22,8 @@ $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
 $showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
 
-$custommenu = $OUTPUT->custom_menu();
-$hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
+$custommenu = empty($PAGE->layout_options['nocustommenu']) ? '' : $OUTPUT->custom_menu();
+
 $haslogo = (!empty($PAGE->theme->settings->logo));
 
 $coursecontentheader = isset($coursecontentheader) ? $coursecontentheader : '';
@@ -79,7 +79,8 @@ if ($showsidepre && !$showsidepost) {
 } else if (!$showsidepost && !$showsidepre) {
     $bodyclasses[] = 'content-only';
 }
-if ($hascustommenu) {
+
+if (!empty($custommenu)) {
     $bodyclasses[] = 'has_custom_menu';
 }
 
