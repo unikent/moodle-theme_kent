@@ -28,7 +28,7 @@ echo \html_writer::tag('ul', $list, array('class' => 'nav nav-pills nav-justifie
 
 echo \html_writer::empty_tag('br');
 
-echo \html_writer::tag('i', '', array('class' => 'fa fa-exclamation-circle', 'style' => 'font-size: 50px;'));
+echo \html_writer::tag('i', '', array('class' => 'fa fa-exclamation-circle', 'style' => 'font-size: 75px;'));
 echo $OUTPUT->heading('Server Error', 1);
 
 $helpdesk = \html_writer::link('mailto:helpdesk@kent.ac.uk', 'helpdesk');
