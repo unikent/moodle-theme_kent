@@ -76,7 +76,8 @@
             background: #FFF;
 
             &.hidden {
-                display: none;
+                display: list-item !important;
+                opacity: 0.5;
             }
 
             ul li.activity {
@@ -217,13 +218,6 @@
 
         .icon.hide {
             display: inline !important;
-        }
-
-        li.section {
-            &.hidden {
-                display: list-item !important;
-                opacity: 0.5;
-            }
         }
 
         .section .activity {
