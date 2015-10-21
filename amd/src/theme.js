@@ -38,7 +38,8 @@ define([], function() {
 		        'Edit page contents': 'fa-pencil-square',
 		        'Search': 'fa-search',
 		        'Preferences': 'fa-pencil-square-o',
-		        'Manage modules': 'fa-pencil-square-o'
+		        'Manage modules': 'fa-pencil-square-o',
+                'Help': 'fa-question-circle'
 		    };
 
 		    $("#menuwrap input[type=submit], #menuwrap #ousearch_searchbutton").each(function (k, e) {
@@ -52,8 +53,8 @@ define([], function() {
 		            overrides[text] = 'fa-gear';
 		        }
 
-		        if (text in overrides) {
-		            var fa_class = overrides[text];
+		        if (e.value in overrides) {
+		            var fa_class = overrides[e.value];
 
 		            $(e).hide().parent().append('<button title="' + text + '" class="navicon"><i class="fa ' + fa_class + '"></i><span class="icontext">' + text + '</span></button>');
 		        }
