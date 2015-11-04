@@ -118,21 +118,35 @@
                     }
 
                     .left {
+                        padding-top: 7px;
+
                         img.icon {
-                            margin: 3px 0 0 10px;
+                            margin: 3px 0 0 3px;
                         }
                     }
 
                     .right {
                         width: auto;
-                        margin-right: 30px;
-                        padding: 4px 0px;
+                        padding: 7px 0px;
 
                         a {
                             margin: 0 5px;
-                            font-size: 19px;
-                            color: #999;
+                            font-size: 15px;
                             text-decoration: none;
+                            text-align: right;
+                            min-width: 150px;
+                        }
+
+                        .moodle-actionmenu {
+                            .menu {
+                                a {
+                                    text-align: left;
+                                }
+                            }
+
+                            .menu-action-text {
+                                white-space: normal;
+                            }
                         }
                     }
 
