@@ -72,9 +72,10 @@ define([], function() {
 
 		    $("select,textarea,input[type=text],input[type=password],input[type=datetime],input[type=datetime-local],input[type=date],input[type=month],input[type=time],input[type=week],input[type=number],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=color]").addClass("form-control");
 
+            // Code highlighting.
             if ($('code:not(.nohighlight)').length > 0) {
                 $('code:not(.nohighlight)').each(function() {
-                    $(this).html($(this).html().trim()).wrap("<pre>");
+                    //$(this).html($(this).html().trim()).wrap("<pre>");
                 });
 
                 require(['theme_kent/hljs'], function(hljs) {
