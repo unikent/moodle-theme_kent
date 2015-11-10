@@ -17,11 +17,13 @@
 /**
  * Chosen.js styles.
  */
-select.form-control + {
-    .chosen-container{
+select.form-control {
+    + .chosen-container {
         &.chosen-container-single {
             .chosen-single {
+                margin: 0;
                 .form-control();
+                padding-top: 2px;
 
                 div {
                     top:4px;
@@ -90,17 +92,32 @@ select.form-control + {
         &.chosen-container-multi {
             .chosen-choices {
                 .form-control();
+                padding: 2px 4px;
+                border-radius: @border-radius-base;
+                margin-left: 0;
+                margin-bottom: 0;
+                position: relative;
+                overflow: hidden;
+                height: auto !important;
+                height: 1%;
 
                 li {
                     &.search-field input[type="text"] {
-                        height:auto;
-                        padding:5px 0;
+                        height: auto;
+                        padding: 5px 0;
+                        margin: 1px 0;
+                        outline: 0;
+                        border: 0 !important;
+                        background: transparent !important;
+                        box-shadow: none;
+                        line-height: normal;
+                        border-radius: 0;
                     }
 
                     &.search-choice {
                         background-image: none;
                         padding: 3px 24px 3px 5px;
-                        margin: 0 6px 0 0;
+                        margin: 1px 6px 1px 0;
                         font-size: 14px;
                         font-weight: normal;
                         line-height: @line-height-base;
@@ -115,8 +132,8 @@ select.form-control + {
                         border-color: #CCC;
 
                         .search-choice-close {
-                            top:8px;
-                            right:6px;
+                            top: 6px;
+                            right: 6px;
                         }
                     }
                 }
@@ -131,9 +148,9 @@ select.form-control + {
         }
     }
 
-    .chosen-container-multi.chosen-container-active .chosen-choices,
-    .chosen-container.chosen-container-single.chosen-container-active .chosen-single,
-    .chosen-container .chosen-search input[type=text]:focus{
+    + .chosen-container-multi.chosen-container-active .chosen-choices,
+    + .chosen-container.chosen-container-single.chosen-container-active .chosen-single,
+    + .chosen-container .chosen-search input[type=text]:focus{
         border-color: #66AFE9;
         outline: 0;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(102, 175, 233, 0.6);

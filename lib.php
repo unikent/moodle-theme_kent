@@ -40,7 +40,6 @@ function theme_kent_page_init(moodle_page $page) {
 
     $page->requires->css('/theme/kent/style/font-awesome.min.css?rev=' . $CFG->themerev);
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
-    $page->requires->css('/theme/kent/style/chosen.css?rev=' . $CFG->themerev);
 
     if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('9.0')) {
         $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
