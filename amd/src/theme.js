@@ -85,7 +85,7 @@ define([], function() {
             }
 
             // Chosen support!
-            $("select .chosen").chosen();
+            $("select.chosen").chosen();
         }
     }
 });
