@@ -46,7 +46,7 @@ function theme_kent_page_init(moodle_page $page) {
         $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
     }
 
-    if (isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
+    if ($page->pagelayout !== 'admin' && $page->pagelayout !== 'maintenance' && isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
         \local_tutorials\Page::on_load();
     }
 }
