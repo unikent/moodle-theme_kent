@@ -83,6 +83,9 @@ define([], function() {
 					});
                 });
             }
+
+            // Chosen support!
+            $("select").chosen();
         }
     }
 });
