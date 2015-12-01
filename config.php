@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 $THEME->name = 'kent';
-$THEME->doctype = 'html5';
+$THEME->parents = array('bootstrapbase');
 
-$THEME->parents = array('base', 'canvas');
+$THEME->doctype = 'html5';
 
 $THEME->sheets = array('theme');
 

@@ -28,6 +28,5 @@ $plugin->version   = 2015111600;
 $plugin->requires  = 2015051100;
 $plugin->component = 'theme_kent';
 $plugin->dependencies = array(
-    'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100
+    'theme_bootstrapbase'  => 2015051100
 );
