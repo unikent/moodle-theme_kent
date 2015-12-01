@@ -69,3 +69,27 @@
     font-size: 100%;
     display: list-item;
 }
+
+.navbar .nav {
+    margin: 0;
+
+    .dropdown-toggle .caret {
+        margin-top: 0;
+    }
+
+    > li > .dropdown-menu {
+        &:before, &:after {
+            display: none;
+        }
+    }
+
+    .singlebutton div {
+        margin: 0;
+    }
+}
+
+@media (min-width: @screen-sm) {
+    .navbar .navbar-right {
+        margin-right: -5px;
+    }
+}

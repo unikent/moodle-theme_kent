@@ -27,6 +27,10 @@ if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
     $THEME->javascripts[] = 'html5shiv';
 }
 
+$THEME->parents_exclude_javascripts = array(
+    'bootstrapbase' => array('moodlebootstrap', 'dock')
+);
+
 $THEME->supportscssoptimisation = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->enable_dock = false;
