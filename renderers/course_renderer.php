@@ -16,6 +16,7 @@
 
 require_once($CFG->dirroot . '/course/renderer.php');
 require_once($CFG->dirroot . '/course/classes/management_renderer.php');
+require_once($CFG->dirroot . '/course/format/standardweeks/renderer.php');
 require_once($CFG->dirroot . '/course/format/weeks/renderer.php');
 require_once($CFG->dirroot . '/course/format/topics/renderer.php');
 
@@ -276,6 +277,11 @@ trait theme_kent_course_edit_options
     protected function section_left_content($section, $course, $onsectionpage) {
         return '';
     }
+}
+
+class theme_kent_format_standardweeks_renderer extends format_standardweeks_renderer
+{
+    use theme_kent_course_edit_options;
 }
 
 class theme_kent_format_weeks_renderer extends format_weeks_renderer
