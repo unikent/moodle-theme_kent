@@ -69,13 +69,38 @@
                     margin: 0 -40px 10px -40px;
                 }
             }
+        }
 
-            &.ctopics {
-                li.section {
-                    .content {
-                        &.sectionhidden, .toggle {
+        ul.ctopics {
+            li.section {
+                &.borderless {
+                    border: none;
+                    border-radius: 0rem;
+
+                    .summary {
+                        border-top: none;
+                    }
+                }
+
+                .content {
+                    &.sectionhidden, .toggle {
+                        &, &:hover {
                             background: none;
+
+                            a {
+                                color: #000;
+                            }
                         }
+                    }
+                }
+            }
+
+            .tcsection {
+                .toggle-all {
+                    margin: 0 0 0 5px;
+
+                    p {
+                        margin-bottom: 0;
                     }
                 }
             }
