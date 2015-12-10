@@ -19,6 +19,7 @@ require_once($CFG->dirroot . '/course/classes/management_renderer.php');
 require_once($CFG->dirroot . '/course/format/standardweeks/renderer.php');
 require_once($CFG->dirroot . '/course/format/weeks/renderer.php');
 require_once($CFG->dirroot . '/course/format/topics/renderer.php');
+require_once($CFG->dirroot . '/course/format/topcoll/renderer.php');
 
 /**
  * Overrides a few defaults.
@@ -290,6 +291,11 @@ class theme_kent_format_weeks_renderer extends format_weeks_renderer
 }
 
 class theme_kent_format_topics_renderer extends format_topics_renderer
+{
+    use theme_kent_course_edit_options;
+}
+
+class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
 {
     use theme_kent_course_edit_options;
 }
