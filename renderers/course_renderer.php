@@ -260,14 +260,8 @@ trait theme_kent_course_edit_options
      * @return string HTML to output.
      */
     protected function section_right_content($section, $course, $onsectionpage) {
-        if ($section->section != 0) {
-            $controls = $this->section_edit_controls($course, $section, $onsectionpage);
-            if (!empty($controls)) {
-                return implode('', $controls);
-            }
-        }
-
-        return '';
+        $controls = $this->section_edit_control_items($course, $section, $onsectionpage);
+        return $this->section_edit_control_menu($controls, $course, $section);
     }
 
     /**
