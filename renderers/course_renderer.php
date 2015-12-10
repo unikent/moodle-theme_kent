@@ -298,4 +298,14 @@ class theme_kent_format_topics_renderer extends format_topics_renderer
 class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
 {
     use theme_kent_course_edit_options;
+
+    protected function get_row_class() {
+        return 'row';
+    }
+
+    protected function get_column_class($columns) {
+        $colclasses = array(1 => 'col-xs-12', 2 => 'col-xs-6', 3 => 'col-xs-4', 4 => 'col-xs-3');
+
+        return $colclasses[$columns];
+    }
 }
