@@ -414,20 +414,23 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
 
         if (($onsectionpage == false) && ($section->section != 0)) {
             $o .= html_writer::start_tag('div', array(
-                'class' => 'sectionhead',
+                'class' => 'sectionhead toggle',
                 'id' => 'toggle-' . $section->section
             ));
 
-            $icon = '<i class="fa fa-chevron-left"></i> ';
             $sectionclass = '';
+            $toggleclass = 'toggle_closed';
+            $icon = '<i class="fa fa-chevron-right"></i> ';
             if ((!($section->toggle === null)) && ($section->toggle == true)) {
-                $icon = '<i class="fa fa-chevron-down"></i> ';
+                $toggleclass = 'toggle_open';
                 $sectionclass = ' sectionopen';
+                $icon = '<i class="fa fa-chevron-down"></i> ';
             }
 
             $toggleurl = new moodle_url('/course/view.php', array('id' => $course->id));
             $o .= html_writer::start_tag('a', array(
-                'href' => $toggleurl
+                'href' => $toggleurl,
+                'class' => $toggleclass
             ));
             $o .= $icon;
 
