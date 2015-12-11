@@ -2,6 +2,18 @@
  * Styles speciic to the course pages.
  */
 
+.sectionhead-mixin() {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    padding: 0 1px;
+
+    &.accesshide {
+        position: relative;
+        left: 0;
+    }
+}
+
 &.path-course-view {
     .course-content {
         ul.weeks, ul.topics {
@@ -23,15 +35,7 @@
                     padding: 10px;
 
                     h3.sectionname {
-                        font-size: 13px;
-                        font-weight: bold;
-                        margin: 0 0 10px 0;
-                        padding: 0 1px;
-
-                        &.accesshide {
-                            position: relative;
-                            left: 0;
-                        }
+                        .sectionhead-mixin();
                     }
 
                     .summary {
@@ -67,6 +71,54 @@
             .content {
                 .summary {
                     margin: 0 -40px 10px -40px;
+                }
+            }
+        }
+
+        ul.ctopics {
+            li.section {
+                &.borderless {
+                    border: none;
+                    border-radius: 0rem;
+
+                    .summary {
+                        border-top: none;
+                    }
+                }
+
+                .content {
+                    &.sectionhidden, .toggle {
+                        &, &:hover {
+                            background: none;
+
+                            a {
+                                color: #333;
+                            }
+                        }
+
+                        a {
+                            .sectionhead-mixin();
+                            text-align: left;
+
+                            &.toggle_closed {
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    h3.sectionname {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .tcsection {
+                .toggle-all {
+                    margin: 10px 5px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -134,7 +186,7 @@
                             font-size: 15px;
                             text-decoration: none;
                             text-align: right;
-                            min-width: 150px;
+                            min-width: 151px;
                         }
 
                         .moodle-actionmenu {
