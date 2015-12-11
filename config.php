@@ -153,5 +153,5 @@ $THEME->layouts = array(
         'file' => 'standalone.php',
         'regions' => array(),
         'options' => array('nofooter' => true, 'nousermenu' => true, 'nologinlinks' => true, 'nocourseheaderfooter' => true),
-    ),
+    )
 );
