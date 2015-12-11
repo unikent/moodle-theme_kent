@@ -389,17 +389,7 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
 
         if ((($this->mobiletheme === false) && ($this->tablettheme === false)) || ($this->userisediting)) {
             $leftcontent = $this->section_left_content($section, $course, $onsectionpage);
-            $rightcontent = '';
-            if (($section->section != 0) && $this->userisediting && has_capability('moodle/course:update', $context)) {
-                $url = new moodle_url('/course/editsection.php', array('id' => $section->id, 'sr' => $sectionreturn));
-
-                $rightcontent .= html_writer::link($url,
-                                html_writer::empty_tag('img',
-                                        array('src' => $this->output->pix_url('t/edit'),
-                                    'class' => 'icon edit tceditsection', 'alt' => get_string('edit'))),
-                                array('title' => get_string('editsummary'), 'class' => 'tceditsection'));
-            }
-            $rightcontent .= $this->section_right_content($section, $course, $onsectionpage);
+            $rightcontent = $this->section_right_content($section, $course, $onsectionpage);
 
             if ($this->rtl) {
                 // Swap content.
@@ -451,17 +441,6 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
             $o .= html_writer::start_tag('div',
                             array('class' => 'sectionbody toggledsection' . $sectionclass,
                         'id' => 'toggledsection-' . $section->section));
-
-            if ($this->userisediting && has_capability('moodle/course:update', $context)) {
-                $url = new moodle_url('/course/editsection.php', array('id' => $section->id, 'sr' => $sectionreturn));
-                $o .= html_writer::link($url,
-                                html_writer::empty_tag('img', array(
-                                    'src' => $this->output->pix_url('t/edit'),
-                                    'class' => 'iconsmall edit',
-                                    'alt' => get_string('edit')
-                                )),
-                                array('title' => get_string('editsummary')));
-            }
 
             if ($this->tcsettings['showsectionsummary'] == 1) {
                 $o .= $this->section_summary_container($section);
