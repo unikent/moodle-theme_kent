@@ -432,6 +432,7 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
             $o .= html_writer::tag('span', $title);
 
             $o .= html_writer::end_tag('a');
+
             $o .= html_writer::end_tag('h3');
 
             if ($this->tcsettings['showsectionsummary'] == 2) {
