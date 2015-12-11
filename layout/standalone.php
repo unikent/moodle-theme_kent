@@ -19,7 +19,7 @@ echo $OUTPUT->doctype();
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
 
 <head>
-    <title>Oops!</title>
+    <title><?php echo $OUTPUT->page_title(); ?></title>
     <?php
     echo $OUTPUT->standard_head_html();
     ?>

@@ -14,11 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-require_once(dirname(__FILE__) . "/../../config.php");
+require_once(dirname(__FILE__) . "/../../../config.php");
 
 $PAGE->set_context(\context_system::instance());
-$PAGE->set_url('/theme/kent/404.php');
+$PAGE->set_url('/theme/kent/pages/404.php');
+$PAGE->set_title("Oops!");
 $PAGE->set_pagelayout('standalone');
+
+$PAGE->requires->css('/theme/kent/style/kentfont.css');
 
 echo $OUTPUT->header();
 
@@ -28,10 +31,8 @@ echo \html_writer::tag('ul', $list, array('class' => 'nav nav-pills nav-justifie
 
 echo \html_writer::empty_tag('br');
 
-echo \html_writer::tag('i', '', array('class' => 'fa fa-exclamation-circle', 'style' => 'font-size: 75px;'));
-echo $OUTPUT->heading('Server Error', 1);
-
-$helpdesk = \html_writer::link('mailto:helpdesk@kent.ac.uk', 'helpdesk');
-echo \html_writer::tag('p', 'We\'re sorry, but the page you requested could not be loaded.<br />Please try again or contact ' . $helpdesk . ' if the problem persists.');
+echo \html_writer::tag('i', '', array('class' => 'kf-frown', 'style' => 'font-size: 75px;'));
+echo $OUTPUT->heading('Page Not Found', 1);
+echo \html_writer::tag('p', 'We\'re sorry, but the page you requested can\'t be found.');
 
 echo $OUTPUT->footer();

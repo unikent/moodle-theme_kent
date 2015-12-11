@@ -14,13 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-require_once(dirname(__FILE__) . "/../../config.php");
+define('NO_UPGRADE_CHECK', true);
+
+require_once(dirname(__FILE__) . "/../../../config.php");
 
 $PAGE->set_context(\context_system::instance());
-$PAGE->set_url('/theme/kent/404.php');
+$PAGE->set_url('/theme/kent/pages/upgrading.php');
+$PAGE->set_title("Oops!");
 $PAGE->set_pagelayout('standalone');
-
-$PAGE->requires->css('/theme/kent/style/kentfont.css');
 
 echo $OUTPUT->header();
 
@@ -30,8 +31,10 @@ echo \html_writer::tag('ul', $list, array('class' => 'nav nav-pills nav-justifie
 
 echo \html_writer::empty_tag('br');
 
-echo \html_writer::tag('i', '', array('class' => 'kf-frown', 'style' => 'font-size: 75px;'));
-echo $OUTPUT->heading('Page Not Found', 1);
-echo \html_writer::tag('p', 'We\'re sorry, but the page you requested can\'t be found.');
+echo \html_writer::tag('i', '', array('class' => 'fa fa-spinner fa-spin', 'style' => 'font-size: 75px;'));
+echo $OUTPUT->heading('Sorry, we\'ll be back soon!', 1);
+
+$helpdesk = \html_writer::link('mailto:helpdesk@kent.ac.uk', 'helpdesk');
+echo \html_writer::tag('p', 'Moodle is being upgraded, and we\'ve had to take it offline.<br />Please check our <a href="http://status.kent.ac.uk" target="_blank">status page</a> for updates.');
 
 echo $OUTPUT->footer();
