@@ -45,7 +45,8 @@ form, .mform {
 	}
 
 	input[type="submit"],
-	input[type="button"] {
+	input[type="button"],
+	button.submit {
 		.btn();
 		.btn-primary();
 		text-shadow: none;
@@ -79,6 +80,25 @@ form, .mform {
 	img.iconhelp,
 	.helplink img {
 		vertical-align: middle;
+	}
+
+	select,
+	textarea,
+	input[type=text],
+	input[type=password],
+	input[type=datetime],
+	input[type=datetime-local],
+	input[type=date],
+	input[type=month],
+	input[type=time],
+	input[type=week],
+	input[type=number],
+	input[type=email],
+	input[type=url],
+	input[type=search],
+	input[type=tel],
+	input[type=color] {
+		.form-control();
 	}
 }
 
