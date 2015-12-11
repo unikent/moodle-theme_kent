@@ -413,8 +413,8 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
         $o .= html_writer::start_tag('div', array('class' => 'content'));
 
         if (($onsectionpage == false) && ($section->section != 0)) {
-            $o .= html_writer::start_tag('div', array(
-                'class' => 'sectionhead toggle',
+            $o .= html_writer::start_tag('h3', array(
+                'class' => 'sectionhead sectionname toggle',
                 'id' => 'toggle-' . $section->section
             ));
 
@@ -442,7 +442,7 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
             $o .= html_writer::tag('span', $title);
 
             $o .= html_writer::end_tag('a');
-            $o .= html_writer::end_tag('div');
+            $o .= html_writer::end_tag('h3');
 
             if ($this->tcsettings['showsectionsummary'] == 2) {
                 $o .= $this->section_summary_container($section);
@@ -493,5 +493,11 @@ class theme_kent_format_topcoll_renderer extends format_topcoll_renderer
                     has_capability('moodle/course:viewhiddensections', $context));
         }
         return $o;
+    }
+
+    protected function section_summary_container($section) {
+        $classextra = ($this->tcsettings['showsectionsummary'] == 1) ? '' : ' summaryalwaysshown';
+        $summarytext = $this->format_summary_text($section);
+        return html_writer::tag('div', $summarytext, array('class' => 'summary' . $classextra));
     }
 }
