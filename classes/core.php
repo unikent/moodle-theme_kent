@@ -49,7 +49,7 @@ class core
     public static function is_menu_text_hidden() {
         static $result = null;
         if ($result === null) {
-            $result = \local_kent\User::get_preference("theme_menu_hide_text", false);
+            $result = \local_kent\User::get_preference("theme_menu_hide_text", true);
         }
 
         return $result;
