@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-echo \html_writer::end_tag('div');
-echo \html_writer::end_tag('div');
-
 echo $OUTPUT->standard_end_of_body_html();
 ?>
 </body>

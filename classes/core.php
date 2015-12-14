@@ -54,4 +54,16 @@ class core
 
         return $result;
     }
+
+    /**
+     * Are we trialing global nav?
+     */
+    public static function is_global_nav_enabled() {
+        static $result = null;
+        if ($result === null) {
+            $result = \local_kent\User::get_preference("theme_global_nav", false);
+        }
+
+        return $result;
+    }
 }

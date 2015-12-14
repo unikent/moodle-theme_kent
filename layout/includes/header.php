@@ -44,9 +44,7 @@ if (!isset($bodyclasses)) {
 
 $bodyclasses[] = 'kent-env-' . $CFG->kent->environment;
 $bodyclasses[] = 'kent-dist-' . $CFG->kent->distribution;
-$bodyclasses[] = 'kent-navbar';
 $bodyclasses[] = 'bootstrap';
-$bodyclasses[] = 'kent-future-theme';
 
 if (\theme_kent\core::is_contrast()) {
     $bodyclasses[] = 'kent-contrast';
@@ -54,6 +52,10 @@ if (\theme_kent\core::is_contrast()) {
 
 if (\theme_kent\core::is_menu_text_hidden()) {
     $bodyclasses[] = 'kent-hidemenutext';
+}
+
+if (\theme_kent\core::is_global_nav_enabled()) {
+    $bodyclasses[] = 'kent-global-nav';
 }
 
 if (\theme_kent\core::is_future()) {
@@ -99,11 +101,3 @@ echo $OUTPUT->doctype();
 <?php
 
 echo $OUTPUT->standard_top_of_body_html();
-
-echo \html_writer::start_tag('div', array(
-    'class' => 'container-fluid container-responsive-pad'
-));
-
-echo \html_writer::start_tag('div', array(
-    'id' => 'page'
-));

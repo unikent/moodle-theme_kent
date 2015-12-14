@@ -18,6 +18,17 @@ $bodyclasses = array('kent-homepage');
 
 require(dirname(__FILE__) . "/includes/header.php");
 
+echo \html_writer::start_tag('div', array(
+    'class' => 'container-fluid container-responsive-pad'
+));
+
+echo \html_writer::start_tag('div', array(
+    'id' => 'page'
+));
+
 echo $OUTPUT->main_content();
+
+echo \html_writer::end_tag('div');
+echo \html_writer::end_tag('div');
 
 require(dirname(__FILE__) . "/includes/footer.php");

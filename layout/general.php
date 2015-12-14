@@ -14,7 +14,21 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+if (\theme_kent\core::is_global_nav_enabled()) {
+
+require(dirname(__FILE__) . "/globalnav.php");
+
+} else {
+
 require(dirname(__FILE__) . "/includes/header.php");
+
+echo \html_writer::start_tag('div', array(
+    'class' => 'container-fluid container-responsive-pad'
+));
+
+echo \html_writer::start_tag('div', array(
+    'id' => 'page'
+));
 
 $regions = theme_kent_grid($hassidepre, $hassidepost);
 ?>
@@ -125,4 +139,8 @@ if ($hasfooter) {
 <?php
 }
 
+echo \html_writer::end_tag('div');
+echo \html_writer::end_tag('div');
+
 require(dirname(__FILE__) . "/includes/footer.php");
+}
