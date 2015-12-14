@@ -74,10 +74,6 @@ define([], function() {
 
             // Code highlighting.
             if ($('pre code:not(.nohighlight)').length > 0) {
-                $('pre code:not(.nohighlight)').each(function() {
-                    //$(this).html($(this).html().trim()).wrap("<pre>");
-                });
-
                 require(['theme_kent/hljs'], function(hljs) {
                 	$('pre code:not(.nohighlight)').each(function(i, block) {
 						window.hljs.highlightBlock(block);
