@@ -54,22 +54,4 @@ class core
 
         return $result;
     }
-
-    /**
-     * Do we want the light menu?
-     */
-    public static function has_light_menu() {
-        global $CFG;
-
-        if ($CFG->kent->environment !== 'live') {
-            return true;
-        }
-
-        static $result = null;
-        if ($result === null) {
-            $result = \local_kent\User::get_preference("theme_lightnav", false);
-        }
-
-        return $result;
-    }
 }
