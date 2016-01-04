@@ -34,7 +34,7 @@
                     border-radius: 0;
 
                     &:hover {
-                        background-color: @beta-nav-bg;
+                        background-color: @navbar-default-bg;
                     }
 
                     &:focus {
@@ -78,6 +78,21 @@
 
     .navbar {
         overflow: visible;
+        border-top: 1px solid @navbar-default-border;
+
+        form button,
+        .navbar-nav > li > a,
+        .navbar-brand {
+            color: @kent-corp-primary;
+
+            &:hover, &:focus {
+                background-color: @navbar-default-link-hover-color;
+            }
+        }
+
+        .navbar-nav > .open > a {
+            background-color: @navbar-default-link-hover-color;
+        }
 
         .navbar-right {
             > .singlebutton,
@@ -104,12 +119,12 @@
                 background: none;
 
                 .fa {
-                    color: #FFF;
+                    color: @kent-corp-primary;
                     padding: 0 5px;
                 }
 
                 &:hover {
-                    background: @kent-corp-highlight !important;
+                    background: @navbar-default-link-hover-color !important;
                 }
 
                 &.navicon {
@@ -163,13 +178,9 @@
         }
 
         .caret {
-            border-top-color: #FFF;
+            border-top-color: @kent-corp-primary;
             vertical-align: middle;
             margin-left: 5px;
-        }
-
-        a:hover .caret {
-            border-top-color: #FFF;
         }
 
         .dropdown-menu {
@@ -184,7 +195,7 @@
                     display: block;
                     width: 0;
                     margin: 0 auto;
-                    border-bottom: 10px solid #2E2E2E;
+                    border-bottom: 10px solid @navbar-default-bg;
                     border-right: 10px solid transparent;
                     border-left: 10px solid transparent;
                 }
@@ -192,13 +203,13 @@
 
             li {
                 a {
-                    color: #FFF;
-                    background-color: #2E2E2E;
+                    color: @kent-corp-primary;
+                    background-color: @navbar-default-bg;
                     padding: 12px 15px;
                     font-size: 12px;
 
                     &:hover {
-                        background-color: @kent-corp-highlight;
+                        background-color: @navbar-default-link-hover-color;
                         text-decoration: none;
                     }
                 }
@@ -213,7 +224,7 @@
             background: none;
 
             &:hover {
-                background: @kent-corp-highlight;
+                background: @navbar-default-link-hover-color;
             }
 
             .sr-only {
@@ -221,7 +232,7 @@
             }
 
             .icon-bar {
-                background-color: #FFF;
+                background-color: @kent-corp-primary;
             }
         }
     }
