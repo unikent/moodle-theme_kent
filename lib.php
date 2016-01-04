@@ -42,12 +42,11 @@ function theme_kent_page_init(moodle_page $page) {
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
 
     if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('9.0')) {
+        $page->requires->js('/theme/kent/javascript/html5shiv.js', true);
         $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
     }
 
-    if ($page->pagelayout !== 'admin' && $page->pagelayout !== 'maintenance' && isset($CFG->local_tutorials_enabled) && $CFG->local_tutorials_enabled) {
-        \local_tutorials\Page::on_load();
-    }
+    \local_tutorials\Page::on_load($page);
 }
 
 function theme_kent_grid($hassidepre, $hassidepost) {

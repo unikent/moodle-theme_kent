@@ -18,16 +18,17 @@
  * University of Kent Theme
  *
  * @package    theme_kent
- * @copyright  2015 University of Kent
+ * @copyright  2016 Skylar Kelty <S.Kelty@kent.ac.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2015121200;
+$plugin->version   = 2016010400;
 $plugin->requires  = 2015110600;
 $plugin->component = 'theme_kent';
 $plugin->dependencies = array(
     'theme_base'  => 2013050100,
-    'theme_canvas'  => 2013050100
+    'theme_canvas'  => 2013050100,
+    'local_tutorials' => 2016010400
 );
