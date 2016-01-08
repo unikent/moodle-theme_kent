@@ -1,4 +1,8 @@
 .loginbox.twocolumns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
 	.signuppanel, .loginpanel {
 		margin-bottom: 0;
 		padding-bottom: 0;
@@ -7,5 +11,45 @@
 	.potentialidps {
 		clear: both;
 		.clearfix();
+
+        .potentialidplist {
+            margin: 0;
+
+            div {
+                text-align: center;
+            }
+
+            .potentialidp {
+                a {
+                    .btn();
+                    .btn-primary();
+                }
+            }
+        }
 	}
+
+    .loginform .form-input input {
+        width: 12rem;
+    }
+}
+
+@media (max-width: @screen-sm-min) {
+    .loginbox.twocolumns .loginform {
+        text-align: center;
+
+        .form-label {
+            text-align: center;
+            float: none;
+            width: auto;
+        }
+
+        .form-input {
+            float: none;
+            width: auto;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
 }
