@@ -18,12 +18,11 @@
  * This file describes some extra jQuery plugins
  *
  * @package    theme_kent
- * @copyright  2013 University of Kent
+ * @copyright  2016 University of Kent
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $plugins = array(
     'blockui'  => array('files' => array('jquery.blockUI.js')),
     'dataTables'  => array('files' => array('jquery.dataTables.js', 'jquery.dataTables.css', 'jquery.dataTables.columnFilter.js')),
-    'modchooser'  => array('files' => array('jquery.modchooser.js'))
 );
