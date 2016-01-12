@@ -22,7 +22,7 @@ require_once(dirname(__FILE__) . "/../../../config.php");
     <title>Oops!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/theme.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $CFG->wwwroot; ?>/theme/kent/style/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 </head>
 <body>
     <div class="container text-center" style="margin-top: 10px;">
