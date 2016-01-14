@@ -6,56 +6,54 @@
     list-style: none;
 }
 
-&#page-user-profile {
-    .node_category, .path-user .node_category {
-        li {
-            list-style-type: square;
+.node_category, .path-user .node_category {
+    li {
+        list-style-type: square;
 
-            &.contentnode {
-                list-style-type: none;
-                margin-left: -25px;
+        &.contentnode {
+            list-style-type: none;
+            margin-left: -25px;
+        }
+    }
+}
+
+.userprofile {
+    .fullprofilelink {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .description {
+        margin-bottom: 20px;
+    }
+
+    .profile_tree {
+        .content-columns(2);
+
+        > section {
+            display: inline-block;
+            width: 100%;
+
+            > h3 {
+                margin-top: 0;
             }
         }
     }
 
-    .userprofile {
-        .fullprofilelink {
-            text-align: center;
-            margin: 10px;
+    dl {
+        &.list {
+            .dl-horizontal;
         }
 
-        .description {
-            margin-bottom: 20px;
+        dt {
+            width: auto;
         }
 
-        .profile_tree {
-            .content-columns(2);
-
-            > section {
-                display: inline-block;
-                width: 100%;
-
-                > h3 {
-                    margin-top: 0;
-                }
-            }
-        }
-
-        dl {
-            &.list {
-                .dl-horizontal;
-            }
-
-            dt {
-                width: auto;
-            }
-
-            dd {
-                margin-left: 10px;
-                display: block;
-                clear: both;
-                float: none;
-            }
+        dd {
+            margin-left: 10px;
+            display: block;
+            clear: both;
+            float: none;
         }
     }
 }
