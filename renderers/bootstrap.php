@@ -31,37 +31,11 @@ trait theme_kent_bootstrap_notifications {
                 if ($part == 'dismissable') {
                     $dismissable = true;
                 } else {
-                    $classes[] = $part;
+                    $classes = array_merge($classes, $this->map_part($part));
                 }
             }
-            $classes = implode(' ', $classes);
-        }
-
-        switch ($classes) {
-            case 'notifydanger':
-            case 'notifyerror':
-            case 'notifyproblem':
-            case 'notifytiny':
-                $classes = 'alert alert-danger';
-            break;
-
-            case 'notifysuccess':
-                $classes = 'alert alert-success';
-            break;
-            
-            case 'notifywarning':
-                $classes = 'alert alert-warning';
-            break;
-            
-            case 'notifyinfo':
-            case 'notifymessage':
-            case 'redirectmessage':
-                $classes = 'alert alert-info';
-            break;
-
-            default:
-                $classes = $classes;
-            break;
+        } else {
+            $classes = $this->map_part($classes);
         }
 
         $button = '';
@@ -70,6 +44,47 @@ trait theme_kent_bootstrap_notifications {
             $button = '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
         }
 
+        $classes = implode(' ', array_unique($classes));
         return "<div class=\"{$classes}\" role=\"alert\">{$button}{$message}</div>";
+    }
+
+    /**
+     * Map to bootstrap classes.
+     */
+    private function map_part($part) {
+        $classes = array();
+
+        switch ($part) {
+            case 'notifydanger':
+            case 'notifyerror':
+            case 'notifyproblem':
+            case 'notifytiny':
+                $classes[] = 'alert';
+                $classes[] = 'alert-danger';
+            break;
+
+            case 'notifysuccess':
+                $classes[] = 'alert';
+                $classes[] = 'alert-success';
+            break;
+            
+            case 'notifywarning':
+                $classes[] = 'alert';
+                $classes[] = 'alert-warning';
+            break;
+            
+            case 'notifyinfo':
+            case 'notifymessage':
+            case 'redirectmessage':
+                $classes[] = 'alert';
+                $classes[] = 'alert-info';
+            break;
+
+            default:
+                $classes[] = $part;
+            break;
+        }
+
+        return $classes;
     }
 }
