@@ -78,7 +78,7 @@ $THEME->layouts = array(
         'file' => 'general.php',
         'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-post',
-        'options' => array('langmenu' => true),
+        'options' => array('langmenu' => true, 'globalnotifications' => true),
     ),
     'mypublic' => array(
         'file' => 'general.php',
