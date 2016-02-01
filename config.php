@@ -22,7 +22,7 @@ $THEME->parents = array('base', 'canvas');
 $THEME->sheets = array('theme');
 
 $THEME->javascripts = array();
-$THEME->javascripts_footer = array('navbar');
+$THEME->javascripts_footer = array();
 
 $THEME->supportscssoptimisation = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
