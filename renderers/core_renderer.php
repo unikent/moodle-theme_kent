@@ -133,7 +133,7 @@ class theme_kent_core_renderer extends core_renderer
             return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'disabled'));
         } else {
             if (!($tab->link instanceof moodle_url)) {
-                // backward compartibility when link was passed as quoted string
+                // Backward compartibility when link was passed as quoted string.
                 $link = "<a href=\"$tab->link\" title=\"$tab->title\">$tab->text</a>";
             } else {
                 $link = html_writer::link($tab->link, $tab->text, array('title' => $tab->title));
@@ -448,7 +448,8 @@ HTML5;
         if ($title || $controlshtml) {
             $actionshtml = html_writer::tag('div', '', array('class' => 'block_action'));
             $actionshtml = html_writer::tag('div', $actionshtml . $controlshtml, array('class' => 'block_actions'));
-            $output .= html_writer::tag('div', html_writer::tag('div', $title . $actionshtml, array('class' => 'title')), array('class' => 'header'));
+            $actionshtml = html_writer::tag('div', $title . $actionshtml, array('class' => 'title'));
+            $output .= html_writer::tag('div', $actionshtml, array('class' => 'header'));
         }
         return $output;
     }
@@ -469,7 +470,7 @@ HTML5;
             debugging("Transaction not completed.");
         }
 
-        // Provide some performance info if required
+        // Provide some performance info if required.
         $performanceinfo = '';
         if (defined('MDL_PERF') || (!empty($CFG->perfdebug) && $CFG->perfdebug > 7)) {
             $perf = get_performance_info();
@@ -517,24 +518,26 @@ HTML5;
     public function render_global_notifications($notifications) {
         global $OUTPUT, $USER;
 
-        if (empty($notifications) || !isset($USER->profile) || !is_array($USER->profile) || !isset($USER->profile['kentacctype'])) {
+        if (empty($notifications)) {
             return '';
         }
 
         $out = '';
         foreach ($notifications as $notification) {
-            $notification = trim($notification);
+            $notification = \theme_kent\notifications::parse($notification);
             if (empty($notification)) {
                 continue;
             }
 
-            // Split up!
-            $parts = explode('|', $notification, 2);
-            if (count($parts) > 0 && ($parts[0] != $USER->profile['kentacctype'])) {
-                continue;
+            // Check the audience.
+            if ($notification->audience !== 'all') {
+                if (!is_array($USER->profile) || !isset($USER->profile['kentacctype']) ||
+                    $notification->audience != $USER->profile['kentacctype']) {
+                    continue;
+                }
             }
 
-            $out .= $OUTPUT->notification('<i class="fa fa-warning"></i> ' . $notification, 'alert alert-danger');
+            $out .= $OUTPUT->notification($notification->message, 'alert alert-' . $notification->type);
         }
 
         return $out;
