@@ -13,6 +13,10 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+if (isset($_SERVER['REMOTE_ADDR']) && !headers_sent()) {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 503 Service Unavailable');
+}
 ?>
 
 <!DOCTYPE html>
