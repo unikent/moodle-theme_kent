@@ -510,4 +510,33 @@ HTML5;
 
         return $output . $footer;
     }
+
+    /**
+     * Render a list of global notifications.
+     */
+    public function render_global_notifications($notifications) {
+        global $OUTPUT, $USER;
+
+        if (empty($notifications) || !isset($USER->profile) || !is_array($USER->profile) || !isset($USER->profile['kentacctype'])) {
+            return '';
+        }
+
+        $out = '';
+        foreach ($notifications as $notification) {
+            $notification = trim($notification);
+            if (empty($notification)) {
+                continue;
+            }
+
+            // Split up!
+            $parts = explode('|', $notification, 2);
+            if (count($parts) > 0 && ($parts[0] != $USER->profile['kentacctype'])) {
+                continue;
+            }
+
+            $out .= $OUTPUT->notification('<i class="fa fa-warning"></i> ' . $notification, 'alert alert-danger');
+        }
+
+        return $out;
+    }
 }

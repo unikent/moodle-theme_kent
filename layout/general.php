@@ -67,6 +67,12 @@ echo \html_writer::start_tag('div', array(
     'id' => 'contentwrapper',
     'class' => $hasnavbar ? 'row' : 'row spacer'
 ));
+
+$notifications = get_config('theme_kent', 'global_notification');
+if (!empty($PAGE->layout_options['globalnotifications']) && !empty($notifications)) {
+    $notifications = explode("\n", $notifications);
+    echo $OUTPUT->render_global_notifications($notifications);
+}
 ?>
 
 <div id="page-content">
