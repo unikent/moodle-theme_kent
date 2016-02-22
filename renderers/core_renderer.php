@@ -133,7 +133,7 @@ class theme_kent_core_renderer extends core_renderer
             return html_writer::tag('li', html_writer::tag('a', $tab->text), array('class' => 'disabled'));
         } else {
             if (!($tab->link instanceof moodle_url)) {
-                // Backward compartibility when link was passed as quoted string.
+                // Backwards compatibility when link was passed as quoted string.
                 $link = "<a href=\"$tab->link\" title=\"$tab->title\">$tab->text</a>";
             } else {
                 $link = html_writer::link($tab->link, $tab->text, array('title' => $tab->title));
