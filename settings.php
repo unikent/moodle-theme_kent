@@ -21,7 +21,8 @@ if ($ADMIN->fulltree) {
     $title = 'Global Notifications';
     $description = 'One message per line, HTML permitted.
     You can prefix with "student|" or "staff|" to send to those specific groups.
-    You can also prefix with "info|", "warning|", "danger|" and "success|" to show different coloured warnings.';
+    You can also prefix with "info|", "warning|", "danger|" and "success|" to show different coloured warnings.
+    E.g. "student|danger|You are a student!" would display the message "You are a student!" to all students, in a red box.';
     $setting = new admin_setting_configtextarea($name, $title, $description, 0);
     $settings->add($setting);
 }
