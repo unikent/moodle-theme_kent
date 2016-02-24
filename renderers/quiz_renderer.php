@@ -109,7 +109,7 @@ class theme_kent_mod_quiz_edit_renderer extends \mod_quiz\output\edit_renderer
         $output .= $this->quiz_information($structure);
 
         // Show the questions organised into sections and pages.
-        $output .= $this->start_section_list();
+        $output .= $this->start_section_list($structure);
 
         foreach ($structure->get_sections() as $section) {
             $output .= $this->start_section($structure, $section);
@@ -131,7 +131,7 @@ class theme_kent_mod_quiz_edit_renderer extends \mod_quiz\output\edit_renderer
 
         $output .= $this->maximum_grade_input($structure, $pageurl);
         $output .= $this->total_marks($quizobj->get_quiz());
-        
+
         // Initialise the JavaScript.
         $this->initialise_editing_javascript($structure, $contexts, $pagevars, $pageurl);
 
