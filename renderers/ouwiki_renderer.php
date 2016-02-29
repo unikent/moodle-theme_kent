@@ -14,11 +14,25 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-require_once('renderers/components.php');
-require_once('renderers/bootstrap.php');
-require_once('renderers/core_renderer.php');
-require_once('renderers/maintenance_renderer.php');
-require_once('renderers/quiz_renderer.php');
-require_once('renderers/ouwiki_renderer.php');
-require_once('renderers/course_renderer.php');
-require_once('renderers/block_renderers.php');
+require_once($CFG->dirroot . '/mod/ouwiki/renderer.php');
+
+/**
+ * Overrides a few defaults.
+ *
+ * @package     theme_kent
+ * @copyright   2016 Skylar Kelty <S.Kelty@kent.ac.uk>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class theme_kent_mod_ouwiki_renderer extends mod_ouwiki_renderer
+{
+    /**
+     * Returns html for the content of the links, and a participation string.
+     *
+     * @return array
+     */
+    public function ouwiki_get_links_content() {
+        $out = parent::ouwiki_get_links_content();
+        $out[0] = str_replace('osep-smallbutton', 'btn btn-default', $out[0]);
+        return $out;
+    }
+}
