@@ -26,21 +26,6 @@ require_once($CFG->dirroot . '/blocks/settings/renderer.php');
  */
 class theme_kent_block_settings_renderer extends block_settings_renderer
 {
-    public function settings_tree(settings_navigation $navigation) {
-        $count = 0;
-        foreach ($navigation->children as &$child) {
-            $child->preceedwithhr = ($count!==0);
-            if ($child->display) {
-                $count++;
-            }
-        }
-        $content = $this->navigation_node($navigation, array('class'=>'block_tree list'));
-        if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
-            $content = $this->output->box($content, 'block_tree_box', $navigation->id);
-        }
-        return $content;
-    }
-    
     public function search_form(moodle_url $formtarget, $searchvalue) {
         $content = html_writer::start_tag('form', array('class'=>'adminsearchform', 'method'=>'get', 'action'=>$formtarget, 'role' => 'search'));
         $content .= html_writer::start_tag('div');
