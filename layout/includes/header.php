@@ -101,9 +101,6 @@ echo $OUTPUT->doctype();
 echo $OUTPUT->standard_top_of_body_html();
 
 echo \html_writer::start_tag('div', array(
+    'id' => 'page',
     'class' => 'container-fluid container-responsive-pad'
-));
-
-echo \html_writer::start_tag('div', array(
-    'id' => 'page'
 ));
