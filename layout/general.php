@@ -60,19 +60,21 @@ echo \html_writer::start_tag('div', array(
     'id' => 'region-main-box',
     'class' => $hasnavbar ? 'row' : 'row spacer'
 ));
-?>
 
-<section id="region-main" class="<?php echo $regions['content']; ?>">
-    <?php
-    echo $coursecontentheader;
-    echo $OUTPUT->main_content();
-    echo $coursecontentfooter;
-    ?>
-</section>
-<?php echo $OUTPUT->blocks('side-pre', $regions['pre']); ?>
-<?php echo $OUTPUT->blocks('side-post', $regions['post']); ?>
+echo \html_writer::start_tag('section', array(
+    'id' => 'region-main',
+    'class' => $regions['content']
+));
 
-<?php
+echo $coursecontentheader;
+echo $OUTPUT->main_content();
+echo $coursecontentfooter;
+
+echo \html_writer::end_tag('section');
+
+echo $OUTPUT->blocks('side-pre', $regions['pre']);
+echo $OUTPUT->blocks('side-post', $regions['post']);
+
 echo \html_writer::end_tag('div');
 
 if (!empty($coursefooter)) {
