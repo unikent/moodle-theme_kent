@@ -566,7 +566,8 @@ HTML5;
             'class' => 'form-control',
             'placeholder' => 'Search for...'
         ));
-        $searchicon .= html_writer::tag('i', '', array('class' => 'fa fa-search'));
+
+        $searchicon = html_writer::tag('i', '', array('class' => 'fa fa-search'));
         $button = html_writer::tag('button', $searchicon, array('class' => 'btn btn-primary', 'type' => 'submit'));
         $searchform .= html_writer::tag('span', $button, array('class' => 'input-group-btn'));
         $searchform .= html_writer::end_tag('div');
