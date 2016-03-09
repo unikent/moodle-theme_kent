@@ -42,7 +42,7 @@ define([], function() {
                 'Help': 'fa-question-circle'
 		    };
 
-		    $("#menuwrap input[type=submit], #menuwrap #ousearch_searchbutton").each(function (k, e) {
+		    $("#breadcrumbswrap input[type=submit]").each(function (k, e) {
 		        var text = e.value;
 
 		        if (e.title.length > 0) {
@@ -60,7 +60,7 @@ define([], function() {
 		        }
 		    });
 
-		    $("#menuwrap .navbar .singlebutton").show();
+            $("#breadcrumbswrap .singlebutton").show();
 
 		    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
 		        var link = $(this).children(".dropdown-toggle");
