@@ -529,10 +529,18 @@ HTML5;
                 continue;
             }
 
-            // Check the audience.
-            if ($notification->audience !== 'all') {
-                if (!is_array($USER->profile) || !isset($USER->profile['kentacctype']) ||
-                    $notification->audience != $USER->profile['kentacctype']) {
+            // Check the audience, admins see all.
+            if ($notification->audience !== 'all' && !has_capability('moodle/site:config', \context_system::instance())) {
+                if (!is_array($USER->profile) || !isset($USER->profile['kentacctype'])) {
+                    continue;
+                }
+
+                // Wildcard for student types.
+                if ($notification->audience == 'student') {
+                    if (!in_array($USER->profile['kentacctype'], array('ugtstudent', 'pgtstudent'))) {
+                        continue;
+                    }
+                } else if ($USER->profile['kentacctype'] != $notification->audience) {
                     continue;
                 }
             }

@@ -51,6 +51,8 @@ class notifications
             $part = trim($part);
 
             switch ($part) {
+                case 'ugtstudent':
+                case 'pgtstudent':
                 case 'student':
                 case 'staff':
                     $data->audience = $part;
@@ -65,7 +67,7 @@ class notifications
 
                 default:
                     $data->message = $part;
-                break 2; // Exit the foreach too.
+                break;
             }
         }
 
