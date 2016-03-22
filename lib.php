@@ -40,6 +40,10 @@ function theme_kent_page_init(moodle_page $page) {
     $page->requires->js_call_amd('theme_kent/notifications', 'init', array());
     $page->requires->js_call_amd('theme_kent/theme', 'init', array());
 
+    if ($page->bodyid == 'page-mod-taskchain-attempt') {
+        $page->requires->js_call_amd('theme_kent/theme', 'fix_taskchain', array());
+    }
+
     $page->requires->css(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'));
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
 

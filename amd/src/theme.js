@@ -83,6 +83,10 @@ define([], function() {
 
             // Chosen support!
             $("select.chosen").chosen();
+        },
+
+        fix_taskchain: function() {
+            $("#ClozeDiv .form-control").removeClass('form-control');
         }
     }
 });
