@@ -87,6 +87,15 @@ define([], function() {
 
         fix_taskchain: function() {
             $("#ClozeDiv .form-control").removeClass('form-control');
+            $("#MainDiv .FuncButton")
+                .removeAttr('onmouseover')
+                .removeAttr('onmouseout')
+                .removeAttr('onfocus')
+                .removeAttr('onblur')
+                .removeAttr('onmousedown')
+                .removeAttr('onmouseup')
+                .removeClass('FuncButton')
+                .addClass('btn btn-primary');
         }
     }
 });
