@@ -2,8 +2,8 @@
  * Resets.
  */
 
-#page-header, #menuwrap, #page-footer, #page-footer #footerwrapper, #profilebar {
-	background: none;
+#page-header, #headerwrap, #menuwrap, #contentwrapper, #page-footer, #page-footer #footerwrapper, #page-content, #profilebar {
+    background: none;
     float: none;
     width: auto;
     max-width: none;
@@ -37,4 +37,8 @@
 	&.nopad {
 		margin-top: 0;
 	}
+}
+
+.row-fluid [class*="span"] {
+    margin: 0;
 }

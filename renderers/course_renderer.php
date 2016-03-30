@@ -248,6 +248,66 @@ class theme_kent_core_course_management_renderer extends core_course_management_
 
         return $output;
     }
+
+    /**
+     * Opens a grid.
+     *
+     * Call {@link core_course_management_renderer::grid_column_start()} to create columns.
+     *
+     * @param string $id An id to give this grid.
+     * @param string $class A class to give this grid.
+     * @return string
+     */
+    public function grid_start($id = null, $class = null) {
+        $gridclass = 'row';
+        if (!is_null($class)) {
+            $gridclass .= ' ' . $class;
+        }
+        $attributes = array();
+        if (!is_null($id)) {
+            $attributes['id'] = $id;
+        }
+        return html_writer::start_div('flexbox') . html_writer::start_div('container-fluid') . html_writer::start_div($gridclass, $attributes);
+    }
+
+    /**
+     * Closes the grid.
+     *
+     * @return string
+     */
+    public function grid_end() {
+        return html_writer::end_div() . html_writer::end_div() . html_writer::end_div();
+    }
+
+    /**
+     * Opens a grid column
+     *
+     * @param int $size The number of segments this column should span.
+     * @param string $id An id to give the column.
+     * @param string $class A class to give the column.
+     * @return string
+     */
+    public function grid_column_start($size, $id = null, $class = null) {
+        $gridclass = 'col-xs-'.$size;
+        if (!is_null($class)) {
+            $gridclass .= ' ' . $class;
+        }
+
+        $attributes = array();
+        if (!is_null($id)) {
+            $attributes['id'] = $id;
+        }
+        return html_writer::start_div($gridclass, $attributes);
+    }
+
+    /**
+     * Closes a grid column.
+     *
+     * @return string
+     */
+    public function grid_column_end() {
+        return html_writer::end_div();
+    }
 }
 
 trait theme_kent_course_edit_options
