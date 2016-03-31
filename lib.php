@@ -47,10 +47,14 @@ function theme_kent_page_init(moodle_page $page) {
     $page->requires->css(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'));
     $page->requires->css('/theme/kent/style/kent-header-light.css?rev=' . $CFG->themerev);
 
-    if (\core_useragent::is_ie() && !\core_useragent::check_ie_version('9.0')) {
-        $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'), true);
-        $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js'), true);
-        $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
+    if (\core_useragent::is_ie()) {
+        $page->requires->css('/theme/kent/style/ie.css?rev=' . $CFG->themerev);
+
+        if (!\core_useragent::check_ie_version('9.0')) {
+            $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'), true);
+            $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js'), true);
+            $page->requires->css('/theme/kent/style/kent-header-font-ie8.css?rev=' . $CFG->themerev);
+        }
     }
 
     \local_tutorials\Page::on_load($page);
