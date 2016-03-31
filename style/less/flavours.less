@@ -1,0 +1,97 @@
+/**
+ * Kent theme flavours.
+ */
+
+@import "lib/bootstrap/variables";
+@import "kent/variables";
+
+.kent-theme-flavour(@primary, @secondary, @highlight) {
+    #menuwrap {
+        .navbar-default {
+            background: lighten(@primary, 75%);
+            border-top: 1px solid @primary;
+
+            .navbar-brand:hover,
+            .navbar-brand:focus {
+                background: @highlight;
+            }
+
+            .navbar-brand,
+            form button,
+            form button .fa {
+                color: @primary;
+            }
+
+            .caret {
+                border-top-color: @primary;
+            }
+
+            .dropdown-menu li {
+                &.first span.arrow {
+                    border-bottom-color: lighten(@primary, 75%);
+                }
+
+                a {
+                    background-color: lighten(@primary, 75%);
+                }
+            }
+
+            .navbar-nav {
+                > li {
+                    a {
+                        color: @primary;
+                    }
+
+                    a:hover,
+                    a:focus {
+                        background: @highlight;
+                    }
+                }
+
+                > .open {
+                    > a,
+                    > a:hover,
+                    > a:focus {
+                        background: @highlight;
+                    }
+                }
+            }
+        }
+
+        .navbar {
+            .singlebutton {
+                input[type=submit], button {
+                    &:hover {
+                        background: @highlight !important;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover {
+                            background: @highlight;
+                        }
+                    }
+                }
+            }
+
+            .navbar-toggle {
+                &:hover {
+                    background: @highlight;
+                }
+            }
+        }
+    }
+
+    #page #page-header {
+        .brand, .usermenu .moodle-actionmenu .toggle-display .userbutton .usertext {
+            color: @primary;
+        }
+    }
+}
+
+body.kent-dist-training {
+    .kent-theme-flavour(@kent-moodle-training-primary, @kent-moodle-training-secondary, @kent-moodle-training-highlight);
+}

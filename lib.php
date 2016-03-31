@@ -57,6 +57,10 @@ function theme_kent_page_init(moodle_page $page) {
         }
     }
 
+    if ($CFG->kent->distribution == 'training') {
+        $page->requires->css('/theme/kent/style/flavours.css?rev=' . $CFG->themerev);
+    }
+
     if (\theme_kent\core::is_future()) {
         $page->requires->css('/theme/kent/style/future.css?rev=' . $CFG->themerev);
     }
