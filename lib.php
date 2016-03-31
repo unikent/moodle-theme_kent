@@ -57,6 +57,10 @@ function theme_kent_page_init(moodle_page $page) {
         }
     }
 
+    if (\theme_kent\core::is_future()) {
+        $page->requires->css('/theme/kent/style/future.css?rev=' . $CFG->themerev);
+    }
+
     \local_tutorials\Page::on_load($page);
 }
 
