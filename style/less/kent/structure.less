@@ -19,7 +19,14 @@
     border: 0;
 }
 
+.search-input-wrapper {
+    margin-top: 3px;
+    margin-right: 3px;
+    max-width: 300px;
+}
+
 #page {
+    width: auto;
     padding-top: 0;
     font-size: @font-size-base;
 
@@ -38,119 +45,116 @@
 
 	#page-header {
 		padding: 10px 0;
+	    height: auto;
+	    margin-left: -5px;
+	    margin-right: -5px;
 
-		#headerwrap {
-		    height: auto;
-		    margin-left: -5px;
-		    margin-right: -5px;
+	    > .user {
+            @media (max-width: @screen-xs-max) {
+            	.avatars {
+            		display: none;
+            	}
+            }
+	    }
 
-		    > .user {
-                @media (max-width: @screen-xs-max) {
-                	.avatars {
-                		display: none;
-                	}
-                }
-		    }
+	    > .brand {
+	        color: @kent-corp-primary;
+	        font-size: 34px;
+			line-height: 0.9;
+	        margin-top: 4px;
+			vertical-align: bottom;
 
-		    > .brand {
-		        color: @kent-corp-primary;
-		        font-size: 34px;
-				line-height: 0.9;
-		        margin-top: 4px;
+			span {
 				vertical-align: bottom;
+			}
 
-				span {
-					vertical-align: bottom;
-				}
+            @media (max-width: @screen-xs-max) {
+            	text-align: center;
+            }
+	    }
 
-                @media (max-width: @screen-xs-max) {
-                	text-align: center;
-                }
-		    }
+	    .usermenu {
+	    	float: none;
+	        position: relative;
+	        height: 100%;
+	        text-align: right;
 
-		    .usermenu {
-		    	float: none;
-		        position: relative;
-		        height: 100%;
-		        text-align: right;
+	        .login {
+	            display: block;
+	            margin-top: 25px;
+	        }
 
-		        .login {
-		            display: block;
-		            margin-top: 25px;
-		        }
+	        .moodle-actionmenu {
+	            .menubar {
+	                margin: 0;
 
-		        .moodle-actionmenu {
-		            .menubar {
-		                margin: 0;
+	                & > li {
+	                    width: 100%;
 
-		                & > li {
-		                    width: 100%;
-
-		                    & > a {
-		                    	outline: none;
-		                        padding: 0;
-		                        text-align: right;
-
-		                        @media (max-width: @screen-xs-max) {
-		                        	text-align: center;
-		                        }
-		                    }
-		                }
-		            }
-
-		            .toggle-display {
-		                height: auto;
-
-		                .userbutton {
-		                    display: block;
-		                    height: auto;
-
-		                    .usertext {
-		                        color: @kent-corp-primary;
-		                        font-size: 21px;
-		                        line-height: 25px;
-								padding-top: 10px;
-		                    }
-
-		                    .avatars {
-		                    	position: relative;
-		                        vertical-align: top;
-		                        margin-right: 0;
-		                        height: auto;
-		                        width: auto;
-		                    }
-		                }
-
-		                .caret {
-		                    display: none;
-		                }
-		            }
-
-	            	.menu {
-	                    .menu-action {
+	                    & > a {
 	                    	outline: none;
+	                        padding: 0;
+	                        text-align: right;
 
-		                    &.icon img {
-							    width: 20px;
-							    height: 20px;
-							}
+	                        @media (max-width: @screen-xs-max) {
+	                        	text-align: center;
+	                        }
+	                    }
+	                }
+	            }
+
+	            .toggle-display {
+	                height: auto;
+
+	                .userbutton {
+	                    display: block;
+	                    height: auto;
+
+	                    .usertext {
+	                        color: @kent-corp-primary;
+	                        font-size: 21px;
+	                        line-height: 25px;
+							padding-top: 10px;
+	                    }
+
+	                    .avatars {
+	                    	position: relative;
+	                        vertical-align: top;
+	                        margin-right: 0;
+	                        height: auto;
+	                        width: auto;
+	                    }
+	                }
+
+	                .caret {
+	                    display: none;
+	                }
+	            }
+
+            	.menu {
+                    .menu-action {
+                    	outline: none;
+
+	                    &.icon img {
+						    width: 20px;
+						    height: 20px;
 						}
+					}
 
-						.filler {
-							border-bottom-color: @border-color;
-						}
-		            }
+					.filler {
+						border-bottom-color: @border-color;
+					}
+	            }
 
-		            &.show {
-		                height: 100%;
+	            &.show {
+	                height: 100%;
 
-		                .menu {
-		                    border-radius: @border-radius-base;
-		                }
-		            }
-		        }
-		    }
-		}
+	                .menu {
+	                    border-radius: @border-radius-base;
+	                }
+	            }
+	        }
+	    }
 	}
 
 	.navbar .breadcrumb {
@@ -176,40 +180,38 @@
 	    }
 	}
 
-	#contentwrapper {
+	#region-main-box {
 	    &.spacer {
 	    	margin-top: 10px;
 	    }
 
-	    #page-content {
-	        border: 0;
-	        
-        	> div > h2 {
-        		margin-top: 0;
-        	}
+        border: 0;
 
-        	#region-main-box {
-        		left: 0;
-        		width: 100%;
-        	}
+    	> div > h2 {
+    		margin-top: 0;
+    	}
 
-		    #region-main {
-		    	padding: 0;
-				padding-left:  (@grid-gutter-width / 2);
-				padding-right: (@grid-gutter-width / 2);
-		    	margin: 0;
-		    	overflow: visible;
+    	#region-main-box {
+    		left: 0;
+    		width: 100%;
+    	}
 
-		        > div[role='main'] {
-		    		> .h1,
-		    		> .h2,
-		    		> .h3,
-		    		> h1,
-		    		> h2,
-		    		> h3 {
-		    			margin-top: 0;
-		    		}
-			    }
+	    #region-main {
+	    	padding: 0;
+			padding-left:  (@grid-gutter-width / 2);
+			padding-right: (@grid-gutter-width / 2);
+	    	margin: 0;
+	    	overflow: visible;
+
+	        > div[role='main'] {
+	    		> .h1,
+	    		> .h2,
+	    		> .h3,
+	    		> h1,
+	    		> h2,
+	    		> h3 {
+	    			margin-top: 0;
+	    		}
 		    }
 	    }
 	}
@@ -220,7 +222,7 @@
 
 		#footerwrapper {
 			border-color: @border-color;
-		
+
 			.col-xs-12 {
 				&.text-left,
 				&.text-right {
@@ -286,7 +288,7 @@
 }
 
 &.userloggedinas, &.userswitchedrole {
-	#headerwrap .usermenu .userbutton .usertext {
+	#page-header .usermenu .userbutton .usertext {
 		padding-top: 0 !important;
 	}
 }
@@ -294,24 +296,22 @@
 &.userloggedinas {
 	#page {
 		#page-header {
-			#headerwrap {
-				.usermenu {
-					.moodle-actionmenu {
-						.toggle-display {
-							.userbutton {
-			                    .avatars {
-			                        .avatar {
-			                        	&.current {
-			                        		position: absolute;
-											width: 40px;
-											height: 40px;
-											top: 5px;
-											left: 5px;
-											margin-top: 0;
-			                        	}
-			                        }
-			                    }
-							}
+			.usermenu {
+				.moodle-actionmenu {
+					.toggle-display {
+						.userbutton {
+		                    .avatars {
+		                        .avatar {
+		                        	&.current {
+		                        		position: absolute;
+										width: 40px;
+										height: 40px;
+										top: 5px;
+										left: 5px;
+										margin-top: 0;
+		                        	}
+		                        }
+		                    }
 						}
 					}
 				}

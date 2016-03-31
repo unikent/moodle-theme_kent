@@ -19,32 +19,19 @@ require(dirname(__FILE__) . "/includes/header.php");
 $regions = theme_kent_grid($hassidepre, $hassidepost);
 ?>
 
-<div id="page-header">
-    <?php
-    $out = '';
-    if (!empty($PAGE->layout_options['langmenu'])) {
-        $out .= $OUTPUT->lang_menu();
-    }
-
-    $out .= $OUTPUT->page_heading_menu();
-    if (!empty($out)) {
-        echo '<div class="headermenu row">' . $out . '</div>';
-    }
-    ?>
-    <div id="headerwrap" class="row">
-        <div class="col-xs-12 col-sm-6 brand">
-            <span class="kf-moodle"></span>
-            <?php
-            echo $CFG->fullname;
-            ?>
-        </div>
-        <div class="col-xs-12 col-sm-6 user">
-            <?php
-            if (empty($PAGE->layout_options['nousermenu'])) {
-                echo $OUTPUT->user_menu();
-            }
-            ?>
-        </div>
+<div id="page-header" class="row">
+    <div class="col-xs-12 col-sm-6 brand">
+        <span class="kf-moodle"></span>
+        <?php
+        echo $CFG->fullname;
+        ?>
+    </div>
+    <div class="col-xs-12 col-sm-6 user">
+        <?php
+        if (empty($PAGE->layout_options['nousermenu'])) {
+            echo $OUTPUT->user_menu();
+        }
+        ?>
     </div>
 </div>
 
@@ -56,40 +43,34 @@ if (!empty($custommenu)) {
 }
 
 if ($hasnavbar) {
-    echo '<div class="navbar row">';
-    echo '<div class="col-md-12">';
     echo $OUTPUT->navbar();
-    echo '</div>';
-    echo '</div>';
 }
-
-echo \html_writer::start_tag('div', array(
-    'id' => 'contentwrapper',
-    'class' => $hasnavbar ? 'row' : 'row spacer'
-));
 
 $notifications = get_config('theme_kent', 'global_notification');
 if (!empty($PAGE->layout_options['globalnotifications']) && !empty($notifications)) {
     $notifications = explode("\n", $notifications);
     echo $OUTPUT->render_global_notifications($notifications);
 }
-?>
 
-<div id="page-content">
-    <div id="region-main-box">
-        <section id="region-main" class="<?php echo $regions['content']; ?>">
-            <?php
-            echo $coursecontentheader;
-            echo $OUTPUT->main_content();
-            echo $coursecontentfooter;
-            ?>
-        </section>
-        <?php echo $OUTPUT->blocks('side-pre', $regions['pre']); ?>
-        <?php echo $OUTPUT->blocks('side-post', $regions['post']); ?>
-    </div>
-</div>
+echo \html_writer::start_tag('div', array(
+    'id' => 'region-main-box',
+    'class' => $hasnavbar ? 'row' : 'row spacer'
+));
 
-<?php
+echo \html_writer::start_tag('section', array(
+    'id' => 'region-main',
+    'class' => $regions['content']
+));
+
+echo $coursecontentheader;
+echo $OUTPUT->main_content();
+echo $coursecontentfooter;
+
+echo \html_writer::end_tag('section');
+
+echo $OUTPUT->blocks('side-pre', $regions['pre']);
+echo $OUTPUT->blocks('side-post', $regions['post']);
+
 echo \html_writer::end_tag('div');
 
 if (!empty($coursefooter)) {

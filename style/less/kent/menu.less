@@ -2,8 +2,9 @@
  * This provides menu structure.
  */
 
+// TODO - Remove this for 3.1.
 &.kent-hidemenutext {
-    .icontext {
+    #menuwrap .icontext {
         display: none;
     }
 }
@@ -71,6 +72,34 @@
     }
 }
 
+#breadcrumbswrap {
+    .singlebutton {
+        margin: 5px;
+        float: right;
+        display: none;
+
+        button {
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            outline: none !important;
+            text-shadow: none;
+            box-shadow: none;
+            background: none;
+
+            &:hover, &:focus {
+                color: @link-hover-color;
+            }
+
+            .icontext {
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
 #menuwrap {
     height: auto;
     overflow: visible;
@@ -99,6 +128,12 @@
             > form {
                 float: right;
                 margin: 0;
+            }
+        }
+
+        .singlebutton {
+            input[type=submit], button {
+                height: 38px;
             }
         }
 
@@ -145,14 +180,6 @@
 
             label, .helptooltip {
                 display: none;
-            }
-        }
-
-        .singlebutton {
-            display: none;
-
-            input[type=submit], button {
-                height: 38px;
             }
         }
 
