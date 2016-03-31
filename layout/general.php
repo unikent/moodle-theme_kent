@@ -43,14 +43,7 @@ if (!empty($custommenu)) {
 }
 
 if ($hasnavbar) {
-    echo '<div id="breadcrumbswrap" class="navbar row">';
-    echo '<div class="col-md-8">';
     echo $OUTPUT->navbar();
-    echo '</div>';
-    echo '<div class="col-md-4">';
-    echo $OUTPUT->page_heading_button();
-    echo '</div>';
-    echo '</div>';
 }
 
 $notifications = get_config('theme_kent', 'global_notification');

@@ -16,7 +16,14 @@
 
 require_once('renderers/components.php');
 require_once('renderers/bootstrap.php');
-require_once('renderers/core_renderer.php');
+
+require_once('renderers/core_renderer_base.php');
+if (!\theme_kent\core::is_future()) {
+    require_once('renderers/core_renderer.php');
+} else {
+    require_once('renderers/future_renderer.php');
+}
+
 require_once('renderers/maintenance_renderer.php');
 require_once('renderers/quiz_renderer.php');
 require_once('renderers/ouwiki_renderer.php');
