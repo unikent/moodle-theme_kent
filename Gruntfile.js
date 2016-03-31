@@ -46,7 +46,9 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    "style/theme.css": "style/less/theme.less"
+                    "style/theme.css": "style/less/theme.less",
+                    "style/ie.css": "style/less/ie.less",
+                    "style/future.css": "style/less/future.less"
                 }
             }
         }
