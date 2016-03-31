@@ -42,7 +42,12 @@ define([], function() {
                 'Help': 'fa-question-circle'
 		    };
 
-		    $("#breadcrumbswrap input[type=submit]").each(function (k, e) {
+            var editbuttonsdiv = '#menuwrap';
+            if ($('body').hasClass('kent-future')) {
+                editbuttonsdiv = '#breadcrumbswrap';
+            }
+
+		    $(editbuttonsdiv + " input[type=submit]").each(function (k, e) {
 		        var text = e.value;
 
 		        if (e.title.length > 0) {
@@ -60,7 +65,7 @@ define([], function() {
 		        }
 		    });
 
-            $("#breadcrumbswrap .singlebutton").show();
+            $(editbuttonsdiv + " .singlebutton").show();
 
 		    $("#menuwrap .dropdown").on('show.bs.dropdown', function() {
 		        var link = $(this).children(".dropdown-toggle");
