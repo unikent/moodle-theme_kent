@@ -27,7 +27,6 @@ class theme_kent_core_renderer_base extends core_renderer
 
     protected static $tabdepth = 0;
     protected static $inusermenu = false;
-    protected static $blockperfdata = array();
 
     /*
      * This renders the navbar.
@@ -434,10 +433,6 @@ HTML5;
             $title = html_writer::tag('h2', $bc->title, $attributes);
         }
 
-        if (!isset(static::$blockperfdata[$bc->blockinstanceid])) {
-            static::$blockperfdata[$bc->blockinstanceid] = $bc;
-        }
-
         $blockid = null;
         if (isset($bc->attributes['id'])) {
             $blockid = $bc->attributes['id'];
@@ -452,64 +447,6 @@ HTML5;
             $output .= html_writer::tag('div', $actionshtml, array('class' => 'header'));
         }
         return $output;
-    }
-
-    /**
-     * Outputs the page's footer
-     *
-     * @return string HTML fragment
-     */
-    public function footer() {
-        global $CFG, $DB;
-
-        $output = $this->container_end_all(true);
-
-        $footer = $this->opencontainers->pop('header/footer');
-
-        if (debugging() && $DB && $DB->is_transaction_started()) {
-            debugging("Transaction not completed.");
-        }
-
-        // Provide some performance info if required.
-        $performanceinfo = '';
-        if (defined('MDL_PERF') || (!empty($CFG->perfdebug) && $CFG->perfdebug > 7)) {
-            $perf = get_performance_info();
-            if (defined('MDL_PERFTOFOOT') || debugging() || $CFG->perfdebug > 7) {
-                $performanceinfo = $perf['html'];
-
-                $performanceinfo .= '<div class="performanceinfo">';
-                $performanceinfo .= '<div class="blocksused">';
-                $performanceinfo .= '<span class="block-stats-heading">Block load times</span>';
-
-                foreach (static::$blockperfdata as $block) {
-                    if (!isset($block->loadtime) || $block->loadtime < 0.0001) {
-                        continue;
-                    }
-                    $time = number_format($block->loadtime, 4);
-
-                    $performanceinfo .= <<<HTML5
-                    <span class="block-instance-stats">
-                        <span class="block-instance-stats-heading">{$block->title} (ID: {$block->blockinstanceid})</span>
-                        <span class="block-stats highhits">{$time}s</span>
-                    </span>
-HTML5;
-                }
-
-                $performanceinfo .= '</div></div>';
-            }
-        }
-
-        // We always want performance data when running a performance test, even if the user is redirected to another page.
-        if (MDL_PERF_TEST && strpos($footer, $this->unique_performance_info_token) === false) {
-            $footer = $this->unique_performance_info_token . $footer;
-        }
-        $footer = str_replace($this->unique_performance_info_token, $performanceinfo, $footer);
-
-        $footer = str_replace($this->unique_end_html_token, $this->page->requires->get_end_code(), $footer);
-
-        $this->page->set_state(moodle_page::STATE_DONE);
-
-        return $output . $footer;
     }
 
     /**
