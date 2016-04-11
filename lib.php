@@ -65,7 +65,7 @@ function theme_kent_page_init(moodle_page $page) {
         $page->requires->css('/theme/kent/style/future.css?rev=' . $CFG->themerev);
     }
 
-    \local_tutorials\Page::on_load($page);
+    \local_tutorials\page::on_load($page);
 }
 
 function theme_kent_grid($hassidepre, $hassidepost) {

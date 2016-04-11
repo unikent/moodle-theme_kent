@@ -30,5 +30,5 @@ $plugin->component = 'theme_kent';
 $plugin->dependencies = array(
     'theme_base'  => 2013050100,
     'theme_canvas'  => 2013050100,
-    'local_tutorials' => 2016010400
+    'local_tutorials' => 2016041100
 );
