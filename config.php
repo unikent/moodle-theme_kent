@@ -17,7 +17,7 @@
 $THEME->name = 'kent';
 $THEME->doctype = 'html5';
 
-$THEME->parents = array('base', 'canvas');
+$THEME->parents = array('base');
 
 $THEME->sheets = array('theme');
 
