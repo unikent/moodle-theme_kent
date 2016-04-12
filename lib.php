@@ -35,7 +35,11 @@ function theme_kent_page_init(moodle_page $page) {
 
     $page->requires->jquery();
     $page->requires->js(new \moodle_url('/theme/kent/javascript/navbar.js'));
-    $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js'));
+
+    if (!\theme_kent\core::is_future()) {
+        $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js'));
+    }
+
     $page->requires->js(new \moodle_url('https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js'));
     $page->requires->js_call_amd('theme_kent/notifications', 'init', array());
     $page->requires->js_call_amd('theme_kent/theme', 'init', array());

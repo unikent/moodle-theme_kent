@@ -18,7 +18,9 @@ $THEME->name = 'kent';
 $THEME->doctype = 'html5';
 
 if (\theme_kent\core::is_future()) {
-    $THEME->parents = array('base');
+    $THEME->parents = array('bootstrap');
+    $THEME->parents_exclude_sheets = array('bootstrap' => array('moodle'));
+    $THEME->yuicssmodules = array();
 } else {
     $THEME->parents = array('base', 'canvas');
 }

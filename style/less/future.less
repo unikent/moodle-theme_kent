@@ -2,5 +2,66 @@
  * Future styles.
  */
 
+
 @import "lib/bootstrap/variables";
 @import "kent/variables";
+@import "../../../bootstrap/less/moodle/variables";
+
+// We might need these!
+@import (reference) "lib/bootstrap/bootstrap";
+
+.label {
+    .bs-label;
+}
+
+// Override Bootstrap defaults.
+@import "../../../bootstrap/less/moodle/bootstrapoverride";
+
+// Roll back nameclashes.
+@import "../../../bootstrap/less/moodle/undo";
+
+@import "../../../bootstrap/less/moodle/core";
+@import "../../../bootstrap/less/moodle/admin";
+@import "../../../bootstrap/less/moodle/calendar";
+@import "../../../bootstrap/less/moodle/course";
+@import "../../../bootstrap/less/moodle/filemanager";
+@import "../../../bootstrap/less/moodle/message";
+@import "../../../bootstrap/less/moodle/question";
+@import "../../../bootstrap/less/moodle/user";
+@import "../../../bootstrap/less/moodle/userprofile";
+@import "../../../bootstrap/less/moodle/login";
+@import "../../../bootstrap/less/moodle/tags";
+@import "../../../bootstrap/less/moodle/badges";
+@import "../../../bootstrap/less/moodle/new";
+@import "../../../bootstrap/less/moodle/blocks";
+@import "../../../bootstrap/less/moodle/forms";
+@import "../../../bootstrap/less/moodle/modules";
+@import "../../../bootstrap/less/moodle/chat";
+@import "../../../bootstrap/less/moodle/reports";
+@import "../../../bootstrap/less/moodle/backup-restore";
+@import "../../../bootstrap/less/moodle/tables";
+@import "../../../bootstrap/less/moodle/buttons";
+@import "../../../bootstrap/less/moodle/navs";
+@import "../../../bootstrap/less/moodle/enrolment";
+@import "../../../bootstrap/less/moodle/responsive";
+@import "../../../bootstrap/less/moodle/debug";
+@import "../../../bootstrap/less/moodle/dock";
+@import "../../../bootstrap/less/moodle/grade";
+@import "../../../bootstrap/less/moodle/editor";
+
+form select,
+form input[type="text"],
+form input[type="password"],
+form.atto_form input[type="url"],
+select.singleselect,
+.container-fluid {
+    max-width: none;
+}
+
+.block .header {
+    padding: 0;
+}
+
+#page-footer {
+    border-top: none;
+}
