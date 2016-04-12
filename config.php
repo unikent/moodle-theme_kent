@@ -17,7 +17,11 @@
 $THEME->name = 'kent';
 $THEME->doctype = 'html5';
 
-$THEME->parents = array('base');
+if (\theme_kent\core::is_future()) {
+    $THEME->parents = array('base');
+} else {
+    $THEME->parents = array('base', 'canvas');
+}
 
 $THEME->sheets = array('theme');
 
